@@ -3,6 +3,8 @@ title: Headings
 description: "Define a logical outline using headings."
 ---
 
+# Headings
+
 ## Summary
 
 Within a web page, headings are used to communicate the overall organization and structure of the content on that page. The headings should act as a high-level outline of the page content, with a logical ranking of each topic and subtopic in hierarchical order.
@@ -87,6 +89,38 @@ A better solution would be to add a level to the content by breaking the topic i
 
 A sighted user may want to visually quickly glance across a web page to find the heading that interests them. Headings should be visually identifiable, typically by being larger and more distinct than any surrounding text. Making headings more visually findable will be helpful for users with cognitive or visual disabilities.
 
+### Choose a level from the structure
+
+Use the same level for sibling sections and the next level down for a child section. Returning to a higher level when a subsection ends is expected. Choose the level explicitly. Nesting a `section` or `article` does not make a browser expose its `h1` as a lower-level heading.
+
+Use CSS to show visual hierarchy. Headings at the same level should look consistent. If a section needs emphasis, keep its semantic level and adjust its presentation or place the section earlier when the content order allows. Use a paragraph or other appropriate element for prominent text that does not introduce a section. See [Typography](Typography.md#use-size-to-indicate-hierarchy).
+
+### Keep important context in the heading
+
+Put the heading before the content it introduces. If a status such as ‘Service update’ helps someone decide which heading to open, include it in the heading text. Someone who jumps directly to a heading can miss a status placed immediately before it.
+
+```html
+<section>
+  <h2>Travel information</h2>
+  <section>
+    <h3><span>Service update:</span> Changes to weekend trains</h3>
+    <p>Some trains will stop at a different platform.</p>
+  </section>
+</section>
+```
+
+### Link to a heading on the same page
+
+Give the destination heading a unique `id`. If it needs to receive focus as a fragment destination, add `tabindex="-1"` so it can receive focus without adding a regular Tab stop. Verify that the heading is exposed as the destination and the next Tab continues from that section. See [Adding anchors to headings](Anchors%20and%20Links.md#adding-anchors-to-headings).
+
+```html
+<a href="#collection-times">Collection times</a>
+<!-- Content and links elsewhere on the page -->
+<h2 id="collection-times" tabindex="-1">Collection times</h2>
+<p>Collections start at 09:00.</p>
+<a href="/collections">View collection locations</a>
+```
+
 ## Testing the page outline
 
 For a template that requires one primary heading at the start of main content, check its wording against the document title. Make each section heading the first meaningful text in that section and choose its rank from its place in the outline.
@@ -95,10 +129,25 @@ For a template that requires one primary heading at the start of main content, c
 
 Rule identifier: `gel-foundations-headings`
 
-Use a page template with a single primary heading and nested sections. The title-matching and first-heading checks are template conventions.
+Inspect the document structure and compare it with the visual outline and the screen reader’s headings list. Test representative pages of the same template. The single primary heading, its placement at the start of main content and its relationship to the title are checks for templates that adopt those conventions.
 
-1. Compare the visual outline with the screen reader heading list.
-2. A page headed ‘Search results for trains’ can have the title ‘Search results for trains | Journey planner’.
-3. Two primary headings splitting that phrase would obscure the page subject.
-4. Within a level-two section, introduce a child with level three.
-5. Flag a level-four heading that skips its parent, or content that appears before the heading intended to introduce it.
+| Method and action | Expected result |
+| --- | --- |
+| On each page using the convention, inspect the `title`, `main` and exposed `h1`. Compare two pages with different content. | There is one primary `h1`. Where the page has a main landmark, the heading is the first meaningful content inside it, including when a wrapper groups it. The heading identifies the current page and its wording appears in the title. For example, ‘Search results for trains’ can appear within ‘Search results for trains \| Journey planner’. |
+| Navigate by headings and read forward from representative subheadings. Include a section with a status or qualifier. | Each subheading is the first meaningful content in the section it introduces. Its text describes that section when read on its own and includes any status needed to understand it. |
+| Compare the visual heading treatments with the HTML and the headings list. Inspect prominent text such as quotations or callouts. | Section labels use HTML headings at the appropriate level. Prominent text that does not introduce a section stays out of the headings list. |
+| Inspect successive headings across nested and peer sections. | Peer sections share a level. A child section starts one level below its parent. When a section ends, the outline returns to the appropriate level. |
+| Read on from each heading, checking for sections with no body text of their own. | Each heading introduces relevant content or an immediate child heading. For example, a level-two section may begin with a level-three subsection. |
+
+### Fragment navigation check
+
+Activate an in-page link to a heading using the keyboard. Check that the heading can be identified as the destination, including with a supported screen reader. Press Tab and check that navigation continues from the destination section. Check that the heading adds no stop during ordinary tabbing.
+
+## Sources
+
+- [Screen reader navigation strategies](http://www.heydonworks.com/article/responses-to-the-screen-reader-strategy-survey)
+- [WCAG 2.1 Page Titled](https://www.w3.org/TR/WCAG21/#page-titled)
+- [WCAG 2.1 Headings and Labels](https://www.w3.org/TR/WCAG21/#headings-and-labels)
+- [HTML sectioning elements](https://www.w3.org/TR/html53/sections.html#sections)
+- [How browsers expose heading levels](http://adrianroselli.com/2016/08/there-is-no-document-outline-algorithm.html)
+- [Sequential focus after fragment navigation](https://bugs.chromium.org/p/chromium/issues/detail?id=262171)
