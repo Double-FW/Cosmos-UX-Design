@@ -35,6 +35,7 @@ A collection of accessibility techniques for people designing, building, testing
 ### Components
 
 - [Accordion](Accordion.md)
+- [Badge](Badge.md)
 - [Breadcrumbs](Breadcrumbs.md)
 - [Disclosure](Disclosure.md)
 - [Mega Menu](Mega%20Menu.md)
