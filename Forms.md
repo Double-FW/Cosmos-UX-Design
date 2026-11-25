@@ -63,3 +63,18 @@ Check that all error messages that can be displayed meet the following requireme
 - Specific: Simply saying "there was an error" or "the form is invalid" is not useful. Which input field, or fields if there are more than one, was invalid, and why was it rejected?
 - Friendly: Even if the user has made a mistake, the experience should feel helpful and polite. Avoid a tone that sounds aggressive, like "user error: illegal input." This can be triggering to users with mental health or anxiety disorders. On the other hand, don't try to be too glib either. Assume the user is feeling frustrated and wants help at that moment, and a flippant phrasing to the feedback you offer is probably not going to be appreciated. 
 - Actionable: Communicating that there is a problem and what the problem is is only part of the job done. The user must also know what steps they can take to fix the problem. Check that there is some information on what they need to do next in order to move forward.
+
+## Correcting a field
+
+Associate persistent instructions and errors with their field. After validation identifies an error, expose the invalid state. Clear the error association and invalid state when the input becomes valid. Preserve any separate hint text.
+
+### ACT-style checks
+
+Rule identifier: `gel-components-form-fields-validation`
+
+Run on an editable field that has instructions and supports validation. Compare its initial, invalid and corrected states.
+
+1. Start with a fresh form.
+2. Enter an invalid value, trigger validation, then correct it.
+3. Check the label remains visible, the message identifies the field and the correction, and an obsolete error is no longer displayed or announced.
+4. See [Labels](Labels.md) for the naming checks.

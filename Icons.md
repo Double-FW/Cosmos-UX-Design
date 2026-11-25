@@ -327,3 +327,29 @@ window.addEventListener('load', function() {
 [^4]: [_Providing Accessible Names and Descriptions_](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/#x5-4-naming-techniques), W3C ARIA Authoring Practices Guide (APG)
 [^5]: [_ARIA live regions_](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions), mdn web docs
 [^6]: [Detecting the desire for less motion on the page: the prefers-reduced-motion feature](https://drafts.csswg.org/mediaqueries-5/#prefers-reduced-motion) W3C Editor's Draft: Media Queries Level 5
+
+## Checking icon states
+
+Pair changes of colour with a change in shape, orientation, border or text. Check informative graphics and state indicators against adjacent colours under the applicable non-text contrast rule. Keep decorative SVGs outside keyboard navigation. Where older supported engines expose them to focus, test `focusable="false"`. Give an icon-only control an accessible name. Make tooltip information available on focus as well as hover.
+
+### ACT-style checks
+
+Rule identifier: `gel-components-iconography`
+
+Check informative icons, decorative icons and state indicators separately. Apply contrast checks to graphics needed to understand the content or identify a control.
+
+1. Tab to the control and change its state.
+2. Check the icon adds no extra tab stop, the control has an understandable name and the state remains visible in forced colours.
+3. Where WCAG 2.1 criterion 1.4.11 applies, measure at least 3:1 contrast for the visual information needed to identify the control or state.
+
+### Related references
+
+- [Private Use Areas](https://en.wikipedia.org/wiki/Private_Use_Areas)
+- [Tooltip](https://en.wikipedia.org/wiki/Tooltip)
+- [html5 accessibility chops title attribute use and abuse](https://developer.paciellogroup.com/blog/2012/01/html5-accessibility-chops-title-attribute-use-and-abuse/)
+- [How Users Kill Your Icon Fonts](https://timteeling.com/how-users-break-your-icon-fonts/)
+- [Don't make every `<svg>` focusable](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/8090208/)
+- [ARIA-label Is A Xenophobe](http://www.heydonworks.com/article/aria-label-is-a-xenophobe)
+- [WCAG2.1 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+- [WCAG2.1 1.4.1 Use Of Color](https://www.w3.org/TR/WCAG21/#use-of-color)
+- [non text contrast](https://www.w3.org/TR/WCAG21/#non-text-contrast)

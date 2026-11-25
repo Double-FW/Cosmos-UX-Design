@@ -75,7 +75,37 @@ The example below shows a failing case, where the visual presentation of the nav
 > Screen reader: "link, Blog"
 > Screen reader: "link, Contact" 
 
-You can watch a demonstration of the [CSS reordering issue for screen readers](https://youtu.be/spxT2CmHoPk?t=1934) presented by Léonie Watson, hosted on YouTube.
+You can watch a demonstration of the [CSS reordering issue for screen readers](https://youtu.be/spxT2CmHoPk?t=1934), hosted on YouTube.
 
-[^1]: Quoted from [Ian Pouncey](https://ianpouncey.com/)
+[^1]: [Source of the quotation](https://ianpouncey.com/)
 [^2]: [_Making the DOM order match the visual order_, Techniques for WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/C27.html)
+
+## Responsive grids
+
+Keep each item with its own heading and content in source order. Use lists for collections and tables for data with row and column relationships. Use valid nesting. Build a readable single-column baseline, then apply CSS Grid when supported. Respect the document’s writing direction.
+
+### ACT-style checks
+
+Rule identifier: `gel-components-grids`
+
+Run on a responsive collection in its wide and narrow layouts. Inspect source nesting and confirm ordinary layout does not expose table semantics.
+
+1. Inspect the reading order with layout styles disabled.
+2. Resize the viewport, increase magnification and test a right-to-left layout.
+3. Items should remain associated with their headings.
+4. For data that depends on two dimensions, use [Data Tables](Data%20Tables.md).
+
+### Related references
+
+- [nvda](https://webaim.org/resources/shortcuts/nvda)
+- [data tables](https://inclusive-components.design/data-tables/)
+- [zoomtext magnifierreader](https://www.zoomtext.com/products/zoomtext-magnifierreader/)
+- [The Accessibility Tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
+- [WCAG2.1 1.3.1 Info & Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
+- [WCAG2.1 4.1.1 Parsing](https://www.w3.org/TR/WCAG21/#parsing)
+- [Using the presentation role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_presentation_role)
+- [WCAG2.1 1.3.2 Meaningful Sequence](https://www.w3.org/TR/WCAG21/#meaningful-sequence)
+- [WCAG2.1 2.4.3 Focus Order](https://www.w3.org/TR/WCAG21/#focus-order)
+- [`:lang()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:lang)
+- [CSS Grid Layout Module Level 1](https://www.w3.org/TR/css-grid-1/#overview-grid)
+- [How to make your site accessible for screen magnifiers](https://axesslab.com/make-site-accessible-screen-magnifiers/)

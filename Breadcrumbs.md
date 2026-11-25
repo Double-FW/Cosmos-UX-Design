@@ -58,4 +58,4 @@ The separator between each link should not be announced by a screen reader. Ther
 
 ## Links and resources
 
-* [Scott O'Hara: Accessible Breadcrumb Navigation Pattern](https://scottaohara.github.io/a11y_breadcrumbs/)
+* [Accessible Breadcrumb Navigation Pattern](https://scottaohara.github.io/a11y_breadcrumbs/)

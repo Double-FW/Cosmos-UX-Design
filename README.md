@@ -1,4 +1,4 @@
-# FWFW Atomic UX Design Framework
+# Cosmos Atomic UX Design Framework
 
 A collection of accessibility techniques for people designing, building, testing and improving web design systems. The guides cover page foundations, interaction, form controls and reusable components.
 
@@ -41,6 +41,26 @@ A collection of accessibility techniques for people designing, building, testing
 - [Mega Menu](Mega%20Menu.md)
 - [Modal Dialogs](Modal%20Dialogs.md)
 
+### Additional component and interaction guides
+
+- [Cards](Cards.md)
+- [Client-side Routing](Client-side%20Routing.md)
+- [Comments](Comments.md)
+- [Data Tables](Data%20Tables.md)
+- [Expandable Content Previews](Expandable%20Content%20Previews.md)
+- [Filter and Sort](Filter%20and%20Sort.md)
+- [Global Navigation](Global%20Navigation.md)
+- [Infographics](Infographics.md)
+- [Information Panels](Information%20Panels.md)
+- [Load More](Load%20More.md)
+- [Metadata Strips](Metadata%20Strips.md)
+- [Promotional Cards](Promotional%20Cards.md)
+- [Search](Search.md)
+- [Share Tools](Share%20Tools.md)
+- [Site Menus](Site%20Menus.md)
+- [Tabs](Tabs.md)
+- [Video Controls](Video%20Controls.md)
+
 ## Using the guides
 
 1. Open the relevant guide for the design or component and follow its links to shared implementation guidance.
@@ -49,6 +69,8 @@ A collection of accessibility techniques for people designing, building, testing
 4. Record the barrier, its impact, the affected component or journey, and the result of retesting after the fix.
 
 The examples appear as code on GitHub. Copy a self-contained HTML example to a local HTML file to try it in a browser. Snippets with sample images, media, routes or project styles need those resources supplied by the implementing project.
+
+For the ACT-style checks, record the tested variant, method, observed outcome and evidence. Use pass, fail, not applicable or not run. These local checks cover the specified component behaviour. A WCAG conformance assessment also needs the other applicable requirements and journey states.
 
 ## Shared implementation guidance
 
@@ -60,4 +82,4 @@ The examples appear as code on GitHub. Copy a self-contained HTML example to a l
 | Titles, landmarks and skip links | [Structure](Structure.md) | [Metadata](Metadata.md), [Landmarks](Landmarks.md), [Keyboard Navigation](Keyboard%20Navigation.md) |
 | Resize and reflow | [Typography](Typography.md#responsiveness) | [Progressive Enhancement](Progressive%20Enhancement.md) |
 
-See [LICENSE](LICENSE) for licence and contributor information.
+See [LICENSE](LICENSE) for licence information.

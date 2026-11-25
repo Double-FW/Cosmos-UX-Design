@@ -135,5 +135,5 @@ Use the [reveal card implementation](Cards%20-%20Reveal.md#implementation) when 
 [^2]: [WCAG 2.1 SC 4.1.3: Status Messages (Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html)
 [^3]: [WCAG 2.1 SC 3.2.2: On Input (Level A)](https://www.w3.org/WAI/WCAG21/Understanding/on-input)
 [^4]: [WCAG 2.1 SC 1.3.2: Meaningful Sequence (Level A)](https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html)
-[^6]: [How many words do we read per minute? A review and meta-analysis of reading rate by Marc Brysbaert](https://doi.org/10.1016/j.jml.2019.104047), Journal of Memory and Language, Volume 109, December 2019, 104047.
+[^6]: [How many words do we read per minute? A review and meta-analysis of reading rate](https://doi.org/10.1016/j.jml.2019.104047), Journal of Memory and Language, Volume 109, December 2019, 104047.
 [^8]: Elements with the `role="status"` attribute and value have an implicit `aria-live="polite"` attribute and value and an implicit `aria-atomic` value of `true`.

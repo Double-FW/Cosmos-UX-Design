@@ -76,7 +76,7 @@ Make headings visually stand out so readers can quickly scan the webpage to see 
 
 ## Responsiveness
 
-It is common practice to implement the layout of a webpage so that the elements reflow to accommodate different viewport sizes. By collapsing tangential elements, such as headers or navigation, or resizing images at smaller breakpoints, you can keep the [core content of the webpage](https://www.bbc.co.uk/accessibility/forproducts/guides/html/core-purpose/) readily visible.
+It is common practice to implement the layout of a webpage so that the elements reflow to accommodate different viewport sizes. By collapsing tangential elements, such as headers or navigation, or resizing images at smaller breakpoints, you can keep the core content of the webpage readily visible.
 
 Users may trigger reflow by changing the window size, device orientation or page zoom. For vertically scrolling content, check that users can read and operate it at a viewport width equivalent to 320 CSS pixels without scrolling in two directions, except where a two-dimensional layout is essential to use or meaning. A 1280 CSS pixel viewport at 400% zoom is one way to reach that width. [^20]
 
@@ -310,7 +310,7 @@ body * {
 [^5]: _The Elements of Typographic Style_ Robert Bringhurst
 [^6]: In Windows, go to the Magnifier setting under the _Ease of Access section in the Windows control panel_.
 [^9]: Presentation (video) _Don't Believe The Type! - axe-con 2021_, https://www.youtube.com/watch?v=h8IOqUl1zII
-[^10]: Quoted from _[A Guide to Understanding What Makes a Typeface Accessible](https://medium.com/the-readability-group/a-guide-to-understanding-what-makes-a-typeface-accessible-and-how-to-make-informed-decisions-9e5c0b9040a0)_, Gareth Ford Williams
+[^10]: Quoted from _[A Guide to Understanding What Makes a Typeface Accessible](https://medium.com/the-readability-group/a-guide-to-understanding-what-makes-a-typeface-accessible-and-how-to-make-informed-decisions-9e5c0b9040a0)_
 [^11]: _[Good Fonts for Dyslexia](https://www.dyslexia-reading-well.com/support-files/italian_study_on_fonts_2013.pdf)_, Luz Rello and Ricardo Baeza-Yates
 [^12]: _Design Guidelines for Web Readability_, Aliaksei Miniukovich, Antonella De Angeli, Simone Sulpizio, Paola Venuti
 [^13]: _Extra-large letter spacing improves reading in dyslexia_, Zorzi, Barbiero, Facoetti, Ziegler

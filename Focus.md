@@ -97,10 +97,25 @@ The `outline` CSS property is the most reliable way to apply a focus indicator s
 3. Ensure the keyboard navigation order follows a logical and intuitive structure. The keyboard navigation order should track the visual order of the content and not jump unexpectedly or skip any interactive elements.
 4. Ensure that it is not possible to focus on an element that is not visible once it has focus.
 
-[^1]: Video, Christopher Hill, [YouTube](https://www.youtube.com/watch?v=--Jakgk3tpA)
+[^1]: Video, [YouTube](https://www.youtube.com/watch?v=--Jakgk3tpA)
 [^2]: [Use your keyboard like a mouse with Mac](https://support.apple.com/en-gb/guide/mac-help/mchlp1399/mac), macOS User Guide
 [^3]: The example uses the [Taba11y](https://chrome.google.com/webstore/detail/taba11y/aocppmckdocdjkphmofnklcjhdidgmga?hl=en) web extension for Chrome.
 [^4]: [_Understanding SC 2.4.7:Focus Visible (Level AA)_](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html), WCAG 2.1
 [^5]: [_Understanding Success Criterion 2.4.13: Focus Appearance (Level AAA)_](https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-minimum), WCAG 2.2
 [^6]: The `:focus-visible` pseudo-class has [very good browser support](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible#browser_compatibility).
 [^8]: [_No Keyboard Trap (Level A)_](https://www.w3.org/WAI/WCAG21/Understanding/no-keyboard-trap.html), WCAG 2.1
+
+## Keyboard activation and exit
+
+Follow the existing focus checkpoints for visible indicators and logical order. Keep static text outside the ordinary tab sequence unless an interaction needs an explicit keyboard stop.
+
+### ACT-style checks
+
+Rule identifier: `gel-components-focus`
+
+Run on each distinct interactive control in its available states. Include the keyboard exit route.
+
+1. Tab through the component in both directions.
+2. Try Enter on links and Enter and Space on buttons.
+3. Check that each function works, that focus remains visible and that every component provides a keyboard route out.
+4. Test modal containment and dismissal using [Modal Dialogs](Modal%20Dialogs.md).
