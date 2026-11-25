@@ -60,9 +60,9 @@ Finding elements with such `tabindex` setting is made obvious by using the Web D
 
 - Link: the Enter key should activate/follow the link	
 - Button: the Enter or Space key should activate / press the button
-- Checkbox / Radio Button: the Arrow keys should move the highlighted item, the Space key should check or uncheck the highlighted item
+- Checkbox: Space toggles the focused checkbox. In a native radio group, arrow keys move and select within the group, and Space selects the focused option.
 - Select (dropdown): the Arrow keys should move highlighted item, the Enter key should select the highlighted item
-- Dialog: Esc key should close the dialog
+- Modal dialog: check dismissal and focus return against the [modal dialog checkpoints](Modal%20Dialogs.md#checkpoints-for-modal-dialogs).
 
 ### Keeping Focus Visible
 
@@ -75,32 +75,7 @@ Web browsers are already accessible when it comes to indicating which element on
 
 ### Visible on focus
 
-Content that is visually hidden on the screen but which can receive focus via keyboard navigation, should be authored so that the content becomes visible once it has focus. An example of this would be a "Skip to Main Content" link, intended to allow keyboard users quickly hop over all the navigational content at the top of every page, and continue on with the main content.
-
-For this technique to work the skip link must be on the web page and available in the usual focus order, but visually hidden until it receives focus (one example is shown below).
-
-```css
-.visually-hidden {
-  position:absolute;
-  left:-10000px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
-}
- 
-.visually-hidden.show-on-focus:focus-within {
-  position:static;
-  width:auto;
-  height:auto;
-}
-```
-
-```html
-<p class="visually-hidden show-focused">
-  <a href="#main">Skip to content</a>
-</p>
-```
+Tab to the skip link, confirm it becomes visible, and activate it. Check that focus moves to the main content and that the next Tab starts there. Use the [shared skip-link example](Structure.md#the-main-landmark).
 
 ### Keyboard shortcuts
 

@@ -24,7 +24,7 @@ For each web page under test, perform the following checks. Record an answer, "y
 ### Checks which should be (at least partly) performed manually
 
 - When the text size is modified to 200% of its default size in the browser settings, is all text on on the web page still visible and readable? [Y/n]
-- When the page zoom is increased to 200% in the browser, does all text on on the web page increase proportionally? [Y/n]
+- At a viewport equivalent to 320 CSS pixels wide, can users read and operate vertically scrolling content without horizontal scrolling, apart from content that needs two dimensions? [Y/n]
 - In DevTools, with the browser CPU and Network Throttle simulator set to their most degraded settings, is the core purpose of the page still delivered? [Y/n]
 - In DevTools, when the browser has its Device Mode simulator set to the smallest available device screen, is the core purpose of the page still delivered? [Y/n]
 
@@ -32,29 +32,13 @@ For each web page under test, perform the following checks. Record an answer, "y
 
 Having an array of physical devices is ideal for testing, but you can also use tools like the Chrome Browser DevTools, and applying the [Device Mode](https://developer.chrome.com/docs/devtools/device-mode/) settings to approximate the web page under test on a range of devices: from mobiles, to tablets, and desktop. You can even simulate device inputs for touch, geolocation and device orientation. And in the Network tab you can simulate CPU and network throttling.
 
-### Ensure text is resizable
+### Test text and layout when presentation changes
 
-No single text size is usable by everyone and it must be assumed that anyone may choose or need to resize the text of a web page to suit their own purposes. It is recommended that the default size for body text be the equivalent of at least 12px to 14px depending on how heavy the font is. Test that all web pages are usable and readable when the text resized to 200% this default size.
+Use [Typography](Typography.md) for body-text size, line length and typeface guidance. Run its [resize and reflow checks](Typography.md#responsiveness) independently. Verify that the page keeps its core content and controls when enlarged and when the preferred font cannot load.
 
-Text is considered usable and readable when it is not cropped and does not overlay other text or nearby elements. It should wrap as needed and maintain its typographical qualities, allowing sufficient line-height and letter and line spacing for example. Ensure that relative units (`em`s or `rem`s) are used to specify the sizes of web page elements like text and layout. This will enable the page to scale and adapt relative to the size of a device screen or its orientation (portrait or landscape).
+### Check touch targets on smaller screens
 
-### Prefer a line length of about 65 characters
-
-Ideally lines of text should be between 50 to 70 characters (including spaces) long. Only if the layout does not permit, because of an overly narrow screen or large text, would it become necessary to use less characters per line.
-
-### Ensure the web page is zoomable
-
-Page zoom increases the apparent size of the entire page, while text resizing only increases the size of the text. Ensure all content is visible and usable when the web page is zoomed to 200% of its default level. This will likely result in the need for horizontal scrolling, which is acceptable in this circumstance.
-
-### Use a readable typeface
-
-Consider the color, size, and weight of text and how it may render on lower resolution screens, or when viewed with [color filters](https://support.microsoft.com/en-us/windows/use-color-filters-in-windows-43893e44-b8b3-2e27-1a29-b0c15ef0e5ce) applied. Light and ultra light typefaces are harder to read and will need to be displayed at larger sizes and higher contrast to remain readable to people with vision impairments. [Legibility research ](https://www.researchgate.net/publication/309593009_Legibility_of_Light_and_Ultra-Light_Fonts_Eyetracking_Study) shows that light and ultra light typefaces cause a higher cognitive load for all readers.
-
-If the web page uses a specific typeface to maintain legibility, test the page with that typeface missing to check that it will work for users that can't load that specific typeface or who don't have it installed on their devices. 
-
-### Adjust touch targets to be larger on smaller screens
-
-On mobile devices with touchscreens the user must contend with both a smaller physical screen and the use of a finger to try to tap the targets (such as links and buttons) on that screen. Considering this, the minimum target size should be at least 7 x 7 mm, or larger if possible. This may require increasing the size of interactive elements on smaller screens.
+Use the design system’s documented target-size and spacing requirements. Increase targets where people need more room to operate adjacent controls. The [Rating Stars guide](Rating%20Stars.md#touch-target-size) uses a larger target for its closely spaced choices and identifies the source of that target.
 
 ### Don't rely on a `<noscript>` fallback
 

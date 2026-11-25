@@ -1,7 +1,9 @@
 ---
 title: Layout
-description: aGood webpage layout can make the content easier to navigate, understand, and interact with for people with disabilities.
+description: Good webpage layout can make the content easier to navigate, understand, and interact with for people with disabilities.
 ---
+
+The image or media filenames in these examples stand for assets supplied by the implementing project.
 
 ## Visual order versus source order
 
@@ -25,7 +27,7 @@ Being aware of this, the best place to start is with the content as it exists in
     <h3 data-topichead="blog post">
       <a href="https://example.com/blog">Nature is our most important ingredient</a>
     </h3>
-    <img src="/static/img/layout/agave-600x200.jpg" alt="Green leaves of an agave plant.">
+    <img src="agave-600x200.jpg" alt="Green leaves of an agave plant.">
   </div>
   <div class="card-image-body">
     We're committed to an environmentally-friendly way of living and working.
@@ -33,34 +35,18 @@ Being aware of this, the best place to start is with the content as it exists in
 </div>
 ```
 
-The challenge is how to display the card contents according to the visual design. For this, we can use CSS `flex` layout and visually reverse the order using the `order: -1` rule.
+If the image placement can change without changing meaning or keyboard order, this CSS places it above the heading while leaving the source order intact.
 
-%source(src/demos/foundations/layout/layout.css#1-7)
-
-{% demoiframe
-   title="Visual and source order.",
-   head="<link rel=\"stylesheet\" href=\"/demos/foundations/layout/layout.css\">"
-%}
-<div class="card card-image">
-  <div class="card-image-heading">
-    <h3 data-topichead="blog post">
-      <a href="https://example.com/blog">Nature is our most important ingredient</a>
-    </h3>
-    <img src="/static/img/layout/agave-600x200.jpg" alt="Green leaves of an agave plant.">
-  </div>
-  <div class="card-image-body">
-    We're committed to an environmentally-friendly way of living and working.
-  </div>
-</div>
-{% enddemoiframe %}
+```css
+.card-image-heading { display: flex; flex-direction: column; }
+.card-image-heading img { order: -1; }
+```
 
 > Screen reader: "heading level 3, 2 items BLOG POST, link, Nature is our most important ingredient"
 > Screen reader: "Green leaves of an agave plant., image"
 > Screen reader: "We're committed to an environmentally-friendly way of living and working." 
 
-{% aside "aside-danger" %}
 Displaying elements in a visual order that is different than the HTML source order should only be used in rare cases and only where it improves understanding of the content.
-{% endaside %}
 
 ## Visual order versus tab order
 
@@ -79,26 +65,17 @@ The example below shows a failing case, where the visual presentation of the nav
   <li><a href="">Contact</a></li>
 </ul>
 ```
-%source(src/demos/foundations/layout/layout.css#30-37)
 
-{% demoiframe
-   title="Visual and tab order.",
-   head="<link rel=\"stylesheet\" href=\"/demos/foundations/layout/layout.css\">"
-%}
-<ul class="nav-links">
-  <li><a href="">About</a></li>
-  <li><a href="">Blog</a></li>
-  <li><a href="">Contact</a></li>
-</ul>
-{% enddemoiframe %}
+```css
+.nav-links { display: flex; gap: 1rem; }
+.nav-links li:nth-child(2) { order: -1; }
+```
 
 > Screen reader: "link, About, list 3 items"
 > Screen reader: "link, Blog"
 > Screen reader: "link, Contact" 
 
-{% aside "aside-info" %}
 You can watch a demonstration of the [CSS reordering issue for screen readers](https://youtu.be/spxT2CmHoPk?t=1934) presented by Léonie Watson, hosted on YouTube.
-{% endaside %}
 
 [^1]: Quoted from [Ian Pouncey](https://ianpouncey.com/)
 [^2]: [_Making the DOM order match the visual order_, Techniques for WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/C27.html)

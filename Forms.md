@@ -28,24 +28,9 @@ For each web page under test, perform the following checks. Record an answer, "y
 - Are required input fields visibly marked as such, and do they use a `required` attribute on the input element?  [Y/n]
 - Are error messages displayed in a way that makes it clear which input fields have rejected input, why the input was not accepted, and what to do to correct it? [Y/n]
 
-## Examples and Additional Information
+## Form markup
 
-A `fieldset` HTML element should be used to group and label a collection of related form input elements.
-
-```html
-<fieldset>
-    <legend>Main Topic of Interest</legend>
-    
-    <input id="sports" type="radio" name="topic" value="sports">
-    <label for="sports">Sports</label>
-    <br>
-    <input id="news" type="radio" name="topic" value="news">
-    <label for="news">News</label>
-    <br>
-    <input id="business" type="radio" name="topic" value="business">
-    <label for="business">Business</label>
-</fieldset>
-```
+Use [HTML Form Elements](HTML%20Form%20Elements.md) for labels, grouped fields and associated instructions. Use [Labels](Labels.md) to check names with assistive technology.
 
 ## Further Advice
 
@@ -78,11 +63,3 @@ Check that all error messages that can be displayed meet the following requireme
 - Specific: Simply saying "there was an error" or "the form is invalid" is not useful. Which input field, or fields if there are more than one, was invalid, and why was it rejected?
 - Friendly: Even if the user has made a mistake, the experience should feel helpful and polite. Avoid a tone that sounds aggressive, like "user error: illegal input." This can be triggering to users with mental health or anxiety disorders. On the other hand, don't try to be too glib either. Assume the user is feeling frustrated and wants help at that moment, and a flippant phrasing to the feedback you offer is probably not going to be appreciated. 
 - Actionable: Communicating that there is a problem and what the problem is is only part of the job done. The user must also know what steps they can take to fix the problem. Check that there is some information on what they need to do next in order to move forward.
-
-### Placeholder Text
-
-Placeholder text, the ghostly words that appear _inside_ a form input, is meant to be a nice-to-have hint. It should be considered a defect if the web pages uses placeholder text _instead of_ a proper label. A placeholder is not a label. It isn't even very good at being a placeholder: There are several problems with placeholder text but the most obvious is the way it disappears as soon as the user selects the form input it is meant to describe. This can lead to some diabolically bad user experiences. Consider a user that fills in a text field and then presses the Tab key to jump into the next text field. Without a label they are now expected to start typing input without any visible clue about what information is expected.
-
-There are other problems: the contrast of placeholder text is deliberately low, and the placeholder text cannot wrap, so on narrow screens the user won't see the last parts of longer placeholder text.
-
-The rule therefore is that if the information displayed by placeholder text is important or useful, for it to be accessible it must be displayed in an additional way that is not placeholder text.

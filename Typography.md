@@ -58,9 +58,7 @@ Controlling the line length of a web element will require taking into account th
 
 By definition, a single `ch` unit is equivalent to the width of the "0" (zero) character in the typeface and font size used to render it. So by setting an element's `max-width` to `70ch`, we limit the length of a line in that element to no more than seventy "0" characters.
 
-{% aside "aside-info" %}
 As a quick rule of thumb, you should be able to fit the English alphabet about two and a half times (totaling 65 characters) on a line. If you can fit _three alphabets_ on a line, your lines are too long.
-{% endaside %}
 
 ## Font size
 
@@ -68,7 +66,7 @@ The [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guid
 
 There is a range [of other variables](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html#viewing-distance-and-display-resolution) to consider, such as the distance from the reader to the screen, the screen size, and the screen resolution. A font size large enough for a desktop monitor may not be adequate for a handheld device.
 
-Choosing the best font size is especially important for body text, as multiple typographic characteristics conspire to create a good or bad reading experience. A value of 16 pixels (or 12 points) is generally considered the minimum size for the readability of body text; this will be sufficient for most people with typical vision or minor vision problems. Only supplemental text such as logotypes and tangential, non-essential content should use font sizes smaller than the body text.
+Choosing the best font size is especially important for body text, as multiple typographic characteristics conspire to create a good or bad reading experience. Use 16 CSS pixels (12 points) as a starting point for body text and adjust for the typeface and reading context. Treat this as design guidance. Only supplemental text such as logotypes and tangential, non-essential content should use font sizes smaller than the body text.
 
 Users must not be prevented from overriding a webpage's font size with adjustments they may prefer or require.
 
@@ -80,13 +78,7 @@ Make headings visually stand out so readers can quickly scan the webpage to see 
 
 It is common practice to implement the layout of a webpage so that the elements reflow to accommodate different viewport sizes. By collapsing tangential elements, such as headers or navigation, or resizing images at smaller breakpoints, you can keep the [core content of the webpage](https://www.bbc.co.uk/accessibility/forproducts/guides/html/core-purpose/) readily visible.
 
-Users may trigger this reflow by resizing their browser window, changing the orientation of their device, or magnifying all page elements within a fixed-size viewport using Page zoom. Reflowing content should retain core information and functionality, even as the content is enlarged by up to 400%. And horizontal scrolling should not be required for pages designed to scroll vertically, even at widths down to 320px. [^20]
-
-Do not create barriers for users who choose to or need to apply adjustments to how they view text. People with low vision may:
-
-- Zoom the page, enlarging all elements on the webpage using the zoom-in gesture or key combination in the browser.
-- Resize the text by modifying the browser settings or applying a user stylesheet to enlarge only the text on the webpage.
-- Use screen magnification, software that enlarges the screen display on the computer or mobile device screen.
+Users may trigger reflow by changing the window size, device orientation or page zoom. For vertically scrolling content, check that users can read and operate it at a viewport width equivalent to 320 CSS pixels without scrolling in two directions, except where a two-dimensional layout is essential to use or meaning. A 1280 CSS pixel viewport at 400% zoom is one way to reach that width. [^20]
 
 ### Page zoom
 
@@ -113,9 +105,7 @@ The user should be able to resize body text up to 200% [^16] of its original siz
 }
 ```
 
-{% figure "An example of inaccessible text in a shopping cart that has become unreadable when resized to 160%. Most of the visible details of the purchase are clipped when they overflow their fixed-size container element." %}
-<img class="img-fluid" style="max-width:32rem" src="/static/img/typography/textresize-overflow.jpg" alt="">
-{% endfigure %}
+An example of inaccessible text in a shopping cart that has become unreadable when resized to 160%. Most of the visible details of the purchase are clipped when they overflow their fixed-size container element.
 
 #### Units can prevent resize
 
@@ -155,16 +145,14 @@ It's important to remember that users can adjust font sizes and typefaces throug
 
 The following examples show the relative legibility of text rendered with the same color contrast but different weights. The top sample uses an extra light weight of 100, while the bottom example uses a regular weight of 400.
 
-{% demoiframe
-   title="Font weight"
-%}
+```html
 <p style="font-weight:100; font-size: 0.9375rem; font-family:'public sans',helvetica,sans; line-height: 1.4; text-align: left">
 So saying, she breaks off her speech midway and flees in anguish from the light, turning away, tearing herself from his sight, and leaving him in fear and much hesitance, and ready to say much.
 </p>
 <p style="font-weight:400; font-size: 0.9375rem; font-family:'public sans',helvetica,sans; line-height: 1.4; text-align: left">
 So saying, she breaks off her speech midway and flees in anguish from the light, turning away, tearing herself from his sight, and leaving him in fear and much hesitance, and ready to say much.
 </p>
-{% enddemoiframe %}
+```
 
 ## Spacing
 
@@ -174,9 +162,7 @@ Studies show that when letter spacing (also known as "tracking") is overly tight
 
 The ideal letter spacing will depend on the typeface, font weight, and font size. Generally, the heavy or smaller-sized text will benefit from looser letter spacing than lighter or larger-sized text.
 
-{% aside "aside-info" %}
 If your design supports a "dark mode," you will likely find that light-colored text on a dark-colored background is more readable when using looser letter spacing.
-{% endaside %}
 
 ### Intra-line spacing
 
@@ -220,13 +206,11 @@ p {
 
 Notice the awkward gaps created by the layout resulting in distracting visual rivers and pools of whitespace. This makes reading difficult in general but is significantly disabling for people with reading difficulties.
 
-{% demoiframe
-   title="Full justification example."
-%}
+```html
 <p style="max-width: 20rem; hyphens: none; text-align: justify; line-height: 1.5">
 Avoid plain English altogether, and you could end up being periphrastic (speaking in a roundabout way). Get too carried away and you'll certainly become pleonastic (using superfluous words). And use words like sesquipedalian and you'll already be displaying sesquipedalian behaviour (it means using long words).
 </p>
-{% enddemoiframe %}
+```
 
 ### Example of more accessible justification
 
@@ -242,13 +226,11 @@ p {
 
 The browser will automatically optimize whitespace, and the text should visually flow along each line from one to the next.
 
-{% demoiframe
-   title="Better justification example."
-%}
+```html
 <p style="max-width: 20rem; hyphens: auto; text-align: left; line-height: 1.5">
 Avoid plain English altogether, and you could end up being periphrastic (speaking in a roundabout way). Get too carried away and you'll certainly become pleonastic (using superfluous words). And use words like sesquipedalian and you'll already be displaying sesquipedalian behaviour (it means using long words).
 </p>
-{% enddemoiframe %}
+```
 
 ## Language direction
 
@@ -266,7 +248,7 @@ Using style judiciously to highlight and draw attention to specific words is an 
 
 ## Text contrast
 
-Body text must be presented with a contrast ratio of at least 4.5 to 1. Large text (at least 18pt or 24px) or very heavy text may have a lower contrast ratio of at least 3 to 1. Logotypes, incidental text, or purely decorative text have no contrast requirements. [^18]
+Body text must be presented with a contrast ratio of at least 4.5 to 1. Large-scale text may use a minimum of 3:1. For common Latin fonts, this means at least 18 pt (24 CSS px), or 14 pt (about 18.7 CSS px) if bold. Logotypes, incidental text, or purely decorative text have no contrast requirements. [^18]
     
 Web browsers will default to displaying black text on a white body element. Those sensitive to very high contrast may find this difficult to read for long passages. Setting the body text color to dark gray and the background color off-white is a reasonable compromise.
 
@@ -278,34 +260,29 @@ It is impossible to choose a color combination that works for everyone; some use
 
 Compare the two examples. The first uses black on white and results in very high contrast.
 
-{% demoiframe
-   title="High contrast text example."
-%}
+```html
 <div style="background-color: #fff; color: #000">
 To me every hour of the light and dark is a miracle,
 Every cubic inch of space is a miracle,
 Every square yard of the surface of the earth is spread with the same,
 Every foot of the interior swarms with the same.
 </div>
-{% enddemoiframe %}
+```
 
 The second example uses dark gray on off-white, resulting in a more comfortable contrast.
 
-{% demoiframe
-   title="Better contrast text example."
-%}
+```html
 <div style="background: #fcfcfc; color: #303030">
 To me every hour of the light and dark is a miracle,
 Every cubic inch of space is a miracle,
 Every square yard of the surface of the earth is spread with the same,
 Every foot of the interior swarms with the same.
 </div>
-{% enddemoiframe %}
+```
 
 ### Example of a user-defined override
 
 This custom stylesheet shows one way a user may override the website's default.
-
 
 ```css
 body * {
@@ -332,8 +309,6 @@ body * {
 [^4]: In Chrome go to _Preferences > Appearance > Customize fonts_. In Firefox, go to _Settings > Language and Appearance_, remembering to click the "Zoom text only" checkbox.
 [^5]: _The Elements of Typographic Style_ Robert Bringhurst
 [^6]: In Windows, go to the Magnifier setting under the _Ease of Access section in the Windows control panel_.
-[^7]: Richard Rutter, [The Elements of Typographic Style Applied to the Web](https://texify.davidar.io/WebTypography/)
-[^8]: Conrad Chavez, ["Rethinking the Pixel"](https://creativepro.com/rethinking-the-pixel-it-s-all-relative-now/)
 [^9]: Presentation (video) _Don't Believe The Type! - axe-con 2021_, https://www.youtube.com/watch?v=h8IOqUl1zII
 [^10]: Quoted from _[A Guide to Understanding What Makes a Typeface Accessible](https://medium.com/the-readability-group/a-guide-to-understanding-what-makes-a-typeface-accessible-and-how-to-make-informed-decisions-9e5c0b9040a0)_, Gareth Ford Williams
 [^11]: _[Good Fonts for Dyslexia](https://www.dyslexia-reading-well.com/support-files/italian_study_on_fonts_2013.pdf)_, Luz Rello and Ricardo Baeza-Yates

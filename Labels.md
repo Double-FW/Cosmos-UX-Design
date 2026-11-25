@@ -17,7 +17,7 @@ For each web page under test, perform the following checks. Record an answer, "y
 
 ### Checks which should be (at least partly) performed manually
 
-- Is there a visible text label for each form item that identifies what kind of information is expected to be input? [Y/n]
+- Does each form item have a clear visible label that identifies the expected input? Where a conventional icon is used, does it have an equivalent accessible name? [Y/n]
 - Is the label near to the control it describes, so that it is obvious which control it is referring to? [Y/n]
 - Is the label still present and visible when the control has focus? [Y/n]
 - If the control is a group of selectable options, such as a dropdown menu or list of radio buttons or checkboxes, is there a visible text label describing the collection of options? [Y/n]
@@ -33,16 +33,9 @@ In some cases however it is possible to apply a visible label that is different 
 
 ## Further Advice
 
-### Don't rely on placeholder text
+### Keep labels visible when people type
 
-[Placeholder text](https://www.nngroup.com/articles/form-design-placeholders/) is sometimes used by page authors as if it were an alternative for a label. This is sometimes an attempt to save space on a form since the placeholder text appears _within_ the form input rather than next to it. But this is exactly why it is unsuitable as a label. Besides being low contrast by default, it, by design, disappears as soon as the user starts entering text into the input. And at that point there is no longer any visible label. Users with short term memory impairment or even those who are distracted and have turned away may no longer know what the label is for that input.
-
-```html
-<!-- DO NOT assume placeholder text is a suitable label -->
-<form>
-<input type="text" placeholder="Email Address">
-</form>
-```
+Use the [form-control labelling examples](HTML%20Form%20Elements.md#visible-labels) for implementation. Test that the label remains visible when the field has focus and contains a value.
 
 ### Don't add a title attribute
 
@@ -70,7 +63,7 @@ It is acceptable to hide the asterisk from screen readers if the information is 
 
  A label is often implemented using body text but may be an element with alternative text, like an image, assuming the image is a well-understood icon. When a label is visible only as an icon, alternative text must be provided for users who cannot see the icon. Ideally the control would make that text visible for everyone along with the icon, but design limitations may not make this ideal. In that case, providing text as a label which is only accessible to a screen reader is acceptable, assuming the icon is well-known and understood to sighted users without having the text cue (a "magnifying hand lens" icon for example, as the label to a search form).
 
-The example below uses one of the techniques from the [Alternative Text] section. These text alternatives will naturally be hidden from sighted users looking at the image.
+The example below uses one of the techniques from [Functional Alternative Text](Functional%20Alternative%20Text.md). These text alternatives will naturally be hidden from sighted users looking at the image.
 
 ```html
 <form>

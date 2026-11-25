@@ -17,7 +17,7 @@ Every page of a website should have its own unique title, capturing the overall 
 
 Avoid very short titles that don't provide an adequate overview of the content. But keep in mind that titles longer than about 60 characters are likely to be cropped in search engines listings.
 
-### Dynamiclly updating the title
+### Dynamically updating the title
 
 If you are following a "single page application" model and update a webpage content dynamically, be aware that changing a webpage `title` via a script method will not cause the new title to be announced by most screen readers. It may be necessary to use an ARIA Live Region to announce when new content is loading and then move focus to the webpage's `H1` element to make it obvious that the page content is different.
 
@@ -30,9 +30,7 @@ If you are following a "single page application" model and update a webpage cont
 
 Screen readers will allow users to see a list of just the webpage's headings and to navigate the webpage by jumping directly to a specific heading. Keeping the total number of headings to a reasonable level, using descriptive but concise headings, and organising headings logically and hierarchically will make this much easier for users.
 
-{% figure "VoiceOver presents a menu that allows the user to scan and navigate the webpage by headings." %}
-<img class="figure-img img-fluid" src="/static/img/structure/voiceover-headings.jpg" style="width:100%; max-width:40rem" alt="">
-{% endfigure %}
+VoiceOver presents a menu that allows the user to scan and navigate the webpage by headings.
 
 Notice that the VoiceOver menu crops any headings which are over about 50 characters in length, so it's useful to front-load your heading content so that the most specific and relevant text is near the beginning.
 
@@ -55,17 +53,13 @@ HTML tags that represent landmarks:
 
 Using landmarks can help users of screen reader assistive technology navigate your webpage. The VoiceOver screen reader for example will announce when the user enters a region, and offer options for easily navigating over, into, or out of that content.
 
-{% figure "VoiceOver announces that the user has moved the screen reader cursor into a footer region: \"You are currently on a footer, inside web content. To exit this web area, press Control-Option-Shift-Up Arrow.\"" %}
-<img class="figure-img img-fluid" src="/static/img/structure/voiceover-footer.jpg" style="width:100%; max-width:40rem" alt="">
-{% endfigure %}
+VoiceOver announces that the user has moved the screen reader cursor into a footer region: "You are currently on a footer, inside web content. To exit this web area, press Control-Option-Shift-Up Arrow."
 
 ### Nested regions
 
 The various regions may be related to one another according to logical rules: some regions are not permitted to be contained within others, while some regions are often found within others. A `nav` element for example is frequently a child of the `header` element, creating a Banner landmark which contains a Navigation landmark.
 
-{% figure "Navigation links with a `nav` element create a `navigation` role within a `header` element that creates a `banner` role." %}
-<img class="figure-img img-fluid" src="/static/img/structure/banner-navigation.png" style="width:100%; max-width:40rem" alt="">
-{% endfigure %}
+Navigation links with a `nav` element create a `navigation` role within a `header` element that creates a `banner` role.
 
 ### Applying regions
 
@@ -100,17 +94,13 @@ Based on this markup the browser will identify each region based on its role.
 * Content information
   - Navigation
 
-{% figure "A typical webpage is logically divided into several landmarks and regions. Here each region is overlaid and represented as a colored rectangle on the screengrab of the webpage." %}
-<img class="figure-img img-fluid" src="/static/img/structure/landmark-regions-page.jpg" style="width:100%; max-width:40rem" alt="">
-{% endfigure %}
+A typical webpage is logically divided into several landmarks and regions. Here each region is overlaid and represented as a colored rectangle on the screengrab of the webpage.
 
 #### Navigating by landmark
 
 A user of the VoiceOver screen reader can hear a list of landmarks as an overview to use when quickly scanning or navigating the webpage content.
 
-{% figure "VoiceOver presents a list of landmarks on the webpage: \"banner, navigation, main, recipes region, brands region, footer, navigation\"" %}
-<img class="figure-img img-fluid" src="/static/img/structure/voiceover-landmarks.jpg" style="width:100%; max-width:40rem" alt="">
-{% endfigure %}
+VoiceOver presents a list of landmarks on the webpage: "banner, navigation, main, recipes region, brands region, footer, navigation"
 
 ## Search
 
@@ -146,13 +136,26 @@ The `main` role identifies central content that is the subject of that particula
 
 You should only create one `main` landmark on a webpage. Multiple `main` landmarks would defeat its purpose: to identify the central content.
 
-A screen reader user is likely to want the option to skip any banner or complimentary content at the top of every page and get directly to the main content. Adding a "skip link" near the top of the `body` element that points to the `main` element is a common and useful feature.
+Give keyboard users an early skip link to the main content. Make it visible on focus, and check where focus and the next Tab stop land after activation.
 
 ```html
-<a href="#main">Skip to main content</a>
-...
-<main id="main">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header>Site header and navigation</header>
+<main id="main-content" tabindex="-1">
+  <h1>Page title</h1>
+  <p>Main content.</p>
 </main>
+
+<style>
+  .skip-link:not(:focus) {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+</style>
 ```
 
 ## Section
