@@ -17,7 +17,7 @@ When the mega menu panel is expanded, the menu control should be visually indica
 
 ## Implementation
 
-Build on the [custom disclosure behaviour](Cards%20-%20Reveal.md#custom-html). Keep ordinary navigation links inside the panels, in source order after their buttons. The example keeps the links available until JavaScript can initialise the controls. Replace the sample destinations with working routes.
+Build on the [custom disclosure behaviour](Disclosure.md#custom-html). Keep ordinary navigation links inside the panels, in source order after their buttons. The example keeps the links available until JavaScript can initialise the controls. Replace the sample destinations with working routes.
 
 ```html
 <nav aria-label="Main" id="example-mega-menu">

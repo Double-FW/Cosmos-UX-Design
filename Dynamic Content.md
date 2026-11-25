@@ -123,12 +123,12 @@ Use a dialog when a user needs to interact with a new context. Use the [modal di
 
 ### Disclosure
 
-Use the [reveal card implementation](Cards%20-%20Reveal.md#implementation) when a control expands content in place. Keep focus on the control when toggling, and keep the expanded state and panel visibility in sync. Follow the [accordion](Accordion.md) or [mega menu](Mega%20Menu.md) guide for grouped or navigation-specific behaviour.
+Use the [disclosure implementation](Disclosure.md#implementation) when a control expands content in place. Keep focus on the control when toggling, and keep the expanded state and panel visibility in sync. Follow the [accordion](Accordion.md) or [mega menu](Mega%20Menu.md) guide for grouped or navigation-specific behaviour.
 
 ## Accessibility notes for the tester
 
 - **Status changes:** Check that visible status messages are announced without moving keyboard focus. Test successive updates and check that essential messages remain available long enough to act on.
-- **Dialogs and disclosures:** Use the [modal dialog checkpoints](Modal%20Dialogs.md#checkpoints-for-modal-dialogs) or [reveal card checkpoints](Cards%20-%20Reveal.md#checkpoints-for-the-tester) as applicable.
+- **Dialogs and disclosures:** Use the [modal dialog checkpoints](Modal%20Dialogs.md#checkpoints-for-modal-dialogs) or [disclosure checkpoints](Disclosure.md#checkpoints-for-the-tester) as applicable.
 - **Animations and transitions:** Check that users can still operate the content with animation disabled. Use the [motion and animation checks](Motion%20and%20Animation.md#checkpoints-for-the-tester).
 
 [^1]: [WCAG 2.1 SC 2.4.3: Focus Order (Level A)](https://www.w3.org/WAI/WCAG21/Understanding/focus-order)
