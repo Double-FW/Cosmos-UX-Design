@@ -23,6 +23,12 @@ Replace the sample routes with the destination URLs.
 </section>
 ```
 
+## Opening a dialog from a card
+
+Use [Cards – Reveal](Cards%20-%20Reveal.md) when readers can explore supplementary information within the card. Use a modal dialog when a task needs their attention and the underlying page must be inactive. Follow [Modal Dialogs](Modal%20Dialogs.md) for implementation and accessibility checks.
+
+To test a collection, open a dialog from one card using the keyboard. Check that its content and accessible name identify the item you chose. Close it and check that focus returns to the button that opened it, unless the action takes you to a new page or step. Repeat with a different card to catch triggers that open the wrong item or return focus to the first card.
+
 ## ACT-style checks
 
 Rule identifier: `gel-components-cards`

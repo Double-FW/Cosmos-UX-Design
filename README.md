@@ -36,7 +36,6 @@ A collection of accessibility techniques for people designing, building, testing
 
 - [Accordion](Accordion.md)
 - [Breadcrumbs](Breadcrumbs.md)
-- [Cards – Dialog](Cards%20-%20Dialog.md)
 - [Cards – Reveal](Cards%20-%20Reveal.md)
 - [Mega Menu](Mega%20Menu.md)
 - [Modal Dialogs](Modal%20Dialogs.md)
@@ -76,7 +75,7 @@ For the ACT-style checks, record the tested variant, method, observed outcome an
 
 | Topic | Implementation | Related checks or variations |
 | --- | --- | --- |
-| Dialogs | [Modal Dialogs](Modal%20Dialogs.md) | [Cards – Dialog](Cards%20-%20Dialog.md), [Dynamic Content](Dynamic%20Content.md) |
+| Dialogs | [Modal Dialogs](Modal%20Dialogs.md) | [Opening a dialog from a card](Cards.md#opening-a-dialog-from-a-card), [Dynamic Content](Dynamic%20Content.md) |
 | Disclosure | [Cards – Reveal](Cards%20-%20Reveal.md) | [Accordion](Accordion.md), [Mega Menu](Mega%20Menu.md) |
 | Forms | [HTML Form Elements](HTML%20Form%20Elements.md) | [Forms](Forms.md) for validation and recovery, [Labels](Labels.md) for naming |
 | Titles, landmarks and skip links | [Structure](Structure.md) | [Metadata](Metadata.md), [Landmarks](Landmarks.md), [Keyboard Navigation](Keyboard%20Navigation.md) |
