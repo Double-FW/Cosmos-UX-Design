@@ -18,6 +18,10 @@ The preview reveals content already present in the page. For results fetched on 
 3. Activate Show less and check focus stays on the control.
 4. Resize or zoom the preview and confirm no clipped links remain keyboard stops.
 
+### Reading across the preview boundary
+
+Place the preview within the main content so readers can reach it using the page’s skip link. In the collapsed state, start on the last available link or control in the preview and press Tab. Focus should reach Show more without entering the clipped content. Activate it and check that the continuation marker is visible when it receives focus and identifies where to resume reading. With scripts blocked, read past the same point and check that the rest of the content is already available.
+
 ## Related references
 
 - [windows use high contrast mode](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)

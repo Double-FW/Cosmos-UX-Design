@@ -18,6 +18,12 @@ Start at a direct URL, then navigate within the application. Inspect the title, 
 3. Confirm the new heading receives focus on forward navigation and the previous context is usable on return.
 4. Test the [skip link](Structure.md#the-main-landmark) before repeated navigation.
 
+### Testing a delayed route
+
+Open a direct URL and check that the browser keeps its usual initial focus. Then follow an internal route that takes time to render. Check that a screen reader user receives a text loading message while waiting. When the content is ready, focus its `<h1 tabindex="-1">`. Press Tab and check that navigation continues from the new content.
+
+Inspect the shared navigation. Use `aria-current="page"` on the current page link or `aria-current="step"` for the current step in a sequence. Follow another route and use Back. At each point, verify that the previous current state clears and the current item matches the displayed screen. From the start of the page, check that the first interactive element is the skip link and that activating it bypasses the repeated navigation.
+
 ## Related references
 
 - [Landmarks examples, JAWS screen reader for Windows](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/at.html#jaws)

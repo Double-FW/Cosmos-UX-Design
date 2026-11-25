@@ -99,6 +99,8 @@ Use the [W3C ARIA Authoring Practices Guide for modal dialogs][modal-pattern] if
 
 ## Interrupting a task
 
+Use an action dialog when continuing the current task depends on a decision. Use a button for an action that changes the current page and a link for a choice that takes the user to another page. For example, a sign-in link can lead to authentication while a Cancel button closes the dialog and returns the user to the original task.
+
 Use a heading that identifies the decision and label each action with its consequence. Preserve access to the underlying task after cancellation. Keep the boundary of the dialog and its controls visible in forced colours.
 
 ### Checkpoints for the tester

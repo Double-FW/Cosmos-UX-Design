@@ -150,6 +150,8 @@ The icon that appears on hover (or focus) is implemented as a background image t
 
 ## Groups of external destinations
 
+Distinguish leaving the site from opening a new tab. For an inline link, name the external service when that helps readers anticipate the destination. If an icon communicates that the link leaves the site, provide the same information in the link text, visibly or as accessible text. Keep a decorative SVG out of the focus order. Announce a new tab separately when the link opens one.
+
 For a list of external links, use a descriptive heading and ordinary list markup. Explain a shared destination convention once where users will encounter it. If one link behaves differently, explain that behaviour on the link. Keep decorative icons out of the accessible name when adjacent text already explains them.
 
 ### Checkpoints for the tester
