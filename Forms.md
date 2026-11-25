@@ -19,6 +19,10 @@ Use native controls suited to the information being collected. Give each field a
 
 Show which fields are required before submission and use the native `required` attribute where the control supports it. Keep format and other persistent hints visible and associate them using `aria-describedby`. When a field has a hint and an error, include both IDs in its description so the person can hear the correction and still access the instructions.
 
+Help people reuse information they have supplied before. Use the [input purpose and autofill guidance](HTML%20Form%20Elements.md#input-purpose-and-autofill) for personal details, and keep fields editable after autofill. Choose [input types and keyboard hints](HTML%20Form%20Elements.md#html5-input-types) that make entry easier while supporting the keyboard and assistive technologies people use.
+
+For a compact single-field search, see [Search field labels](Search.md#search-field-labels). Keep the general form label visible and use its wording in the accessible name so people can refer to the field by voice.
+
 ## Further Advice
 
 ### Reset
@@ -27,7 +31,7 @@ Omit a general [Reset button](https://www.nngroup.com/articles/reset-and-cancel-
 
 ### Validation
 
-Start a fresh form without `aria-invalid`. Validate on submission and give earlier feedback where it helps people fix a completed entry. If validating during typing, give people time to finish an answer and avoid repeatedly announcing intermediate errors. Use any in-browser validation to support the user and validate the submission again on the server. Disable the browser’s validation UI with `novalidate` only when the form has an accessible alternative for reporting and recovering from errors.
+Start a fresh form without `aria-invalid`. Validate on submission and give earlier feedback where it helps people fix a completed entry. If validating during typing, give people time to finish an answer and avoid repeatedly announcing intermediate errors. Use client-side validation to give convenient feedback. Validate submitted values on the server even when the browser has already checked them. Disable the browser’s validation UI with `novalidate` only when the form has an accessible alternative for reporting and recovering from errors.
 
 When validation identifies an error, set `aria-invalid="true"` and associate the visible error with the field. Keep the entered values and leave the fields editable. Keep the submit control available so a person can attempt submission and find out what needs attention. During a pending request, communicate progress and prevent duplicate submissions as needed. If an entry passes a format check, describe that result accurately. A valid format can still contain incorrect information.
 
@@ -80,7 +84,8 @@ Detect missing or empty accessible names and broken ID references. Use manual ch
 1. Complete, correct and submit the form using the keyboard. Check that focus is visible and follows a logical order, and that required fields are identifiable before submission.
 2. Submit with several errors. Verify that entered values remain and each error can be located from the summary or submission feedback. Correct one field and check that the others still show their errors.
 3. Simulate a failed request and retry. Check that the draft remains available and success is communicated only after acceptance.
-4. Increase text size and test a narrow viewport separately. Repeat with forced colours. Check that labels, instructions, focus and errors remain visible and usable.
+4. Where autofill or a specialised input is offered, check that people can enter and correct values manually. Confirm that autofill puts the expected information in the right fields when it is enabled.
+5. Increase text size and test a narrow viewport separately. Repeat with forced colours. Check that labels, instructions, focus and errors remain visible and usable.
 
 ## Sources
 
