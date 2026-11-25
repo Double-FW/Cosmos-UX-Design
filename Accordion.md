@@ -65,13 +65,13 @@ Rule identifier: `gel-foundations-accordions`
 
 Run these checks on a group of two or more items. Include a link or other interactive element in a test panel so you can check its tab order. For the custom-button variant, inspect the explicit ARIA attributes. For the native variant, check the browser’s exposed state. Use the project’s supported browsers, input devices and assistive technologies. Record the environment, result and any reason a check did not apply or was not run.
 
-| Source expectations | Method and action | Expected result |
-| --- | --- | --- |
-| 1, 12 | Inspect the document structure. Find each control and its panel. | The group has at least two control–panel pairs. Each panel follows its control or enclosing heading in source order. |
-| 2, 9 | Tab to each header. Press Enter to open a closed panel and Space to close an open panel where closing is allowed. Repeat the allowed transitions with a mouse and touch. | Each input opens or closes the correct panel. During keyboard activation, focus stays on the header. |
-| 3–6 | Inspect each header when open and closed, including in forced colours. Read the label and listen to its accessible name and state with a screen reader. | The control stays visible, looks interactive and has a label that identifies its panel. A visible marker communicates the state. The screen reader exposes the control, its name and state. |
-| 7–8 | Inspect each custom button and panel before and after activation. | The button references the correct panel. `aria-expanded` is `true` when open and `false` when closed. Every affected button updates when the visible panel changes. |
-| 10–11 | Start with a collapsed panel. Read past the control with a screen reader and Tab past it. Return to the control, open the panel and repeat. Close it again where allowed. | The closed content is invisible, absent from screen reader navigation and skipped by Tab. Once open, it follows its control in reading order and its interactive elements are reachable. After closing, the content leaves reading and focus order again. |
+| Method and action | Expected result |
+| --- | --- |
+| Inspect the document structure. Find each control and its panel. | The group has at least two control–panel pairs. Each panel follows its control or enclosing heading in source order. |
+| Tab to each header. Press Enter to open a closed panel and Space to close an open panel where closing is allowed. Repeat the allowed transitions with a mouse and touch. | Each input opens or closes the correct panel. During keyboard activation, focus stays on the header. |
+| Inspect each header when open and closed, including in forced colours. Read the label and listen to its accessible name and state with a screen reader. | The control stays visible, looks interactive and has a label that identifies its panel. A visible marker communicates the state. The screen reader exposes the control, its name and state. |
+| Inspect each custom button and panel before and after activation. | The button references the correct panel. `aria-expanded` is `true` when open and `false` when closed. Every affected button updates when the visible panel changes. |
+| Start with a collapsed panel. Read past the control with a screen reader and Tab past it. Return to the control, open the panel and repeat. Close it again where allowed. | The closed content is invisible, absent from screen reader navigation and skipped by Tab. Once open, it follows its control in reading order and its interactive elements are reachable. After closing, the content leaves reading and focus order again. |
 
 ### Variant and fallback checks
 
