@@ -7,6 +7,8 @@ Incorporating motion and animation into a user interface can benefit users by ma
 
 > Web technologies that use video, animated gifs, animated pngs, animated SVGs, Canvas, and CSS or JavaScript animations are all capable of content that can induce seizures or other incapacitating physical reactions. Certain visual patterns, especially stripes, can also cause physical reactions, even though they are not animated. [^1]
 
+The image or media filenames in these examples stand for assets supplied by the implementing project.
+
 ## Reduced motion preferences
 
 Users who know they are likely to be affected by motion can register their preference for reduced motion in their operating system or the web browser.
@@ -55,66 +57,55 @@ els.forEach(el => io.observe(el));
 
 ### Background video
 
-In this example, the video is presentational, meaning it does not add any content or context that must be made available to screen reader users. Additionally, it is adjacent to (overlaid) text content. In this example, the text is the core content, so the video is considered decorative and should not play if it interferes with the user reading it.
-
-If the user has enabled the `prefers-reduced-motion` option, the background video does not play, and the static image in the HTML `video` element's `poster` attribute is shown instead. Additionally, even if the user has not set their reduced motion preference (possibly because they are using a device they cannot adjust, like a workplace or library computer), we show a button that will stop the video from playing.
+For a decorative background video, keep the message readable without the video. Provide a still image for reduced-motion users and an operable way to stop playback. Supply the media filenames from your project.
 
 ```html
-<div class="video-card">
-  <button type="button" class="btn-close video-pause" aria-label="stop video" onclick="videoStop(this)"></button>
-  <video class="video-player" playsinline muted loop poster="/demos/foundations/motion/street-scene.jpg" style="width: 100%">
-    <source src="/demos/foundations/motion/street-scene.mp4" type="video/mp4">
-    Your device does not support video.
+<article>
+  <h3>Find us on the high street</h3>
+  <p>Our shop is open Monday to Saturday.</p>
+  <video id="shop-background" aria-hidden="true" playsinline muted loop
+         poster="street-scene.jpg" style="max-inline-size: 100%">
+    <source src="street-scene.mp4" type="video/mp4">
   </video>
-  <div class="video-text">
-    <h3>We're on the high street!</h3>
-    <p>Find us on the web and around the corner: we're wherever you want to be. Locate <a href="#find-us">our nearest shop</a>.</p>
-  </div>
-</div>
-```
+  <button id="shop-motion" type="button" hidden>Pause background video</button>
+</article>
 
-{% demoiframe
-   title="Background video.",
-   head="<link rel=\"stylesheet\" href=\"/demos/foundations/motion/motion.css\">"
-%}
 <script>
-(function() {
-  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (mq && !mq.matches) {
-  document.documentElement.classList.add('motion');
-  }
-})();
-function videoStop(el) {
-  var v = el.nextElementSibling;
-  v && v.pause();
-  document.documentElement.classList.remove('motion');
-}
-</script>
-<div class="video-card">
-  <button type="button" class="btn-close video-pause" aria-label="stop video" onclick="videoStop(this)"></button>
-  <video class="video-player" playsinline muted loop poster="/demos/foundations/motion/street-scene.jpg" style="width: 100%">
-    <source src="https://dsl9vjk5edbno.cloudfront.net/street-scene.webm" type="video/webm">
-    <source src="https://dsl9vjk5edbno.cloudfront.net/street-scene.mp4" type="video/mp4">
-  </video>
-  <div class="video-text">
-    <h3>We're on the high street!</h3>
-    <p>Find us on the web and around the corner: we're wherever you want to be. Locate <a href="#find-us">our nearest shop</a>.</p>
-  </div>
-</div>
-<script>
-(function() {
-  var io = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry){
-  if (entry.isIntersecting && document.documentElement.classList.contains('motion')) {
-  entry.target.play();
-  }
+  const shopVideo = document.getElementById('shop-background');
+  const shopMotionButton = document.getElementById('shop-motion');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  shopVideo.addEventListener('play', () => {
+    shopMotionButton.textContent = 'Pause background video';
+    shopMotionButton.hidden = false;
   });
-  }, { threshold: [0] });
-  var els = document.querySelectorAll('.video-card video');
-  els.forEach(function(el) { io.observe(el); } );
-})();
+
+  shopVideo.addEventListener('pause', () => {
+    shopMotionButton.textContent = 'Play background video';
+  });
+
+  shopMotionButton.addEventListener('click', () => {
+    if (shopVideo.paused) {
+      shopVideo.play().catch(() => {});
+    } else {
+      shopVideo.pause();
+    }
+  });
+
+  reducedMotion.addEventListener('change', (event) => {
+    if (event.matches) shopVideo.pause();
+  });
+
+  if (!reducedMotion.matches && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      observer.disconnect();
+      if (!reducedMotion.matches) shopVideo.play().catch(() => {});
+    });
+    observer.observe(shopVideo);
+  }
 </script>
-{% enddemoiframe %}
+```
 
 ## Autoplay
 

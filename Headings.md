@@ -11,6 +11,8 @@ Within a web page, headings are used to communicate the overall organization and
 
 A WebAIM survey of screen reader users revealed that 67.5% of respondents are most [likely to try headings first](https://webaim.org/projects/screenreadersurvey7/#finding) to find information on a lengthy web page. And 85.7% said that [having proper heading levels ](https://webaim.org/projects/screenreadersurvey9/#heading) was useful when when navigating a web page by headings. Failing to provide usable and well organized headings disables users from understanding your content and from being able to use assistive technologies to navigate within your page efficiently. While headings are useful for everyone, users of assistive technology are excluded more than others when headings are missing or improperly implemented.
 
+For page-structure context, see [Structure](Structure.md#headings).
+
 ## Checks
 
 For each web page under test, perform the following checks. Record an answer, "yes" or "no" to each question. The passing result is indicated in uppercase. For each failing result, document it either as a defect or else provide an explanation of why it should be allowed as an exception or why it is not applicable.

@@ -26,7 +26,7 @@ For each web page under test, perform the following checks. Record an answer, "y
 - Is the web page header content identified using the `header` landmark? [Y/n]
 - Is the web page footer content identified using the `footer` landmark? [Y/n]
 - Considering other landmarks, if they are used, does each correctly communicate the content it contains: `section`, `article`, `aside`?
-- If a skip link exists, is that link at or near the top of the web page and can it be used when navigating by keyboard to junp to the main content? [Y/n]
+- If a skip link exists, is that link at or near the top of the web page and can it be used when navigating by keyboard to jump to the main content? [Y/n]
 
 ## Additional Testing Methods and Strategies
 
@@ -34,22 +34,4 @@ Navigating by HTML landmarks is a technique that can be used by both sighted and
 
 ## Examples and Additional Information
 
-For users who do not have access to navigate-by-landmark features built into their web browser or assistive technology, you may provide what are know as "skip links" as a feature of the web page itself. The skip links should be the first content in the body of the web page and should link to the content identified using the `main` landmark.
-
-```html
-<body>
-    <nav>
-        <a class="show-on-focus" href="#main">Skip to main content.</a>
-        <!-- additional navigation and header content -->
-    </nav>
-
-    <main id="main">
-        The main content...
-    </main>
-    
-    ...
-```
-
-This is most helpful for users that would otherwise have to scan through lots of navigation links and header content with a keyboard for example before getting to the content they actually want to access.
-
-It is acceptable to hide these skip link to avoid cluttering the web page for users who navigate by pointer (mouse or touch for example) [by applying CSS](https://css-tricks.com/how-to-create-a-skip-to-content-link/) that causes the link to be visually hidden until it receives keyboard focus.
+Use the [landmark markup](Structure.md#applying-regions) and the [skip-link example](Structure.md#the-main-landmark). Check that the skip link is easy to reach near the start of keyboard navigation, is visible when focused, and moves the user into the main content.

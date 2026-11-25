@@ -47,7 +47,7 @@ Failing to set the language will likely harm your web page search engine ranking
 
 ### Make titles specific enough to be distinct
 
-The title of a web page should be specific enough that it can be used to distinguish that particular web page from any other page across the entire website. By following this rule you should end up with each web page having a unique title; otherwise the implication is that the chosen title was either not specific enough in its description or else you have multiple web pages with the same content.
+Use a unique, descriptive title. See the [document title example](Structure.md#document-title) and its guidance for title changes in a single-page application.
 
 ### Don't disable pinch and spread to zoom
 

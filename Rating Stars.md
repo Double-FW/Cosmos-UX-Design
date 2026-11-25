@@ -5,11 +5,11 @@ description: Used to display or enter a feedback rating on a 1 to 5 star scale.
 
 ## Displaying rating stars
 
+The display snippets show the markup and accessible text. Supply the star graphics and styles in the host design system.
+
 The rating stars pattern is a well-established way of communicating an average user-ratings result. Because the stars are graphical, you must provide a text alternative to the rating content. When displaying the rating stars, we hide the icons from screen readers using an `aria-hidden` attribute while providing the information as visible text close by.
 
-{% aside "aside-info" %}
 There is no need to attempt to create an _identical_ experience for screen readers. It is less useful to hear a summary like, "rating: three solid stars and two outlined stars." It leaves the user to wonder which kind of star is "selected" and what order the stars might be in. Instead, communicate the information, not the presentation: "rating: three out of five."
-{% endaside %}
 
 ```html
 <div class="display-star-rating">
@@ -17,18 +17,6 @@ There is no need to attempt to create an _identical_ experience for screen reade
   <p>Average rating: 3 (out of 5)</p>
 </div>
 ```
-
-%source(src/demos/components/rating-stars/display-rating-stars.css#1-14)
-
-{% demoiframe
-   title="Native HTML.",
-   head="<link rel=\"stylesheet\" href=\"/demos/components/rating-stars/display-rating-stars.css\">"
-%}
-<div class="display-star-rating">
-  <div class="display-star-group" aria-hidden="true" role="img" style="width: 5em"><span class="display-star-value" style="width:3em"></span></div>
-  <p>Average rating: 3 (out of 5)</p>
-</div>
-{% enddemoiframe %}
 
 > Screen reader: "Average rating: 3 (out of 5)"
 
@@ -43,21 +31,9 @@ You can adjust the number of possible stars and the number of filled-in stars by
 </div>
 ```
 
-{% demoiframe
-   title="Customizing display.",
-   head="<link rel=\"stylesheet\" href=\"/demos/components/rating-stars/display-rating-stars.css\">"
-%}
-<div class="display-star-rating">
-  <div class="display-star-group display-star-gold" aria-hidden="true" role="img" style="font-size: 2rem; width: 10em"><span class="display-star-value" style="width: 4.5em"></span></div>
-  <p>Average rating: 4.5 (out of 10)</p>
-</div>
-{% enddemoiframe %}
-
 ### Supporting internationalization
 
-When displaying rating stars in languages that are from read right to left, the order of the stars should follow the same direction the text is written in and appear in right-to-left order. The CSS below will flip and reorder the icons based on the presence of an HTML `dir` attribute with the value of `rtl`.
-
-%source(src/demos/components/rating-stars/display-rating-stars.css#15-18)
+When displaying rating stars in languages read from right to left, the order of the stars should follow the same direction the text is written in and appear in right-to-left order. Use an HTML `dir` attribute with the value `rtl` and test that the project’s star styling follows the resulting reading direction.
 
 ```html
 <div class="display-star-rating" dir="rtl" lang="ar">
@@ -65,16 +41,6 @@ When displaying rating stars in languages that are from read right to left, the 
   <p>متوسط ​​التصنيف: 6.5 نجوم</p>
 </div>
 ```
-
-{% demoiframe
-   title="Internationalization.",
-   head="<link rel=\"stylesheet\" href=\"/demos/components/rating-stars/display-rating-stars.css\">"
-%}
-<div class="display-star-rating" dir="rtl" lang="ar">
-  <div class="display-star-group" aria-hidden="true" role="img" style="width: 10em"><span class="display-star-value" style="width: 6.5em"></span></div>
-  <p>متوسط ​​التصنيف: 6.5 نجوم</p>
-</div>
-{% enddemoiframe %}
 
 ## Interactive star rating
 
@@ -98,13 +64,12 @@ In the case of the ratings star component, the problem for sighted users would b
 
 ### Touch target size
 
-The W3C recommends a minimum target size of 44px x 44px for interactive elements to ensure users can activate them accurately. [^1] This requirement is specifically helpful for touchscreen users and people with motor control difficulties. Ensure there is enough room, for example, to allow a user on a bus, holding a phone with one hand, to press the rating they wish to accurately.
+Use 44 × 44 CSS pixels as the design target for each interactive star. Adjacent options should be easy to select individually. This target draws on the cited WCAG 2.1 Target Size criterion (Level AAA). [^1]
 
 ## Example implementation
 
-%source(src/demos/components/rating-stars/rating-stars.css)
+The example shows native radio inputs. Place the group in a form with a submit button and a working submission endpoint. The star styling and target sizing are supplied by the implementing project. Keep the visible labels until that styling is available.
 
-%source(src/demos/components/rating-stars/rating-stars.js)
 
 ```html
 <fieldset class="star-rating">
@@ -121,30 +86,8 @@ The W3C recommends a minimum target size of 44px x 44px for interactive elements
     <input type="radio" name="rating" value="5" id="rating5">
     <label for="rating5">5 stars</label>
   </div>
-  <p>Average rating: 4.6</p>
 </fieldset>
 ```
-
-{% demoiframe
-   title="Interactive rating stars example",
-   head="<link rel=\"stylesheet\" href=\"/demos/components/rating-stars/rating-stars.css\"><script src=\"/demos/components/rating-stars/rating-stars.js\"></script>"
-%}
-<fieldset class="star-rating">
-  <legend>Your rating:</legend>
-  <div class="star-group">
-    <input type="radio" name="rating" value="1" id="rating1">
-    <label for="rating1">1 star</label>
-    <input type="radio" name="rating" value="2" id="rating2">
-    <label for="rating2">2 stars</label>
-    <input type="radio" name="rating" value="3" id="rating3">
-    <label for="rating3">3 stars</label>
-    <input type="radio" name="rating" value="4" id="rating4">
-    <label for="rating4">4 stars</label>
-    <input type="radio" name="rating" value="5" id="rating5">
-    <label for="rating5">5 stars</label>
-  </div>
-</fieldset>
-{% enddemoiframe %}
 
 > Screen reader: "1 star, radio button, 1 of 5, Your rating:, group"
 > Screen reader: "selected, 1 star, radio button, 1 of 5"
@@ -162,10 +105,7 @@ By applying the `dir` attribute with a value of `rtl` (right to left), the compo
 </fieldset>
 ```
 
-{% demoiframe
-   title="Interactive rating stars left to right example",
-   head="<link rel=\"stylesheet\" href=\"/demos/components/rating-stars/rating-stars.css\"><script src=\"/demos/components/rating-stars/rating-stars.js\"></script>"
-%}
+```html
 <fieldset class="star-rating" dir="rtl" lang="ar">
   <legend>تقييم بالنجوم</legend>
   <div class="star-group">
@@ -181,7 +121,7 @@ By applying the `dir` attribute with a value of `rtl` (right to left), the compo
     <label for="rating-ar5">5 نجوم</label>
   </div>
 </fieldset>
-{% enddemoiframe %}
+```
 
 ## Checkpoints for the Tester
 
@@ -190,7 +130,7 @@ By applying the `dir` attribute with a value of `rtl` (right to left), the compo
 3. Enable automatic dark mode rendering [^8] (applying a forced color mode of a light foreground on dark background). Confirm that the star icons are all visible and indicate a filled or empty state. While in dark mode, ensure that focus indication is visible when navigating by keyboard and shows which star currently has focus.
 4. Using a screen reader, move focus into the interactive rating star group. Ensure that the screen reader announces that the items are "stars," which number star currently has focus, if the currently focused star is selected or unselected, and what the total number of stars is.
 5. With JavaScript disabled, ensure it is possible to see the star rating value. For interactive rating, ensure it is possible to enter and submit a rating.
-6. For interactive rating, ensure that the touch target area of each star is no smaller than 44 by 44 CSS pixels at all supported screen sizes.
+6. For this pattern, check each star’s interactive area against the 44 × 44 CSS pixel design target.
 7. With the text size enlarged to 200% of its default size, ensure that the touch target area scales in relation to the surrounding text. Ensure that the star icons cover the entire touch target area for interactive rating.
 8. Ensure that the focus indication and the filled-in status of each star do not depend solely on a color difference and that the contrast of the indication is sufficient.
 

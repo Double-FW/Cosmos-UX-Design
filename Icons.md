@@ -3,6 +3,10 @@ title: Icons
 description: When used judiciously, icons can improve usability and accessibility in webpages.
 ---
 
+The image or media filenames in these examples stand for assets supplied by the implementing project.
+
+The snippets use illustrative SVG filenames and class names. Supply your own icons and CSS before using them in a project.
+
 ## Summary
 
 Icons are an effective tool to emphasize and clarify your content. Used judiciously they can improve usability and accessibility for those with reading difficulties, visual impairments, neuro-cognitive differences or people who may not be adept with the language. However these benefits must be delivered in such a way so as to avoid creating barriers for blind users and others who rely upon screen reader (or braille display) devices.
@@ -21,18 +25,9 @@ Browsers have good support for using SVG graphics as `src` documents for our old
 
 ```html
 <a href="#accessibility" style="font-size:120%">
-  <img class="icon icon-inline icon-dark" src="/static/img/icons/icon-accessibility-symbol.svg" alt="">Accessibility settings
+  <img class="icon icon-inline icon-dark" src="icon-accessibility-symbol.svg" alt="">Accessibility settings
 </a>
 ```
-
-{% demoiframe
-   title="SVG as image",
-   head="<link rel=\"stylesheet\" href=\"/demos/icons.css\">"
-%}
-<a href="#accessibility" style="font-size:120%">
-  <img class="icon icon-inline icon-dark" src="/static/img/icons/icon-accessibility-symbol.svg" alt="">Accessibility settings
-</a>
-{% enddemoiframe %}
 
 > Screen reader: "link, Accessibility settings"
 
@@ -42,31 +37,18 @@ Notice that the image element has an `alt=""` attribute. This is because we are 
 
 While this is a usable solution, if you want to have more flexibility for changing the color of your icons or applying animations, use the `svg` element for icons.
 
-
 ### Controlling the color of SVGs
 
 Using CSS to control the color of individual components in an `svg` element is very flexible and relatively straightforward. It is possible however to affect the color of an `img` element that uses an SVG graphic as its source by using a CSS filter. The style rule below for example, when added to an `img` element, will modify the color of a black SVG to green.
 
-%source(src/demos/icons.css#22-24)
-
 ```html
-<img class="icon icon-inline" src="/static/img/icons/icon-accessibility-symbol.svg" alt="Accessibility">
-<img class="icon icon-inline filter-green" src="/static/img/icons/icon-accessibility-symbol.svg" alt="Accessibility">
+<img class="icon icon-inline" src="icon-accessibility-symbol.svg" alt="Accessibility">
+<img class="icon icon-inline filter-green" src="icon-accessibility-symbol.svg" alt="Accessibility">
 ```
-
-{% demoiframe
-   title="SVG as image",
-   head="<link rel=\"stylesheet\" href=\"/demos/icons.css\">"
-%}
-<img class="icon icon-inline" src="/static/img/icons/icon-accessibility-symbol.svg" alt="Accessibility">
-<img class="icon icon-inline filter-green" src="/static/img/icons/icon-accessibility-symbol.svg" alt="Accessibility">
-{% enddemoiframe %}
 
 ## Managing SVG icons
 
 SVG icon definitions, the mathematical points, paths, strokes, and fill data that tell the browser how to draw the icon, must be made available in your HTML document. You can inline this data _in situ_ each time you wish an icon to be shown. [^3] I personally prefer to define all the icon definitions I intend to use together in one place, and then refer to those definitions whenever I want one to be shown. For example, this SVG icon set includes only two icon symbols representing the accessibility icon and a popular social media brand, but it could logically have any number of named symbols.
-
-%source(src/demos/icons.svg)
 
 ```html
 <a href="https://example.com/accessibility" style="color:rebeccapurple">
@@ -76,10 +58,7 @@ SVG icon definitions, the mathematical points, paths, strokes, and fill data tha
 </a>
 ```
 
-{% demoiframe
-   title="Managing SVG assets",
-   head="<link rel=\"stylesheet\" href=\"/demos/icons.css\">"
-%}
+```html
 <span class="visually-hidden" aria-hidden="true">
   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
@@ -96,7 +75,7 @@ SVG icon definitions, the mathematical points, paths, strokes, and fill data tha
     <use href="#icon-accessibility" xlink:href="#icon-accessibility"></use>
   </svg>Accessibility Settings
 </a>
-{% enddemoiframe %}
+```
 
 > Screen reader: "link, Accessibility settings"
 
@@ -136,9 +115,7 @@ A common example where this becomes important is when an icon is used as the onl
 <a href="/"><img src="icon-home.png" alt="Home"></a>
 ```
 
-{% aside "aside-info" %}
 By default the accessible name of a link is the text content of the element. In the first link shown the name is the text \"Home\". Since the second link shown uses an `img` icon the `alt="Home"` attribute provides the accessible name instead
-{% endaside %}
 
 ## Providing text equivalents
 
@@ -146,13 +123,9 @@ Icons are graphical, so their meaning can't be perceived by blind or visually im
 
 The best supported and most straightforward technique for providing equivalent text to an icon is to treat the icon as if it were purely decorative and use visible text to supply meaning. The visible text will naturally be supported by every user-agent, consistently available to every screen reader and to sighted users as well. In particular this has the benefit of increasing understandability for sighted users who may not recognise the meaning of an icon alone: users with cognitive, nuerodivergent, or socio-cultural differences for example.
 
-{% figure "Examples of ISO-7000 icons that may be confusing to you initially if there were no accompanying text to explain what these graphical symbols represent (from left to right): Washing solution, Automatic (engine) transmission, and Disinfectant for floor and walls." %}
-<img class="figure-img img-fluid" src="/static/img/icons/example-icons.jpg" alt="">
-{% endfigure %}
+Examples of ISO-7000 icons that may be confusing to you initially if there were no accompanying text to explain what these graphical symbols represent (from left to right): Washing solution, Automatic (engine) transmission, and Disinfectant for floor and walls.
 
 The following CSS visually styles the icons used in the demonstrations below, but this can be adjusted to suit your own designs. The `svg` elements are styled to adapt fully with their surrounding text: the `fill` and `stroke` properties are set to match whatever the `currentColor` is, and the `width` and `height` are measured in the relative unit `em` which will allow the icon to naturally resize along with the surrounding text.
-
-%source(src/demos/icons.css#1-20)
 
 In the example below the icon is assigned the `aria-hidden="true"` attribute because while we want the icon to be visible, it is not necessary for screen reader users to understand the meaning of the link: the text already provides that meaning. Similarly no SVG `title` element or other alternative text accommodation is needed either.
 
@@ -165,10 +138,7 @@ We're on the socials!
 </a>
 ```
 
-{% demoiframe
-   title="Text equivalents.",
-   head="<link rel=\"stylesheet\" href=\"/demos/icons.css\">"
-%}
+```html
 <span class="visually-hidden" aria-hidden="true">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
@@ -185,7 +155,7 @@ We're on the socials!
 <use href="#icon-mastodon" xlink:href="#icon-mastodon"></use>
 </svg>Toot us on Mastodon
 </a>
-{% enddemoiframe %}
+```
 
 > Screen reader: "We're on the socials!"
 > Screen reader: "link, Toot us on Mastodon"
@@ -208,10 +178,7 @@ A simpler approach  is to continue to supply equivalent text alongside the icon 
 </a>
 ```
 
-{% demoiframe
-   title="Visually hidden text.",
-   head="<link rel=\"stylesheet\" href=\"/demos/icons.css\">"
-%}
+```html
 <span class="visually-hidden" aria-hidden="true">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
@@ -227,7 +194,7 @@ A simpler approach  is to continue to supply equivalent text alongside the icon 
     <use href="#icon-mastodon" xlink:href="#icon-mastodon"></use>
   </svg><span class="visually-hidden">Toot us on Mastodon</span>
 </a>
-{% enddemoiframe %}
+```
 
 > Screen reader: "link, Toot us on Mastodon"
 
@@ -249,10 +216,7 @@ The recommendations and caveats above can be applied to icons used as button con
 </button>
 ```
 
-{% demoiframe
-   title="Visually hidden text.",
-   head="<link rel=\"stylesheet\" href=\"/demos/icons.css\">"
-%}
+```html
 <span class="visually-hidden" aria-hidden="true">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
@@ -274,7 +238,7 @@ The recommendations and caveats above can be applied to icons used as button con
     <use href="#icon-mastodon" xlink:href="#icon-mastodon"></use>
   </svg><span class="visually-hidden">Mastodon </span> Send toot
 </button>
-{% enddemoiframe %}
+```
 
 > Screen reader: "Load more toots from Mastodon, button.
 > Mastodon Send toot, button, group."
@@ -315,12 +279,7 @@ document.addEventListener('click', function (event) {
 
 The animation is implemented using CSS `keyframes`. Crucially however, both the CSS and the JS defer to a media query that has information about the user's system settings: whether or not they have indicated they prefer an interface with reduced animation, [^6]  `window.matchMedia('(prefers-reduced-motion: no-preference)')`. Users who have the preference enabled should see no animated icon at all, only the change in the button text to inform them that the upload feature is working.
 
-%source(src/demos/icons.css#26-35)
-
-{% demoiframe
-   title="Spinner icon.",
-   head="<link rel=\"stylesheet\" href=\"/demos/icons.css\">"
-%}
+```html
 <span class="visually-hidden" aria-hidden="true">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
@@ -357,7 +316,7 @@ window.addEventListener('load', function() {
   });
 });
 </script>
-{% enddemoiframe %}
+```
 
 > Sreen reader: "Upload, button, group"
 > Sreen reader: "Sending"
