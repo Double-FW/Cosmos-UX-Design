@@ -7,6 +7,8 @@ description: "Cards in a collection."
 
 Use an unordered list for a collection of peer cards. Introduce the collection with a heading and use the next heading level for each card headline. Place the headline first in text reading order. Describe a salient image when people need its information to choose a card. See [Functional Alternative Text](Functional%20Alternative%20Text.md).
 
+For cards whose primary purpose is to link to featured content, follow [Promotional Cards](Promotional%20Cards.md) for headline structure, image order and link behaviour.
+
 ## Markup example
 
 Replace the sample routes with the destination URLs.
