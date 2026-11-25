@@ -46,6 +46,17 @@ Using CSS to control the color of individual components in an `svg` element is v
 <img class="icon icon-inline filter-green" src="icon-accessibility-symbol.svg" alt="Accessibility">
 ```
 
+```css
+.icon-inline {
+  inline-size: 1em;
+  block-size: 1em;
+  vertical-align: text-top;
+  fill: currentColor;
+}
+```
+
+Use this rule for an inline, filled icon. For a line icon, use `stroke: currentColor` and preserve its intended fill. Check the result after text resizing and in forced colours.
+
 ## Managing SVG icons
 
 SVG icon definitions, the mathematical points, paths, strokes, and fill data that tell the browser how to draw the icon, must be made available in your HTML document. You can inline this data _in situ_ each time you wish an icon to be shown. [^3] I personally prefer to define all the icon definitions I intend to use together in one place, and then refer to those definitions whenever I want one to be shown. For example, this SVG icon set includes only two icon symbols representing the accessibility icon and a popular social media brand, but it could logically have any number of named symbols.
@@ -85,11 +96,11 @@ SVG data is readily compatible with web component-based frameworks like React. F
 export const AccessibilityIcon = () => {
   return (
     <svg
-      hidden="true"
+      aria-hidden="true"
       role="img"
       focusable="false"
       viewBox="0 0 32 32"
-      xmlns="<http://www.w3.org/2000/svg>"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M13 3c0-1.657 1.343-3 3-3s3 1.343 3 3c0 1.657-1.343 3-3 3s-3-1.343-3-3z"></path>
       <path d="M20 10l10.3-4.443-0.743-1.857-12.557 4.3h-2l-12.557-4.3-0.743 1.857 10.3 4.443v8l-4.102 13.268 1.87 0.709 5.804-12.977h0.857l5.804 12.977 1.87-0.709-4.102-13.268z"></path>
@@ -243,104 +254,78 @@ The recommendations and caveats above can be applied to icons used as button con
 > Screen reader: "Load more toots from Mastodon, button.
 > Mastodon Send toot, button, group."
 
+### Tooltips
+
+Give an icon-only control its accessible name before anyone focuses or hovers over it. Use a visible label where space permits, or use [visually hidden text](Anchors%20and%20Links.md#link-content) inside the control. A tooltip can repeat that label visually or provide extra help. Make the tooltip available on keyboard focus as well as pointer hover. Keep essential instructions visible for people using touch, and avoid relying on the HTML `title` attribute to provide them.
+
 ## Spinner icon
 
-Spinners icons are a widely recognized signal to sighted users that some process is underway and that they should wait for that process to complete. As graphical elements these can be implemented using icons and CSS animations.
+Use visible status text for an operation that takes time. A spinner can reinforce the message. Keep the control’s name stable and put routine updates in a separate [status region](Dynamic%20Content.md#status-messages) that exists before the first update. The operation’s actual state determines the message. Reduced motion controls whether the spinner animates.
 
-The `button` has an `aria-labelledby` attribute that provides an HTML element `id` reference to the element that acts as the button's accessible name. This name is read out by screen readers when the button gets focus.
-
-When the icon changes to a spinner as a visual way of indicating new state, it is necessary to signal this change to the screen reader. In the example below an `aria-live` attribute [^5] is added to an element within the button. Any changes to text within an `aria-live` element will then be announced by the screen reader (interrupting if necessary, due to the `assertive` value), notifying the user of the changed status.
+This fragment illustrates the pending, successful and failed states. The host application starts the upload and calls `setUploadStatus` as it progresses. The fragment does not start a network request.
 
 ```html
-<button id="button-upload" aria-labelledby="status-upload" class="btn btn-primary">
-  <svg aria-hidden="true" focusable="false" role="img" class="icon icon-inline icon-upload">
-    <use href="#icon-upload" xlink:href="#icon-upload"></use>
-  </svg>
-  <svg aria-hidden="true" focusable="false" role="img" class="icon icon-inline spinner hidden">
-    <use href="#icon-spinner" xlink:href="#icon-spinner"></use>
-  </svg>
-  <span id="status-upload" role="alert" aria-live="assertive">Upload</span>
-</button>
-```
+<button type="button">Upload</button>
+<p role="status">
+  <span id="upload-spinner" class="upload-spinner" aria-hidden="true" hidden></span>
+  <span id="upload-status"></span>
+</p>
 
-JavaScript is necessary to toggle the visual display of the icons, which are always hidden from screen readers using `aria-hidden="true"`, and to update the text in the `aria-live` element. The screen reader will announce this change of text.
-
-```js
-document.addEventListener('click', function (event) {
-  if (!event.target.closest('#button-upload')) return;
-  var els = document.querySelectorAll('#button-upload .icon-upload, #button-upload .icon-spinner');
-  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-    els.forEach(function(el){el.classList.toggle('hidden')});
+<style>
+  .upload-spinner:not([hidden]) {
+    display: inline-block;
+    inline-size: 1em;
+    block-size: 1em;
+    border: 0.15em solid currentColor;
+    border-inline-end-color: transparent;
+    border-radius: 50%;
   }
-  var el = document.querySelector('#button-upload #status-upload');
-  el.innerText = els[1].classList.contains('hidden')? 'Upload':'Sending';
-});
-````
 
-The animation is implemented using CSS `keyframes`. Crucially however, both the CSS and the JS defer to a media query that has information about the user's system settings: whether or not they have indicated they prefer an interface with reduced animation, [^6]  `window.matchMedia('(prefers-reduced-motion: no-preference)')`. Users who have the preference enabled should see no animated icon at all, only the change in the button text to inform them that the upload feature is working.
-
-```html
-<span class="visually-hidden" aria-hidden="true">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<defs>
-<symbol id="icon-upload" viewBox="0 0 32 32">
-<title>Upload</title>
-<path d="M27.883 12.078c0.076-0.347 0.117-0.708 0.117-1.078 0-2.761-2.239-5-5-5-0.444 0-0.875 0.058-1.285 0.167-0.775-2.417-3.040-4.167-5.715-4.167-2.73 0-5.033 1.823-5.76 4.318-0.711-0.207-1.462-0.318-2.24-0.318-4.418 0-8 3.582-8 8s3.582 8 8 8h4v6h8v-6h7c2.761 0 5-2.239 5-5 0-2.46-1.777-4.505-4.117-4.922zM18 20v6h-4v-6h-5l7-7 7 7h-5z"></path>
-</symbol>
-<symbol id="icon-spinner" viewBox="0 0 32 32">
-<title>Spinner</title>
-<path d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 8c4.418 0 8 3.582 8 8s-3.582 8-8 8-8-3.582-8-8 3.582-8 8-8zM25.546 25.546c-2.55 2.55-5.94 3.954-9.546 3.954s-6.996-1.404-9.546-3.954-3.954-5.94-3.954-9.546c0-3.606 1.404-6.996 3.954-9.546l2.121 2.121c0 0 0 0 0 0-4.094 4.094-4.094 10.755 0 14.849 1.983 1.983 4.62 3.075 7.425 3.075s5.441-1.092 7.425-3.075c4.094-4.094 4.094-10.755 0-14.849l2.121-2.121c2.55 2.55 3.954 5.94 3.954 9.546s-1.404 6.996-3.954 9.546z"></path>
-</symbol>
-</defs>
-</svg>
-</span>
-<button id="button-upload" aria-labelledby="status-upload" class="btn btn-primary">
-  <svg aria-hidden="true" focusable="false" role="img" class="icon icon-inline icon-upload">
-    <use href="#icon-upload" xlink:href="#icon-upload"></use>
-  </svg>
-  <svg aria-hidden="true" focusable="false" role="img" class="icon icon-inline icon-spinner spinner hidden">
-    <use href="#icon-spinner" xlink:href="#icon-spinner"></use>
-  </svg>
-  &nbsp;<span id="status-upload" role="alert" aria-live="assertive">Upload</span>
-</button>
-<script>
-window.addEventListener('load', function() {
-  document.addEventListener('click', function (event) {
-    if (!event.target.closest('#button-upload')) return;
-    var els = document.querySelectorAll('#button-upload .icon-upload, #button-upload .icon-spinner');
-    if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-      els.forEach(function(el){el.classList.toggle('hidden')});
+  @media (prefers-reduced-motion: no-preference) {
+    .upload-spinner:not([hidden]) {
+      animation: upload-spin 1s linear infinite;
     }
-    var el = document.querySelector('#button-upload #status-upload');
-    el.innerText = els[1].classList.contains('hidden')? 'Upload':'Sending';
-  });
-});
+  }
+
+  @keyframes upload-spin {
+    to { transform: rotate(1turn); }
+  }
+</style>
+
+<script>
+  function setUploadStatus(state) {
+    const messages = {
+      pending: 'Uploading file…',
+      success: 'File uploaded.',
+      failure: 'Upload failed. Try again.'
+    };
+
+    document.getElementById('upload-spinner').hidden = state !== 'pending';
+    document.getElementById('upload-status').textContent = messages[state];
+  }
 </script>
 ```
 
-> Sreen reader: "Upload, button, group"
-> Sreen reader: "Sending"
-
-[^1]: All modern browsers and 98.88% of browsers in total support SVG displayed using the IMG tag. source: [caniuse.com](https://caniuse.com/svg-img)
-[^2]: "Inline SVG elements in IE are focusable by default which may cause issues with tab-ordering." [Require `svg` elements to have focusable attribute (svg-focusable)](https://html-validate.org/rules/svg-focusable.html)
-[^3]: All modern browsers and 98.84% of browsers in total support embedding the `svg` element inline with the HTML code. source: [caniuse.com](https://caniuse.com/svg-html5)
-[^4]: [_Providing Accessible Names and Descriptions_](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/#x5-4-naming-techniques), W3C ARIA Authoring Practices Guide (APG)
-[^5]: [_ARIA live regions_](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions), mdn web docs
-[^6]: [Detecting the desire for less motion on the page: the prefers-reduced-motion feature](https://drafts.csswg.org/mediaqueries-5/#prefers-reduced-motion) W3C Editor's Draft: Media Queries Level 5
-
 ## Checking icon states
 
-Pair changes of colour with a change in shape, orientation, border or text. Check informative graphics and state indicators against adjacent colours under the applicable non-text contrast rule. Keep decorative SVGs outside keyboard navigation. Where older supported engines expose them to focus, test `focusable="false"`. Give an icon-only control an accessible name. Make tooltip information available on focus as well as hover.
+Keep the visual icon and the control’s exposed information in sync. For a Play/Pause action, update the icon and the label together to describe the next action. For a toggle with a stable label, use its pressed state and change the icon’s shape or another visible cue. For a disclosure, update the icon and `aria-expanded` from the same state. See [Video Controls](Video%20Controls.md), [Disclosure](Disclosure.md) and [Colour and Meaning](Colour%20and%20Meaning.md).
 
 ### ACT-style checks
 
 Rule identifier: `gel-components-iconography`
 
-Check informative icons, decorative icons and state indicators separately. Apply contrast checks to graphics needed to understand the content or identify a control.
+Test decorative icons, meaningful icons and controls whose icons change with state. Apply each check to the relevant variant.
 
-1. Tab to the control and change its state.
-2. Check the icon adds no extra tab stop, the control has an understandable name and the state remains visible in forced colours.
-3. Where WCAG 2.1 criterion 1.4.11 applies, measure at least 3:1 contrast for the visual information needed to identify the control or state.
+| Method and action | Expected result |
+| --- | --- |
+| Tab through links and buttons containing SVGs. Where the project supports browsers that expose SVGs to focus by default, check the effect of `focusable="false"`. | Focus reaches the control. Its decorative SVG adds no tab stop. |
+| Measure icons and state indicators needed to understand content or identify a control against the relevant adjacent colours. | Where [WCAG 2.1 1.4.11 Non-text Contrast](https://www.w3.org/TR/WCAG21/#non-text-contrast) applies, the required visual information has at least 3:1 contrast. |
+| Change a control’s state. Look for a cue independent of hue and repeat in grayscale or forced colours. Compare the result with the name or state exposed to a screen reader. | A change in shape, orientation, border, text or another non-colour cue makes the state distinguishable. The exposed action or state agrees with the visible one. |
+
+### Tooltip and spinner checks
+
+1. Focus an icon-only control before its tooltip is displayed. Check that its accessible name identifies the action. Compare the tooltip on keyboard focus and pointer hover.
+2. Trigger a pending operation, then test success and failure. Repeat with reduced motion enabled. The same status text appears and is announced in both settings. The spinner remains still in reduced motion and disappears when the operation ends. Focus stays with the user.
 
 ### Related references
 
@@ -353,3 +338,10 @@ Check informative icons, decorative icons and state indicators separately. Apply
 - [WCAG2.1 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)
 - [WCAG2.1 1.4.1 Use Of Color](https://www.w3.org/TR/WCAG21/#use-of-color)
 - [non text contrast](https://www.w3.org/TR/WCAG21/#non-text-contrast)
+- [Live region guidance](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+- [Reduced-motion media feature](https://drafts.csswg.org/mediaqueries-5/#prefers-reduced-motion)
+
+[^1]: [SVG image support](https://caniuse.com/svg-img)
+[^2]: "Inline SVG elements in IE are focusable by default which may cause issues with tab-ordering." [Require `svg` elements to have focusable attribute (svg-focusable)](https://html-validate.org/rules/svg-focusable.html)
+[^3]: [Inline SVG support](https://caniuse.com/svg-html5)
+[^4]: [_Providing Accessible Names and Descriptions_](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/#x5-4-naming-techniques), W3C ARIA Authoring Practices Guide (APG)
