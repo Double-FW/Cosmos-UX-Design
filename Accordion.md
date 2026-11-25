@@ -41,3 +41,17 @@ If one section must always remain open, set `aria-disabled="true"` on the expand
 2. Check that closed content is absent visually and from screen reader navigation, and that opening a panel reveals it next in reading order.
 3. For a single-open version, open another panel and check that the previous one closes. If one panel must always stay open, check that the active header is still reachable by Tab, is announced as disabled and cannot close its own panel.
 4. With scripts blocked, verify that all sections can be read. With CSS disabled in a separate test, check that the controls and panels still work.
+
+## Grouped panels
+
+Use the shared [reveal behaviour](Cards%20-%20Reveal.md#custom-html) for each section. In a group, keep every header visible and identifiable when neighbouring panels change state.
+
+### ACT-style checks
+
+Rule identifier: `gel-foundations-accordions`
+
+Run on a group of two or more panels. Apply explicit ARIA attribute checks to the custom-button variant. Native disclosures expose their state through browser semantics.
+
+1. With two or more sections, operate each header by touch, pointer and keyboard.
+2. Check that focus stays on the activated header.
+3. Inspect the custom button’s expanded state after each change and verify that the next content in reading order belongs to that header.

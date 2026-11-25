@@ -147,3 +147,19 @@ The icon that appears on hover (or focus) is implemented as a background image t
 [^4]: "FaceTime in macOS 10.10 and later can also use the tel URL scheme to launch the Phone app on an iOS device using Handoff. This scenario works when FaceTime is configured to dial phone numbers (the default configuration) and the iOS device is connected to the same iCloud account as the Mac." [_Apple URL Scheme Reference_](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html)
 [^5]: "Standardized URI schemes have been defined for some common device functions, e.g. making phone calls, sending an SMS, and managing address books. These URI schemes, if supported, can enable users to easily use these functions from Web applications." [_Make Telephone Numbers "Click-to-Call"_, W3C Mobile Web Application Best Practices](https://www.w3.org/TR/mwabp/#bp-interaction-uri-schemes)
 [^6]: [telephone, A Schema.org Property](https://schema.org/telephone)
+
+## Groups of external destinations
+
+For a list of external links, use a descriptive heading and ordinary list markup. Explain a shared destination convention once where users will encounter it. If one link behaves differently, explain that behaviour on the link. Keep decorative icons out of the accessible name when adjacent text already explains them.
+
+### Checkpoints for the tester
+
+1. Review an inline link on its own and the external-link list in context.
+2. Check that the destination and any new-window behaviour are understandable with a keyboard, a screen reader and forced colours.
+
+### Related references
+
+- [windows use high contrast mode](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
+- [Visually hidden text example](https://gist.github.com/Heydon/c8d46c0dd18ce96b5833b3b564e9f472)
+- [Removing SVG Keyboard Focus in IE](https://websemantics.uk/articles/removing-svg-keyboard-focus-in-internet-explorer/)
+- [VoiceOver and list-style-type: none](https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/)

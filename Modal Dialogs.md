@@ -96,3 +96,21 @@ Use the [W3C ARIA Authoring Practices Guide for modal dialogs][modal-pattern] if
 8. With the enhancement script blocked, verify that the user can reach any essential information or action by the documented fallback.
 
 [modal-pattern]: https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
+
+## Interrupting a task
+
+Use a heading that identifies the decision and label each action with its consequence. Preserve access to the underlying task after cancellation. Keep the boundary of the dialog and its controls visible in forced colours.
+
+### Checkpoints for the tester
+
+1. Open the dialog from a control midway through a page.
+2. Check initial focus, read the heading and choices, cancel, and resume at the trigger.
+3. Repeat with the confirming action and check the resulting destination.
+
+### Related references
+
+- [windows use high contrast mode](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
+- [Modal window (Wikipedia)](https://en.wikipedia.org/wiki/Modal_window)
+- [Visually hidden text example](https://gist.github.com/Heydon/c8d46c0dd18ce96b5833b3b564e9f472)
+- [Notifications (Inclusive Components blog)](https://inclusive-components.design/notifications/)
+- [The current state of modal dialog accessibility](https://developer.paciellogroup.com/blog/2018/06/the-current-state-of-modal-dialog-accessibility/)

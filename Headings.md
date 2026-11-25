@@ -86,3 +86,19 @@ A better solution would be to add a level to the content by breaking the topic i
 ### Appearance of headings
 
 A sighted user may want to visually quickly glance across a web page to find the heading that interests them. Headings should be visually identifiable, typically by being larger and more distinct than any surrounding text. Making headings more visually findable will be helpful for users with cognitive or visual disabilities.
+
+## Testing the page outline
+
+For a template that requires one primary heading at the start of main content, check its wording against the document title. Make each section heading the first meaningful text in that section and choose its rank from its place in the outline.
+
+### ACT-style checks
+
+Rule identifier: `gel-foundations-headings`
+
+Use a page template with a single primary heading and nested sections. The title-matching and first-heading checks are template conventions.
+
+1. Compare the visual outline with the screen reader heading list.
+2. A page headed ‘Search results for trains’ can have the title ‘Search results for trains | Journey planner’.
+3. Two primary headings splitting that phrase would obscure the page subject.
+4. Within a level-two section, introduce a child with level three.
+5. Flag a level-four heading that skips its parent, or content that appears before the heading intended to introduce it.
