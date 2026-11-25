@@ -1,9 +1,11 @@
 ---
-title: Cards - Reveal
-description: A card that uses a disclosure component which can be used to reveal or hide additional content.
+title: Disclosure (show and hide content)
+description: Show or hide supplementary content in place.
 ---
 
-Use a reveal card when secondary information can sit immediately after its control. Choose a label that identifies the content being revealed, especially where several cards appear together.
+# Disclosure (show and hide content)
+
+Use a disclosure when people can choose whether to read supplementary information in place. Give the control a label that identifies the content it reveals. Keep focus on the control when it opens or closes the panel.
 
 ## Presentation
 

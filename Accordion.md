@@ -13,7 +13,7 @@ Give each section a descriptive title and a visible expanded or collapsed indica
 
 ### Native HTML
 
-Build on the [native disclosure example](Cards%20-%20Reveal.md#native-html) for sections that can open independently. A shared `name` on the `details` elements can make their panels mutually exclusive in supporting browsers. If grouping is unsupported, users can still open and read sections independently. Use this option when the last open section can be closed.
+Build on the [native disclosure example](Disclosure.md#native-html) for sections that can open independently. A shared `name` on the `details` elements can make their panels mutually exclusive in supporting browsers. If grouping is unsupported, users can still open and read sections independently. Use this option when the last open section can be closed.
 
 ```html
 <section aria-labelledby="delivery-accordion-title">
@@ -31,7 +31,7 @@ Build on the [native disclosure example](Cards%20-%20Reveal.md#native-html) for 
 
 ### Custom HTML
 
-Use the [custom disclosure behaviour](Cards%20-%20Reveal.md#custom-html) as the baseline. Place each button inside a heading at the appropriate level. During enhancement, close the previous panel when opening another if only one may be open.
+Use the [custom disclosure behaviour](Disclosure.md#custom-html) as the baseline. Place each button inside a heading at the appropriate level. During enhancement, close the previous panel when opening another if only one may be open.
 
 If one section must always remain open, set `aria-disabled="true"` on the expanded header button and prevent it from closing its own panel. Keep that button in the tab order and remove the disabled state when another panel opens. If all panels can be closed, the expanded header remains operable. Follow the [accordion pattern](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/) for semantics and keyboard interaction.
 
@@ -44,7 +44,7 @@ If one section must always remain open, set `aria-disabled="true"` on the expand
 
 ## Grouped panels
 
-Use the shared [reveal behaviour](Cards%20-%20Reveal.md#custom-html) for each section. In a group, keep every header visible and identifiable when neighbouring panels change state.
+Use the shared [reveal behaviour](Disclosure.md#custom-html) for each section. In a group, keep every header visible and identifiable when neighbouring panels change state.
 
 ### ACT-style checks
 

@@ -23,11 +23,13 @@ Replace the sample routes with the destination URLs.
 </section>
 ```
 
-## Opening a dialog from a card
+## Revealing content or opening a dialog
 
-Use [Cards – Reveal](Cards%20-%20Reveal.md) when readers can explore supplementary information within the card. Use a modal dialog when a task needs their attention and the underlying page must be inactive. Follow [Modal Dialogs](Modal%20Dialogs.md) for implementation and accessibility checks.
+Use [Disclosure](Disclosure.md) when readers can explore supplementary information within the card. Use a modal dialog when a task needs their attention and the underlying page must be inactive. Follow [Modal Dialogs](Modal%20Dialogs.md) for implementation and accessibility checks.
 
-To test a collection, open a dialog from one card using the keyboard. Check that its content and accessible name identify the item you chose. Close it and check that focus returns to the button that opened it, unless the action takes you to a new page or step. Repeat with a different card to catch triggers that open the wrong item or return focus to the first card.
+Give each disclosure a label that identifies the details for that card. In a collection, use the keyboard to expand the second card. Check that its label identifies the content revealed, that the other cards keep their current state and that focus stays on the control. Collapse the card and check again.
+
+To test a dialog in a collection, open a dialog from one card using the keyboard. Check that its content and accessible name identify the item you chose. Close it and check that focus returns to the button that opened it, unless the action takes you to a new page or step. Repeat with a different card to catch triggers that open the wrong item or return focus to the first card.
 
 ## ACT-style checks
 
