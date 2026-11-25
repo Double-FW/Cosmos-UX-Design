@@ -338,3 +338,10 @@ Test decorative icons, meaningful icons and controls whose icons change with sta
 - [WCAG2.1 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)
 - [WCAG2.1 1.4.1 Use Of Color](https://www.w3.org/TR/WCAG21/#use-of-color)
 - [non text contrast](https://www.w3.org/TR/WCAG21/#non-text-contrast)
+- [Live region guidance](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+- [Reduced-motion media feature](https://drafts.csswg.org/mediaqueries-5/#prefers-reduced-motion)
+
+[^1]: [SVG image support](https://caniuse.com/svg-img)
+[^2]: "Inline SVG elements in IE are focusable by default which may cause issues with tab-ordering." [Require `svg` elements to have focusable attribute (svg-focusable)](https://html-validate.org/rules/svg-focusable.html)
+[^3]: [Inline SVG support](https://caniuse.com/svg-html5)
+[^4]: [_Providing Accessible Names and Descriptions_](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/#x5-4-naming-techniques), W3C ARIA Authoring Practices Guide (APG)
