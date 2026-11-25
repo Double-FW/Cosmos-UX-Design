@@ -68,3 +68,7 @@ Start with the panel visible and the button hidden. Set up the button before col
 2. Check that the control has a clear name and that its expanded or collapsed state is visible and announced by the screen reader.
 3. Confirm the closed content is hidden visually and from assistive technology. After opening, check that any links or controls in the panel occur next in the keyboard sequence.
 4. Block JavaScript and confirm the native control still works or the custom panel content is available directly. In a separate test, disable CSS and confirm that the control and content remain usable.
+
+## Sources
+
+- [ARIA Authoring Practices Guide: Disclosure pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/)
