@@ -1,36 +1,79 @@
 ---
-title: Color and Meaning
-description: "Ensure that web pages don't require color perception."
---- 
+title: Colour, contrast and meaning
+description: Choose colour combinations that people can read and use, including when they apply their own colours.
+---
 
-## Summary
+# Colour, contrast and meaning
 
-Each color (specifically hue) is not perceived the same by all users, and many people cannot differentiate some hues at all, or to varying degrees. Ensuring that web page designs do not require color perception means that you won't exclude anyone from having access to use and understand those features that rely upon color. Judicious use of color however, can _increase_ accessibility for some users. So rather than avoiding color-based meaning in a web page, ensure that when color is used as a visual cue there are alternative non-color visual cues provided too.
+Use colour to help people find links, recognise states and compare information. Give them another way to understand the same information when they cannot distinguish the colours or when their device replaces them. Check that text and controls remain legible against the backgrounds people see.
 
-## Purpose
+## Guidance
 
-[Title III of the Americans with Disabilities Act](https://www.ada.gov/ada_title_III.htm) can be applied to businesses whose websites that are not accessible to users on the basis of their disability. That includes color vision deficiencies.
+### Use of colour
 
-The red-green color vision deficiency (of which there are 4 distinct types and a multitude of varying degrees) is the most common form of the so-called color blindness disorders. It affects around 1 in 12 men and 1 in 200 women. There is also a less common blue-yellow color perception deficiency, and the relatively rare complete color blindness.
+Under Web Content Accessibility Guidelines (WCAG) 2.1 [1.4.1 Use of Color](https://www.w3.org/TR/WCAG21/#use-of-color) (Level A), people must be able to distinguish meaningful information, actions and states using a visual cue in addition to hue when hue alone would convey the distinction.
 
-And keep in mind that the color-related issues affecting your users may actually be in their device. Consider a faulty phone screen or monitor for example, or over-bright lighting that can casts a glare on the screen.
+- **Links.** Prefer an underline for inline links. When using lightness as the initial distinction, the [inline link contrast technique](https://www.w3.org/WAI/WCAG21/Techniques/general/G183) uses at least 3:1 between link text and adjacent body text. Each text colour still needs sufficient contrast against the background. Provide a visible treatment on keyboard focus and pointer hover.
+- **States.** Pair coloured borders or icons with meaningful visible text. For example, say ‘Enter a gift code using letters and numbers only’ instead of asking people to correct characters highlighted in red. Associate the message with the field using the [form validation guidance](Forms.md#validation). Use shape as an additional cue when an icon changes state. See [Icons](Icons.md).
+- **Prices.** Write ‘Was £48. Now £36’ so the sequence makes sense when read aloud or on a braille display. Strikethrough, text size and colour can reinforce the visible labels.
+- **Charts.** Distinguish series with direct labels, patterns, marker shapes or line styles. Give readers a text or data alternative where appropriate. See [Infographics](Infographics.md).
+
+### Contrast
+
+Measure the actual foreground and background pair. Similar shades can lose their distinction on a low-contrast display or in glare. Check text over the least favourable part of a gradient or image and account for transparency.
+
+| WCAG 2.1 criterion | What to measure |
+| --- | --- |
+| [1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum), Level AA | At least 4.5:1 for ordinary text and 3:1 for large-scale text against its background, subject to the criterion’s exceptions. For size thresholds and typography, see [Text contrast](Typography.md#text-contrast). |
+| [1.4.11 Non-text Contrast](https://www.w3.org/TR/WCAG21/#non-text-contrast), Level AA | At least 3:1 against adjacent colours for visual information needed to identify a control or its state and for graphics needed to understand content, subject to the criterion’s exceptions. Check a custom focus indicator where it identifies the focused state. See [Focus indication](Focus.md#focus-indication) for focus-specific checks. |
+
+### Palette and tokens
+
+Give palette shades a consistent naming scheme so people can find related values. Record the measured contrast for approved foreground and background pairs. Treat the shade name as a lookup aid and use the measured ratio to approve a pairing.
+
+Define semantic tokens for roles such as body text, links, surfaces, focus and error. Document which tokens work together in each theme and state. For example, record the combinations used for error text and an error border separately, because their contrast is measured against different adjacent colours and can have different thresholds. Retest the affected pairs when a token changes.
+
+### User colour and contrast preferences
+
+Some people use a dark theme, higher or lower contrast, or particular foreground and background colours. Use `prefers-color-scheme` or `prefers-contrast` where you offer corresponding themes. Test each supported theme against the same content and control states.
+
+Forced colours can replace authored colours and suppress treatments such as box shadows. Keep text, icons, control boundaries and focus visible when that happens. Prefer native elements for their semantics and browser styling. A link with a button role can still receive the browser’s forced-colour styling for a link.
+
+## Implementation
+
+### Focus and icons in forced colours
+
+Use the [Focus guide](Focus.md#consider-high-contrast-mode) for focus styling. If the normal design uses a shadow for focus, keep a real outline available in forced colours. Use `currentColor` for the fill or stroke of a single-colour SVG icon when it should follow surrounding text. If the icon duplicates a visible label, hide it from assistive technology.
+
+```css
+@media (forced-colors: active) {
+  .action:focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+  }
+}
+```
+
+This CSS fragment assumes `.action` is a focusable control with a visible focus style in the default theme. The outline width is an example. Check the result with the user’s actual palette. Inspect borders that are transparent in the default theme because a forced palette can make them visible.
+
+### When the colour is the content
+
+For a colour picker, preserve the sample inside the swatch if the colour itself is what people are choosing. If needed, apply [`forced-color-adjust: none`](https://developer.mozilla.org/en-US/docs/Web/CSS/forced-color-adjust) to the swatch alone. Leave the surrounding label, input and focus indication responsive to the user’s colours. Provide a visible shade name and an independently identifiable selected state.
 
 ## Checks
 
-For each web page under test, perform the following checks. Record an answer, "yes" or "no" to each question. The passing result is indicated in uppercase. For each failing result, document it either as a defect or else provide an explanation of why it should be allowed as an exception or why it is not applicable.
+Record the page, theme, component, state, method and result. For measurements include the sampled colours, the ratio and the applicable criterion. For manual checks include the browser and relevant settings.
 
-### Checks which should be (at least partly) performed manually
+| Method and action | Expected result |
+| --- | --- |
+| **Assisted.** Measure foreground and adjacent background colours for text, links, control boundaries, meaningful graphics and custom focus states. Repeat for supported themes and interaction states. | Each applicable pair meets its threshold. Text over gradients, images or partially transparent layers meets it where the text appears. |
+| **Manual.** Review links, forms, status messages and charts in grayscale. Try a colour-vision simulation to identify further cases for inspection. Trigger error, warning and success states. | The action, state and recovery steps are distinguishable using visible labels or other non-colour cues. Chart series can be matched to their labels. |
+| **Manual.** Read an error message, a price change and a chart alternative with a supported screen reader. | The field and recovery instruction, the previous and current prices, and the chart’s relevant information make sense without visual styling. |
+| **Manual.** Turn on a system contrast theme and Tab through links, buttons, inputs and any swatch selector. Repeat with a different palette where supported. | Focus, text, boundaries, icons and selected states remain perceivable. The swatch remains identifiable by name, with its colour visible where preservation is intentional. |
+| **Manual.** Switch between supported light, dark and contrast preferences. Repeat on a screen with text over media. | Controls and text remain usable, including where the background varies. Applying a user preference still leaves a clear indication of state. |
 
-- Considering each of the links on the page, are they all visually identifiable without relying on color? [Y/n]
-- When interacting with each of the features on the page (like validation or progress indicators), is it possible to know what state each is in, even with color disabled? [Y/n]
-- With regards to charts and graphs in particular, are categories or datasets displayed on the chart keyed by a visual treatment other than color? [Y/n]
+## Sources
 
-## Additional Testing Methods and Strategies
-
-If you are not colorblind yourself, you can test a web page under a colorblindness simulator. The [Sim Daltonism](https://michelf.ca/projects/mac/sim-daltonism/) app can be installed on your desktop and will open a viewer that will apply a colorblindness filter to anything below the app window. There are also [web browser extensions](https://chrome.google.com/webstore/detail/colorblindly/floniaahmccleoclneebhhmnjgdfijgg?hl=en) you can install that will perform the same transformation. Testing a web page with a monochromatic filter is a good way to check if it will be usable by people with every kind of color perception.
-
-## Examples and Additional Information
-
-Keep in mind that the relative contrast of foreground content and and its background can change when viewed with different color perception filters applied. What might be reasonably readable as green text on a blue background because of the different hues, may become completely unreadable when viewed by someone with a blue-yellow color deficiency for example. So consider that some contrast guidelines will also apply when testing color accessibility.
-
-It must be possible for users to easily identify links in text. It is expected that links should be underlined, but your design may use other visual clues to make links stand out, such as color. Linked text must have at least 3:1 contrast when compared with the surrounding body text. In any case the linked text must display some indicator which is not purely color-based, such as an underline, when the link has keyboard focus or on cursor hover.
+- [Contrast checker](https://webaim.org/resources/contrastchecker/)
+- [Desktop colour-vision simulator](https://michelf.ca/projects/mac/sim-daltonism/)
+- [Browser colour-vision simulator](https://chrome.google.com/webstore/detail/colorblindly/floniaahmccleoclneebhhmnjgdfijgg?hl=en)
