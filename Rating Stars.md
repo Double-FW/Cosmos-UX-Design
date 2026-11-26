@@ -1,13 +1,27 @@
 ---
-title: Rating Stars
-description: Display a rating or let people choose a value on a star scale.
+title: "Rating Stars"
+description: "Display a rating or let people choose a value on a star scale."
 ---
 
 # Rating Stars
 
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
 Use a star rating when people need to read an existing rating or give one of their own. In both cases, make the value and scale clear in text. If stars are the only cue, someone who cannot see or distinguish the filled shapes may miss the score or the value they selected.
 
-## Displaying rating stars
+## Recommended markup
+
+### Displaying rating stars
 
 Show the score and maximum together, such as ‘Average rating 3 out of 5’. Add the number of ratings when it helps people interpret an average. If nobody has rated the item, use ‘No ratings yet’. Use the same precision in the text and graphic so a fractional rating does not suggest a different score.
 
@@ -26,7 +40,15 @@ Keep the visual stars next to the value. When the stars repeat the visible text,
 
 Localise the score, units and labels. Use the surrounding document’s language and direction, or declare them for the component when they differ. Use logical layout properties and test the visual sequence in right-to-left layouts. See [Page Metadata](Page_Metadata.md#declaring-a-web-page-language).
 
-## Interactive star rating
+## Recommended layout
+
+### Touch target size
+
+Use 44 × 44 CSS pixels as the design target for each interactive star option, including its clickable label. This draws on [WCAG 2.1 Target Size (Level AAA)](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html). Check the effective pointer area rather than the size of the star drawing. For the WCAG 2.2 minimum and spacing exceptions, use [the pointer target guidance](Call%20to%20Action.md#give-pointer-users-room-to-activate-the-action).
+
+## Recommended behaviour
+
+### Interactive star rating
 
 Use the rating to collect one value from a fixed scale. Give the group a question that identifies what is being rated. Label each option with its value and keep the scale visible. For example, show ‘Your rating out of 5’ with options from ‘1 star’ to ‘5 stars’.
 
@@ -38,11 +60,9 @@ Use native radio buttons in a `fieldset` with a `legend` for a short discrete sc
 
 Keep the rating value and selection understandable when images or styles are unavailable. If you add stars to the labels, keep their text and use graphics such as inline SVGs that can follow the surrounding colour. Let the native radio show its checked state or provide an equally clear shape or mark for the selected value. Keep that cue distinguishable from keyboard focus in light and dark themes and forced colours. See [Focus](Focus.md#focus-indication).
 
-### Touch target size
+## Reference implementation
 
-Use 44 × 44 CSS pixels as the design target for each interactive star option, including its clickable label. This draws on [WCAG 2.1 Target Size (Level AAA)](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html). Check the effective pointer area rather than the size of the star drawing. For the WCAG 2.2 minimum and spacing exceptions, use [the pointer target guidance](Call%20to%20Action.md#give-pointer-users-room-to-activate-the-action).
-
-## Example implementation
+### Example implementation
 
 This example keeps labels and native radio buttons visible. It starts with no selection and needs no script. Replace the sample route with the service’s submission endpoint. The service validates the rating and shows the outcome.
 
@@ -89,7 +109,11 @@ This example keeps labels and native radio buttons visible. It starts with no se
 
 Translate the legend and every option label. Keep the option order meaningful in the document so reading and keyboard navigation agree with the visual presentation. Test native arrow-key behaviour in the supported browser and direction. Keep the submitted values stable when translating labels.
 
-## Checkpoints for the Tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 | Method and action | Expected result |
 | --- | --- |
@@ -99,6 +123,13 @@ Translate the legend and every option label. Keep the option order meaningful in
 | Change themes and enable forced colours separately. Select a value, Tab to the submit button and Shift+Tab back to the group. | The selected value stays identifiable throughout. The focus indicator identifies the focused control separately, without depending on colour alone. |
 | Block scripts, then test with CSS disabled separately. Submit no rating, then select and submit a value. | The display stays readable and the form remains usable. For the required example, a missing value can be corrected. The submitted value and confirmation agree. |
 | Increase text size to 200%, then test a narrow width and a right-to-left locale separately. | Labels stay legible, groups can wrap and reading, visual and focus order remain meaningful. |
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
 
 ## Sources
 

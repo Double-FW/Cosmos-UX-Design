@@ -1,15 +1,33 @@
 ---
-title: Global Navigation
-description: Help people reach the main areas of a service, search and manage their account from a consistent header.
+title: "Global Navigation"
+description: "Help people reach the main areas of a service, search and manage their account from a consistent header."
 ---
 
 # Global Navigation
 
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
 Use global navigation for destinations people need across a service. When the header changes at a narrow width or higher zoom, keep every destination available. A link that is visually clipped but still receives focus can leave keyboard users unable to see where they are.
 
-## Presentation
+## Recommended markup
 
-Place the navigation in the page header and give it a visible or accessible label that distinguishes it from other navigation landmarks. Group peer destinations in an unordered list. Keep their order consistent across pages and provide an early [skip link](Structure.md#the-main-landmark).
+Group destinations in a named navigation landmark. Use links for destinations and buttons for actions that reveal groups of links.
+
+## Recommended layout
+
+<a name="presentation"></a>
+
+Place the navigation in the page header and give it a visible or accessible label that distinguishes it from other navigation landmarks. Group peer destinations in an unordered list. Keep their order consistent across pages and provide an early [skip link](Page_Structure.md#the-main-landmark).
 
 - **Home.** Give a linked logo an accessible name that identifies its destination. If the link already contains suitable visible text, make the logo decorative. If a single-colour inline SVG logo should follow surrounding text, use `currentColor` for its fill or stroke. Check that it remains identifiable in forced colours. Use [Functional Alternative Text](Functional%20Alternative%20Text.md) and [Icons](Icons.md) for the image treatment.
 - **Account.** Use ‘Sign in’ when signed out and ‘Your account’ or an identifiable account label when signed in. Keep the accessible name available at every width. If you add an account panel, its button exposes the expanded state. An account destination link needs only its link name.
@@ -18,7 +36,9 @@ Place the navigation in the page header and give it a visible or accessible labe
 
 Keep text labels visible where practical. When a compact control uses an icon, make its purpose clear and preserve its accessible name. Check the logo, text, functional icons and control boundaries in forced colours and with user-defined colours. See [Colour, Contrast and Meaning](Colour%2C%20Contrast%20and%20Meaning.md) and [Focus](Focus.md#focus-indication).
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 ### Baseline navigation
 
@@ -32,7 +52,9 @@ For an ordinary disclosure, leave focus on the button when it opens and let the 
 
 If the drawer moves focus on opening, open and close it without animation when operated by keyboard. Make the focus target visible before moving focus. Follow [Motion and Animation](Motion%20and%20Animation.md) for reduced-motion handling. If text resizing or zoom changes which links fit, keep the focused link available until the user can move on.
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 This fragment shows a baseline with a skip link, a home destination, account and notification links, and a separate search destination. Replace the sample routes with working service routes. A script can group overflow links behind a native button once the enhancement is ready. Keep the baseline list available until then.
 
@@ -59,7 +81,11 @@ This fragment shows a baseline with a skip link, a home destination, account and
 
 If you enhance a destination link into a drawer, keep the link as a fallback until the replacement button and panel work. For an embedded search form, use the search landmark guidance in [Search](Search.md). For a notification drawer, provide access to the full notifications page when the drawer only shows recent items.
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 Run the checks on a wide and narrow layout and in the supported browsers and assistive technologies. Test account and notification states when those features are present.
 
@@ -73,6 +99,13 @@ Run the checks on a wide and narrow layout and in the supported browsers and ass
 | Increase text size up to 200%. In a separate run, test page zoom up to 400%. Resize while a priority link has focus and include a layout with no priority items visible. | Destinations remain reachable, focused links stay usable and the empty priority list adds no announcement. |
 | Apply reduced motion, forced colours and supported user font and colour overrides. | The header, focus and controls remain distinguishable. Opening the panel remains usable without motion. |
 | Measure target sizes and contrast in the enhanced header. | For the enhanced header’s design target, aim for 44 × 44 CSS pixels. Apply the text and meaningful non-text contrast criteria in the colour guide. |
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
 
 ## Sources
 

@@ -1,13 +1,31 @@
 ---
-title: Cards
-description: Help people browse related items and use content and actions within each card.
+title: "Cards"
+description: "Help people browse related items and use content and actions within each card."
 ---
 
 # Cards
 
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
 Use cards when people need to scan a collection and preview, play, save or share an item without leaving the page. Put each card’s headline first in the reading order so people navigating by headings or using a screen reader can identify the item before they encounter its contents. Use [Promotional Cards](Promotional%20Cards.md) when the main purpose is to link to featured content elsewhere.
 
-## Presentation
+## Recommended markup
+
+Group related cards in a list where useful. Give each card a meaningful heading and use separate native controls for separate actions.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 Use an unordered list for a collection of peer cards. Put a descriptive collection heading before the list. Use the same heading level for every card in that collection, one level below the collection heading. Give a standalone card a heading that fits the surrounding page.
 
@@ -15,7 +33,9 @@ Put the headline before the card’s media, description and actions in source or
 
 Group optional actions after the content. Give each button an accessible name that identifies its action and item, such as ‘Share the woodland walk’. Prefer visible text, especially when the card has only a few actions. When an icon accompanies a label, keep the icon out of the accessible name.
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 Use a link for navigation and a button for an action on the current page. For a reversible choice such as saving an item, use a stable button label such as ‘Save the woodland walk’ and update `aria-pressed` to communicate the current state. For an action that opens sharing options, follow [Share Tools](Share%20Tools.md).
 
@@ -25,7 +45,9 @@ Use [Disclosure](Disclosure.md) when readers can explore supplementary informati
 
 Use a modal dialog when a task needs the user’s attention and the underlying page must be inactive. Follow [Modal Dialogs](Modal%20Dialogs.md) for implementation, dismissal and focus restoration.
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Markup example
 
@@ -69,7 +91,11 @@ If cards scroll horizontally, preserve their list structure and check that each 
 
 Keep supplementary information available before an enhancement runs. If an enhanced design overlays the information on the card, keep the dismissal control visible and make overflowing content reachable at high zoom. Prefer an in-flow panel when a fixed overlay would obscure content or controls.
 
-## Checkpoints for the Tester
+## Testing Approach and ACT Scripts
+
+The ACT-style checks in this section are pattern-specific checks maintained in this guide. The proposed W3C rules are listed separately.
+
+<a name="checkpoints-for-the-tester"></a>
 
 ### ACT-style checks
 
@@ -90,6 +116,13 @@ Run these checks on a standalone card and a collection with at least two cards. 
 3. Operate any save or share actions from two different cards. Verify that each action affects the intended item and that a toggle’s exposed pressed state matches its visible state. For cards with video, verify that playback waits for activation, captions are available for dialogue and the player controls can be reached and operated.
 4. Block scripts and verify that readers can reach supplementary information. In a separate run with CSS disabled, verify that each headline, its content and its actions can still be read in order.
 5. Increase text size and check for clipping or overlap. In a separate run, narrow the viewport. Check that cards fit, controls remain reachable and images retain their proportions. With forced colours enabled, check the focus indicator and any borders needed to distinguish cards or controls.
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
 
 ## Sources
 

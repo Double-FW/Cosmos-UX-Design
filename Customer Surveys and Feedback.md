@@ -1,6 +1,6 @@
 ---
-title: Customer Surveys and Feedback
-description: Help every customer give feedback, including people who cannot start or finish the service.
+title: "Customer Surveys and Feedback"
+description: "Help every customer give feedback, including people who cannot start or finish the service."
 ---
 
 # Customer Surveys and Feedback
@@ -12,7 +12,7 @@ description: Help every customer give feedback, including people who cannot star
 - [Recommended layout](#recommended-layout)
 - [Recommended behaviour](#recommended-behaviour)
 - [Reference implementation](#reference-implementation)
-- [Testing notes](#testing-notes)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
 - [Sources](#sources)
 
 ## Introduction
@@ -129,7 +129,11 @@ This vanilla HTML and JavaScript fixture runs locally. Replace the example desti
 
 A customer may answer either question or use the return link to skip the survey. The simulated submit control stays focusable after receipt so the page does not drop focus. The handler prevents a second submission. For a multi-page survey that needs draft recovery, follow [Saving and Resuming a Task](Saving%20and%20Resuming%20a%20Task.md).
 
-## Testing notes
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="testing-notes"></a>
 
 Use representative routes, including at least one where the person cannot finish. Record the task, channel, browser, assistive technology and observed result. Use fictitious responses when testing.
 
@@ -141,6 +145,13 @@ Use representative routes, including at least one where the person cannot finish
 | Increase text size to 200%, then separately test reflow at a narrow width. Repeat in forced colours. | Questions, labels, controls, visible focus and feedback remain usable. |
 | Try the real service with scripts blocked or the external survey unavailable. Follow the help or complaints route. | An accessible feedback route remains available. The service explains which route provides help or a reply. |
 | Review invitations and responses from a sample across outcome and channel. | Reports show who was invited and whose experience is missing where that is known. Skips and non-applicable responses stay distinct from ratings. |
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
 
 ## Sources
 

@@ -1,13 +1,31 @@
 ---
-title: Accordion
-description: Help people find and expand relevant sections on the same page.
+title: "Accordion"
+description: "Help people find and expand relevant sections on the same page."
 ---
 
 # Accordion
 
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
 Use an accordion to help people scan two or more related sections and open the ones they need. Collapsing sections can reduce scrolling, but it can also hide information people need to finish a task. Keep essential instructions visible. Use a single [Disclosure](Disclosure.md) for one section.
 
-## Presentation
+## Recommended markup
+
+Use native `details` and `summary`, or a named button in a heading with an associated panel.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 Give each control a visible label that describes the panel it opens, such as ‘Ingredients’ or ‘Contact information’. Keep the control visible and recognisable as interactive in both states. Show the state with a native marker or a visible change in shape, such as a plus changing to a minus. Keep the associated panel immediately after its control or enclosing heading in source order.
 
@@ -15,7 +33,9 @@ Use a visible heading to introduce the group. Where a named landmark helps peopl
 
 Let long labels wrap without overlapping or squeezing out the indicator. Check that the control boundary, state and keyboard focus remain visible in forced colours. If the design places one control per row at narrow widths, preserve the accordion interaction. A [tab interface](Tabs.md) needs its own keyboard and focus behaviour even when it looks like a stack of accordion controls.
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 Tab moves between controls and any interactive content in open panels in document order. Enter and Space operate the focused control. Keep keyboard focus on the control the person activates. Opening a panel makes it available visually, to assistive technology and to keyboard users. Closing it removes it from all three.
 
@@ -29,7 +49,9 @@ For an independent group with many items, consider offering ‘Expand all’ and
 
 If a URL fragment targets content within a collapsed panel, reveal the containing panel on direct entry and when the fragment changes. For an enhanced accordion that manages fragment navigation, let people continue reading at the target. When moving focus to a non-interactive target is needed, use `tabindex="-1"` so it stays out of the ordinary tab order. Preserve the normal tab stop of a target that is already interactive.
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Native HTML
 
@@ -57,7 +79,11 @@ Build on the [custom disclosure example](Disclosure.md#custom-html) when the pat
 
 For a single-open group, update both the newly opened panel and the one that closes. If one panel must always stay open, put `aria-disabled="true"` on the open panel’s button and have the script ignore attempts to close that panel through its button. Keep the button in the tab order. Remove `aria-disabled` from the previously open panel’s button when another opens. If all panels can close, leave the open panel’s button operable. See the [ARIA Authoring Practices accordion pattern](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/).
 
-## Checkpoints for the Tester
+## Testing Approach and ACT Scripts
+
+The ACT-style checks in this section are pattern-specific checks maintained in this guide. The proposed W3C rules are listed separately.
+
+<a name="checkpoints-for-the-tester"></a>
 
 ### ACT-style checks
 
@@ -81,6 +107,14 @@ Run these checks on a group of two or more items. Include a link or other intera
 4. Where the guide supports links into panels, open a direct URL targeting a collapsed panel, then follow an in-page link to a different collapsed panel. Check that the target becomes visible and that reading and keyboard navigation can continue from it.
 5. Block JavaScript and reload. Check that native panels can be opened and that custom panels remain readable as baseline content. In a separate run, disable CSS with scripts enabled. Check that the labels and content remain readable, the controls still operate and collapsed panels stay hidden.
 6. Increase text size and check that labels wrap and remain legible. In a separate check, narrow the viewport and confirm the labels, indicators and controls fit without overlap and the panel still follows its own control.
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Summary element has non-empty accessible name (2t702h)](https://www.w3.org/WAI/standards-guidelines/act/rules/2t702h/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
 
 ## Sources
 

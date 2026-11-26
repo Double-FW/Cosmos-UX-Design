@@ -1,19 +1,39 @@
 ---
-title: Video Controls
-description: Help people operate web video and use its accessibility features.
+title: "Video Controls"
+description: "Help people operate web video and use its accessibility features."
 ---
 
 # Video Controls
 
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
 Help people start, pause and seek through a video, control its sound and reach the available access services. Start with native browser controls. If you build a custom player, keep its most-used actions easy to find and preserve access when the enhancement fails. Use [Accessible Interactive Media Control](https://github.com/Double-FW/Inclusive-Media-Interfaces/blob/main/Accessible_Interactive_Media_Control.md) for broader media interaction and input guidance.
 
-## Presentation
+## Recommended markup
+
+Start with the native video element and its controls. Use labelled buttons and a labelled range input when adding custom controls.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 - Keep Play/Pause first in the custom player’s control sequence and Mute/Unmute next where the player offers it. Keep the remaining controls in visual and keyboard order. Use familiar symbols and clear labels. Give each control a visible focus indicator and enough room to select it by touch or pointer. See [Focus](Focus.md#focus-indication) and [pointer target guidance](Call%20to%20Action.md#give-pointer-users-room-to-activate-the-action).
 - Keep on/off controls for captions and audio description in the main custom controls when those services are available. A menu can offer track, language or style choices. If audio description is provided through a separate video, offer a clearly labelled link beside the player. See [caption and subtitle guidance](https://github.com/Double-FW/Closed-Caption-Subtitles/blob/main/Closed_Caption_Subtitle_Guidelines.md) for preparing and displaying tracks.
 - Let the timeline use the available width, and wrap controls in order when space narrows. Keep controls and captions from obscuring one another. Check the slider track, thumb, buttons and focus indicator in [forced colours](Colour%2C%20Contrast%20and%20Meaning.md#focus-and-icons-in-forced-colours). A native slider style is a useful fallback when a custom style loses its track or thumb.
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 ### Playback and sound
 
@@ -33,7 +53,9 @@ For a recording, use seconds for `min`, `max` and `value`, and set the maximum f
 
 For live media, use the actual seekable window if the stream supports seeking. When seeking is unavailable, remove or disable the seek control and explain its availability where that helps people understand the player.
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Markup example
 
@@ -65,7 +87,11 @@ This snapshot shows a finite recording 15 seconds into a 95-second duration. It 
 <span>0:15 / 1:35</span>
 ```
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 Run the checks on the supported browsers, devices and assistive technologies. Use a recording with captions and test audio description and each other access service where supplied.
 
@@ -79,12 +105,22 @@ Run the checks on the supported browsers, devices and assistive technologies. Us
 | Load with autoplay off. If opt-in autoplay is supported, enable it and reload, then use pause and turn autoplay off. | Video waits for activation by default. Opted-in playback begins muted, can be paused and does not resume automatically after opt-out on the next load. |
 | Interrupt playback or seek with buffering, then simulate a playback failure. | Feedback is perceivable, controls reflect the actual state and the available recovery action is clear. |
 
-## Related references
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Video element auditory content has captions (f51b46)](https://www.w3.org/WAI/standards-guidelines/act/rules/f51b46/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+
+## Sources
+
+<a name="related-references"></a>
 
 - [Accessible web video controls in Inclusive Media Interfaces](https://github.com/Double-FW/Inclusive-Media-Interfaces/blob/main/Accessible_Video_Controls_Organisation_Agnostic_Draft.md)
-- [Using the group role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_group_role)
+- [MDN: Using the ARIA group role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_group_role)
 - [What is an accessible name?](https://developer.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
 - [IE focus bugs with focusable elements](https://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4)
 - [Styling Cross-browser compatible range inputs](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/)
-- [Flex](https://css-tricks.com/almanac/properties/f/flex/)
+- [CSS flex shorthand](https://css-tricks.com/almanac/properties/f/flex/)
 - [Autoplay Policy Changes](https://developers.google.com/web/updates/2017/09/autoplay-policy-changes)

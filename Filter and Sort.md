@@ -1,19 +1,39 @@
 ---
-title: Filter and Sort
-description: Help people narrow a set of results and choose the order they appear in.
+title: "Filter and Sort"
+description: "Help people narrow a set of results and choose the order they appear in."
 ---
 
 # Filter and Sort
 
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
 Use filters to help people narrow results to what matters to them. Use sorting to change the order of those results. Show the current choices and make it clear which results they affect, including when some choices move behind an overflow control.
 
-## Presentation
+## Recommended markup
+
+Use links when choices navigate and labelled form controls when people need to apply several choices together.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 Use distinct labels such as ‘Filter by content type’ and ‘Sort by’. Keep the selected filter and sort order identifiable without colour. For example, pair a visual treatment with a ‘Current’ marker. If an active filter moves into the overflow list, show its name outside the collapsed list too.
 
 Let choices wrap where there is space. If the baseline uses a horizontal strip, let it scroll and make the overflow apparent. Check that keyboard users can reach every link and that focused links scroll into view. Keep the visible focus indicator and current selection distinguishable in forced colours.
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 ### Choosing and applying options
 
@@ -27,7 +47,9 @@ Show the updated results, including an explanation when no items match and a way
 
 Use [Disclosure](Disclosure.md) for a control labelled ‘More filters’ or similarly specific wording. Keep focus on the button when it opens. Put the overflow links immediately after it so the first revealed link is next in the Tab sequence. When the list closes, its links leave keyboard and screen reader navigation. If dismissal starts from inside the panel, return focus to the trigger before hiding it.
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Markup example
 
@@ -64,7 +86,11 @@ Start from the complete list of working links. Keep the disclosure button hidden
 
 Recheck the layout at narrow widths and after text resizing. When a choice has focus, keep it visible and operable while adjusting the layout. If a resize would put it behind a collapsed panel, defer that move until focus leaves the choice. Keep the wrapping or scrollable baseline if the enhancement cannot run.
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 Test the link or form variant in use with the supported browsers, keyboard and screen readers.
 
@@ -76,6 +102,14 @@ Test the link or form variant in use with the supported browsers, keyboard and s
 | Increase text size, then narrow the viewport while a filter link has focus. Check the current selection and repeat with forced colours. | The focused link stays usable, the current choice remains identifiable and the overflow control stays visible. |
 | Block scripts and reload, then apply a filter and sort. | Every choice in the baseline can still be reached and applied. A horizontal baseline brings focused links into view. |
 | Apply a filter that produces no matches. Where results update in place, repeat with a screen reader and a slow response. | The results state is clear, any waiting message is available where needed, and the person can revise or clear the choices. In-place updates leave focus usable. |
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
 
 ## Sources
 

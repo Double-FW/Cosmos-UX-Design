@@ -1,25 +1,47 @@
 ---
-title: Information Panels
-description: Let people open and dismiss supplementary information without leaving their current task.
+title: "Information Panels"
+description: "Let people open and dismiss supplementary information without leaving their current task."
 ---
 
 # Information Panels
 
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
 Use a non-modal information panel for short, contextual content people can choose to open, such as delivery details or [sharing tools](Share%20Tools.md). Keep essential instructions available in the main content. Use [Disclosure](Disclosure.md) when supplementary information can expand in place and focus can stay on its trigger. Use [Modal Dialogs](Modal%20Dialogs.md) when the underlying page needs to be inactive.
 
-## Presentation
+## Recommended markup
+
+Use native buttons for the opener and Close action. Name the panel where that helps orientation.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 Give the trigger a label that identifies the information, such as ‘Delivery details’. Give the panel a visible title and a Close button with an accessible name. Place the panel after its trigger in source order. It can contain ordinary text, images, links and controls.
 
 Place the panel near its trigger and keep it within the visible area. Align it towards the available space if the trigger is near an edge. If an overlay would clip or obscure content at narrow widths or high zoom, show the panel in flow. Check that neighbouring content cannot cover its controls. A pointer arrow can reinforce the association. Keep the association understandable if the arrow is absent, and check the panel boundary and focus indicator in forced colours.
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 On opening, reveal the panel, update the expanded state and move focus to its Close button. Keep the rest of the page available. Let people navigate the panel’s contents with the usual keyboard commands and Tab onward to the next destination.
 
 Close the panel when the user activates Close, presses Escape inside it or activates the opener again. Return focus to the opener if closing would hide the focused element. When someone tabs out or clicks another control, let them keep their new focus. If a click outside dismisses the panel and leaves no usable focus target, return focus to the opener.
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 Build on [custom disclosure behaviour](Disclosure.md#custom-html). Use a native button with `aria-controls` referencing the panel and update `aria-expanded` with its visibility. A named group can expose the panel title when people enter it. Keep its descendants as ordinary links, buttons and other controls.
 
@@ -86,7 +108,11 @@ This standalone example shows an in-flow panel so it works without positioning c
 
 If you position the panel as an overlay, set a maximum width that accounts for page padding. Recheck the position after zoom or resize. If you add an arrow, make it decorative and test the appearance with forced colours. Avoid relying on a solid background or shadow alone to show the boundary.
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 Run these checks in the supported browsers and screen readers. Include a focusable element after the panel to verify onward navigation.
 
@@ -98,13 +124,20 @@ Run these checks in the supported browsers and screen readers. Include a focusab
 | If the panel overlays the page, test near both viewport edges. Increase text size, then narrow the viewport separately. Repeat in forced colours. | The panel and all controls remain visible and usable. The title, boundary and focus indication remain clear. |
 | Block scripts and reload. | The supplementary content or its working destination is available, and enhancement controls do not appear in an unusable state. |
 
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
+
 ## Sources
 
-- [Use high contrast mode](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
+- [Use high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
 - [ARIA Authoring Practices: Menu button](https://www.w3.org/TR/wai-aria-practices-1.1/#menubutton)
 - [ARIA Authoring Practices: Dialog](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal)
 - [Translation of accessible labels](http://www.heydonworks.com/article/aria-label-is-a-xenophobe)
-- [`@supports`](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports)
+- [CSS feature queries with @supports](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports)
 - [CSS Triangle](https://css-tricks.com/snippets/css/css-triangle/)
 - [WCAG2.1 2.1.2: Keyboard Trap](https://www.w3.org/TR/WCAG21/#no-keyboard-trap)
 - [Offer choice](https://inclusivedesignprinciples.org/#offer-choice)

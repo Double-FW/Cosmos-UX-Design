@@ -1,11 +1,29 @@
 ---
-title: Anchors and Links
-description: Accessible web links prevent barriers for users who rely on assistive technologies such as screen readers to interact and navigate.
+title: "Anchors and Links"
+description: "Accessible web links prevent barriers for users who rely on assistive technologies such as screen readers to interact and navigate."
 ---
+
+# Anchors and Links
+
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
+Help people identify destinations and open them using the browser or assistive technology. Give each link enough context to make sense on its own.
 
 The image or media filenames in these examples stand for assets supplied by the implementing project.
 
-## Link content
+## Recommended markup
+
+### Link content
 
 When writing text content for a link, use concise but complete text describing the linked resource. This is particularly important for those who use a screen reader to scan the entire webpage and read out a list of only the links, where each link will have no context and must be understood on its own. For example, a series of article summaries, each containing a link with the text "Read more," will be presented as a list of many "Read more" snippets to the screen reader user, with no indication of what following any link will allow the user to read more about.
 
@@ -37,7 +55,7 @@ Although the link text visually appears as only "Read more" in the context of th
 
 As a rule, you should keep the content intended for screen reader users the same as content intended for other users. Not all screen reader users are blind, and screen reader users that can see the text may be confused by hearing and seeing different content. In addition, having parallel but different content for different groups of users allows the possibility of differences in maintenance and quality to creep in: one version being localized while the other is not, or one lacking the same level of proofreading, for example.
 
-## Icons in links
+### Icons in links
 
 While having descriptive, visible text is the most accessible way to label a link, there are use cases where a well-understood icon would be more natural. In these cases, alternative text must be supplied for screen reader users who cannot see the icon.
 
@@ -55,13 +73,23 @@ Follow Us
 > Screen reader: "Follow Us"
 > Screen reader: "link, image, Mastodon"
 
-## Translation services
+### Groups of external destinations
+
+For a list of external links, use a descriptive heading and ordinary list markup. Explain a shared destination convention once where users will encounter it. If one link behaves differently, explain that behaviour on the link. Keep decorative icons out of the accessible name when adjacent text already explains them.
+
+## Recommended layout
+
+Give links a visual cue that people can recognise without relying on colour alone. Keep keyboard focus visible.
+
+## Recommended behaviour
+
+### Translation services
 
 Not every string of text on a webpage will be available to translation services, like Google Translate. When choosing a technique for adding alternative text to a webpage, it's essential to ensure that this text, which screen reader users will rely on, will also be translated. Test any translation tools or services your website plans to support to ensure that alternative text is supported.
 
 Originally in English, the service has translated the page into French. We can see that the text in the image element's `alt` attribute has also been translated into French.
 
-## External links
+### External links
 
 When linking to external websites, it is a good idea from a security and accountability perspective to inform the user that they are about to visit content you are not responsible for. This can be a concern if the user is logged into your site or has some other session that would be interrupted or dropped once they leave your site.
 
@@ -84,7 +112,7 @@ In the following examples, notice the `noreferrer` and `noopener` values in the 
 
 The route is illustrative. When the destination is an external site, identify it in the link text if that information helps users decide whether to follow the link. Keep the new-tab notice available as text.
 
-## Links to phone numbers
+### Links to phone numbers
 
 Using the most appropriate URI scheme in the `href` attribute for web links can make your contact information more usable, especially for users with disabilities. [^5] Some examples are shown below.
 
@@ -112,7 +140,9 @@ Notice that in the example HTML below, we use the "LocalBusiness" micro-data sch
 
 While a web link that automatically opens a telephone application would mainly be helpful on mobile phone devices, don't try to disable the default telephone link functionality on desktop devices. Most modern desktop operating systems allow you to call via a telephone link. Desktop VoIP apps, like FaceTime, Microsoft Teams Voice, or Skype, can be configured to handle the `tel:` scheme in web links. MacOS, for example, supports making phone calls from the desktop using an iPhone. [^4] This feature type can be beneficial for individuals with disabilities.
 
-## Adding anchors to headings
+## Reference implementation
+
+### Adding anchors to headings
 
 For longer articles, encourage users to copy and share links to specific parts of the web page by adding visible clues that the heading has an anchor link.
 
@@ -131,7 +161,17 @@ For longer articles, encourage users to copy and share links to specific parts o
 
 The icon that appears on hover (or focus) is implemented as a background image to keep it out of the way of screen readers: the link symbol is a visible but only decorative way of indicating the presence of the anchor link.
 
-## Checkpoints for the Tester
+Replace the example route with the working destination.
+
+```html
+<a href="/help/delivery">Delivery and collection help</a>
+```
+
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+### Checkpoints for the Tester
 
 1. Ensure each link contains visible text or a well-understood, conventional icon.
 2. For links containing only an icon, ensure that equivalent text is assigned to the graphic so that a screen reader can speak.
@@ -142,24 +182,29 @@ The icon that appears on hover (or focus) is implemented as a background image t
 7. Ensure that examples of multiple links to the same resource are not adjacent or wrapping each other; combine these into a single link instead.
 8. Ensure that any cases of hidden or alternative text available only to screen readers are not different than the visible text or different from the icon's apparent meaning.
 
-[^1]: _G200: Opening new windows and tabs from a link only when necessary_ [Techniques for WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/G200.html)
-[^2]: "Tabnabbing is a computer exploit and phishing attack, which persuades users to submit their login details and passwords to popular websites by impersonating those sites and convincing the user that the site is genuine." [_Tabnabbing_, Wikipedia](https://en.wikipedia.org/wiki/Tabnabbing)
-[^4]: "FaceTime in macOS 10.10 and later can also use the tel URL scheme to launch the Phone app on an iOS device using Handoff. This scenario works when FaceTime is configured to dial phone numbers (the default configuration) and the iOS device is connected to the same iCloud account as the Mac." [_Apple URL Scheme Reference_](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html)
-[^5]: "Standardized URI schemes have been defined for some common device functions, e.g. making phone calls, sending an SMS, and managing address books. These URI schemes, if supported, can enable users to easily use these functions from Web applications." [_Make Telephone Numbers "Click-to-Call"_, W3C Mobile Web Application Best Practices](https://www.w3.org/TR/mwabp/#bp-interaction-uri-schemes)
-[^6]: [telephone, A Schema.org Property](https://schema.org/telephone)
-
-## Groups of external destinations
-
-For a list of external links, use a descriptive heading and ordinary list markup. Explain a shared destination convention once where users will encounter it. If one link behaves differently, explain that behaviour on the link. Keep decorative icons out of the accessible name when adjacent text already explains them.
-
 ### Checkpoints for the tester
 
 1. Review an inline link on its own and the external-link list in context.
 2. Check that the destination and any new-window behaviour are understandable with a keyboard, a screen reader and forced colours.
 
-### Related references
+### Related W3C ACT rules
 
-- [windows use high contrast mode](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+- [Visible label is part of accessible name (2ee8b8)](https://www.w3.org/WAI/standards-guidelines/act/rules/2ee8b8/proposed/)
+
+## Sources
+
+<a name="related-references"></a>
+
+- [Use high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
 - [Visually hidden text example](https://gist.github.com/Heydon/c8d46c0dd18ce96b5833b3b564e9f472)
 - [Removing SVG Keyboard Focus in IE](https://websemantics.uk/articles/removing-svg-keyboard-focus-in-internet-explorer/)
 - [VoiceOver and list-style-type: none](https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/)
+
+[^1]: _G200: Opening new windows and tabs from a link only when necessary_ [Techniques for WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/G200.html)
+[^2]: "Tabnabbing is a computer exploit and phishing attack, which persuades users to submit their login details and passwords to popular websites by impersonating those sites and convincing the user that the site is genuine." [_Tabnabbing_, Wikipedia](https://en.wikipedia.org/wiki/Tabnabbing)
+[^4]: "FaceTime in macOS 10.10 and later can also use the tel URL scheme to launch the Phone app on an iOS device using Handoff. This scenario works when FaceTime is configured to dial phone numbers (the default configuration) and the iOS device is connected to the same iCloud account as the Mac." [_Apple URL Scheme Reference_](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html)
+[^5]: "Standardized URI schemes have been defined for some common device functions, e.g. making phone calls, sending an SMS, and managing address books. These URI schemes, if supported, can enable users to easily use these functions from Web applications." [_Make Telephone Numbers "Click-to-Call"_, W3C Mobile Web Application Best Practices](https://www.w3.org/TR/mwabp/#bp-interaction-uri-schemes)
+[^6]: [telephone, A Schema.org Property](https://schema.org/telephone)

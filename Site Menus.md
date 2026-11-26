@@ -1,13 +1,31 @@
 ---
-title: Site Menus
-description: Help people find pages within the current site or service.
+title: "Site Menus"
+description: "Help people find pages within the current site or service."
 ---
 
 # Site Menus
 
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
 Use a site menu to help people find pages within the current site or service and see where they are in its hierarchy. Use [Global Navigation](Global%20Navigation.md) for destinations and actions shared across the wider service. Use [Mega Menu](Mega%20Menu.md) when one top-level destination needs a panel with several groups of links.
 
-## Presentation
+## Recommended markup
+
+Use a named `nav` with nested lists. Give a parent destination and its submenu toggle separate controls when both are available.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 Give the `nav` landmark a name that tells people what it covers, such as ‘Help centre’. Make it distinguishable from any global navigation on the same page. Where a visible label is available, use `aria-labelledby` to reference it. For translated pages, include the landmark name when checking the translated interface.
 
@@ -17,7 +35,9 @@ Place the disclosed links beneath or beside their parent in the visual layout. K
 
 Give hover and keyboard focus comparable prominence. Make keyboard focus distinct from the current-page and expanded-state indicators, including in [forced colours](Colour%2C%20Contrast%20and%20Meaning.md#focus-and-icons-in-forced-colours). Use a visible indicator such as an underline for the current page, and use a separate outline for focus. If you use a decorative SVG on the toggle, hide it from assistive technology and keep it out of the tab order. See [Icons](Icons.md).
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 ### Open and close a submenu
 
@@ -35,7 +55,9 @@ If you collapse the site menu at narrow widths, put a native ‘Menu’ button b
 
 Start with all destinations available through ordinary links. Reveal any enhancement controls only after they work. If scripts are blocked or fail to initialise, keep the navigation and its nested links available. See [Progressive Enhancement](Progressive%20Enhancement.md).
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 This example shows one enhanced submenu with a separate parent link. The site menu itself stays visible at all widths. Replace the routes with working destinations and set the current-page attribute from the page being served. Use unique IDs if there is more than one menu.
 
@@ -92,7 +114,11 @@ This example shows one enhanced submenu with a separate parent link. The site me
 </script>
 ```
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 Use a page with both global and site navigation where available. Test a top-level current page and a current page inside a submenu. Include a focusable element after the menu.
 
@@ -106,7 +132,17 @@ Use a page with both global and site navigation where available. Test a top-leve
 | Enable forced colours and tab from the current link to another link and a submenu button. | Current page, keyboard focus and expanded state are distinguishable. |
 | Block scripts and reload. In a separate run, restore scripts and disable CSS. | With scripts blocked, the destination links work and disclosure buttons remain hidden. With CSS disabled, the nesting and disclosure behaviour remain available. |
 
-## Related references
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
+
+## Sources
+
+<a name="related-references"></a>
 
 - [Using Navigation Landmarks](https://accessibility.blog.gov.uk/2016/05/27/using-navigation-landmarks/)
 - [Hiding Content Has No Effect on Accessible Name or Description Calculation](https://w3c.github.io/using-aria/#hiding-content-has-no-effect-on-accessible-name-or-description-calculation)

@@ -1,13 +1,31 @@
 ---
-title: Comments
-description: Help people read, navigate and take part in a discussion.
+title: "Comments"
+description: "Help people read, navigate and take part in a discussion."
 ---
 
 # Comments
 
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
 Help people find the discussion, follow replies and post their own contribution. Repeated headings can make comments hard to distinguish in a screen reader’s headings list. Replacing a sorted list or hiding a focused control can also make someone using a keyboard lose their place.
 
-## Presentation
+## Recommended markup
+
+Give the discussion and replies a meaningful structure. Label the reply field and identify which comment a reply action belongs to.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 Give the discussion a visible heading that includes ‘Comments’ and identifies the topic when useful. When comments supplement an article, place them after it in an `aside` named by that heading. When the discussion is the main purpose of the page, put it in the main content.
 
@@ -17,7 +35,9 @@ Use a list for the stream and nest replies within their parent’s list item. Gi
 
 Prefer visible action labels. If you need an overflow control, place it after the comment’s other actions and label it for the relevant comment, such as ‘More actions for Comment 12’. Use a border or other visible cue to distinguish replies when colours are overridden. Preserve the list structure and keep deep threads readable at narrow widths. If you limit nesting, explain where people can continue the discussion.
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 ### Posting and replying
 
@@ -37,7 +57,9 @@ For a reversible reaction, use a button with a stable visible label and update `
 
 For overflow actions, use a [Disclosure](Disclosure.md) with the actions immediately after the trigger. Follow [Share Tools](Share%20Tools.md) for sharing links. Keep buttons, sorting controls and focus indicators visible in forced colours.
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Markup example
 
@@ -94,7 +116,11 @@ This fragment shows one public comment with a reply. The host service supplies t
 
 Keep fragment IDs stable through sorting and refreshes. If comments load asynchronously, make the linked comment available before directing the reader to it. Check that the target can be read and that the next Tab continues from the comment. Where enhanced posting and sorting are provided, prefer working server routes as the baseline. If a feature depends on scripts, explain what is unavailable and give an alternative where the service provides one.
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 | Method and action | Expected result |
 | --- | --- |
@@ -106,14 +132,21 @@ Keep fragment IDs stable through sorting and refreshes. If comments load asynchr
 | Select, switch and withdraw reactions where supported. Open and close any overflow actions. | Reaction labels stay stable, pressed states and totals agree, and selected states are visible without colour. Overflow actions are reachable when open and skipped when collapsed. |
 | Block scripts and reload. In separate runs, narrow the viewport, increase text size and enable forced colours. | The documented baseline is available. The stream, reply structure, controls and keyboard focus remain visible and usable in the supported layouts. |
 
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+
 ## Sources
 
-- [Complementary Landmark](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/complementary.html)
+- [W3C APG: complementary landmark example](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/complementary.html)
 - [Using the `aria-describedby` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute)
 - [ARIA Live Regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
 - [ARIA Authoring Practices: Menu button](https://www.w3.org/TR/wai-aria-practices-1.1/#menubutton)
 - [Form styling examples](http://wtfforms.com/)
 - [Screen reader keyboard shortcuts](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts)
-- [Using the group role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_group_role)
-- [`appearance`](https://css-tricks.com/almanac/properties/a/appearance/)
+- [MDN: Using the ARIA group role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_group_role)
+- [CSS appearance property](https://css-tricks.com/almanac/properties/a/appearance/)
 - [WCAG2.1 1.4.1 Use Of Color](https://www.w3.org/TR/WCAG21/#use-of-color)

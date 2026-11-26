@@ -1,13 +1,31 @@
 ---
-title: Tabs
-description: Help people switch between related sections of content in one place.
+title: "Tabs"
+description: "Help people switch between related sections of content in one place."
 ---
 
 # Tabs
 
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
 Use tabs when people need to choose one of a few related sections in the same view. Keep labels short and make each panel useful on its own. Use four or five tabs as a design heuristic. If labels need more space or people need to compare sections or complete one task across them, consider [Accordion](Accordion.md) or visible sections with in-page links.
 
-## Presentation
+## Recommended markup
+
+Use a named tablist, associated tabs and labelled panels after enhancement. Keep the baseline links and sections usable when scripts are blocked.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 Give the tab set a name that explains what the tabs group, such as ‘Journey information’. Give each tab a visible text label that describes the content it reveals. Keep panel headings so people can find the same sections before and after enhancement.
 
@@ -15,7 +33,9 @@ Place the panel immediately after the tab list in source order. Show which tab i
 
 Keep the full labels readable at narrow widths and when people enlarge text. If the labels cannot fit in a horizontal row, consider vertical tabs or use an accordion or in-page navigation. If tabs become vertical, update their orientation and keyboard commands together. Avoid layouts that look like a series of disclosures but still behave like horizontal tabs.
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 ### Standard tabs
 
@@ -38,7 +58,9 @@ Start with in-page links to visible sections. Keep the same fragment IDs when en
 
 If selection updates the URL, record a history entry only when the selected destination changes. Restore the appropriate panel on Back and Forward, including the default panel when returning to the initial URL without a fragment. Reveal a hidden panel before moving to a fragment inside it. Keep focus where it is if it remains usable. When a history change would hide the focused element, move focus to a sensible visible target, such as the newly selected tab. See [Client-side Routing](Client-side%20Routing.md#back-and-forward) for history across views.
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Markup example
 
@@ -86,7 +108,11 @@ This snapshot shows the initial state for the standard horizontal, manual-activa
 
 Keep one tab in the ordinary Tab sequence. On arrow navigation, move that tab stop to the newly focused tab. If the person leaves the list without changing selection, restore the selected tab as the next entry point. Update `hidden` along with `aria-selected` and keep hidden panels and their controls out of the accessibility tree and tab sequence.
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+The ACT-style checks in this section are pattern-specific checks maintained in this guide. The proposed W3C rules are listed separately.
+
+<a name="checkpoints-for-the-tester"></a>
 
 ### ACT-style checks
 
@@ -110,7 +136,17 @@ Apply these checks to each enhanced tab set with two or more panels. Run the foc
 | If selection updates the URL, select two different tabs from the initial URL, then use Back and Forward. | The visible panel and selected tab follow the URL, including when returning to the initial URL. Focus remains visible and usable. |
 | Enlarge text and then separately narrow the viewport. Use the controls again, including any vertical layout. | Labels stay readable, selection and focus stay clear, and the visible orientation matches the keyboard commands. |
 
-## Related references
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [ARIA required owned elements (bc4a75)](https://www.w3.org/WAI/standards-guidelines/act/rules/bc4a75/proposed/)
+- [Element with role attribute has required states and properties (4e8ab6)](https://www.w3.org/WAI/standards-guidelines/act/rules/4e8ab6/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
+
+## Sources
+
+<a name="related-references"></a>
 
 - [Tabs: ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
 - [Tabs, Used Right](https://www.nngroup.com/articles/tabs-used-right/)
