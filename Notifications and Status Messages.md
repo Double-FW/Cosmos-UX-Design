@@ -7,6 +7,8 @@ description: Give people feedback they can read at their own pace, act on and fi
 
 Keep important feedback where people can find it. Someone may miss a short-lived toast while reading another part of the page, using magnification or listening to a screen reader. Put feedback about the current task near that task. Give people a notification centre for updates they may need to review later.
 
+Use [Making Important Information Stand Out](Making%20Important%20Information%20Stand%20Out.md) to decide what deserves emphasis when several messages or cues compete for attention.
+
 ## Choose a pattern
 
 | Pattern | Use it for | Announcement and focus | How long it stays available |

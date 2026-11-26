@@ -13,6 +13,7 @@ A collection of accessibility techniques for people designing, building, testing
 - [Layout](Layout.md)
 - [Typography](Typography.md)
 - [Colour, contrast and meaning](Colour%2C%20Contrast%20and%20Meaning.md)
+- [Making Important Information Stand Out](Making%20Important%20Information%20Stand%20Out.md) — visual emphasis and screen reader announcements.
 - [Motion and Animation](Motion%20and%20Animation.md)
 - [Progressive Enhancement](Progressive%20Enhancement.md)
 
