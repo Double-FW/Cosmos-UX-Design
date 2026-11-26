@@ -46,6 +46,7 @@ A collection of universally applicable accessibility and inclusive design techni
 
 ### Components
 
+- [Accessible Chatbots](Accessible%20Chatbots.md) — conversation, announcements and alternative support.
 - [Accordion](Accordion.md)
 - [Badge](Badge.md)
 - [Call to Action](Call%20to%20Action.md)
