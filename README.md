@@ -33,6 +33,7 @@ A collection of universally applicable accessibility and inclusive design techni
 - [Informed Choice and Preferences](Informed%20Choice%20and%20Preferences.md)
 - [Refusal, Cancellation and Exit](Refusal%2C%20Cancellation%20and%20Exit.md)
 - [Saving and Resuming a Task](Saving%20and%20Resuming%20a%20Task.md) — draft feedback, return routes and recovery.
+- [Showing What Changed Before Confirmation](Showing%20What%20Changed%20Before%20Confirmation.md) — review changed details before committing.
 - [Support, Escalation and Handoffs](Support%2C%20Escalation%20and%20Handoffs.md)
 
 ### Forms
