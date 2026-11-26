@@ -50,6 +50,7 @@ A collection of universally applicable accessibility and inclusive design techni
 - [Badge](Badge.md)
 - [Call to Action](Call%20to%20Action.md)
 - [Breadcrumbs](Breadcrumbs.md)
+- [Carousels and Sliders](Carousels%20and%20Sliders.md) — paged slides, scrolling lists and value inputs.
 - [Disclosure](Disclosure.md)
 - [Drawer](Drawer.md) — non-modal side panels and modal drawers.
 - [Mega Menu](Mega%20Menu.md)
