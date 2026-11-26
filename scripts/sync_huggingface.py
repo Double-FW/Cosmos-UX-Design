@@ -213,8 +213,9 @@ def verify_public_source():
         raise ValueError("Could not confirm the public GitHub source; no HF write was attempted.") from None
     if info.get("full_name") != SOURCE or info.get("private") is not False or info.get("visibility") != "public":
         raise ValueError("Publishing requires the approved public GitHub source.")
-    if (info.get("license") or {}).get("spdx_id") != "MIT":
-        raise ValueError("Publishing requires the source repository to declare the MIT licence.")
+    # GitHub may classify a valid custom-attributed MIT LICENSE file as
+    # "Other" / "NOASSERTION". The committed source file is independently
+    # required to begin with the MIT licence marker in load_sources().
 
 def slug(value):
     value = value.lower().replace("–", "-").replace("—", "-")
