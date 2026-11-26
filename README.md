@@ -31,6 +31,7 @@ A collection of universally applicable accessibility and inclusive design techni
 
 ### Service journeys
 
+- [Customer Surveys and Feedback](Customer%20Surveys%20and%20Feedback.md) — accessible feedback throughout the customer journey.
 - [Alternatives to Deceptive Patterns](Alternatives%20to%20Deceptive%20Patterns.md)
 - [Informed Choice and Preferences](Informed%20Choice%20and%20Preferences.md)
 - [Refusal, Cancellation and Exit](Refusal%2C%20Cancellation%20and%20Exit.md)
