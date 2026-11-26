@@ -113,6 +113,8 @@ Principles and techniques that apply across components, pages and journeys.
 
 ## Using the guides
 
+- [Agent instructions](AGENTS.md) — workflows for design systems, patterns, customer journeys, targeted QA and remediation.
+
 1. Open the relevant guide for the design or component and follow its links to shared implementation guidance.
 2. Turn applicable checkpoints into acceptance criteria. Record the WCAG criterion and level separately from any additional design-system requirement.
 3. Test in the host product with the supported browser and assistive technology combinations. Include keyboard-only use, screen reader use, resize and reflow, forced colours, reduced motion and blocked scripts where relevant.
