@@ -11,7 +11,7 @@ Use a badge to help people identify a status, category or count at a glance. Pla
 
 Use a short, visible label in sentence case, such as ‘On hold’, ‘New’ or ‘3 unread messages’. Keep the same wording and visual treatment for the same meaning across the service. Use badges selectively. Where a status affects what someone can do next, also state it in the relevant content or instructions.
 
-Keep the meaning clear when colours are hard to distinguish or replaced. An icon or dot can reinforce a text label. For example, pair a dot with ‘Offline’. If an icon adds information, prefer including it in the visible text. Reserve icon-only badges for symbols users already recognise in context and provide the same meaning in words for assistive technology. See [Icons](Icons.md) and [colour guidance](Color%20and%20Meaning.md).
+Keep the meaning clear when colours are hard to distinguish or replaced. An icon or dot can reinforce a text label. For example, pair a dot with ‘Offline’. If an icon adds information, prefer including it in the visible text. Reserve icon-only badges for symbols users already recognise in context and provide the same meaning in words for assistive technology. See [Icons](Icons.md) and [colour guidance](Colour%2C%20Contrast%20and%20Meaning.md).
 
 Give the full label room to wrap. Use relative text sizes and padding, and let the badge grow with its content. Let groups wrap without changing the reading order. Check default and inverse colour treatments on their intended surfaces. Keep informational badges visually distinct from controls, without a pointer cursor or hover and pressed styles.
 

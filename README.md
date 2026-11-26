@@ -12,7 +12,7 @@ A collection of accessibility techniques for people designing, building, testing
 - [Page Metadata](Metadata.md)
 - [Layout](Layout.md)
 - [Typography](Typography.md)
-- [Colour, contrast and meaning](Color%20and%20Meaning.md)
+- [Colour, contrast and meaning](Colour%2C%20Contrast%20and%20Meaning.md)
 - [Motion and Animation](Motion%20and%20Animation.md)
 - [Progressive Enhancement](Progressive%20Enhancement.md)
 
