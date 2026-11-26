@@ -1,6 +1,6 @@
 # Cosmos Atomic UX Design Framework
 
-A collection of accessibility techniques for people designing, building, testing and improving web design systems. The guides cover page foundations, interaction, form controls and reusable components.
+A collection of universally applicable accessibility and inclusive design techniques for people designing, building, testing and improving web design systems. The guides cover page foundations, interaction, form controls, best practices and reusable components.
 
 ## Guide index
 
