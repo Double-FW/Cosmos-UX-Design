@@ -3,7 +3,7 @@ title: Typography
 description: Communicate with type in ways that do not create barriers for people with visual impairments, learning difficulties, or other reading conditions.
 ---
 
-## Summary
+# Typography
 
 The legibility of every web component that includes text is affected by the design and implementation of web typography. Users may be excluded from content based on how typographic features are implemented. 
 
