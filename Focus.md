@@ -3,6 +3,8 @@ title: Focus
 description: Presenting and managing focus in an accessible way.
 ---
 
+# Focus
+
 ## Keyboard navigation
 
 Some users find navigating and interacting with a webpage via a keyboard easier than operating a mouse to control an onscreen pointer. Very experienced users, for example, may find keyboard navigation more efficient than a mouse, but for people with motor-control disabilities, such as hand tremors, joint injury or disease, or limb differences, using a mouse may be difficult or impossible.
@@ -107,15 +109,18 @@ The `outline` CSS property is the most reliable way to apply a focus indicator s
 
 ## Keyboard activation and exit
 
-Follow the existing focus checkpoints for visible indicators and logical order. Keep static text outside the ordinary tab sequence unless an interaction needs an explicit keyboard stop.
+Keep static content outside the ordinary tab sequence. A keyboard stop can be appropriate when it provides a function, such as scrolling an overflowing region. A heading that receives focus after navigation can use `tabindex="-1"` and stay outside the Tab sequence. Within a composite control, such as a radio group, use its expected keyboard commands to reach the items.
 
 ### ACT-style checks
 
 Rule identifier: `gel-components-focus`
 
-Run on each distinct interactive control in its available states. Include the keyboard exit route.
+Run these manual checks on pages with focusable elements. Include every kind of interactive control, its available states and any controls revealed by interaction. Use the supported browser and operating system combinations.
 
-1. Tab through the component in both directions.
-2. Try Enter on links and Enter and Space on buttons.
-3. Check that each function works, that focus remains visible and that every component provides a keyboard route out.
-4. Test modal containment and dismissal using [Modal Dialogs](Modal%20Dialogs.md).
+| Method and action | Expected result |
+| --- | --- |
+| Move focus using the keyboard in the default theme and in forced colours. Repeat at zoom, over different backgrounds, in scrolled areas and inside open panels. | The focused item has a visible indicator throughout. Sticky content, clipping and overlays leave the indicator and focused item identifiable. |
+| Use Tab and Shift+Tab to leave individual controls and components. For components with their own keyboard interaction, use the documented exit keys. Dismiss any modal and continue navigating. | Focus can leave each control without a pointer, including editors and embedded content. While a modal is open, the background stays unavailable. After dismissal, focus returns to the opener or the next logical place. See [Modal Dialogs](Modal%20Dialogs.md). |
+| Tab through static content and then through the visible controls. Collapse a panel or close a menu and repeat. Inspect any unexpected stop. | Ordinary Tab stops provide a keyboard function. Static text and decorative graphics are skipped. Hidden descendants are skipped, and any control revealed on focus becomes visible immediately. |
+| Start before the component. Compare the controls available by pointer with those reachable using Tab, Shift+Tab or the component’s keyboard commands. Open any expandable group and repeat. | Every available interactive function can be reached by keyboard in a logical order. Controls in a composite widget are reachable using its expected keys. |
+| Operate each reachable control using its keyboard command. Use Enter for links, Enter and Space for buttons, and arrow keys where appropriate for grouped controls. | The intended action completes or the relevant state changes. Keyboard users can perform the same available functions as pointer users. |

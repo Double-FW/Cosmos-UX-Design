@@ -1,17 +1,43 @@
 ---
-title: Disclosure (show and hide content)
-description: Show or hide supplementary content in place.
+title: "Disclosure"
+description: "Show or hide supplementary content in place."
 ---
 
-# Disclosure (show and hide content)
+# Disclosure
+
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
+<a name="disclosure-show-and-hide-content"></a>
 
 Use a disclosure when people can choose whether to read supplementary information in place. Give the control a label that identifies the content it reveals. Keep focus on the control when it opens or closes the panel.
 
-## Presentation
+## Recommended markup
+
+Use native `details` and `summary` where they fit. For a custom disclosure, use a button and keep its expanded state in step with the panel.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 Keep the control visible in both states. Provide a visible expanded or collapsed indicator, such as the native marker or an icon whose shape changes with the state. Keep the panel next in source order so users reach the revealed content predictably.
 
-## Implementation
+## Recommended behaviour
+
+Keep focus on the disclosure control when it opens or closes. After opening, let the next Tab reach the first interactive item in the panel if there is one.
+
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Native HTML
 
@@ -62,9 +88,25 @@ Start with the panel visible and the button hidden. Set up the button before col
 </script>
 ```
 
-## Checkpoints for the Tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 1. Tab to the control and use Enter and Space to open and close it.
 2. Check that the control has a clear name and that its expanded or collapsed state is visible and announced by the screen reader.
 3. Confirm the closed content is hidden visually and from assistive technology. After opening, check that any links or controls in the panel occur next in the keyboard sequence.
 4. Block JavaScript and confirm the native control still works or the custom panel content is available directly. In a separate test, disable CSS and confirm that the control and content remain usable.
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Summary element has non-empty accessible name (2t702h)](https://www.w3.org/WAI/standards-guidelines/act/rules/2t702h/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
+
+## Sources
+
+- [ARIA Authoring Practices Guide: Disclosure pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/)

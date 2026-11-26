@@ -1,7 +1,11 @@
 ---
-title: Structure
+title: Page Structure
 description: Organising a webpage to prevent barriers for users who scan and navigate content using assistive technologies.
 ---
+
+# Page Structure
+
+Assemble a page so people can identify it, find its main content and bypass repeated navigation. Use this guide for the document title, page layout in HTML and skip-link markup. For detailed guidance and checks on section labels and landmark roles, see [Headings](Headings.md) and [Landmarks](Landmarks.md).
 
 ## Document title
 
@@ -30,30 +34,17 @@ If you are following a "single page application" model and update a webpage cont
 
 Screen readers will allow users to see a list of just the webpage's headings and to navigate the webpage by jumping directly to a specific heading. Keeping the total number of headings to a reasonable level, using descriptive but concise headings, and organising headings logically and hierarchically will make this much easier for users.
 
-VoiceOver presents a menu that allows the user to scan and navigate the webpage by headings.
+Use [Headings](Headings.md) for heading levels, wording and tester checks.
 
 Notice that the VoiceOver menu crops any headings which are over about 50 characters in length, so it's useful to front-load your heading content so that the most specific and relevant text is near the beginning.
 
 ## Landmarks
 
-The overall structure of a webpage is represented by identifying and labeling each section using landmarks. Landmarks allow assistive technology users to quickly navigate to specific areas of a page and easily orient themselves within the overall page content.
-
-ARIA landmarks should be used to contain all of the _perceivable_ text on a webpage, including text that could be read by a screen reader for example, but which may not necessarily be visible to sighted users.
+Use landmarks to identify the significant areas of a page. Keep the landmark list concise and check that people can find the main areas from it. See [Landmarks](Landmarks.md) for role, naming and navigation checks.
 
 ### Overview
 
-HTML tags that represent landmarks:
-
-- `<aside>` - implies the `complementary` landmark role by default; used for content that relates to and supports the core content but can be understood separately.
-- `<footer>` - implies the `contentinfo` role by default; typically used for sitewide copyright information and secondary navigation to organisation policy and information statements.
-- `<header>` - implies the `banner` landmark role by default; typically used for sitewide navigation links, logo, search form.
-- `<main>` - implies the `main` role by default; used for content that expresses or relates directly to the core topic or purpose of a webpage.
-- `<nav>` - implies the `navigation` role by default; intended to present navigational links to content within the webpage or the website.
-- `<section>` implies the `region` role when the element has an accessible name; used for generic region of related content within a webpage, used when a more specific semantic element is not available.
-
-Using landmarks can help users of screen reader assistive technology navigate your webpage. The VoiceOver screen reader for example will announce when the user enters a region, and offer options for easily navigating over, into, or out of that content.
-
-VoiceOver announces that the user has moved the screen reader cursor into a footer region: "You are currently on a footer, inside web content. To exit this web area, press Control-Option-Shift-Up Arrow."
+Use page-level landmarks to identify the main areas of the page. Within those areas, headings label the content people can navigate to. See [Landmarks](Landmarks.md#guidance) for the role and naming rules.
 
 ### Nested regions
 
@@ -63,44 +54,37 @@ Navigation links with a `nav` element create a `navigation` role within a `heade
 
 ### Applying regions
 
-A typical webpage will be divided into landmarks using a general tag structure like:
+This example shows a page title, a main heading, a named section and two navigation landmarks. The routes are illustrative. Use the [skip-link styles](#the-main-landmark) if the skip link is visually hidden until focused.
 
 ```html
+<head>
+  <title>Walking routes | Journey planner</title>
+</head>
 <body>
+  <a href="#main-content">Skip to main content</a>
   <header>
-    <nav aria-label="primary-links">
+    <nav aria-label="Main">
+      <a href="/routes">Routes</a>
     </nav>
   </header>
-  <main>
-    <section aria-label="recipes">
-    </section>
-    <section aria-label="brands">
+  <main id="main-content" tabindex="-1">
+    <h1>Walking routes</h1>
+    <section aria-labelledby="collection-heading">
+      <h2 id="collection-heading">Routes by area</h2>
+      <p>Choose a route near your starting point.</p>
     </section>
   </main>
   <footer>
-    <nav aria-label="footer-links">
+    <nav aria-label="Footer">
+      <a href="/contact">Contact us</a>
     </nav>
   </footer>
 </body>
 ```
 
-Based on this markup the browser will identify each region based on its role.
-
-* Banner
-  - Navigation
-* Main
-  - Region (labelled)
-  - Region (labelled)
-* Content information
-  - Navigation
-
-A typical webpage is logically divided into several landmarks and regions. Here each region is overlaid and represented as a colored rectangle on the screengrab of the webpage.
-
 #### Navigating by landmark
 
-A user of the VoiceOver screen reader can hear a list of landmarks as an overview to use when quickly scanning or navigating the webpage content.
-
-VoiceOver presents a list of landmarks on the webpage: "banner, navigation, main, recipes region, brands region, footer, navigation"
+In a screen reader’s landmark list, look for the banner, Main navigation, main content, Routes by area region, content information and Footer navigation. The exact wording depends on the browser and screen reader. Use the [Landmarks checks](Landmarks.md#checks) to verify that each area is identifiable.
 
 ## Search
 
@@ -134,7 +118,7 @@ The `main` role identifies central content that is the subject of that particula
 
 > The main content area consists of content that is directly related to or expands upon the central topic of a document, or the main function of an application. [^1]
 
-You should only create one `main` landmark on a webpage. Multiple `main` landmarks would defeat its purpose: to identify the central content.
+Expose one `main` landmark for the document’s active view. If an application retains inactive views in the markup, keep their content out of the accessibility tree and keyboard navigation.
 
 Give keyboard users an early skip link to the main content. Make it visible on focus, and check where focus and the next Tab stop land after activation.
 
@@ -160,60 +144,30 @@ Give keyboard users an early skip link to the main content. Make it visible on f
 
 ## Section
 
-The `section` element implies a `region` role by default. Use this to logically break up a large webpage into managable content areas that a screen reader user may wish to navigate to. It is a generic landmark used when no  other landmark role is available.
+Use a `section` for a related part of the page. It exposes a `region` landmark when it has an accessible name. Add a name when the section is worth finding through landmark navigation and a more specific landmark does not fit. Prefer to reference the visible heading.
 
 ```html
-<section aria-label="recipes">
-  <h2>Recipes</h2>
-  ...
-</section>
-
-<section aria-label="brands">
-  <h2>Brands</h2>
-  ...
+<section aria-labelledby="collection-heading">
+  <h2 id="collection-heading">Collection options</h2>
+  <p>Choose a collection location when you place your order.</p>
 </section>
 ```
 
 ## Footer
 
-The `footer` element of a `body` implies a `contentinfo` role by default. A document should only have one `contentinfo` landmark. Other elements may also have a `footer` element, for example an `article`, `aside`, `main`, `nav`, or `section` but these do not create a `contentinfo` role by default.
+The page-level `footer` exposes the `contentinfo` landmark. Use it for information about the site or page as a whole. An article, section or other part of a page can also have its own footer. That footer belongs to its local content and does not expose another `contentinfo` landmark by default.
 
 ```html
 <body>
-  <h1>The Perfect Get-Together: What to drink</h1>
-    ...
-  <footer>
-    <p>
-      <a href="/subscribe">Get our recipe of the month newsletter.</a>
-    </p>
-  </footer>
+  <main>
+    <article>
+      <h1>Planning a woodland walk</h1>
+      <p>Check the route and current conditions before setting out.</p>
+      <footer><a href="/walks">Related walking guides</a></footer>
+    </article>
+  </main>
+  <footer><a href="/contact">Contact us</a></footer>
 </body>
 ```
-
-It is possible for elements other than the `body` element to have a footer (or header). For example several `article` elements may each have their own footers. In this case you can distinguish each by adding an `aria-label` attribute to provide a descriptive label for screen reader users.
-
-```html
-<body>
-  <h1>The Perfect Get-Together: What to drink</h1>
-    
-  <article>
-    <h2>Cocktails with Spirit</h2>
-    ...
-    <footer aria-label="Cocktails with Spirit info">
-      <p>
-        Tagged: <a class="tag" href="/tag/spirits">spirits</a> 
-      </p>
-    </footer>
-  </article>
-    
-  <footer aria-label="Sitewide info">
-    <p>
-      <a href="/subscribe">Get our recipe of the month newsletter.</a>
-    </p>
-  </footer>
-</body>
-```
-
-Note that when screen readers encounter a landmark role, they will announce it after reading the label. In the example above: "Cocktails with Spirit info footer" and "Sitewide info footer".
 
 [^1]: [_ARIA: main role_](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/main_role), MDN web docs

@@ -1,36 +1,117 @@
 ---
-title: Load More
-description: "Reading additional results."
+title: "Load More"
+description: "Help people request another batch of results and continue from where they stopped."
 ---
 
 # Load More
 
-Provide working pagination as the baseline. Mark the current page and omit unavailable previous or next actions. When enhancement is available, append results on request. Announce loading and identify the range of newly loaded results. Place a programmatically focusable marker before the new batch so readers can continue at the right place.
+## Contents
 
-## Implementation
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
 
-Keep a working URL for each underlying results page and identify it with `aria-current="page"` in the pagination. Hide the enhancement button until its handler is available. If loading fails, keep existing results and provide a retry or a working page link.
+## Introduction
+
+Use Load More when people are exploring a list and want to request more results without leaving the page. Automatic loading can move the reading position or make it hard to reach the content after the results. Give people a button to request each batch and provide working pagination as the baseline.
+
+Use [Expandable Content Previews](Expandable%20Content%20Previews.md) when the button reveals content already on the page.
+
+## Recommended markup
+
+Use links for pagination and a button to request another batch in place. Keep result groups in source order.
+
+## Recommended layout
+
+<a name="presentation"></a>
+
+Put the initial results in the main content. Use list items for results and use consistent heading levels when results have headings. Follow [Headings](Headings.md) for choosing their level. Make each result and its link distinguishable from its neighbours.
+
+Place the Load more button and loading feedback after the results. Make each new batch recognisable. For example, place a visible ‘Results 11 to 20’ heading immediately before the new list. Keep the range marker outside the result items so that a list’s item count reflects the results it contains. Give the marker a visible focus indicator when it receives focus. See [Focus](Focus.md#focus-indication).
+
+## Recommended behaviour
+
+<a name="behaviour"></a>
+
+### Pagination
+
+Give each results page a working URL. Retain the current query, filters and sort order across pages. When a query or filter changes the result set, restart pagination for that selection. See [Filter and Sort](Filter%20and%20Sort.md).
+
+Use a named navigation landmark for pagination. Mark the current page with `aria-current="page"` and distinguish it visually from both other pages and the keyboard focus indicator. Omit unavailable Previous and Next links. Where the full set of page links does not fit, retain Previous and Next where available and show the current page and total when known. Include an early [skip link](Page_Structure.md#the-main-landmark) so people can reach the main content after a full page load.
+
+### Loading another batch
+
+1. When the person activates Load more, keep their current results available and show a text status such as ‘Loading more results’. Announce it through a [status region](Dynamic%20Content.md#status-messages) that exists before the update. A spinner can reinforce the text. Keep the feedback available with reduced motion.
+2. Prevent duplicate requests for the same batch without moving focus. Keep the button’s place in the layout while the request is pending. If the person changes the query, filters or sort while waiting, discard any response that belongs to the previous selection.
+3. On success, append the new results in order and update the next destination. If focus is still on the initiating button after keyboard activation, move it to the new batch marker. Reading forward should reach the new results, and the next Tab should reach their first focusable item or the next available control. If the person has moved on, preserve their new focus and announce the result range through the status region. Use one announcement route for the same message.
+4. On failure, leave previous results and their order intact. Explain that the next batch could not load and let people retry or follow a working pagination link. A failed request should leave the next page available.
+5. When there are no more results, say so and remove the unavailable action. If the button still has focus and there is no new batch marker, move focus to the end-of-results message before removing the button. Keep the rest of the page reachable.
+
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Markup example
 
-The host service must return the requested results page.
+This fragment shows the first results page. The server renders the initial results, the correct current-page marker and the pagination URLs. Replace the sample routes and query parameters with working ones.
 
 ```html
-<nav aria-label="Results pages">
-  <a href="?page=1" aria-current="page">Page 1</a>
-  <a href="?page=2">Page 2</a>
-  <a href="?page=2">Next page</a>
+<ul id="results">
+  <li><a href="/routes/riverside">Riverside walk</a></li>
+  <li><a href="/routes/woodland">Woodland walk</a></li>
+</ul>
+
+<p id="results-status" role="status"></p>
+<button type="button" id="load-results" hidden>Load more results</button>
+
+<nav aria-label="Results pages" id="results-pagination">
+  <a href="/routes?q=walking&amp;page=1" aria-current="page">Page 1</a>
+  <a href="/routes?q=walking&amp;page=2">Page 2</a>
+  <a href="/routes?q=walking&amp;page=2">Next page</a>
 </nav>
 ```
 
-## Checkpoints for the tester
+Reveal the enhancement button only after the request and response handlers are ready. If the enhancement replaces the pagination controls, retain a working route to the next page for recovery. Keep the status region available to assistive technology before writing to it.
 
-1. Load a second batch.
-2. Confirm the first batch stays available, focus reaches the new batch marker and Tab moves into the new results.
-3. At the end, communicate that there are no more items.
-4. Block scripts and follow the pagination links.
+Insert the new batch immediately before the status and controls. For example, the next batch can use this structure. Use the actual range and choose a heading level that fits the results section.
 
-## Related references
+```html
+<h2 tabindex="-1">Results 3 to 4</h2>
+<ul>
+  <li><a href="/routes/park">Park loop</a></li>
+  <li><a href="/routes/hill">Hill walk</a></li>
+</ul>
+```
+
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
+
+Test with the supported browsers and screen readers. Include enough results to load a second batch and then reach the end.
+
+| Method and action | Expected result |
+| --- | --- |
+| Block scripts and follow the pagination links with the keyboard. Check the first, intermediate and final page where available. | The URLs load the expected results and retain the query, filters and sort. The current page is identifiable. Unavailable links are absent and the skip link can reach the main content. |
+| Activate Load more with the keyboard. Delay the response and try activating it again. | The loading message is visible and available to assistive technology. The first batch remains usable and only one request appends the next batch. |
+| Let the request complete, read forward from the marker and press Tab. Repeat by moving focus away from the button while a request is pending. | The new results follow the earlier ones. Focus moves to the range marker when the keyboard user is still waiting on the button. If focus has moved, it stays at its new destination and the range is announced separately. |
+| Force a failed response, then retry or follow the fallback link. If filters or sort are available, change them while a request is pending. | Earlier results remain available after failure. Retry loads the intended batch once. An earlier response cannot add results to a newer selection. |
+| Load the final batch. Repeat with a response that returns no further items. | The interface communicates that there are no more results. Focus remains usable and the person can reach content after the results. |
+| Narrow the viewport and repeat at increased zoom. Test loading with reduced motion enabled. | Pagination and feedback remain usable. Visible text communicates progress even when animation is reduced. |
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+
+## Sources
 
 - [Automatic Infinite Scrolling And Accessibility](https://simplyaccessible.com/article/infinite-scrolling/)
 - [So You Think You Built A Good Infinite Scroll](http://blog.adrianroselli.com/2014/05/so-you-think-you-built-good-infinite.html)

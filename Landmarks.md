@@ -1,37 +1,38 @@
 ---
 title: Landmarks
-description: "Organize web pages with HTML landmarks."
+description: Help people find and move between the main areas of a web page.
 ---
 
-## Summary
+# Landmarks
 
-By adding HTML landmarks to your web pages you enable assistive technologies to identify the regions which a user might want to quickly skip to (or skip over), for example by using the `<header>`, `<nav>`, `<main>`, and `<footer>` tags.
+Landmarks let people using assistive technology find the main content, navigation and other important areas without reading the page from the start. Use a small set of meaningful landmarks so the list gives people a useful overview. A [survey of screen reader users](https://webaim.org/projects/screenreadersurvey9/#landmarks) describes how people use landmark navigation.
 
-## Purpose
+## Guidance
 
-[A WebAIM survey of screen reader users](https://webaim.org/projects/screenreadersurvey9/#landmarks) revealed that more than half of respondents will at least sometimes use HTML landmarks to navigate within a web page. While other features, such as headings and links, may be used more frequently according to the survey, adding HTML landmarks into the array of virtual signposts can only be a help, particularly to users who cannot visually scan a document to decide where to start. 
+Use native HTML elements for the page’s main areas. Check the role the browser exposes, because some roles depend on where the element is used.
+
+| Page area | Markup and exposed role |
+| --- | --- |
+| Site header | A page-level `header` exposes `banner`. A header within an article or section introduces that content. |
+| Main content | Use one exposed `main` landmark for the document’s active view. |
+| Major navigation | Use `nav` to expose a `navigation` landmark. When several navigation areas have different purposes, give them distinct names, such as ‘Main’ and ‘Footer’. |
+| Supporting content | Use `aside` where the content supports the page and makes sense on its own. Check for the `complementary` role when it serves as a landmark. |
+| Additional region | Use a named `section` when the content needs a landmark and a more specific role does not fit. Prefer `aria-labelledby` pointing to its visible heading. An `article` has article semantics of its own. |
+| Site footer | A page-level `footer` exposes `contentinfo`. A footer within an article or section supplies information about that content. |
+
+Keep significant page content easy to find from the landmark list. A finding that content sits outside a landmark is a prompt to check whether people can find it. For example, an early skip link can sit before the header.
+
+## Implementation
+
+Use the [Page Structure example](Structure.md#applying-regions) to check how regions fit together and the [skip-link example](Structure.md#the-main-landmark) to help keyboard users bypass repeated navigation.
 
 ## Checks
 
-For each web page under test, perform the following checks. Record an answer, "yes" or "no" to each question. The passing result is indicated in uppercase. For each failing result, document it either as a defect or else provide an explanation of why it should be allowed as an exception or why it is not applicable.
+Inspect the browser’s accessibility tree or use a [landmark navigation extension](https://chrome.google.com/webstore/detail/landmark-navigation-via-k/ddpokpbjopmeeiiolheejjpkonlkklgp?hl=en-GB) to identify roles and names. Verify the result with a supported screen reader.
 
-### Checks which could be automated
-
-- Does the web page have exactly one region identified with the `main` landmark? [Y/n]
-- Is all content on the web page contained within a landmark region? [Y/n]
-
-### Checks which should be (at least partly) performed manually
-
-- Are areas of the web page that are primarily meant to display navigational links identified using the `nav` landmark? [Y/n]
-- Is the web page header content identified using the `header` landmark? [Y/n]
-- Is the web page footer content identified using the `footer` landmark? [Y/n]
-- Considering other landmarks, if they are used, does each correctly communicate the content it contains: `section`, `article`, `aside`?
-- If a skip link exists, is that link at or near the top of the web page and can it be used when navigating by keyboard to jump to the main content? [Y/n]
-
-## Additional Testing Methods and Strategies
-
-Navigating by HTML landmarks is a technique that can be used by both sighted and blind users, even without the aid of a screen reader device. For example [browser plug-ins are available](https://chrome.google.com/webstore/detail/landmark-navigation-via-k/ddpokpbjopmeeiiolheejjpkonlkklgp?hl=en-GB) to allow the user to easily display a navigation menu based on the HTML landmarks. Use the browser plugins to test that each landmark is correct.
-
-## Examples and Additional Information
-
-Use the [landmark markup](Structure.md#applying-regions) and the [skip-link example](Structure.md#the-main-landmark). Check that the skip link is easy to reach near the start of keyboard navigation, is visible when focused, and moves the user into the main content.
+| Method and action | Expected result |
+| --- | --- |
+| Inspect the accessibility tree of the active page. If the application switches views, repeat after navigation. | The document exposes one main landmark and it contains the current view’s central content. |
+| Open the screen reader’s landmark list and move to the header, main navigation and footer where present. | Page-level roles match their purpose. Local article headers and footers do not appear as page banners or content information landmarks. Landmarks with different purposes can be told apart by name. |
+| Navigate to named sections and supporting content. Review any significant content flagged outside landmarks. | Each landmark is useful and clearly identified. The page’s main areas can be found through landmarks or the surrounding page structure. |
+| From the top of the page, Tab to the skip link and activate it. Press Tab again. | The link is easy to reach and visible on focus. It moves focus to main content and the next Tab continues from there. |

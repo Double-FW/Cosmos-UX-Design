@@ -3,7 +3,7 @@ title: HTML Form Elements
 description: Using basic HTML form elements, applied accessibly, remove barriers for users as they interact and provide feedback using web forms.
 ---
 
-## Basic HTML form elements
+# HTML form elements
 
 Several basic HTML form input elements are used to collect information from users. These include:
 
@@ -17,11 +17,11 @@ There are a few rules to using each of these elements that will help ensure they
 
 ## Visible labels
 
-All form elements must have a visible label. This label should be clearly associated with its form element by its position; it should be obvious which label belongs to which form input element. For pages presented in a left-to-right language, the label should be positioned above or to the left of its form element; the exception to this rule is the checkbox and radio button elements, for which the convention is for the visible label to be positioned to the right of the form element.
+Use a persistent visible label for editable fields. This label should be clearly associated with its form element by its position; it should be obvious which label belongs to which form input element. For pages presented in a left-to-right language, the label should be positioned above or to the left of its form element; the exception to this rule is the checkbox and radio button elements, for which the convention is for the visible label to be positioned to the right of the form element.
 
-The visible label for a form element need not be text, but in most cases, it should be. In specific cases, an icon could be an appropriate label, for example, a magnifying glass icon, to indicate a search field. Avoid using an icon as a label if it is not widely conventional and immediately obvious what the icon represents or if the form contains multiple fields. When using an icon, you must provide a comparable text alternative to indicate the accessible name to users who may not be able to perceive or understand the icon.
+Prefer text that clearly identifies the field. For a compact, unambiguous single-field search, see [Search field labels](Search.md#search-field-labels).
 
-The `placeholder` attribute is not a substitute for an HTML `label` element. Screen readers, and other assistive technologies, do not treat placeholders as labels, and they may not be supported at all in older assistive technologies.
+A placeholder can give a short example. Keep the label visible while the person types, and place essential instructions alongside the field.
 
 ## Accessible names
 
@@ -69,22 +69,6 @@ The value of the `aria-labelledby` attribute should be the same as the value of 
 ## Grouping related form elements
 
 When a form contains several related form input elements, presenting them as a group is helpful. This will help to make the form easier to navigate and understand. The simplest way to group form input elements is to use an HTML `fieldset` element, which visually and semantically groups related form input elements. The HTML `fieldset` element should include an HTML `legend` element that provides a visible label for the entire group of form elements.
-
-```html
-<fieldset>
-  <legend>Address</legend>
-  <label for="address-line-1">Line 1</label>
-  <input type="text" id="line-1" name="address-line-1">
-  <label for="address-line-2">Line 2</label>
-  <input type="text" id="address-line-2" name="address-line-2">
-  <label for="address-town">Town</label>
-  <input type="text" id="address-town" name="address-town">
-  <label for="address-county">County</label>
-  <input type="text" id="address-county" name="address-county">
-  <label for="address-postcode">Postcode</label>
-  <input type="text" id="address-postcode" name="address-postcode">
-</fieldset>
-```
 
 ```html
 <fieldset>
@@ -160,40 +144,24 @@ Keep essential instructions visible. Associate help text with the control using 
 
 See [Forms](Forms.md#validation) for how to keep entered values and connect validation errors to fields.
 
+## Input purpose and autofill
+
+For fields collecting personal details, choose the `autocomplete` token that describes the information. Under [WCAG 2.1 1.3.5 Identify Input Purpose](https://www.w3.org/TR/WCAG21/#identify-input-purpose) (Level AA), the purpose must be programmatically identifiable where it is [listed in the standard](https://www.w3.org/TR/WCAG21/#input-purposes) and the technology supports identifying it. Autofill also depends on the browser, device and user settings. Keep every field available for manual entry and correction.
+
+```html
+<label for="given-name">First name</label>
+<input id="given-name" name="firstName" autocomplete="given-name">
+<label for="family-name">Last name</label>
+<input id="family-name" name="lastName" autocomplete="family-name">
+```
+
+For choosing an entry format or an availability calendar, see [Calendars and Date Pickers](Calendars%20and%20Date%20Pickers.md).
+
 ## HTML5 input types
 
-The HTML5 specification includes additional input types for specific input types such as email, URL, number, range, date, and time. [^1]
+Choose a native input type for the data, such as `email` for an email address and `tel` for a phone number. Browsers can offer a layout or on-screen keyboard suited to that type. Test the control in the supported environments, including with assistive technology. [^1] [^2] [^4]
 
-```html
-<label>Month: <input name="yourMonth" type="month"></label>
-<label>Range: <input name="yourRange" type="range" name="range" min="0" max="100" step="10" value="0"></label>
-<label>Color: <input name="yourColor" type="color"></label>
-<label>Time: <input name="yourTime" type="time"></label>
-```
-
-```html
-<p><label>Month:&nbsp;<input name="yourMonth" type="month"></label></p>
-<label>Range:&nbsp;<input type="range" name="yourRange" name="range" min="0" max="100" step="10" value="0"></label>
-<p><label>Color:&nbsp;<input name="yourColor" type="color"></label></p>
-<p><label>Time:&nbsp;<input name="yourTimeh" type="time"></label></p>
-```
-
-These input types have fairly good support by modern web browsers [^4] but present mixed benefits for assistive technology users. For example, while browsers may assist users by presenting specialized on-screen keyboards, sliders, date, and color pickers and may assist with input validation, users of older or more specialized software can find that their assistive technology is not fully compatible yet. [^2] This has led to some design teams recommending against their current usage. [^3]
-
-As a compromise, you can provide the browser with a hint about the type of data you expect to be input while still retaining the universally supported input type "text" interface by using the `inputmode` attribute.
-
-```html
-<label>Enter your age: <input type="text" name="yourAge" inputmode="numeric" pattern="[1-9][0-9]{0,2}">
-```
-
-```html
-<form onsubmit="return false">
-<p><label>What is your age, in years? (required)&nbsp;<input type="text" name="yourAge" inputmode="numeric" pattern="[1-9][0-9]{0,2}" required></p>
-<p><button type="submit">Enter</button></p>
-</form>
-```
-
-In this example, we use the `inputmode` attribute set to "numeric" to tell the browser that if it shows an on-screen keyboard, it should use a numeric keypad. The  `pattern` attribute is used to activate the browser's client-side validation; we provide it with a regular expression matching the pattern of the age-like number we expect.
+Use `type="number"` when changing the value by increments makes sense. For a digit-based identifier such as a reference number with leading zeroes, use text and consider `inputmode="numeric"` to request a suitable on-screen keyboard. Validate the expected value separately. For dates, check that people can enter and correct the date with a keyboard. Offer a labelled text-entry alternative if the picker cannot support that in the target environment. [^3]
 
 ## Buttons
 
@@ -232,6 +200,7 @@ You must only submit a form when the user explicitly initiates it. For example, 
 1. Ensure additional instructions and error messages are associated with the form element they relate to.
 1. Ensure that each form has a submit button that is clearly labeled.
 1. Ensure that forms are not automatically submitted when the user changes the value of an element.
+1. For fields with autocomplete, inspect the token and try autofill using test data. Check that the correct values appear and that they can be entered or corrected manually.
 
 [^1]: [_The input element_ Whatwg HTML Living Standard](https://html.spec.whatwg.org/multipage/input.html)
 [^2]: For example, see the issue reported by Gov.UK of [incompatibility of input type of "email" and Dragon Naturally Speaking](https://github.com/alphagov/govuk-design-system/issues/2187) voice recognition software.

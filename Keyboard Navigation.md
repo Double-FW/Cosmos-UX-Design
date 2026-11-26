@@ -1,90 +1,60 @@
 ---
 title: Keyboard Navigation
-description: "Ensure web pages are keyboard accessible."
+description: Help people complete tasks using a keyboard or equivalent input.
 ---
 
-## Summary
+# Keyboard Navigation
 
-Although there are many different types of keyboards (or equivalent [switch devices](https://en.wikipedia.org/wiki/Switch_access)) that people can use to navigate web pages, from an implementation point of view, we mainly need to consider the following groups:
+Make it possible to find, operate and leave each part of a web journey using a keyboard interface. People may use a physical keyboard, a switch device or a screen reader that provides its own navigation commands. Test complete tasks so you can see what happens when people move between controls, open a panel or continue after an error.
 
-1. People who cannot see the screen and who use the keyboard to operate a screen reader — like NVDA, JAWS, or VoiceOver — which reads the content of the screen aloud.
-2. All other keyboard users, meaning users who _can_ at least partly see the screen, who may or may not use a screen reader to augment their experience, but who depend upon visual cues displayed on the screen to navigate. 
+## Guidance
 
-The [Web Content Accessibility Guidelines 2.0](https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html) requires web page providers "ensure that, wherever possible, content can be operated through a keyboard or keyboard interface."
+### Reach and operate each function
 
-## Purpose
+Use native links, buttons and form controls where they meet the need. Under [WCAG 2.1 criterion 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html) (Level A), functionality must work through a keyboard interface without requiring specific timing for individual keystrokes. The exception applies when the underlying function depends on the path of a movement, rather than only where it starts and ends.
 
-Users will have a wide range visual and motor/coordination abilities which could make using a mouse or touchpad difficult or impossible. These users will be excluded from accessing your web page if keyboard navigation is not accessible. On the other hand some users just prefer the convenience and speed with which they can use keystrokes to move around a web page. Excluding these users will frustrate and annoy them.
+Tab and Shift+Tab move through controls in a sequence that preserves meaning and lets people complete the task. Keep the source and visual sequences aligned where changing their relationship would confuse someone. Avoid positive `tabindex` values, which put controls ahead of the ordinary sequence. Use [Focus](Focus.md#tab-order) for indicators, tab stops and managing focus.
 
-A [WebAIM survey of screen reader users](https://webaim.org/projects/screenreadersurvey7/#problematic) found that a significant portion of users indicated that "a lack of keyboard accessibility" was a problem for them.  Access can includes using forms, navigational menus, interactive widgets, pop ups, and alerts, and any other type of component on a page. It is required too that keyboard access cannot not be timing restricted, meaning that the web page must allow the user to navigate and operate any content or interactive components via keyboard at whatever pace the user requires or prefers. 
+Use the commands people expect for each control. A composite control can have one ordinary Tab stop and use arrow keys to reach its items.
+
+| Control | What to try |
+| --- | --- |
+| Link or button | Use Enter for a link. Test both Enter and Space on a button. |
+| Form control | Use Space to toggle a checkbox and arrow keys within a native radio group. For a native select, use the browser and platform’s keyboard commands to open it, move through choices and commit a value. See [Forms](Forms.md#checks). |
+| Tabs | Tab into the tab list, then use that pattern’s arrow-key and activation behaviour. See [Tabs](Tabs.md). |
+| Modal dialog | Use the available close or cancel control and test Escape. Follow the [modal dialog checkpoints](Modal%20Dialogs.md#checkpoints-for-modal-dialogs). |
+
+### Continue after a change
+
+Provide a [skip link](Structure.md#the-main-landmark) so people can bypass repeated navigation. If the link is visually hidden initially, reveal it on focus. Check that activation takes the user to the main content and that their next Tab starts from there.
+
+When a component opens, manage focus according to its pattern. A simple [Disclosure](Disclosure.md) leaves focus on its trigger. A dialog moves focus inside. On dismissal, return focus to the opener when the person is resuming the same task and the opener is still available. If the opener is gone or the action starts a new step, move focus to the next logical place. If a non-modal panel closes after focus has already moved onward, preserve the new destination.
+
+Every component that receives keyboard focus needs a keyboard route out. If leaving requires an unfamiliar key or procedure, explain it before the person needs it. For a modal, keep the background unavailable while it is open and provide a keyboard-operable dismissal path. See [Keyboard traps](Focus.md#keyboard-traps).
+
+### Shortcut keys
+
+Use the standard keyboard interaction for the feature as the baseline. Where extra shortcuts are offered, make them discoverable and check for conflicts with the browser, operating system and assistive technology. Keep visible controls available for the same actions.
 
 ## Checks
 
-It is assumed that the following checks will be run in each of the modes described in the summary for this section: using a screen reader to navigate the web page under test via keyboard without seeing the screen, and using the keyboard without a screen reader and looking at the screen.
-
-For each web page under test, perform the following checks. Record an answer, "yes" or "no" to each question. The passing result is indicated in uppercase. For each failing result, document it either as a defect or else provide an explanation of why it should be allowed as an exception or why it is not applicable.
+Choose a representative task that crosses page sections or components, such as starting a search, completing a form, correcting an error and returning to the results. Run it with the keyboard while looking at the page, then with a supported screen reader using both reading and interaction commands. Where supported, include an external keyboard or keyboard-emulating switch on a touch device. Check that the test browser is configured to Tab to links and controls before reporting a failure. In Safari on macOS, check the Advanced settings for the option to highlight each item using Tab.
 
 ### Checks which should be (at least partly) performed manually
 
-- Is it possible to uses the Tab key to move forward and the Shift+Tab key combination to move the focus such that each link and control can be accessed and used without a mouse or touchscreen? [Y/n]
-- As you move focus, it it clearly visible which element on the web page currently has focus, for example by a consistent, visibly contrasting outline? [Y/n]
-- As you move focus, does each element that receives focus follow a logical, predictable order, moving from top to bottom and left to right (for web pages published in English and other left-to-right languages)? [Y/n]
-- For interactive components, including form elements, is it possible to navigate and operate each element including setting any possible options, using the arrow keys, Enter key, Space key, etc? [Y/n]
-- For complex components that automatically move focus when new content opens or appears, does focus move back to the original element once that content closes? [Y/n]
-- For content that is visually hidden when the web page loads, does that content become visible when keyboard focus moves into the element?
+| Method and action | Expected result |
+| --- | --- |
+| Start at the top of the page. Tab to the skip link, activate it and press Tab again. | The skip link is visible when focused. It bypasses repeated navigation, and the next Tab continues from the main content. |
+| Move forwards and backwards through the task. Use each component’s expected keyboard commands to reach its items. | Focus remains visible and the order preserves meaning and operability. Every interactive function is reachable, including items reached with component-specific keys. |
+| Complete and submit the form using the keyboard. Trigger a validation error and correct it. | Values can be entered and changed, the error can be found and corrected, and the person can complete the task without a pointer or timed keystrokes. |
+| Open, operate and dismiss a component. Tab onward. Where the opener can disappear, repeat that path. | Focus moves according to the pattern, hidden controls are skipped and the person can leave the component. Focus returns to the opener or continues at the next logical destination. |
+| Repeat a representative task at increased zoom and in forced colours. | The focused item and its indicator remain visible, and all actions stay operable. Use [Focus checks](Focus.md#act-style-checks) for detailed scenarios. |
 
-## Additional Testing Methods and Strategies
+Record the browser, device, assistive technology, task, first failing step and what happened to focus. Use the component guide to verify specific keys and states.
 
-### Activating on Safari
+## Sources
 
-For the Mac Safari web browser, the ability to navigate a web page with the Tab key is not enabled by default. Use the menu: Settings → Advanced → Accessibility and enable the "Press Tab to highlight each item on a web page" option.
-
-### Visible focus order
-
-When navigating by Tab key, you should see an obvious indication of which element currently has focus, as you move across each of the focusable elements on the page in the order that they are defined in the source code for the web page which may not necessarily match the visual order as it appears on the page. If CSS or JavaScript is used to move or change the appearance of focusable elements this must be implemented so as not to confuse a user expecting focus to move as they would read the same content, from top to bottom and left to right as much as possible.
-
-A common way to break the above expectation is my misapplying a `tabindex` attribute. Any element with a `tabindex` attribute set to any value higher than zero is very likely to break this test.
-
-```html
-<!-- DO NOT use a positive number for any tabindex attribute -->
-<a href="#one">One</a>
-<a href="#two">Two</a>
-<a href="#three" tabindex=1>Three</a>
-```
-
-In the above example, when navigating by Tab key, the focus will move from: Three, to One, and then Two. This should be considered a defect since the visual layout (as it is here) would lead the user to expect focus to move from: One, Two, and then Three.
-
-Finding elements with such `tabindex` setting is made obvious by using the Web Developer Browser Extension: enable the option: Information → Display Tab Index. Note any element with a `tabindex` attribute set to any value higher than zero.
-
-### Focusable Control Elements
-
-- Link: the Enter key should activate/follow the link	
-- Button: the Enter or Space key should activate / press the button
-- Checkbox: Space toggles the focused checkbox. In a native radio group, arrow keys move and select within the group, and Space selects the focused option.
-- Select (dropdown): the Arrow keys should move highlighted item, the Enter key should select the highlighted item
-- Modal dialog: check dismissal and focus return against the [modal dialog checkpoints](Modal%20Dialogs.md#checkpoints-for-modal-dialogs).
-
-### Keeping Focus Visible
-
-Web browsers are already accessible when it comes to indicating which element on a web page has focus by adding a visible outline. By using CSS to style of that focus, the indicator can be customised or even turned off. Any missing or hard-to-see focus indicator should be considered a defect. (Note that using color-change alone to indicate focus would be inaccessible to users who can not perceive color.)
-
-```css
-/* DO NOT just disable features needed by keyboard navigators */
-:focus { outline: none; }
-```
-
-### Visible on focus
-
-Tab to the skip link, confirm it becomes visible, and activate it. Check that focus moves to the main content and that the next Tab starts there. Use the [shared skip-link example](Structure.md#the-main-landmark).
-
-### Keyboard shortcuts
-
-While there are many well-known keyboard shortcuts defined in desktop applications, this isn't the case with the myriad different web pages that exist. While it is possible to use the `accesskey` attribute to define custom shortcut keys, this is not likely to increase accessibility if users can't predict or learn about them in an obvious way. And defining such shortcuts keys could even make things worse if they conflict with built-in standard shortcuts defined in the web browser or assistive technology.
-
-### Avoiding Keyboard Traps
-
-A "keyboard trap" exists whenever a feature on a webpage prevents the user from moving away from a focused element. This shouldn't happen of course, but poorly implemented JavaScript can sometimes alter the way keyboard focus normally works so as to be broken in this way if the web page author is not careful. Obviously this is considered a defect, since it breaks navigation entirely for a class of users. 
-
-### Keyboard Usage on Mobile Devices
-
-A [study conducted by WebAIM](https://webaim.org/projects/screenreadersurvey7/#mobilekeyboard) found that more than 40% of respondents who use a mobile screen reader use an external keyboard at least some of the time. This is certainly true with modern tablet computers that have soft keyboards built into their screen cover or available as a bluetooth add on. Additionally many disabled users connect [commercially available switch devices](https://www.atandme.com/?p=3758) to their mobiles or tablets that emulate a keyboard, allowing them access to the full functionality of a web page with only a press. The point is not to assume that just because a user may be on a device that has a touchscreen, that you do not need to support keyboard navigation.
+- [Switch access](https://en.wikipedia.org/wiki/Switch_access)
+- [Screen reader survey findings on access barriers](https://webaim.org/projects/screenreadersurvey7/#problematic)
+- [Screen reader survey findings on mobile keyboard use](https://webaim.org/projects/screenreadersurvey7/#mobilekeyboard)
+- [Examples of switches used with mobile devices](https://www.atandme.com/?p=3758)

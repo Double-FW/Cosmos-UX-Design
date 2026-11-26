@@ -1,20 +1,66 @@
 ---
-title: Modal Dialogs
+title: "Modal Dialogs"
 description: "A guide to making accessible modal dialogs."
 ---
 
-## Summary
+# Modal Dialogs
+
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
+<a name="modal-dialog"></a>
 
 Use a modal dialog when the user needs to address a specific task or message before returning to the page. Prefer inline content or a dedicated page when people can continue their work without interruption. Avoid opening a modal automatically unless the interruption is necessary.
 
-## Roles and accessible names
+## Recommended markup
+
+### Roles and accessible names
 
 - Use native `<dialog>` with `showModal()` for ordinary modal dialogs.
 - Reserve `alertdialog` for a brief, urgent message that requires a response. Give it an accessible name and associate the message with `aria-describedby`.
 - Give every dialog an accessible name. Use `aria-labelledby` to reference the visible title. For longer or structured content, let users read it in context rather than announcing all of it as a description.
 - Use `show()` only for an explicitly non-modal dialog. The rest of the page remains available while it is open.
 
-## Working with the native dialog HTML element
+### Custom modal dialogs
+
+Use the [W3C ARIA Authoring Practices Guide for modal dialogs][modal-pattern] if the native element cannot meet the supported environment or interaction requirements. A custom modal needs an appropriate role, an accessible name and `aria-modal="true"`. Implement initial focus, background inactivity, keyboard containment, dismissal and focus return. Markup alone cannot make the background inactive. Check both keyboard navigation and screen reader browse mode.
+
+## Recommended layout
+
+Keep the dialog title and dismissal controls easy to find. Let content reflow and check that fixed actions leave focused controls visible.
+
+## Recommended behaviour
+
+### Managing focus
+
+- Choose an initial focus target deliberately. For a short message this may be its close button. For long or structured content, consider a heading with `tabindex="-1"` and focus it when the modal opens. For a hard-to-reverse action, consider focusing the safer choice.
+- The browser restores focus when the native modal closes if the previous focus target is still available. If the opener was removed or the action starts a new step in the journey, move focus to the next logical control or heading.
+- Keep focus within the current modal when tabbing through page content. Reaching browser controls can be acceptable if users can return and the underlying page remains unavailable.
+
+### Dismissal
+
+Provide a visible, keyboard-operable close or cancel control and support Escape. Backdrop dismissal is optional. If a step needs an explicit response, provide a clear keyboard-operable way to decline or cancel. Avoid automatic dismissal. Use `method="dialog"` for controls that close a dialog without submitting data to a server, or call `close()` when the action has completed.
+
+Prefer one modal at a time. If dialogs are opened in sequence, test focus at each transition and on return to the page. If a workflow genuinely needs stacked dialogs, test that only the active dialog can be used and that focus returns to the appropriate layer.
+
+### Interrupting a task
+
+Use an action dialog when someone needs to make a decision before continuing their task. Use a button for a choice that performs an action, such as cancelling and closing the dialog. Use a link for a choice whose purpose is navigation, such as opening a sign-in page.
+
+Use a heading that identifies the decision and label each action with its consequence. Preserve access to the underlying task after cancellation. Keep the boundary of the dialog and its controls visible in forced colours.
+
+## Reference implementation
+
+### Working with the native dialog HTML element
 
 The example is self-contained. The fallback link gives users an inline route to the same information when scripts or the native modal API are unavailable. In a real service, point the fallback at the information or task the user needs.
 
@@ -68,23 +114,11 @@ The example is self-contained. The fallback link gives users an inline route to 
 </script>
 ```
 
-### Managing focus
+## Testing Approach and ACT Scripts
 
-- Choose an initial focus target deliberately. For a short message this may be its close button. For long or structured content, consider a heading with `tabindex="-1"` and focus it when the modal opens. For a hard-to-reverse action, consider focusing the safer choice.
-- The browser restores focus when the native modal closes if the previous focus target is still available. If the opener was removed or the action starts a new step in the journey, move focus to the next logical control or heading.
-- Keep focus within the current modal when tabbing through page content. Reaching browser controls can be acceptable if users can return and the underlying page remains unavailable.
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-### Dismissal
-
-Provide a visible, keyboard-operable close or cancel control and support Escape. Backdrop dismissal is optional. If a step needs an explicit response, provide a clear keyboard-operable way to decline or cancel. Avoid automatic dismissal. Use `method="dialog"` for controls that close a dialog without submitting data to a server, or call `close()` when the action has completed.
-
-Prefer one modal at a time. If dialogs are opened in sequence, test focus at each transition and on return to the page. If a workflow genuinely needs stacked dialogs, test that only the active dialog can be used and that focus returns to the appropriate layer.
-
-## Custom modal dialogs
-
-Use the [W3C ARIA Authoring Practices Guide for modal dialogs][modal-pattern] if the native element cannot meet the supported environment or interaction requirements. A custom modal needs an appropriate role, an accessible name and `aria-modal="true"`. Implement initial focus, background inactivity, keyboard containment, dismissal and focus return. Markup alone cannot make the background inactive. Check both keyboard navigation and screen reader browse mode.
-
-## Checkpoints for modal dialogs
+### Checkpoints for modal dialogs
 
 1. Before opening, the dialog is hidden visually and from assistive technology.
 2. The trigger has a clear name and works with the keyboard. When the dialog opens, focus moves to a useful element inside it, and the screen reader announces its role and name.
@@ -107,12 +141,25 @@ Use a heading that identifies the decision and label each action with its conseq
 
 1. Open the dialog from a control midway through a page.
 2. Check initial focus, read the heading and choices, cancel, and resume at the trigger.
-3. Repeat with the confirming action and check the resulting destination.
+3. If a choice leads to another page, check that it is a link and opens the intended destination. If a choice performs an action, check that it is a button and that the expected action completes.
 
-### Related references
+### Related W3C ACT rules
 
-- [windows use high contrast mode](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
+
+## Sources
+
+<a name="related-references"></a>
+
+- [Use high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
 - [Modal window (Wikipedia)](https://en.wikipedia.org/wiki/Modal_window)
 - [Visually hidden text example](https://gist.github.com/Heydon/c8d46c0dd18ce96b5833b3b564e9f472)
 - [Notifications (Inclusive Components blog)](https://inclusive-components.design/notifications/)
 - [The current state of modal dialog accessibility](https://developer.paciellogroup.com/blog/2018/06/the-current-state-of-modal-dialog-accessibility/)
+
+- [W3C APG: Modal Dialog Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
+
+[modal-pattern]: https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
