@@ -33,11 +33,19 @@ Start with what someone needs to find out or do. Use a chart to show a pattern, 
 - Use [Data Tables](Data%20Tables.md) for exact values. Provide a caption and meaningful row and column headers. For destinations use a list with descriptive names and links. For routes use an ordered list with start, end, turns and relevant obstacles or access conditions. Keep meaningful relationships in the HTML so people can navigate them at their own pace.
 - Use native labelled inputs, buttons and links for search, filtering, zoom, reset and selection. Give location controls specific names, such as ‘Show Riverside Library’. Keep interactive controls outside any graphic hidden from assistive technology.
 
+### Choose how to render a chart
+
+Treat a static SVG as a single named image when people need to identify the graphic as a whole. Keep its explanation and structured data in nearby HTML. If the surrounding HTML already conveys the same information, hide the duplicate graphic from assistive technology.
+
+Canvas draws the visual display. Provide its labels, values and relationships through HTML that people can navigate independently. Put filters, legends that change the view, and drill-down actions in native controls where practical. Keep data points out of the Tab sequence when they only represent values. Test the actual output of any chart library and version you plan to use.
+
 ## Recommended layout
 
 Put the title, context and key finding where people encounter them with the graphic. Keep the table, directions or link to further detail close by, with a descriptive label. Place filters before the results they change. Let supporting content reflow around any chart or map that needs space to preserve its meaning.
 
 Use direct labels, line styles, marker shapes or patterns so people can identify data without relying on colour. Keep labels and units readable at narrow widths and when text is enlarged. Preserve a meaningful scale when the layout or filter changes, and explain any change that affects comparison. Use [Colour, Contrast and Meaning](Colour%2C%20Contrast%20and%20Meaning.md) for contrast and forced colours.
+
+Start quantitative bar axes at zero so differences in length represent differences in value. If a different baseline is necessary, explain it clearly and consider whether another chart would show the comparison more honestly. In a line chart, show gaps for missing observations and explain them. Use a distinct style and label for any estimate that bridges a gap.
 
 ## Recommended behaviour
 
@@ -46,6 +54,16 @@ Use direct labels, line styles, marker shapes or patterns so people can identify
 Make values and actions available without hover. If a map supports pan or zoom, offer ordinary controls for the relevant directions, zoom and reset. Provide click or tap alternatives to authored dragging as well as keyboard access. Keep page zoom available separately from the map’s zoom. Where locations depend on device permission, offer a manual search or address entry.
 
 Let people use the list or directions to reach the same details and actions as on the map. Keep selection and filters consistent across presentations. Use a persistent detail area where someone needs to compare values or reread an action. Keep focus on the control that changed the view when it remains useful. If an update removes the focused item, move focus to the nearest meaningful control or result heading.
+
+### Design dense and embedded maps
+
+Start with a searchable location list when people need to find a service among many markers. Offer the same location details and actions from the list and map. Group nearby markers when that helps sighted users scan the map. Give each interactive cluster a name that includes its area and count, such as ‘Riverside: 2 locations’. Make it operable with a native button and let people narrow the list without tabbing through every marker. Explain what selecting a cluster does. Keep focus on its control when possible, and update the result count and scope together.
+
+Give each map iframe a descriptive `title`. Verify that keyboard users can enter, use and leave the embedded map. Test its controls, popups, consent notices and full-screen mode where present. Keep the searchable results or directions on the host page so people can use them when the embed is blocked or unsuitable. A title identifies the frame. Access to the contents needs its own checks.
+
+### Write indoor directions alongside the map
+
+Name the entrance, floor and destination, then give one direction at a time between landmarks. Describe access conditions that affect a route decision, such as steps, staffed entrances, lift access and temporary closures. If a floor control changes the map, update the corresponding list or directions. Include the source and last verification date where changing conditions affect whether a route can be used. If a lift is out of service, identify the affected route and offer a verified alternative where available.
 
 ### Keep every presentation in sync
 
@@ -150,6 +168,109 @@ Copy this example into an HTML file. The table is the single source for the bars
 
 This fixture has two known channels in each period. In a real service, use stable identifiers and handle absent or suppressed values explicitly. Choose a scale that fits the available values, then use that same scale for views intended for comparison.
 
+### Searchable locations with cluster controls
+
+This standalone fixture represents two areas schematically. The HTML location list contains all results before enhancement. Searching by name or area updates both cluster counts and the list. Selecting a cluster narrows the list to that area. In a real map, position the clusters from the same location data and keep the list’s details and actions available on the host page.
+
+```html
+<!doctype html>
+<html lang="en-GB">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find a library</title>
+<style>
+  .clusters { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .clusters button { min-block-size: 2.75rem; border: 1px solid currentColor; }
+  :focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+</style>
+<main>
+  <h1>Find a library</h1>
+  <form id="library-search" hidden>
+    <label for="library-query">Library name or area</label>
+    <input id="library-query" type="search">
+    <button type="submit">Search libraries</button>
+  </form>
+
+  <section id="library-clusters" aria-labelledby="area-heading" hidden>
+    <h2 id="area-heading">Browse by area</h2>
+    <p>Choose an area to narrow the results.</p>
+    <div class="clusters">
+      <button type="button" data-cluster="Riverside" aria-controls="libraries">
+        Riverside
+      </button>
+      <button type="button" data-cluster="Town centre" aria-controls="libraries">
+        Town centre
+      </button>
+    </div>
+    <p><button type="button" id="all-areas" aria-controls="libraries">
+      Show results from all areas
+    </button></p>
+  </section>
+
+  <h2>Library results</h2>
+  <p role="status" id="library-status"></p>
+  <ul id="libraries">
+    <li data-area="Riverside">Mill Library, Riverside. 8 Mill Road.</li>
+    <li data-area="Riverside">Quay Library, Riverside. 12 Quay Street.</li>
+    <li data-area="Town centre">Market Library, Town centre. 3 Market Street.</li>
+  </ul>
+</main>
+<script>
+  const form = document.getElementById('library-search');
+  const query = document.getElementById('library-query');
+  const clusterPanel = document.getElementById('library-clusters');
+  const clusters = [...clusterPanel.querySelectorAll('[data-cluster]')];
+  const locations = [...document.querySelectorAll('#libraries li')];
+  const status = document.getElementById('library-status');
+  let appliedQuery = '';
+  let area = '';
+
+  function locationCount(count) {
+    return count + (count === 1 ? ' location' : ' locations');
+  }
+
+  function updateResults() {
+    const matches = locations.filter(location =>
+      location.textContent.toLowerCase().includes(appliedQuery)
+    );
+
+    clusters.forEach(button => {
+      const name = button.dataset.cluster;
+      const count = matches.filter(location => location.dataset.area === name).length;
+      button.textContent = name + ': ' + locationCount(count);
+      button.disabled = count === 0;
+    });
+
+    const visible = matches.filter(location => !area || location.dataset.area === area);
+    locations.forEach(location => { location.hidden = !visible.includes(location); });
+    status.textContent = visible.length
+      ? locationCount(visible.length) + (area ? ' in ' + area + '.' : ' across all areas.')
+      : 'No matching libraries. Try a different name or area.';
+  }
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    appliedQuery = query.value.trim().toLowerCase();
+    area = '';
+    updateResults();
+  });
+
+  clusters.forEach(button => button.addEventListener('click', () => {
+    area = button.dataset.cluster;
+    updateResults();
+  }));
+
+  document.getElementById('all-areas').addEventListener('click', () => {
+    area = '';
+    updateResults();
+  });
+
+  updateResults();
+  form.hidden = false;
+  clusterPanel.hidden = false;
+</script>
+```
+
 ### Route map with directions
 
 This HTML fragment shows a fictitious route. Insert it into a page with a suitable heading level. The graphic repeats the start, turn and destination in the directions. For a real route, include the distances, access conditions and uncertainty people need, and keep the map and directions up to date together.
@@ -189,10 +310,16 @@ Use the task identified at the start of design. Record the view, selected data, 
 | Use keyboard and a supported screen reader to reach details, reset or select an item and follow its action. Repeat with touch without dragging. | Controls have usable names and predictable focus. Essential details and actions are available without hover or a gesture. |
 | Enlarge text, then test narrow width and forced colours separately. | Supporting text and controls reflow. Labels, series and focus remain distinguishable. |
 | Find a location or follow a route using the alternative. Try without scripts, map tiles or location permission where applicable. | The route or location can still be found through the baseline. Relevant constraints and the route to recovery remain available. |
+| Search by place name, choose a cluster, return to all areas and try an empty search. For embedded maps, repeat with the embed unavailable. | Counts match the applied search, the chosen area is clear, focus stays usable and locations remain available through the host page. |
+| Follow an indoor route on another floor, then simulate a lift closure. | The directions and map identify the affected route, give the same current access information and show any verified alternative. |
 
 Automate agreement between displayed values and filter state where possible. Use assistive technology and task testing to check whether people can interpret the information and complete the intended action.
 
 ## Sources
+
+- [W3C technique H64: Naming an iframe](https://www.w3.org/WAI/WCAG22/Techniques/html/H64)
+- [ACCESSIBILITY.md: Maps accessibility guidance](https://github.com/mgifford/ACCESSIBILITY.md/blob/1dec2d33dfa461a5bcef2a595775068c48aa3c54/examples/MAPS_ACCESSIBILITY_BEST_PRACTICES.md)
+- [ACCESSIBILITY.md: Charts and graphs accessibility guidance](https://github.com/mgifford/ACCESSIBILITY.md/blob/1dec2d33dfa461a5bcef2a595775068c48aa3c54/examples/CHARTS_GRAPHS_ACCESSIBILITY_BEST_PRACTICES.md)
 
 - [Double-FW Inclusive Design of Charts, Graphs, Maps and Dynamic Complex Graphics](https://github.com/Double-FW/Accessible_Charts_Graphs_and_Maps/blob/16f4d7c77200c129fe0ed81c1f815e283d6ebb1d/Inclusive_Design_Charts_Maps_and_Complex_Graphics.md)
 - [W3C WAI: Complex Images](https://www.w3.org/WAI/tutorials/images/complex/)
