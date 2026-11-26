@@ -96,7 +96,7 @@ Translate the legend and every option label. Keep the option order meaningful in
 | Read a published rating with a screen reader and compare it with the graphic. Include a fractional rating and an unrated item. | The current score and maximum are understandable in text. Decorative stars add no speech, and an unrated item does not appear to have received a low score. |
 | Tab into the group, move with the arrow keys, select with Space and Tab onward. Read the group with a screen reader. | The question, scale, focused option and checked state are available. Focus stays visible. Selection can change before submission and Tab can leave the group. |
 | Use a pointer or touch to select adjacent values. Measure the clickable labels. | Each option is independently operable and its target meets the documented size. |
-| Change themes and enable forced colours separately. Select a value while another option has focus. | The selected value and focused option remain distinguishable without depending on colour alone. |
+| Change themes and enable forced colours separately. Select a value, Tab to the submit button and Shift+Tab back to the group. | The selected value stays identifiable throughout. The focus indicator identifies the focused control separately, without depending on colour alone. |
 | Block scripts, then test with CSS disabled separately. Submit no rating, then select and submit a value. | The display stays readable and the form remains usable. For the required example, a missing value can be corrected. The submitted value and confirmation agree. |
 | Increase text size to 200%, then test a narrow width and a right-to-left locale separately. | Labels stay legible, groups can wrap and reading, visual and focus order remain meaningful. |
 
