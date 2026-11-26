@@ -1,9 +1,9 @@
 ---
-title: Accessible Chatbots
+title: Chatbots
 description: Help people start, read and control a text conversation and reach another support route.
 ---
 
-# Accessible Chatbots
+# Chatbots
 
 ## Contents
 
