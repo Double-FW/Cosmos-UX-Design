@@ -17,7 +17,7 @@ Use spacing or a decorative border to separate entries. Avoid adding separator c
 
 ## Behaviour
 
-Most details are static. Where a value links somewhere, give the link wording that identifies its destination. Keep it distinguishable without colour, for example with an underline. If a link opens a new tab, give people advance notice. See [Anchors and Links](Anchors%20and%20Links.md#new-tabs) for new-tab behaviour and [Colour and Meaning](Colour%20and%20Meaning.md) for visual cues.
+Most details are static. Where a value links somewhere, give the link wording that identifies its destination. Keep it distinguishable without colour, for example with an underline. If a link opens a new tab, give people advance notice. See [Anchors and Links](Anchors%20and%20Links.md#new-tabs) for new-tab behaviour and [Colour, Contrast and Meaning](Colour%2C%20Contrast%20and%20Meaning.md) for visual cues.
 
 ## Implementation
 

@@ -9,7 +9,7 @@ Use an infographic when a visual comparison helps people see a pattern, trend or
 
 ## Presentation
 
-Identify the subject, time period and units. Label axes and categories clearly and explain any scale or grouping that changes how people should interpret the values. Start with a design that works in monochrome. Add colour alongside direct labels, marker shapes, line styles or patterns. Use the same cue in the graphic and its key. Follow [Colour and Meaning](Colour%20and%20Meaning.md) for contrast and forced colours.
+Identify the subject, time period and units. Label axes and categories clearly and explain any scale or grouping that changes how people should interpret the values. Start with a design that works in monochrome. Add colour alongside direct labels, marker shapes, line styles or patterns. Use the same cue in the graphic and its key. Follow [Colour, Contrast and Meaning](Colour%2C%20Contrast%20and%20Meaning.md) for contrast and forced colours.
 
 Give an informative graphic a concise text alternative that identifies it and explains what people need to know about its form. Use a visible caption to convey the main finding. If the graphic’s arrangement carries meaning, describe it. For example, explain that each bar represents a month and is divided by travel mode if that relationship matters to the task. Keep the image alternative and caption complementary.
 

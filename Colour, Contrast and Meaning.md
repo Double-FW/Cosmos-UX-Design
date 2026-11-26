@@ -39,7 +39,96 @@ Some people use a dark theme, higher or lower contrast, or particular foreground
 
 Forced colours can replace authored colours and suppress treatments such as box shadows. Keep text, icons, control boundaries and focus visible when that happens. Prefer native elements for their semantics and browser styling. A link with a button role can still receive the browser’s forced-colour styling for a link.
 
+On Windows, test with a system contrast theme such as Windows High Contrast (WHCM). On mobile, test system light and dark appearance separately from accessibility settings such as increased contrast or colour inversion, where the device offers them. Some settings change the final display without exposing a matching CSS media query. Check the result on a supported device.
+
 ## Implementation
+
+
+### Choosing a theme
+
+When a service offers a theme control, give people **System**, **Light** and **Dark** options. Default to System so the page follows the device preference. Remember an explicit choice across pages and reloads where storage is available. Selecting System clears that override and resumes following device changes. Let forced colours continue to apply in every theme.
+
+Use a visibly labelled native select or radio group. Make the selected option available to assistive technology. Keep focus on the control when the theme changes and keep the current page and task state available.
+
+This example sets page text and background colours and uses `color-scheme` so browser-provided controls can match. It follows the device when scripts are blocked. The script reveals the select after it can apply a change. In a host service, apply a saved choice before the first paint where practical, then use the same theme tokens for links, controls and other surfaces.
+
+```html
+<style>
+  :root {
+    color-scheme: light;
+    --page-text: #1b1b1b;
+    --page-background: #fff;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+      color-scheme: dark;
+      --page-text: #f4f4f4;
+      --page-background: #171717;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page-text: #f4f4f4;
+    --page-background: #171717;
+  }
+
+  body {
+    color: var(--page-text);
+    background: var(--page-background);
+  }
+</style>
+
+<div id="theme-control" hidden>
+  <label for="theme">Colour theme</label>
+  <select id="theme">
+    <option value="system">System</option>
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+</div>
+
+<script>
+  const themeSelect = document.getElementById('theme');
+  const root = document.documentElement;
+  const storageKey = 'site-colour-theme';
+
+  function applyTheme(theme) {
+    if (theme === 'system') {
+      delete root.dataset.theme;
+    } else {
+      root.dataset.theme = theme;
+    }
+  }
+
+  let savedTheme;
+  try {
+    savedTheme = localStorage.getItem(storageKey);
+  } catch {
+    // System is the initial choice if storage is unavailable.
+  }
+
+  themeSelect.value = ['light', 'dark'].includes(savedTheme) ? savedTheme : 'system';
+  applyTheme(themeSelect.value);
+
+  themeSelect.addEventListener('change', () => {
+    const theme = themeSelect.value;
+    applyTheme(theme);
+    try {
+      if (theme === 'system') {
+        localStorage.removeItem(storageKey);
+      } else {
+        localStorage.setItem(storageKey, theme);
+      }
+    } catch {
+      // The choice still applies to the current page.
+    }
+  });
+
+  document.getElementById('theme-control').hidden = false;
+</script>
+```
 
 ### Focus and icons in forced colours
 
@@ -56,6 +145,8 @@ Use the [Focus guide](Focus.md#consider-high-contrast-mode) for focus styling. I
 
 This CSS fragment assumes `.action` is a focusable control with a visible focus style in the default theme. The outline width is an example. Check the result with the user’s actual palette. Inspect borders that are transparent in the default theme because a forced palette can make them visible.
 
+For functional graphics, see [SVGs that adapt to colour changes](Icons.md#svgs-that-adapt-to-colour-changes).
+
 ### When the colour is the content
 
 For a colour picker, preserve the sample inside the swatch if the colour itself is what people are choosing. If needed, apply [`forced-color-adjust: none`](https://developer.mozilla.org/en-US/docs/Web/CSS/forced-color-adjust) to the swatch alone. Leave the surrounding label, input and focus indication responsive to the user’s colours. Provide a visible shade name and an independently identifiable selected state.
@@ -71,6 +162,9 @@ Record the page, theme, component, state, method and result. For measurements in
 | **Manual.** Read an error message, a price change and a chart alternative with a supported screen reader. | The field and recovery instruction, the previous and current prices, and the chart’s relevant information make sense without visual styling. |
 | **Manual.** Turn on a system contrast theme and Tab through links, buttons, inputs and any swatch selector. Repeat with a different palette where supported. | Focus, text, boundaries, icons and selected states remain perceivable. The swatch remains identifiable by name, with its colour visible where preservation is intentional. |
 | **Manual.** Switch between supported light, dark and contrast preferences. Repeat on a screen with text over media. | Controls and text remain usable, including where the background varies. Applying a user preference still leaves a clear indication of state. |
+| **Manual.** On a supported mobile device, switch between system light and dark appearance. Test increased contrast and colour inversion separately where offered. | Text, controls, images and meaningful states remain usable. The service responds to preferences the browser exposes. Other display changes leave the content understandable. |
+| **Manual.** With the service set to System, change the device appearance while the page is open. Select Light or Dark and change the device appearance again. Reload, visit another page, then select System. | System follows the device. An explicit choice stays selected and is remembered when storage is available. Returning to System clears the override. The control keeps focus during changes and forced colours still apply. |
+| **Manual.** Block scripts, then test again with scripts enabled and storage unavailable. | The script-free page follows the system palette and shows no inactive selector. With scripts enabled, switching still works for the current page. |
 
 ## Sources
 

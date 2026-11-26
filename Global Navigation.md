@@ -16,7 +16,7 @@ Place the navigation in the page header and give it a visible or accessible labe
 - **Notifications.** Provide a working notifications link where the feature exists. If you show a count, say what it counts, such as ‘3 unread notifications’. See [Badge](Badge.md) for counts and [Dynamic Content](Dynamic%20Content.md#notifications) for notification behaviour.
 - **Search.** Provide a link to the search page or a working search form. Name the scope when it helps people choose, such as ‘Search this service’. Use [Search](Search.md) for the form, landmark and suggestions.
 
-Keep text labels visible where practical. When a compact control uses an icon, make its purpose clear and preserve its accessible name. Check the logo, text, functional icons and control boundaries in forced colours and with user-defined colours. See [Colour and Meaning](Colour%20and%20Meaning.md) and [Focus](Focus.md#focus-indication).
+Keep text labels visible where practical. When a compact control uses an icon, make its purpose clear and preserve its accessible name. Check the logo, text, functional icons and control boundaries in forced colours and with user-defined colours. See [Colour, Contrast and Meaning](Colour%2C%20Contrast%20and%20Meaning.md) and [Focus](Focus.md#focus-indication).
 
 ## Behaviour
 

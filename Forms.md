@@ -37,7 +37,7 @@ When validation identifies an error, set `aria-invalid="true"` and associate the
 
 ### Error messages
 
-Identify the field, explain why the value was rejected and say how to correct it. Use visible text and keep error indicators clear in forced colours. See [the colour guide](Color%20and%20Meaning.md).
+Identify the field, explain why the value was rejected and say how to correct it. Use visible text and keep error indicators clear in forced colours. See [the colour guide](Colour%2C%20Contrast%20and%20Meaning.md).
 
 When submission fails, make the failure and the next action easy to find. For several errors, provide a summary with links to the affected fields and move focus to the summary when that is the chosen recovery path. If focus stays on the submit control, make the error notification available without moving focus. Avoid announcing the same message through both focus and a live region. Follow [Dynamic Content](Dynamic%20Content.md#status-messages).
 

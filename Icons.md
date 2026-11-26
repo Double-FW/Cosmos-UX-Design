@@ -57,6 +57,37 @@ Using CSS to control the color of individual components in an `svg` element is v
 
 Use this rule for an inline, filled icon. For a line icon, use `stroke: currentColor` and preserve its intended fill. Check the result after text resizing and in forced colours.
 
+### SVGs that adapt to colour changes
+
+Use `currentColor` for the intended fills or strokes of a single-colour inline SVG. Where an illustration or chart uses several colours, assign them by purpose and test the combinations in each supported theme. If colours become similar under an override, direct labels, line patterns and marker shapes should still distinguish the data. Keep any necessary values available in text or a [data table](Data%20Tables.md).
+
+This simplified line chart uses two line styles and two marker shapes. The graphic keeps those distinctions when both series use the same colour. The caption gives the comparison in text.
+
+```html
+<figure>
+  <svg role="img" aria-labelledby="travel-trend-title"
+       width="160" height="80" viewBox="0 0 160 80">
+    <title id="travel-trend-title">Travel trends, May to June</title>
+    <g fill="none" stroke="currentColor" stroke-width="3">
+      <path d="M20 55 L140 20"></path>
+      <path d="M20 25 L140 60" stroke-dasharray="6 5"></path>
+    </g>
+    <g fill="currentColor">
+      <circle cx="20" cy="55" r="4"></circle>
+      <circle cx="140" cy="20" r="4"></circle>
+      <rect x="16" y="21" width="8" height="8"></rect>
+      <rect x="136" y="56" width="8" height="8"></rect>
+    </g>
+  </svg>
+  <figcaption>
+    From May to June, walking trips rose (solid line, round markers)
+    and cycling trips fell (dashed line, square markers).
+  </figcaption>
+</figure>
+```
+
+Check inline SVGs and any SVGs loaded as images in the default theme, dark theme and forced colours. An SVG loaded as an image needs its own suitable artwork or asset variant. Keep `forced-color-adjust: none` for cases where preserving the colour itself is essential, such as a swatch. Apply it narrowly and follow the [swatch guidance](Colour%2C%20Contrast%20and%20Meaning.md#when-the-colour-is-the-content).
+
 ## Managing SVG icons
 
 SVG icon definitions, the mathematical points, paths, strokes, and fill data that tell the browser how to draw the icon, must be made available in your HTML document. You can inline this data _in situ_ each time you wish an icon to be shown. [^3] I personally prefer to define all the icon definitions I intend to use together in one place, and then refer to those definitions whenever I want one to be shown. For example, this SVG icon set includes only two icon symbols representing the accessibility icon and a popular social media brand, but it could logically have any number of named symbols.
@@ -308,7 +339,7 @@ This fragment illustrates the pending, successful and failed states. The host ap
 
 ## Checking icon states
 
-Keep the visual icon and the control’s exposed information in sync. For a Play/Pause action, update the icon and the label together to describe the next action. For a toggle with a stable label, use its pressed state and change the icon’s shape or another visible cue. For a disclosure, update the icon and `aria-expanded` from the same state. See [Video Controls](Video%20Controls.md), [Disclosure](Disclosure.md) and [Colour and Meaning](Colour%20and%20Meaning.md).
+Keep the visual icon and the control’s exposed information in sync. For a Play/Pause action, update the icon and the label together to describe the next action. For a toggle with a stable label, use its pressed state and change the icon’s shape or another visible cue. For a disclosure, update the icon and `aria-expanded` from the same state. See [Video Controls](Video%20Controls.md), [Disclosure](Disclosure.md) and [Colour, Contrast and Meaning](Colour%2C%20Contrast%20and%20Meaning.md).
 
 ### ACT-style checks
 
