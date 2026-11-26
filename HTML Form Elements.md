@@ -155,6 +155,8 @@ For fields collecting personal details, choose the `autocomplete` token that des
 <input id="family-name" name="lastName" autocomplete="family-name">
 ```
 
+For choosing an entry format or an availability calendar, see [Calendars and Date Pickers](Calendars%20and%20Date%20Pickers.md).
+
 ## HTML5 input types
 
 Choose a native input type for the data, such as `email` for an email address and `tel` for a phone number. Browsers can offer a layout or on-screen keyboard suited to that type. Test the control in the supported environments, including with assistive technology. [^1] [^2] [^4]
