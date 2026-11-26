@@ -6,6 +6,7 @@ A collection of universally applicable accessibility and inclusive design techni
 
 ### Page foundations
 
+- [Affordances, Signifiers and Design Conventions](Affordances%2C%20Signifiers%20and%20Design%20Conventions.md) — clues that help people recognise and predict actions.
 - [Page Structure](Structure.md) — document titles, page markup and skip links.
 - [Headings](Headings.md) — section labels, heading levels and heading navigation.
 - [Landmarks](Landmarks.md) — roles, names and landmark navigation checks.

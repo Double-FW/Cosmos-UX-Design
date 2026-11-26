@@ -25,6 +25,8 @@ For promotions, offers and incentives, make material conditions available before
 
 Use consistent visual treatments that help people predict whether a control navigates or performs an action. An underline can reinforce a link. Keep the control’s text, boundary where needed and keyboard focus visible in forced colours. A border can preserve the outline of a styled CTA when its background changes. See [Colour, Contrast and Meaning](Colour%2C%20Contrast%20and%20Meaning.md) and [Focus](Focus.md#focus-indication).
 
+Use [Affordances, Signifiers and Design Conventions](Affordances%2C%20Signifiers%20and%20Design%20Conventions.md) to check whether a control’s appearance, name and behaviour lead people to expect the same action.
+
 ### Give pointer users room to activate the action
 
 Under WCAG 2.2 [2.5.8 Target Size (Minimum)](https://w3c.github.io/wcag/understanding/target-size-minimum.html) (Level AA), pointer targets must be at least 24 by 24 CSS pixels unless an exception applies. Measure the actual clickable area. If relying on the spacing exception, centre a circle 24 CSS pixels in diameter on the bounding box of the undersized target. It must avoid intersecting another target or the circle of another undersized target. Inline links in sentences can qualify for the inline exception.
