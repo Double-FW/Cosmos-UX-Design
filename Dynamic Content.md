@@ -3,7 +3,7 @@ title: Dynamic Content
 description: Modify web page content dynamically.
 ---
 
-## Summary
+# Dynamic Content
 
 Dynamic content appears or is updated due to user interaction, timing, or in response to other parameters. Here are some examples of dynamic content:
 
