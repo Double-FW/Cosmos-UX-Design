@@ -3,7 +3,7 @@ title: Modal Dialogs
 description: "A guide to making accessible modal dialogs."
 ---
 
-## Summary
+# Modal Dialog
 
 Use a modal dialog when the user needs to address a specific task or message before returning to the page. Prefer inline content or a dedicated page when people can continue their work without interruption. Avoid opening a modal automatically unless the interruption is necessary.
 
