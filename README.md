@@ -20,6 +20,7 @@ A collection of universally applicable accessibility and inclusive design techni
 ### Interaction and content
 
 - [Anchors and Links](Anchors%20and%20Links.md)
+- [Designing the Screen Reader Journey](Designing%20the%20Screen%20Reader%20Journey.md) — task-level review of reading, focus and feedback.
 - [Focus](Focus.md)
 - [Keyboard Navigation](Keyboard%20Navigation.md)
 - [Functional Alternative Text](Functional%20Alternative%20Text.md)
