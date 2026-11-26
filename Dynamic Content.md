@@ -49,24 +49,13 @@ Changes in context that require moving focus should not be initiated as a user i
 
 ### Notifications
 
-Notifications are short, time-sensitive, or event-based messages that appear on the webpage to inform the user about some event or process or collect user input or confirmation. From a UX perspective, notifications can be broadly categorized based on user interaction:
-
-- **Status Message**: A notification that does not include user interaction. For example, a "could not connect" or a "feedback sent" message.
-- **Dialog**: A notification that includes user interaction. For example message with a button to confirm or dismiss, a message with a link to get more information, or a form with a field to enter a username.
+Use [Notifications and Status Messages](Notifications%20and%20Status%20Messages.md) to choose between inline feedback, a notification centre and a modal dialog.
 
 ### Status messages
 
-Toasts, status updates, and loading indicators are examples of status messages. [^2] They visually pop up on the screen in an unobtrusive way so as not to interrupt the user and must be announced by assistive technologies such as screen readers (either as voice or Braille).
+A status message describes a result, a waiting state or another change without taking focus. Make the update available to assistive technology. [^2] Keep important messages near the task so people can find them again. Put associated actions next to the message in the normal reading and focus order.
 
-This notification style should be limited to "for your information" updates. Failing to notice a toast message shouldn't negatively affect your work or the subject of the message.
-
-For example, if a user has earned a reward by interacting with a game on the website, a status message will notify the user of a change in status for the user's account, such as "You've got a new reward! Check your account page to learn more."
-
-Status messages shouldn't include user-interactive elements; keyboard focus does not jump to a status message when it appears (otherwise, it would quickly become too disruptive for the user), and therefore keyboard-only users cannot easily interact with them.
-
-If the content of the status message is redundant, for example, if it is to inform the user that a file was uploaded, but elsewhere on the webpage, the same information can also be found, then the status message can be temporary. Toasts, for example, are ephemeral, meaning they visually appear and may be read out by a screen reader. However, they will automatically disappear from view after a reasonably short period [^6] to avoid clutter or obscure the screen.
-
-People with vision-related disabilities or neurological/cognitive limitations are more likely to require more time to read status messages. Keep messages simple, clear, and concise. Give status messages that automatically disappear adequate time outs. A good rule of thumb is at least two seconds plus an additional second for every four words in the message (the average reading speed for adults in English). 
+People read at different speeds and may need time to locate an update. [^6] Keep the information available after any temporary presentation ends. See [why to avoid toasts](Notifications%20and%20Status%20Messages.md#why-avoid-toasts).
 
 ## Accessibility notes for the developer
 

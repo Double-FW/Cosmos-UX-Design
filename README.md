@@ -24,6 +24,7 @@ A collection of accessibility techniques for people designing, building, testing
 - [Functional Alternative Text](Functional%20Alternative%20Text.md)
 - [Icons](Icons.md)
 - [Dynamic Content](Dynamic%20Content.md)
+- [Notifications and Status Messages](Notifications%20and%20Status%20Messages.md)
 
 ### Forms
 
