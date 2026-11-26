@@ -61,6 +61,7 @@ A collection of universally applicable accessibility and inclusive design techni
 
 - [Cards](Cards.md)
 - [Client-side Routing](Client-side%20Routing.md)
+- [Charts, Graphs and Maps](Charts%2C%20Graphs%20and%20Maps.md) — data visualisation, structured alternatives and routes.
 - [Comments](Comments.md)
 - [Data Tables](Data%20Tables.md)
 - [Expandable Content Previews](Expandable%20Content%20Previews.md)

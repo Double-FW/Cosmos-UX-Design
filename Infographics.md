@@ -7,6 +7,8 @@ description: Help people understand a graphic’s main finding and explore the i
 
 Use an infographic when a visual comparison helps people see a pattern, trend or relationship. Give people a way to understand the same finding when they cannot see the graphic, distinguish its colours or operate an interactive feature.
 
+Use [Charts, Graphs and Maps](Charts%2C%20Graphs%20and%20Maps.md) when people need to explore data, filter a view, find a place or follow directions.
+
 ## Presentation
 
 Identify the subject, time period and units. Label axes and categories clearly and explain any scale or grouping that changes how people should interpret the values. Start with a design that works in monochrome. Add colour alongside direct labels, marker shapes, line styles or patterns. Use the same cue in the graphic and its key. Follow [Colour, Contrast and Meaning](Colour%2C%20Contrast%20and%20Meaning.md) for contrast and forced colours.
