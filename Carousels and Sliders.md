@@ -1,13 +1,25 @@
 ---
-title: Carousels and Sliders
-description: Help people browse slides or scrolling content and distinguish those patterns from a value slider.
+title: "Carousels and Sliders"
+description: "Help people browse slides or scrolling content and distinguish those patterns from a value slider."
 ---
 
 # Carousels and Sliders
 
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
 Use a carousel when people benefit from browsing a short sequence of related content at their own pace. Slides add controls and can conceal information from people who scan, search the page or navigate by headings. Keep essential information and actions where people can find them directly.
 
-## Choose the pattern
+### Choose the pattern
 
 | User task | Pattern |
 | --- | --- |
@@ -17,7 +29,13 @@ Use a carousel when people benefit from browsing a short sequence of related con
 
 Prefer one carousel in a view, and use a list, grid or visible section for other collections. Each additional carousel adds its own controls, hidden content and state to keep track of. Multiple moving sequences can also compete for attention while someone is reading or acting elsewhere. If several carousels remain, give them distinct names, keep them independent and test the whole page with keyboard and screen reader navigation. See [Making Important Information Stand Out](Making%20Important%20Information%20Stand%20Out.md).
 
-## Presentation
+## Recommended markup
+
+Name the carousel and its slides. Use native buttons to move through slides and a labelled range input to choose a value.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 Give the collection a descriptive heading and each slide an identifiable title or label. Make Previous and Next easy to find beside the content they change. Match their visible and accessible names so people can operate them by voice. Put related controls together and keep their order consistent.
 
@@ -25,7 +43,9 @@ Show position in readable text, such as ‘Slide 2 of 5’ or ‘Items 4–6 of 
 
 Keep the controls, titles and focus visible in [forced colours](Colour%2C%20Contrast%20and%20Meaning.md#focus-and-icons-in-forced-colours) and as text grows. At narrow widths, show fewer items or use a vertical list where it makes the content easier to browse. Avoid clipping text and focus indicators. See [Focus](Focus.md#focus-indication) and [Layout](Layout.md#visual-order-versus-tab-order).
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 ### Paged carousel
 
@@ -45,7 +65,9 @@ Keep automatic advance off by default. If people can start it, put a visible Sta
 
 WCAG 2.2 [2.2.2 Pause, Stop, Hide](https://www.w3.org/TR/WCAG22/#pause-stop-hide) (Level A) applies to non-essential automatic movement presented alongside other content when it lasts more than five seconds. For non-essential automatic updates presented alongside other content, provide a way to pause, stop, hide or control update frequency. That clause has no five-second threshold. Follow [Motion and Animation](Motion%20and%20Animation.md) for the related motion guidance.
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Manual carousel example
 
@@ -116,7 +138,11 @@ Use a native `input type="range"` when people choose a value from a range. Give 
 
 Let people change the value with the keyboard and by click or tap without dragging. Offer a labelled numeric input or step buttons where exact entry matters or the slider is difficult to operate with supported touch assistive technology. Use [Tabs](Tabs.md) if the interaction really is selecting a named content panel from a set of tabs.
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 Use a representative page with a focusable control before and after the collection. Include a slide with a link or button and test a multi-item layout where supported.
 
@@ -130,6 +156,13 @@ Use a representative page with a focusable control before and after the collecti
 | Block scripts and reload. In a separate run, restore scripts and disable CSS. Test find-in-page and any ‘View all’ route. | All content is reachable through the baseline or equivalent route. Behaviour remains understandable without styling and people have a reliable way to find the items. |
 | Where several carousels are present, read and use the surrounding page, then operate each carousel. | The collections are distinguishable. Each control affects its own collection. Essential information stays available without traversing each sequence. |
 | For a value slider, use the keyboard, tap without dragging and check the output with a supported screen reader, including touch where relevant. | Value, units and limits make sense. The displayed value follows the control, and any alternative input changes the same setting. |
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Scrollable content can be reached with sequential focus navigation (0ssw9k)](https://www.w3.org/WAI/standards-guidelines/act/rules/0ssw9k/proposed/)
 
 ## Sources
 

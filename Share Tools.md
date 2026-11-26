@@ -1,19 +1,39 @@
 ---
-title: Share Tools
-description: Help people share a page through a service or copy its link.
+title: "Share Tools"
+description: "Help people share a page through a service or copy its link."
 ---
 
 # Share Tools
 
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
 Help people pass on a page using a service they choose or by copying its link. A long row of sharing controls can slow someone navigating by keyboard, and an icon alone can be hard to identify. Keep the options easy to find and easy to bypass. A selectable page link is enough if people only need the address.
 
-## Presentation
+## Recommended markup
+
+Use a list of service links and a labelled read-only field for the address. Use a button to copy the address or open a panel.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 - Give the group a visible heading, such as ‘Share this guide’. If the page has several groups, name each for the content it shares. Use a named `aside` if the tools are supporting content and a landmark would help people find them. See [Landmarks](Landmarks.md).
 - Put service links in a list. Name each link for the action and service, such as ‘Share by email’. Prefer visible text. If you use an icon with a text label, keep the icon out of the accessible name and tab order. See [Icons](Icons.md) and [Anchors and Links](Anchors%20and%20Links.md#groups-of-external-destinations).
 - Let the options wrap in source order. Leave space between controls and check that labels, borders and focus indicators remain distinguishable in forced colours. See [Colour, Contrast and Meaning](Colour%2C%20Contrast%20and%20Meaning.md#focus-and-icons-in-forced-colours).
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 ### Bypass the tools
 
@@ -31,7 +51,9 @@ Provide a visible, labelled, read-only field containing the page address you int
 
 If you add a ‘Copy link’ button, copy only when someone activates it, and keep focus on the button. Confirm success in visible text only after the copy operation succeeds. If it fails, explain how to select and copy the link manually. Make both messages available without moving focus by following the [persistent inline feedback guidance](Notifications%20and%20Status%20Messages.md#persistent-inline-feedback).
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Markup example
 
@@ -60,7 +82,11 @@ This example shows an always-visible group and a skip destination. Replace the s
 
 Keep the links and field available until any panel enhancement works. If you add a copy button, reveal it only after its action has been set up. Keep the read-only field available if clipboard access fails or scripts are blocked. See [Progressive Enhancement](Progressive%20Enhancement.md).
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 Use a page with a control after the share tools. Test the panel and copy button where present. Use a share address with query parameters if the service supports sharing one.
 
@@ -74,9 +100,19 @@ Use a page with a control after the share tools. Test the panel and copy button 
 | Block scripts and reload. Try the service link and copy the address manually. | The baseline sharing options are usable. Enhancement controls that cannot work are unavailable. |
 | Enable forced colours. Tab through the tools. Increase text size, then separately narrow the viewport. | Labels, controls and focus remain visible. Tools wrap without hiding content or changing the tab order. |
 
-## Related references
+### Related W3C ACT rules
 
-- [Use high contrast mode](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+
+## Sources
+
+<a name="related-references"></a>
+
+- [Use high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
 - [Social Sharing Buttons: The First 10 Weeks](https://insidegovuk.blog.gov.uk/2014/02/20/gov-uk-social-sharing-buttons-the-first-10-weeks/)
 - [Social Sharing Buttons Are Useless](https://www.tuliptree-studios.com/view-post/social-sharing-buttons-are-useless)
 - [Removing Headaches From Focus Management](https://developers.google.com/web/updates/2016/03/focus-start-point)

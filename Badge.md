@@ -1,13 +1,31 @@
 ---
-title: Badge
-description: Present a short status, category or count alongside the content it describes.
+title: "Badge"
+description: "Present a short status, category or count alongside the content it describes."
 ---
 
 # Badge
 
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
 Use a badge to help people identify a status, category or count at a glance. Place it with the item it describes so the relationship also makes sense when someone reads the page with a screen reader. Use a link or button when the person needs to act, such as applying a [filter](Filter%20and%20Sort.md).
 
-## Presentation
+## Recommended markup
+
+Use visible text for the status, category or count and associate it with the relevant item. Use a link or button if the person can act on it.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 Use a short, visible label in sentence case, such as ‘On hold’, ‘New’ or ‘3 unread messages’. Keep the same wording and visual treatment for the same meaning across the service. Use badges selectively. Where a status affects what someone can do next, also state it in the relevant content or instructions.
 
@@ -15,7 +33,9 @@ Keep the meaning clear when colours are hard to distinguish or replaced. Provide
 
 Give the full label room to wrap. Use relative text sizes and padding, and let the badge grow with its content. Let groups wrap without changing the reading order. Check default and inverse colour treatments on their intended surfaces. Keep informational badges visually distinct from controls, without a pointer cursor or hover and pressed styles.
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 A badge is non-interactive. Its value can change. Keep it out of the tab order. When a badge is part of a link or button, the parent control owns focus and activation. Give that control visible text that identifies its destination or action.
 
@@ -23,7 +43,9 @@ Keep the current value readable on first load without a live announcement. When 
 
 Update the displayed count when the value is confirmed. If one action produces several intermediate values, announce the final result of that action. Avoid rolling-number animation. If a badge disappears and the change matters, make the new state clear in the page content and announce it when it is a status message. Keep important information available for people who need more time to read it.
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Static badges and groups
 
@@ -94,7 +116,11 @@ This example starts with three items. It uses the shared visually hidden class l
 </script>
 ```
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 Use the project’s supported browsers and assistive technologies. Test each badge presentation in use and record the variant, environment and result.
 
@@ -109,15 +135,22 @@ Use the project’s supported browsers and assistive technologies. Test each bad
 | Trigger a routine category change and, where supported, remove a badge that indicated a change in state. | The changed category is available in the reading order. If a removal matters, the new state is clear in the page content and is announced when it is a status message. |
 | Block scripts and reload a page with badges. | The initial labels and values remain readable. Any enhanced update has the fallback provided by the host feature. |
 
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+
 ## Sources
 
 - [Web Content Accessibility Guidelines 2.2](https://www.w3.org/TR/WCAG22/)
-- [Understanding the accessibility criteria](https://www.w3.org/WAI/WCAG22/Understanding/)
+- [W3C guide to understanding WCAG 2.2](https://www.w3.org/WAI/WCAG22/Understanding/)
 - [ARIA role, state and property definitions](https://www.w3.org/TR/wai-aria-1.2/)
 - [Accessible name and description computation](https://www.w3.org/TR/accname-1.2/)
 - [ARIA authoring practices](https://www.w3.org/WAI/ARIA/apg/)
 - [W3C technique for announcing status messages](https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA22)
-- [Live region guidance](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+- [MDN guidance on ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
 - [Tag design and research](https://design-system.service.gov.uk/components/tag/)
 - [Tag implementation guidance](https://designsystem.digital.gov/components/tag/)
 - [Accessibility tree relationships](https://sarahmhigley.com/writing/roles-and-relationships/)

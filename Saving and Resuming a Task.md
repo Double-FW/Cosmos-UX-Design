@@ -1,25 +1,45 @@
 ---
-title: Saving and Resuming a Task
-description: Help people pause a task, recover their work and find the next action when they return.
+title: "Saving and Resuming a Task"
+description: "Help people pause a task, recover their work and find the next action when they return."
 ---
 
 # Saving and Resuming a Task
 
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
 Let people pause a task they cannot complete in one sitting and return to the right place. Show what has been saved and what remains to do. After an interruption, someone may remember their goal while needing a reminder of their last step, decisions or next action.
 
-## Scope
+### Scope
 
 Use this guide for unfinished tasks such as applications, bookings and multi-step forms. Use [Forms](Forms.md) for field behaviour, [Client-side Routing](Client-side%20Routing.md) for route and focus handling, and [Refusal, Cancellation and Exit](Refusal%2C%20Cancellation%20and%20Exit.md) when leaving or discarding work changes what the person can recover.
 
 Use [Reminders and Saved Actions](Reminders%20and%20Saved%20Actions.md) when people want an optional cue to return to a saved task.
 
-## Presentation
+## Recommended markup
+
+Use a labelled save button and a descriptive return link. Keep the saved state and next step available in text.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 - Put a clearly labelled save action near the task controls. Use ‘Save and leave’ only if the action saves the draft and then leaves the task. Use ‘Continue application’ or another task-specific label for the return action.
 - Show the save state near the task. Distinguish changes still being edited, a save in progress and a confirmed save. If a draft is stored only on this device, say so where it affects how someone can return. Keep the save result easy to find after any announcement.
 - On return, show the task name, a short summary of progress, anything that changed and the next action. Let people review and edit saved answers. Give them a stable route to continue, such as a draft list in their account if the service offers one.
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 ### Save and leave
 
@@ -39,7 +59,9 @@ Distinguish session expiry from draft expiry. Explain what remains, what was los
 
 If another tab or device has changed the draft, identify the newer state and offer a way to review or reconcile the difference. Keep recoverable work where the service can safely retain it. Require an explicit choice before replacing a newer draft with older conflicting work.
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 Define what the service saves, who can reopen it, where it can be reopened, and what expires. Track the saved step and the draft version so retries and older copies cannot silently replace newer work. Keep a draft scoped to its task and authorised user. For shared devices or sensitive entries, decide what may be retained and explain any limits before the person relies on saving.
 
@@ -53,7 +75,11 @@ A person saves an application after entering their address and choosing an appoi
 | The person follows the continuation link after their session expires. | Explain that sign-in is needed to continue. After successful sign-in, open the intended application and introduce the view with its heading. |
 | The saved appointment is unavailable. | Keep the saved address and other valid answers. Show ‘Your appointment is no longer available’ alongside a ‘Choose another appointment’ action. Let the person review their current choices before submitting. |
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 Use fictitious task data and record the starting state, platform, method and result. Include keyboard and screen reader use for status feedback and return navigation.
 
@@ -66,6 +92,13 @@ Use fictitious task data and record the starting state, platform, method and res
 | In a representative task, pause and return after a delay. Ask the person to continue without supplying the next step. | Record whether they recognise the task, understand what was retained or changed and can resume or recover. Record where assistance was needed. |
 
 Use the source evaluations to plan [task resumption](https://github.com/Double-FW/Cognitive-UX-Design/blob/523df2fe9e47f8dd75d30b7920a9179d57a89bba/Interruption_Recovery_and_Task_Continuity.md#mem-rc-01--resume-a-paused-task) and [recovery from stale or expired state](https://github.com/Double-FW/Cognitive-UX-Design/blob/523df2fe9e47f8dd75d30b7920a9179d57a89bba/Interruption_Recovery_and_Task_Continuity.md#mem-rc-02--recover-stale-or-expired-state). The evidence informs what to evaluate. Choose and test a return point in the actual service context.
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
 
 ## Sources
 

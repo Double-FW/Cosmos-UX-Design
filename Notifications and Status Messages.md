@@ -1,15 +1,27 @@
 ---
-title: Notifications and Status Messages
-description: Give people feedback they can read at their own pace, act on and find again.
+title: "Notifications and Status Messages"
+description: "Give people feedback they can read at their own pace, act on and find again."
 ---
 
 # Notifications and Status Messages
+
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
 
 Keep important feedback where people can find it. Someone may miss a short-lived toast while reading another part of the page, using magnification or listening to a screen reader. Put feedback about the current task near that task. Give people a notification centre for updates they may need to review later.
 
 Use [Making Important Information Stand Out](Making%20Important%20Information%20Stand%20Out.md) to decide what deserves emphasis when several messages or cues compete for attention.
 
-## Choose a pattern
+### Choose a pattern
 
 | Pattern | Use it for | Announcement and focus | How long it stays available |
 | --- | --- | --- | --- |
@@ -19,13 +31,25 @@ Use [Making Important Information Stand Out](Making%20Important%20Information%20
 
 A live region is an announcement mechanism. Pair it with visible inline feedback or a persistent record where people need to read the message again.
 
-## Why avoid toasts
+## Recommended markup
+
+Keep feedback available in text. Use a status region for routine announcements where appropriate, and native links or buttons for recovery.
+
+## Recommended layout
+
+Put task feedback where someone is working and keep recovery actions close to the message they address.
+
+## Recommended behaviour
+
+### Why avoid toasts
 
 A toast appears briefly and may vanish before someone can find it, read it or reach an action. Keep errors, undo opportunities, deadlines, terms and other information that affects a decision in a persistent place. Where a product uses a toast for a low-priority update, make the same information available through the task or notification history and avoid duplicate announcements.
 
 Review any time-limited prompt that pressures people to act or makes it harder to find a choice or material condition. See [Deceptive Patterns and Inclusive Experience Evaluation](https://github.com/Double-FW/Deceptive_Patterns_and-Inclusive_Experience_Evaluation).
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Persistent inline feedback
 
@@ -81,7 +105,11 @@ The first fragment belongs in the site header after the report has finished. The
 
 After the change, show ‘Read’ in the entry and update the header count. When there are no unread notices, the link can read ‘Notifications’. The [notification tray design reference](https://design.visa.com/patterns/notification-tray/) gives examples of counts, timestamps and read actions.
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 | Method and action | Expected result |
 | --- | --- |
@@ -92,6 +120,13 @@ After the change, show ‘Read’ in the entry and update the header count. When
 | Test any modal used for urgent feedback. Open it, read its choices and dismiss it with the keyboard. | The modal identifies the decision, keeps the background inactive and can be dismissed. Focus returns to the opener or the next logical place. |
 | Review any remaining toast while magnified and with a screen reader. Let it disappear. | The same information can still be found. Any action or material condition is available in a persistent place. |
 | Follow the worked example from a background completion to marking the notice as read. Repeat with scripts blocked and simulate a failed read update separately. | The report adds one unread entry. With scripts blocked, the updated count and entry are available on the next page load. The centre opens from a working link. A successful read update decreases the count without removing the report entry. A failed update leaves the count and read state consistent and gives the person a way to retry. |
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
 
 ## Sources
 

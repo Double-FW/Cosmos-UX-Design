@@ -1,6 +1,6 @@
 ---
-title: Drag and Drop
-description: Help people move, reorder or drop items with controls they can use without dragging.
+title: "Drag and Drop"
+description: "Help people move, reorder or drop items with controls they can use without dragging."
 ---
 
 # Drag and Drop
@@ -12,7 +12,7 @@ description: Help people move, reorder or drop items with controls they can use 
 - [Recommended layout](#recommended-layout)
 - [Recommended behaviour](#recommended-behaviour)
 - [Reference implementation](#reference-implementation)
-- [Testing notes](#testing-notes)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
 - [Sources](#sources)
 
 ## Introduction
@@ -139,7 +139,11 @@ This vanilla HTML and JavaScript example shows the controls that make a reorder 
 
 At a boundary, an unavailable button stays focusable and exposes `aria-disabled="true"`. The handler also guards against activation. This lets someone keep their place after a move and choose the opposite direction. A production design should give this state a clear visual treatment.
 
-## Testing notes
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="testing-notes"></a>
 
 Use a list with at least three items, plus an empty destination if items can move between groups. Record the browser, device, input and assistive technology used.
 
@@ -151,6 +155,13 @@ Use a list with at least three items, plus an empty destination if items can mov
 | Start a drag and release outside a valid destination. Repeat with any keyboard pickup and cancel controls. Simulate a failed save where applicable. | An abandoned move leaves the accepted order intact. An unsuccessful save explains the outcome and the recovery route. |
 | Enlarge text, then test narrow width and forced colours separately. Block scripts in another run. | Move actions and focus remain visible. The content stays available and essential editing has a working fallback. |
 | For file upload, choose a file without dropping it. Repeat with an invalid file and remove it. | The chooser reaches the same outcome as dropping. File restrictions, errors and removal are usable without a gesture. |
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Visible label is part of accessible name (2ee8b8)](https://www.w3.org/WAI/standards-guidelines/act/rules/2ee8b8/proposed/)
 
 ## Sources
 

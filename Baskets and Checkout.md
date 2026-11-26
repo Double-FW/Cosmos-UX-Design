@@ -1,6 +1,6 @@
 ---
-title: Baskets and Checkout
-description: Help people review what they intend to buy, correct it and complete payment with a clear outcome.
+title: "Baskets and Checkout"
+description: "Help people review what they intend to buy, correct it and complete payment with a clear outcome."
 ---
 
 # Baskets and Checkout
@@ -12,7 +12,7 @@ description: Help people review what they intend to buy, correct it and complete
 - [Recommended layout](#recommended-layout)
 - [Recommended behaviour](#recommended-behaviour)
 - [Reference implementation](#reference-implementation)
-- [Testing notes](#testing-notes)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
 - [Sources](#sources)
 
 ## Introduction
@@ -113,7 +113,11 @@ This fragment shows the next relevant step after delivery has been chosen. Rende
 </form>
 ```
 
-## Testing notes
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="testing-notes"></a>
 
 Use a test payment environment and fictitious order data. Include the host checkout and any payment or authentication service. Record the route, starting state, device and assistive technology.
 
@@ -124,6 +128,15 @@ Use a test payment environment and fictitious order data. Include the host check
 | Complete guest checkout where offered. Use Back and the review page’s change links to edit an address or delivery choice. | The guest route is findable. Valid details remain available and the person can return to review without re-entering them unnecessarily. |
 | Complete payment using keyboard and a supported screen reader, including any external step. Then simulate a decline, timeout or uncertain result and retry through the offered route. | Payment outcomes are distinguishable. The result provides an appropriate next action and a retry creates no duplicate order or charge. |
 | Enlarge text, then test narrow width, forced colours and blocked scripts in separate runs. | Item actions, summary and focus remain visible. The baseline basket and checkout routes work, or the service offers a working alternative. |
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+- [Autocomplete attribute has valid value (73f2c2)](https://www.w3.org/WAI/standards-guidelines/act/rules/73f2c2/proposed/)
 
 ## Sources
 

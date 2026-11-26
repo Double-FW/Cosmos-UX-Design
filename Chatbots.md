@@ -1,6 +1,6 @@
 ---
-title: Chatbots
-description: Help people start, read and control a text conversation and reach another support route.
+title: "Chatbots"
+description: "Help people start, read and control a text conversation and reach another support route."
 ---
 
 # Chatbots
@@ -12,7 +12,7 @@ description: Help people start, read and control a text conversation and reach a
 - [Recommended layout](#recommended-layout)
 - [Recommended behaviour](#recommended-behaviour)
 - [Reference implementation](#reference-implementation)
-- [Testing notes](#testing-notes)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
 - [Sources](#sources)
 
 ## Introduction
@@ -181,7 +181,11 @@ This standalone fixture demonstrates an in-flow panel, labelled composer, contro
 
 The example announces status through a single region and leaves the transcript available through normal navigation. Render plain message text as text. If your product supports formatted replies, audit its renderer and let people use headings, lists, links and controls with the same semantics as on the rest of the site.
 
-## Testing notes
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="testing-notes"></a>
 
 Run these checks on the integrated host page. Record the supported browser, device, assistive technology and observed result. Use fictitious conversations and controlled responses to exercise delays and failures. Inspect names, relationships, hidden states, focus and retry behaviour with automated checks where possible. Observe actual announcements and usability manually.
 
@@ -195,6 +199,14 @@ Run these checks on the integrated host page. Record the supported browser, devi
 | Ask a question outside the tool’s scope and follow the human support or alternative route. If handoff is offered, try accepting and declining the transfer. | The service explains the route and any wait or data transfer. People can continue safely in either case. |
 
 Use the [Accessible Chatbot Testing Brief](https://github.com/Double-FW/Accessible-Chatbots/blob/c6da49d3bb35d51393898a5c117aa89cc5d6ed63/Accessible_Chatbot_Testing_Brief.md) for a fuller test matrix, including long histories, embeds, reauthentication, attachments and voice if supplied.
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Scrollable content can be reached with sequential focus navigation (0ssw9k)](https://www.w3.org/WAI/standards-guidelines/act/rules/0ssw9k/proposed/)
 
 ## Sources
 

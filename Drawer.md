@@ -1,9 +1,21 @@
 ---
-title: Drawer
-description: Help people use a panel at the edge of a page while keeping or pausing access to the main task.
+title: "Drawer"
+description: "Help people use a panel at the edge of a page while keeping or pausing access to the main task."
 ---
 
 # Drawer
+
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
 
 Use a drawer to give people room for a short related task or supporting content at the edge of the page. Choose whether people need to use the page while the drawer is open before deciding where to place the panel or how it appears.
 
@@ -16,7 +28,13 @@ Use a drawer to give people room for a short related task or supporting content 
 
 Use the owning guide for the drawer’s content. For example, follow [Global Navigation](Global%20Navigation.md#more-destinations) for navigation links, [Filter and Sort](Filter%20and%20Sort.md) for applying filters and [Notifications and Status Messages](Notifications%20and%20Status%20Messages.md#notification-centre) for reviewable notifications.
 
-## Presentation
+## Recommended markup
+
+Use a disclosure for an in-flow drawer and a named dialog for a modal drawer.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 Give the opener and the drawer a task-specific label or heading, such as ‘Filters’ or ‘Delivery details’. Put the visible title before the content. Provide a visible way to close the drawer. Keep any Apply, Save or Cancel action clearly named and explain the result where it matters.
 
@@ -24,7 +42,9 @@ Keep the title, controls and current focus visible at narrow widths and high zoo
 
 Do not rely on a shadow or background colour alone to show the drawer’s boundary. Check the boundary, labels and focus indicator in [forced colours](Colour%2C%20Contrast%20and%20Meaning.md#focus-and-icons-in-forced-colours). Use logical positioning so the layout works in right-to-left languages. Keep all content available when text grows and check [reflow](Typography.md#responsiveness) separately.
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 ### Non-modal drawer
 
@@ -46,7 +66,9 @@ Prefer keeping the same interaction at different widths. A non-modal drawer can 
 
 Make opening and closing work without a swipe, drag, hover or click on the backdrop. Treat sliding as optional motion. Use [reduced motion preferences](Motion%20and%20Animation.md#reduced-motion-preferences) and keep focus visible during any transition. If scripts or enhancement are unavailable, keep the task reachable through visible content, a native disclosure or a working link. See [Progressive Enhancement](Progressive%20Enhancement.md).
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Non-modal example
 
@@ -91,7 +113,11 @@ This standalone example uses a native disclosure. At wider widths it sits beside
 
 Start from the [native dialog example](Modal%20Dialogs.md#working-with-the-native-dialog-html-element). Use its working fallback and `showModal()`. Apply positioning and sizing to place the dialog at the edge and keep it within the viewport. Retain the dialog’s accessible name, focus handling and dismissal. Check scrolling and any sticky actions with real content. Use the [custom dialog guidance](Modal%20Dialogs.md#custom-modal-dialogs) only where the native dialog cannot meet the supported interaction needs.
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 Record the implemented variant, browser, device and assistive technology where relevant. Use a drawer with enough content to scroll and place a focusable control before and after it. For a drawer with editing, prepare an unsaved change as part of the test.
 
@@ -104,6 +130,13 @@ Record the implemented variant, browser, device and assistive technology where r
 | If the drawer edits information, try Apply, Cancel and any other dismissal separately with unsaved changes. | Each action has the stated effect. No dismissal unexpectedly applies or loses changes. |
 | Increase text size, then separately test reflow at a width equivalent to 320 CSS pixels for vertically scrolling content. Scroll to the last action with the keyboard and cross any layout breakpoint with the drawer open. | Drawer content and controls remain reachable. Fixed content does not obscure focus. The layout preserves entered information and uses the correct focus and page-availability rules. |
 | Repeat with forced colours and reduced motion, then block scripts and reload. | Boundaries and focus remain identifiable, the drawer works without non-essential motion, and a usable baseline remains. |
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
 
 ## Sources
 

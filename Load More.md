@@ -1,27 +1,47 @@
 ---
-title: Load More
-description: Help people request another batch of results and continue from where they stopped.
+title: "Load More"
+description: "Help people request another batch of results and continue from where they stopped."
 ---
 
 # Load More
+
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
 
 Use Load More when people are exploring a list and want to request more results without leaving the page. Automatic loading can move the reading position or make it hard to reach the content after the results. Give people a button to request each batch and provide working pagination as the baseline.
 
 Use [Expandable Content Previews](Expandable%20Content%20Previews.md) when the button reveals content already on the page.
 
-## Presentation
+## Recommended markup
+
+Use links for pagination and a button to request another batch in place. Keep result groups in source order.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 Put the initial results in the main content. Use list items for results and use consistent heading levels when results have headings. Follow [Headings](Headings.md) for choosing their level. Make each result and its link distinguishable from its neighbours.
 
 Place the Load more button and loading feedback after the results. Make each new batch recognisable. For example, place a visible ‘Results 11 to 20’ heading immediately before the new list. Keep the range marker outside the result items so that a list’s item count reflects the results it contains. Give the marker a visible focus indicator when it receives focus. See [Focus](Focus.md#focus-indication).
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 ### Pagination
 
 Give each results page a working URL. Retain the current query, filters and sort order across pages. When a query or filter changes the result set, restart pagination for that selection. See [Filter and Sort](Filter%20and%20Sort.md).
 
-Use a named navigation landmark for pagination. Mark the current page with `aria-current="page"` and distinguish it visually from both other pages and the keyboard focus indicator. Omit unavailable Previous and Next links. Where the full set of page links does not fit, retain Previous and Next where available and show the current page and total when known. Include an early [skip link](Structure.md#the-main-landmark) so people can reach the main content after a full page load.
+Use a named navigation landmark for pagination. Mark the current page with `aria-current="page"` and distinguish it visually from both other pages and the keyboard focus indicator. Omit unavailable Previous and Next links. Where the full set of page links does not fit, retain Previous and Next where available and show the current page and total when known. Include an early [skip link](Page_Structure.md#the-main-landmark) so people can reach the main content after a full page load.
 
 ### Loading another batch
 
@@ -31,7 +51,9 @@ Use a named navigation landmark for pagination. Mark the current page with `aria
 4. On failure, leave previous results and their order intact. Explain that the next batch could not load and let people retry or follow a working pagination link. A failed request should leave the next page available.
 5. When there are no more results, say so and remove the unavailable action. If the button still has focus and there is no new batch marker, move focus to the end-of-results message before removing the button. Keep the rest of the page reachable.
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Markup example
 
@@ -65,7 +87,11 @@ Insert the new batch immediately before the status and controls. For example, th
 </ul>
 ```
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 Test with the supported browsers and screen readers. Include enough results to load a second batch and then reach the end.
 
@@ -77,6 +103,13 @@ Test with the supported browsers and screen readers. Include enough results to l
 | Force a failed response, then retry or follow the fallback link. If filters or sort are available, change them while a request is pending. | Earlier results remain available after failure. Retry loads the intended batch once. An earlier response cannot add results to a newer selection. |
 | Load the final batch. Repeat with a response that returns no further items. | The interface communicates that there are no more results. Focus remains usable and the person can reach content after the results. |
 | Narrow the viewport and repeat at increased zoom. Test loading with reduced motion enabled. | Pagination and feedback remain usable. Visible text communicates progress even when animation is reduced. |
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
 
 ## Sources
 

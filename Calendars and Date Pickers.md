@@ -1,6 +1,6 @@
 ---
-title: Calendars and Date Pickers
-description: Help people enter known dates, find available dates and review the dates they choose.
+title: "Calendars and Date Pickers"
+description: "Help people enter known dates, find available dates and review the dates they choose."
 ---
 
 # Calendars and Date Pickers
@@ -12,7 +12,7 @@ description: Help people enter known dates, find available dates and review the 
 - [Recommended layout](#recommended-layout)
 - [Recommended behaviour](#recommended-behaviour)
 - [Reference implementation](#reference-implementation)
-- [Testing notes](#testing-notes)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
 - [Sources](#sources)
 
 ## Introduction
@@ -95,7 +95,11 @@ This server-rendered list works without JavaScript. Integrate it into a booking 
 <button type="submit">Review collection date</button>
 ```
 
-## Testing notes
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="testing-notes"></a>
 
 Use a fixture with dates on both sides of a month or year boundary, one unavailable date and a range where relevant. Record the browser, locale, device and assistive technology used.
 
@@ -107,6 +111,14 @@ Use a fixture with dates on both sides of a month or year boundary, one unavaila
 | Try an unavailable date through both the picker and direct entry or list. Then make a selected date unavailable before confirmation. | Availability agrees across routes. The service explains the change, preserves other valid entries and offers another choice. |
 | Where a range is supported, test the same day, reversed endpoints and boundary dates. | The result follows the stated range rules. Errors identify the affected field or combination and offer a correction. |
 | Enlarge text, then separately test a narrow viewport, forced colours and blocked scripts. | Dates, controls and states stay distinguishable. A usable route to enter or find dates remains available without the custom calendar. |
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Autocomplete attribute has valid value (73f2c2)](https://www.w3.org/WAI/standards-guidelines/act/rules/73f2c2/proposed/)
 
 ## Sources
 

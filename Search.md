@@ -1,21 +1,41 @@
 ---
-title: Search
-description: Help people find content through site-wide or collection search.
+title: "Search"
+description: "Help people find content through site-wide or collection search."
 ---
 
 # Search
+
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
 
 Help people find a page or explore a set of results by entering a query. State what the search covers before someone types. Keep the form usable without suggestions so people can still search when suggestions are unavailable.
 
 This guide covers query entry and linked suggestions. Use [Filter and Sort](Filter%20and%20Sort.md) to help people refine the results from a submitted query.
 
-## Presentation
+## Recommended markup
+
+Give the search field a label and expose the scope through a named search landmark. Use an explicit submit button.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 Use consistent controls for site-wide and local search. Name the scope in the visible label, such as ‘Search this site’ or ‘Search the help centre’. When a page has both searches, give their search landmarks distinct names so someone using a screen reader can find the right form. See [Landmarks](Landmarks.md).
 
 Place suggestions below the search controls in the visual layout and document order. Use a list of links with descriptive names. Where you offer several kinds of suggestion, give each list a heading that identifies what it contains. Keep the links and headings readable at narrow widths and enlarged text sizes. Let the form controls wrap as space runs out and keep the [keyboard focus indicator](Focus.md#focus-indication) visible.
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 ### Open and close search
 
@@ -29,7 +49,9 @@ A local search can stay visible within the collection it searches. If you offer 
 - When suggestions are empty, unavailable or the query is cleared, remove stale links. If it would help, explain that people can still submit the query. If a refresh would remove a focused suggestion, keep it available until focus leaves or return focus to the field before removing it. Ensure a response for an older query cannot replace the current suggestions.
 - Prefer a simple reveal. If you animate the suggestions, honour [reduced motion preferences](Motion%20and%20Animation.md#reduced-motion-preferences).
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Search field labels
 
@@ -62,7 +84,11 @@ The markup starts with an empty status message and hidden list. To enhance it, p
 
 When suggestions fill in a query value, choose a pattern for that interaction, such as [Combobox](https://www.w3.org/TR/wai-aria-practices/#combobox). Use ordinary links for suggestions that lead directly to pages.
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 Run the checks that match the implementation. For suggestions, use a query with known destinations and a query that produces none. Record the browser, device and assistive technology used where relevant.
 
@@ -78,7 +104,17 @@ Run the checks that match the implementation. For suggestions, use a query with 
 | Increase text size, then separately narrow the viewport. Use the field, buttons and suggestions by keyboard in each condition. | The controls and suggestions remain readable and operable. Focus stays visible as controls wrap. |
 | Enable reduced motion if the suggestions are animated. Enter a query with suggestions and then clear it. | Suggestions appear and disappear without the non-essential motion. |
 
-## Related references
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+
+## Sources
+
+<a name="related-references"></a>
 
 - [Where To Put Your Search Role](http://adrianroselli.com/2015/08/where-to-put-your-search-role.html)
 - [When To Use An ARIA Role](https://developer.paciellogroup.com/blog/2012/06/html5-accessibility-chops-when-to-use-an-aria-role/)

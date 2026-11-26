@@ -1,6 +1,6 @@
 ---
-title: Authentication
-description: Help people sign in, verify their identity and recover access without avoidable barriers.
+title: "Authentication"
+description: "Help people sign in, verify their identity and recover access without avoidable barriers."
 ---
 
 # Authentication
@@ -12,7 +12,7 @@ description: Help people sign in, verify their identity and recover access witho
 - [Recommended layout](#recommended-layout)
 - [Recommended behaviour](#recommended-behaviour)
 - [Reference implementation](#reference-implementation)
-- [Testing notes](#testing-notes)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
 - [Sources](#sources)
 
 ## Introduction
@@ -105,7 +105,11 @@ Place this fragment in the verification form. Replace the destination hint with 
 <button type="submit">Verify code</button>
 ```
 
-## Testing notes
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="testing-notes"></a>
 
 Use test accounts and supported browsers, devices and assistive technologies. Cover the whole journey, including third-party steps, with fictitious credentials.
 
@@ -119,6 +123,14 @@ Use test accounts and supported browsers, devices and assistive technologies. Co
 | Enlarge text, test narrow width and forced colours, then block scripts in a separate run. | Fields, errors and focus remain usable. The baseline works or an accessible sign-in route remains available. |
 
 Review authenticator choice, server controls and recovery separately with the service's security team. Use the accessibility checks to evaluate whether people can complete the supported journey.
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Autocomplete attribute has valid value (73f2c2)](https://www.w3.org/WAI/standards-guidelines/act/rules/73f2c2/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
 
 ## Sources
 

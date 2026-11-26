@@ -1,19 +1,39 @@
 ---
-title: Expandable Content Previews
-description: Let people reveal long content and resume reading at the point where the preview ended.
+title: "Expandable Content Previews"
+description: "Let people reveal long content and resume reading at the point where the preview ended."
 ---
 
 # Expandable Content Previews
 
-Use an expandable preview when a short opening section helps people decide whether to read the rest of a long article. Place the preview in the [main landmark](Structure.md#the-main-landmark) so people can reach it using the page’s skip link. Keep essential instructions visible. Use [Disclosure](Disclosure.md) for supplementary information within a section, or [Load More](Load%20More.md) when the service fetches additional results on demand.
+## Contents
 
-## Presentation
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
+Use an expandable preview when a short opening section helps people decide whether to read the rest of a long article. Place the preview in the [main landmark](Page_Structure.md#the-main-landmark) so people can reach it using the page’s skip link. Keep essential instructions visible. Use [Disclosure](Disclosure.md) for supplementary information within a section, or [Load More](Load%20More.md) when the service fetches additional results on demand.
+
+## Recommended markup
+
+Use a native button for the expansion. Identify the controlled content and expose the expanded state.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 End the preview at a complete paragraph, list item or section. Keep the expansion button immediately after the visible preview in reading order. Label it for the content it controls, such as ‘Show full route guide’. Provide a visible boundary and a focus indicator that remain clear in forced colours.
 
 When expanded, place a short continuation marker, such as ‘Continue reading’, immediately before the newly revealed content. Keep the collapse control after the revealed content. Use a visible focus indicator on the marker so keyboard users can see where reading resumes.
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 Start with the full content available. Once the enhancement is ready, hide the remainder visually and remove it from screen reader navigation and keyboard focus order. Keep all three states in sync.
 
@@ -21,7 +41,9 @@ When the user expands the preview, reveal the remainder, update the button’s e
 
 When the user collapses the preview, keep focus on the same button. Hide the continuation marker and remainder, and update the button label and expanded state. Leave the preview and surrounding content available.
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 The example uses a fixed content boundary and needs no application framework or network request. Place the fragment inside the page’s main content. The rest of the guide starts visible and the button starts hidden. When the script is available, it installs the handler before collapsing the remainder.
 
@@ -84,7 +106,11 @@ Prefer a boundary between authored sections. If the boundary depends on availabl
 
 Recalculate after resizing, zoom or content changes. If a new boundary would hide the element that currently has focus, leave that content visible until the user can move on. If the full content fits, a collapse control is unnecessary. Keep full content available whenever the enhancement cannot reliably synchronise visibility and interaction.
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
+
+<a name="checkpoints-for-the-tester"></a>
 
 Test with the project’s supported browsers and screen readers. Include a link in the preview and one in the initially hidden content so the keyboard check can distinguish them.
 
@@ -96,9 +122,16 @@ Test with the project’s supported browsers and screen readers. Include a link 
 | Increase text size, then test a narrow viewport separately. If the boundary adapts, resize while a link near it has focus. | No text or controls are partly hidden. Resizing leaves focus on usable content. The button, boundary and continuation focus indicator remain clear in forced colours. |
 | Block scripts and reload. Then enable scripts and disable CSS in a separate run. | With scripts blocked the full content is readable. With CSS disabled, the working control and reading order remain available. |
 
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
+
 ## Sources
 
-- [Use high contrast mode](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
+- [Use high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
 - [WCAG2.1 2.4.1 Bypass Blocks](https://www.w3.org/TR/WCAG21/#bypass-blocks)
 - [CSS Viewport Units: A Quick Start](https://www.sitepoint.com/css-viewport-units-quick-start/)
 - [`IntersectionObserver` support table](https://caniuse.com/#feat=intersectionobserver)

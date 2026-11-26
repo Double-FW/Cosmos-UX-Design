@@ -1,13 +1,31 @@
 ---
-title: Data Tables
-description: Help people compare values across rows and columns, including when a table needs to scroll.
+title: "Data Tables"
+description: "Help people compare values across rows and columns, including when a table needs to scroll."
 ---
 
 # Data Tables
 
+## Contents
+
+- [Introduction](#introduction)
+- [Recommended markup](#recommended-markup)
+- [Recommended layout](#recommended-layout)
+- [Recommended behaviour](#recommended-behaviour)
+- [Reference implementation](#reference-implementation)
+- [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
+- [Sources](#sources)
+
+## Introduction
+
 Use a data table when people need to compare values or look up information by row and column. A value can be hard to interpret if its header is missing or if the layout moves the value under a different header at a narrow width. Preserve the relationships in the markup and on screen.
 
-## Presentation
+## Recommended markup
+
+Use a table with a caption and associated headers. Where sorting is offered, use native buttons for the sort controls.
+
+## Recommended layout
+
+<a name="presentation"></a>
 
 Give the table a descriptive caption so people can identify it when navigating directly to it with a screen reader. If the same text also introduces a section, you can put a heading of the appropriate level inside the caption. Give rows and columns meaningful headers where needed. For example, name the column that contains row headers ‘Location’ instead of leaving its header empty.
 
@@ -15,7 +33,9 @@ Keep each value aligned with its own row and column headers. Text can wrap insid
 
 Make overflow discoverable. Keep the scrollbar available where the system displays it and provide a cue such as ‘Scroll to see more columns’ when the table overflows. A shadow can supplement the cue. Check whether it remains visible in forced colours and whether it clears when the user reaches the end.
 
-## Behaviour
+## Recommended behaviour
+
+<a name="behaviour"></a>
 
 ### Scrolling and sticky headers
 
@@ -29,7 +49,9 @@ Put a native button in each sortable column header. Use the column label as part
 
 Choose an initial direction that fits the data. On a repeat activation of the same button, reverse the direction. Reorder complete rows and sort by the underlying number, date or text value where display formatting could give the wrong order. For example, compare the numeric values of ‘2’ and ‘10’ as numbers. Keep focus on the activated button so the user can check the result or change direction.
 
-## Implementation
+## Reference implementation
+
+<a name="implementation"></a>
 
 ### Markup example
 
@@ -75,7 +97,11 @@ Keep the default focus outline or use the [focus indication guidance](Focus.md#f
 
 For client-side sorting, render the rows in a useful order initially and add the sort buttons when they can operate. If sorting is essential, also provide a working baseline such as server-side sorting.
 
-## Checkpoints for the tester
+## Testing Approach and ACT Scripts
+
+The ACT-style checks in this section are pattern-specific checks maintained in this guide. The proposed W3C rules are listed separately.
+
+<a name="checkpoints-for-the-tester"></a>
 
 ### ACT-style checks
 
@@ -95,6 +121,14 @@ Run on a table containing data with row or column relationships. Test the native
 2. Increase text size and check that cell text remains readable without changing its header association. In a separate run, increase page zoom on a long table. Scroll down and focus a control near the sticky header if one is present. Check that the header stays aligned and leaves enough room to read and operate the table.
 3. Activate a sort button twice, then activate another column. Check the complete row order, the visible sort direction and the exposed sort direction. Confirm that focus stays on the activated button and that only the current header has `aria-sort`.
 4. Block scripts and reload. Check that the table remains readable in its initial order and that an overflowing table still scrolls with the keyboard. Check any baseline sort offered by the service.
+
+### Related W3C ACT rules
+
+Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
+
+- [Table header cell has assigned cells (d0f69e)](https://www.w3.org/WAI/standards-guidelines/act/rules/d0f69e/proposed/)
+- [Scrollable content can be reached with sequential focus navigation (0ssw9k)](https://www.w3.org/WAI/standards-guidelines/act/rules/0ssw9k/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
 
 ## Sources
 
