@@ -5,6 +5,8 @@ description: Good webpage layout can make the content easier to navigate, unders
 
 The image or media filenames in these examples stand for assets supplied by the implementing project.
 
+Start with the [Page Structure example](Structure.md#applying-regions) to organise the header, navigation, main content and footer in HTML before applying layout styles.
+
 ## Visual order versus source order
 
 Often web design starts from the perspective of how a component will look. Designers take for granted that positioning elements together visually will make it clear that they are related. While this is true for sighted users, for users of assistive technology, such as a screen reader, the order of the content in the HTML source code controls their experience.
@@ -19,7 +21,7 @@ It would be confusing to a screen reader user, proceeding from the top of the co
 
 > "For screen readers, the HTML _is_ the UI." [^1]
 
-Being aware of this, the best place to start is with the content as it exists in the HTML. The example below keeps the card content in the expected order, with the card heading before the content it describes.
+Being aware of this, the best place to start is with the content as it exists in the HTML. The example below keeps the card heading before the content it describes. Choose the heading level from [its place in the page structure](Headings.md#choose-a-level-from-the-structure). The example uses an `h3` for a card within a level-two section.
 
 ```html
 <div class="card card-image">
@@ -52,11 +54,11 @@ Displaying elements in a visual order that is different than the HTML source ord
 
 Screen reader users, and other users too, rely on their keyboards to navigate around webpages instead of, or in addition to, using their mouse or other pointing device. These users apply keyboard shortcuts and the <kbd>tab</kbd> key to move focus between interactive elements on a page.
 
-For webpages written in a left-to-right language, such as English, tab-key navigation should follow the same direction as the text: moving focus from top to bottom and left to right. There are many examples where failing to follow this rule can lead to confusion for disabled users:
+Use a focus sequence that is predictable, preserves meaning and lets people complete the task. Compare what people see with what happens as they Tab through controls. See [Keyboard Navigation](Keyboard%20Navigation.md#reach-and-operate-each-function) for the task-level checks.
 
 > A user with low vision who uses a screen magnifier in combination with a screen reader may be confused when the reading order appears to skip around on the screen. A keyboard user may have trouble predicting where focus will go next when the source order does not match the visual order. [^2]
 
-The example below shows a failing case, where the visual presentation of the navigation links implies they are in the following order: Blog, About, and Contact. CSS has been used to visually move the About link to the middle of the navigation. Users who use their keyboard to move focus across the links will confusingly land on the second link, then on the first, and finally on the third.
+In this example, CSS moves Blog to the start of the visible list. The visual order is Blog, About, Contact. The tab order is About, Blog, Contact. Focus jumps backwards on the second Tab, which makes the sequence harder to follow.
 
 ```html
 <ul class="nav-links">
