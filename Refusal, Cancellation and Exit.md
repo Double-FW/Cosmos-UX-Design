@@ -7,6 +7,8 @@ description: Help people decline optional choices, leave a task or cancel an ong
 
 Give people a way to decline an optional invitation, leave an unfinished task and cancel an ongoing service. Use wording that distinguishes these outcomes. ‘Leave application’ can mean saving a draft, while ‘Cancel subscription’ changes an ongoing arrangement.
 
+Follow [Saving and Resuming a Task](Saving%20and%20Resuming%20a%20Task.md) for draft states, resumption and recovery after an interruption.
+
 ## Show the route and the result
 
 Put the exit or cancellation route where people manage the task or service. Explain what will happen, when it takes effect and what the person can still access. If leaving may lose unsaved work, explain that consequence and offer a way to return to the task. Use a confirmation step when the consequence warrants one. Explain how to go back and keep a clear keyboard exit from any dialog. See [Modal Dialogs](Modal%20Dialogs.md) and [Call to Action](Call%20to%20Action.md).
