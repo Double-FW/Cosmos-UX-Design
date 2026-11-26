@@ -3,7 +3,7 @@ title: "Progressive Enhancement"
 description: "Use progressive enhancement and responsive design to support accessibility."
 ---
 
-## Summary
+# Progressive Enhancement
 
 Progressive enhancement ensures that users can use the widest possible array of devices and software, whilst the core purpose of the web page is still usable and understandable. Additional nice-to-have features can then be added onto that core experience for the benefit of more capable devices and web browsers. 
 
