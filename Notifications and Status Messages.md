@@ -27,7 +27,7 @@ Review any time-limited prompt that pressures people to act or makes it harder t
 
 ### Persistent inline feedback
 
-Place the message by the action or content it concerns. State the outcome and, if needed, explain how to continue. For an error tied to a field, associate the message with that field. Keep the draft available for correction. Use an error summary for several errors where it helps people find them.
+Place the message by the action or content it concerns. State the outcome and, if needed, explain how to continue. For an error tied to a field, associate the message with that field. Keep the draft available for correction. Use an error summary for several errors where it helps people find them. When a submitted form returns an error summary, link each summary item to the affected field and keep its wording consistent with the inline error. See the [error message](https://design-system.service.gov.uk/components/error-message/) and [error summary](https://design-system.service.gov.uk/components/error-summary/) examples.
 
 For a routine update, put an empty, visible `role="status"` container in the document before writing to it. The role provides a polite live region. Update its text when the outcome is known. Keep any recovery link or button nearby in the ordinary tab order. Reserve assertive announcements for genuinely urgent information.
 
@@ -38,6 +38,8 @@ For a routine update, put an empty, visible `role="status"` container in the doc
 
 Place this fragment in the service’s form. After a successful save, the host writes ‘Your preferences were saved’ into the status region. If saving fails, show the failure and its recovery action instead. See [Dynamic Content](Dynamic%20Content.md#announcing-status-updates) for the update technique and [WCAG 2.2 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html) (Level AA) for its scope.
 
+A task that ends a journey may need a [confirmation page](https://design-system.service.gov.uk/patterns/confirmation-pages/) so people can revisit the outcome, reference number and next steps. For a wider notice unrelated to the current task, consider a [notification banner](https://design-system.service.gov.uk/components/notification-banner/).
+
 ### Notification centre
 
 Provide a stable, clearly named link, such as ‘Notifications’, to a working page. If you also offer a header panel, keep the page available as the full history and follow [Information Panels](Information%20Panels.md) for opening, dismissal and focus. Use [Badge](Badge.md) to give any unread count meaning in context.
@@ -45,6 +47,37 @@ Provide a stable, clearly named link, such as ‘Notifications’, to a working 
 Use a heading and an ordinary list. State each item’s subject, time and any next action. Show unread status in text or through another cue that remains understandable without colour. Marking an item as read should leave it available in the history. If people can clear items, explain the effect and keep a usable focus position when an item is removed. Make important account or task information discoverable from its relevant page as well.
 
 When new items arrive in the background, keep the person’s current focus and reading position. Announce one useful summary where needed. Avoid announcing the full feed on arrival or repeating the same update through an inline status and the centre. Make the empty state clear and provide a retry when the history cannot load.
+
+### Worked example: a report is ready
+
+1. A report finishes while someone is using another page. Add one unread entry to their notification history. If the count was zero, update the header link to ‘Notifications (1 unread)’. Leave focus and the reading position where they are.
+2. If announcing the arrival helps, use an existing polite status region to announce ‘One new notification’. Keep the count in the link and the history in the list. Give the announcement to one region only.
+3. When the person follows the Notifications link, load the dedicated page. Show the entry’s subject, time, unread state and a link to the report. If the service requires a decision or follow-up, state what to do and any deadline in the entry.
+4. When the person chooses ‘Mark report notification as read’, update the count after the service accepts the change. Retain the entry, its report link and its place in the list. If the button is removed, put focus on the report link in the same entry for an in-place update. Leave a failed change retryable and keep the previous read state and count.
+
+The first fragment belongs in the site header after the report has finished. The second belongs in the centre’s main content. The routes, identifier and time are illustrative. The host service provides the destinations and form handler, and uses the same stored read state to render the count and history. After a form submission without scripts, return to the centre with the updated entry.
+
+```html
+<a href="/notifications">Notifications (1 unread)</a>
+```
+
+```html
+<main>
+  <h1>Notifications</h1>
+  <ul>
+    <li id="notice-report-42">
+      <h2>Your travel report is ready</h2>
+      <p>Unread · <time datetime="2026-06-09T10:15:00+01:00">9 June, 10:15</time></p>
+      <p><a href="/reports/42">Open your travel report</a></p>
+      <form action="/notifications/report-42/read" method="post">
+        <button type="submit">Mark report notification as read</button>
+      </form>
+    </li>
+  </ul>
+</main>
+```
+
+After the change, show ‘Read’ in the entry and update the header count. When there are no unread notices, the link can read ‘Notifications’. The [notification tray design reference](https://design.visa.com/patterns/notification-tray/) gives examples of counts, timestamps and read actions.
 
 ## Checkpoints for the tester
 
@@ -56,6 +89,7 @@ When new items arrive in the background, keep the person’s current focus and r
 | Mark an entry as read, clear an entry if supported, then reopen the centre. Test the empty and failed-loading states. | Read state and counts agree. A read entry remains available according to the retention policy. Clearing leaves a logical focus position and failure has a recovery path. |
 | Test any modal used for urgent feedback. Open it, read its choices and dismiss it with the keyboard. | The modal identifies the decision, keeps the background inactive and can be dismissed. Focus returns to the opener or the next logical place. |
 | Review any remaining toast while magnified and with a screen reader. Let it disappear. | The same information can still be found. Any action or material condition is available in a persistent place. |
+| Follow the worked example from a background completion to marking the notice as read. Repeat with scripts blocked and simulate a failed read update separately. | The count increases once when the report is ready. The centre opens from a working link. A successful read update decreases the count without removing the report entry. A failed update leaves the count and read state consistent and gives the person a way to retry. |
 
 ## Sources
 
