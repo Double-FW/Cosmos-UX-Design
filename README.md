@@ -42,6 +42,7 @@ A collection of universally applicable accessibility and inclusive design techni
 
 ### Forms
 
+- [Calendars and Date Pickers](Calendars%20and%20Date%20Pickers.md) — date entry, calendar selection and availability.
 - [HTML Form Elements](HTML%20Form%20Elements.md)
 - [Forms](Forms.md)
 - [Labels](Labels.md)
