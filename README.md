@@ -35,6 +35,7 @@ A collection of universally applicable accessibility and inclusive design techni
 - [Refusal, Cancellation and Exit](Refusal%2C%20Cancellation%20and%20Exit.md)
 - [Reminders and Saved Actions](Reminders%20and%20Saved%20Actions.md) — optional reminders and a reliable route back.
 - [Saving and Resuming a Task](Saving%20and%20Resuming%20a%20Task.md) — draft feedback, return routes and recovery.
+- [Showing What Changed Before Confirmation](Showing%20What%20Changed%20Before%20Confirmation.md) — review changed details before committing.
 - [Support, Escalation and Handoffs](Support%2C%20Escalation%20and%20Handoffs.md)
 
 ### Forms

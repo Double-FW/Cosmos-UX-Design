@@ -11,6 +11,8 @@ Give people the information and controls they need before they commit, then make
 
 Put the total charge, any recurring amount and interval, significant conditions and what happens next near the decision. If a total depends on an outstanding choice, explain what is included and update the total before the person commits. Make genuine deadlines and availability specific and keep them consistent with the service’s information. Let people review and amend their choices before a consequential submission. See [Call to Action](Call%20to%20Action.md) and [Forms](Forms.md).
 
+If a material detail changes after the person has reviewed it, use [Showing What Changed Before Confirmation](Showing%20What%20Changed%20Before%20Confirmation.md) to present the new details and obtain a fresh decision.
+
 ## Make choices comparable
 
 Use direct labels that describe what happens, such as ‘Accept optional cookies’ and ‘Decline optional cookies’. Keep alternatives visible and reachable at the decision point. Check that styling, reading order and focus order let people discover the available routes. See [Labels](Labels.md) and [Keyboard Navigation](Keyboard%20Navigation.md).
