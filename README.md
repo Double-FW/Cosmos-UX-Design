@@ -26,6 +26,13 @@ A collection of accessibility techniques for people designing, building, testing
 - [Dynamic Content](Dynamic%20Content.md)
 - [Notifications and Status Messages](Notifications%20and%20Status%20Messages.md)
 
+### Service journeys
+
+- [Alternatives to Deceptive Patterns](Alternatives%20to%20Deceptive%20Patterns.md)
+- [Informed Choice and Preferences](Informed%20Choice%20and%20Preferences.md)
+- [Refusal, Cancellation and Exit](Refusal%2C%20Cancellation%20and%20Exit.md)
+- [Support, Escalation and Handoffs](Support%2C%20Escalation%20and%20Handoffs.md)
+
 ### Forms
 
 - [HTML Form Elements](HTML%20Form%20Elements.md)
