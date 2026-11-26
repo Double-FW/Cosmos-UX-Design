@@ -3,7 +3,7 @@ title: Layout
 description: Good webpage layout can make the content easier to navigate, understand, and interact with for people with disabilities.
 ---
 
-The image or media filenames in these examples stand for assets supplied by the implementing project.
+# Layout
 
 Start with the [Page Structure example](Structure.md#applying-regions) to organise the header, navigation, main content and footer in HTML before applying layout styles.
 
