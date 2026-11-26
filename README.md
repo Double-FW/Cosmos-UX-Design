@@ -31,6 +31,7 @@ A collection of universally applicable accessibility and inclusive design techni
 
 ### Service journeys
 
+- [Authentication](Authentication.md) — sign-in, verification and account recovery.
 - [Baskets and Checkout](Baskets%20and%20Checkout.md) — basket editing, order review, payment and recovery.
 - [Customer Surveys and Feedback](Customer%20Surveys%20and%20Feedback.md) — accessible feedback throughout the customer journey.
 - [Alternatives to Deceptive Patterns](Alternatives%20to%20Deceptive%20Patterns.md)
