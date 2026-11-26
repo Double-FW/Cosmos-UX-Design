@@ -121,6 +121,8 @@ Give the destination heading a unique `id`. If it needs to receive focus as a fr
 <a href="/collections">View collection locations</a>
 ```
 
+For a review across several views, use [Designing the Screen Reader Journey](Designing%20the%20Screen%20Reader%20Journey.md) to check headings alongside control names, reading order, focus and feedback.
+
 ## Testing the page outline
 
 For a template that requires one primary heading at the start of main content, check its wording against the document title. Make each section heading the first meaningful text in that section and choose its rank from its place in the outline.
