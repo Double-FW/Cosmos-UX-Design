@@ -9,7 +9,7 @@ A collection of accessibility techniques for people designing, building, testing
 - [Page Structure](Structure.md) — document titles, page markup and skip links.
 - [Headings](Headings.md) — section labels, heading levels and heading navigation.
 - [Landmarks](Landmarks.md) — roles, names and landmark navigation checks.
-- [Metadata](Metadata.md)
+- [Page Metadata](Metadata.md)
 - [Layout](Layout.md)
 - [Typography](Typography.md)
 - [Colour, contrast and meaning](Color%20and%20Meaning.md)
@@ -79,7 +79,7 @@ For the ACT-style checks, record the tested variant, method, observed outcome an
 | Dialogs | [Modal Dialogs](Modal%20Dialogs.md) | [Opening a dialog from a card](Cards.md#opening-a-dialog-from-a-card), [Dynamic Content](Dynamic%20Content.md) |
 | Disclosure | [Disclosure](Disclosure.md) | [Accordion](Accordion.md), [Mega Menu](Mega%20Menu.md) |
 | Forms | [HTML Form Elements](HTML%20Form%20Elements.md) | [Forms](Forms.md) for validation and recovery, [Labels](Labels.md) for naming |
-| Document titles, page markup and skip links | [Page Structure](Structure.md) | [Metadata](Metadata.md), [Keyboard Navigation](Keyboard%20Navigation.md) |
+| Document titles, page markup and skip links | [Page Structure](Structure.md) | [Page Metadata](Metadata.md), [Keyboard Navigation](Keyboard%20Navigation.md) |
 | Heading wording, levels and navigation | [Headings](Headings.md) | [Page Structure](Structure.md) |
 | Landmark roles, names and navigation | [Landmarks](Landmarks.md) | [Page Structure](Structure.md) |
 | Resize and reflow | [Typography](Typography.md#responsiveness) | [Progressive Enhancement](Progressive%20Enhancement.md) |
