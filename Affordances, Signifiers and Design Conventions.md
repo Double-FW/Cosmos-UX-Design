@@ -5,18 +5,6 @@ description: Help people recognise available actions, predict what happens and v
 
 # Affordances, Signifiers and Design Conventions
 
-## Contents
-
-- [Introduction](#introduction)
-- [Recommended markup](#recommended-markup)
-- [Recommended layout](#recommended-layout)
-- [Recommended behaviour](#recommended-behaviour)
-- [Reference implementation](#reference-implementation)
-- [Testing notes](#testing-notes)
-- [Sources](#sources)
-
-## Introduction
-
 Help people tell what they can do, how to do it and what will happen. A control may be easy to notice but still lead to an unexpected result if its label, appearance and behaviour suggest different actions. Use the same meaning in the visible interface and in the names, roles and states available to assistive technology.
 
 | Term | Design decision |
