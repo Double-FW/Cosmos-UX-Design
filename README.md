@@ -60,6 +60,7 @@ A collection of universally applicable accessibility and inclusive design techni
 - [Carousels and Sliders](Carousels%20and%20Sliders.md) — paged slides, scrolling lists and value inputs.
 - [Disclosure](Disclosure.md)
 - [Drawer](Drawer.md) — non-modal side panels and modal drawers.
+- [Drag and Drop](Drag%20and%20Drop.md) — accessible moves, reordering and alternatives to dragging.
 - [Mega Menu](Mega%20Menu.md)
 - [Modal Dialogs](Modal%20Dialogs.md)
 
