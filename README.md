@@ -1,4 +1,4 @@
-# Cosmos Atomic UX Design Framework
+# Cosmos - UX Design System Documentation
 
 A collection of universally applicable accessibility and inclusive design techniques for people designing, building, testing and improving web design systems. The guides cover page foundations, interaction, form controls, best practices and reusable components.
 
