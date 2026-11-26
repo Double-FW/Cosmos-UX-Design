@@ -1,47 +1,122 @@
 ---
 title: Tabs
-description: "Switching between related panels."
+description: Help people switch between related sections of content in one place.
 ---
 
 # Tabs
 
-Begin with in-page links to labelled sections. Enhance only when the complete tab interaction is available. Use one labelled tablist and one named tab for each panel. Give each panel the tabpanel role and label it from its tab. Keep panels after the tablist in source order. Distinguish focus from selection, including in forced colours.
+Use tabs when people need to choose one of a few related sections in the same view. Keep labels short and make each panel useful on its own. Use four or five tabs as a design heuristic. If labels need more space or people need to compare sections or complete one task across them, consider [Accordion](Accordion.md) or visible sections with in-page links.
+
+## Presentation
+
+Give the tab set a name that explains what the tabs group, such as ‘Journey information’. Give each tab a visible text label that describes the content it reveals. Keep panel headings so people can find the same sections before and after enhancement.
+
+Place the panel immediately after the tab list in source order. Show which tab is selected and make its relationship to the panel clear. Give keyboard focus its own visible indicator, including when it is on the selected tab. Keep the labels, selected state, focus and panel boundary distinguishable in [forced colours](Colour%2C%20Contrast%20and%20Meaning.md#focus-and-icons-in-forced-colours).
+
+Keep the full labels readable at narrow widths and when people enlarge text. If the labels cannot fit in a horizontal row, consider vertical tabs or use an accordion or in-page navigation. If tabs become vertical, update their orientation and keyboard commands together. Avoid layouts that look like a series of disclosures but still behave like horizontal tabs.
+
+## Behaviour
+
+### Standard tabs
+
+Use the [ARIA Authoring Practices Guide tabs pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/) for new tab sets. The example below uses manual activation so people can explore tab labels before opening a panel.
+
+- Tab enters the tab list at the selected tab. Left and Right Arrow move between horizontal tabs, wrapping at the ends. For vertical tabs, set `aria-orientation="vertical"` on the tab list and use Up and Down Arrow. If implemented, Home and End move to the first and last tab.
+- In manual activation, arrow keys move focus and leave the panel unchanged. Enter and Space select the focused tab. Click or tap also selects a tab. On selection, keep focus on the tab, expose its panel and hide the others. Change the selected styling and `aria-selected` together.
+- Tab leaves the tab list for the active panel. If the panel starts with non-interactive content, make the panel a tab stop with `tabindex="0"` so people can reach and read its beginning. If its first meaningful content is already focusable, let Tab reach that content directly. Shift+Tab returns from the start of the panel to the tab list.
+- Automatic activation is an option when the panel appears without noticeable delay and frequent changes will not interrupt use. In that variant, moving to a tab with an arrow key also selects it.
+
+### Existing variant that moves focus into the panel
+
+Some existing interfaces keep each tab in the Tab sequence and move focus into the chosen panel on activation. Small usability studies reported that some participants missed the arrow-key interaction or found it conflicted with screen reader browsing. Treat this as a reason to test discoverability with the people using the interface. The focus-moving variant uses a different keyboard model from the standard pattern.
+
+If you maintain this variant, document it explicitly. Let people reach each tab with Tab or Shift+Tab and activate it with Enter, Space, click or tap. Reveal the panel, update selection, then move focus to the named panel using `tabindex="-1"`. The next Tab reaches the first interactive element inside or after the panel. Verify that Shift+Tab takes people back to the tab list. Keep the heading or tab label visible when moving focus, and preserve the screen reader’s own reading commands.
+
+### Direct links and browser history
+
+Start with in-page links to visible sections. Keep the same fragment IDs when enhancing those sections into panels. On first load, select the panel containing the fragment target, including a target inside a panel. Use the first panel when the URL has no matching target. Leave normal browser navigation intact for a fragment elsewhere on the page.
+
+If selection updates the URL, record a history entry only when the selected destination changes. Restore the appropriate panel on Back and Forward, including the default panel when returning to the initial URL without a fragment. Reveal a hidden panel before moving to a fragment inside it. Keep focus where it is if it remains usable. When a history change would hide the focused element, move focus to a sensible visible target, such as the newly selected tab. See [Client-side Routing](Client-side%20Routing.md#back-and-forward) for history across views.
 
 ## Implementation
 
-Use fragment links as the baseline so that each panel has its own address. Add tab roles only after the keyboard handlers are available. Keep one tab in the ordinary tab sequence. Use Left and Right Arrow to move among horizontal tabs. In an explicit-activation design, Enter or Space selects the focused tab. Set `aria-controls` on each tab to the corresponding panel ID and `aria-labelledby` on the panel to the tab ID. When a fragment identifies content inside a hidden panel, reveal the panel before navigating to the target.
-
 ### Markup example
 
-This baseline works before the tab controls are enhanced.
+This baseline has working fragment links. Each section can receive focus when reached through its link and all content is available before enhancement. Use distinct IDs for each tab set.
 
 ```html
 <nav aria-label="Journey information">
-  <a href="#arrival">Arrival</a>
-  <a href="#departure">Departure</a>
+  <ul>
+    <li><a href="#arrival">Arrival</a></li>
+    <li><a href="#departure">Departure</a></li>
+  </ul>
 </nav>
-<section id="arrival"><h2>Arrival</h2><p>Use the north entrance.</p></section>
-<section id="departure"><h2>Departure</h2><p>Leave through the east exit.</p></section>
+<section id="arrival" tabindex="-1">
+  <h2>Arrival</h2>
+  <p>Use the north entrance.</p>
+</section>
+<section id="departure" tabindex="-1">
+  <h2>Departure</h2>
+  <p>Leave through the east exit.</p>
+</section>
 ```
 
-## ACT-style checks
+Connect selection, keyboard navigation and any fragment handling before switching to tab semantics and hiding panels. Leave the baseline intact if the enhancement fails to initialise. See [Progressive Enhancement](Progressive%20Enhancement.md).
 
-Rule identifier: `gel-components-tabs`
+### Enhanced markup
 
-Run on an enhanced tab set with at least two panels. Check the baseline separately with enhancement blocked.
+This snapshot shows the initial state for the standard horizontal, manual-activation variant. It needs the event handlers described above to operate.
 
-1. Activate each tab by keyboard, touch and pointer.
-2. Exactly one tab should report `aria-selected="true"` and only its panel should be visible, readable and operable.
-3. For the explicit-activation variant that moves focus into content, focus the selected panel programmatically with `tabindex="-1"`.
-4. Check arrow-key navigation among tabs, direct fragment links, Back and Forward, and the baseline with scripts blocked.
+```html
+<div role="tablist" aria-label="Journey information">
+  <button type="button" role="tab" id="tab-arrival"
+    aria-controls="arrival" aria-selected="true">Arrival</button>
+  <button type="button" role="tab" id="tab-departure"
+    aria-controls="departure" aria-selected="false" tabindex="-1">Departure</button>
+</div>
+<section role="tabpanel" id="arrival" aria-labelledby="tab-arrival" tabindex="0">
+  <h2>Arrival</h2>
+  <p>Use the north entrance.</p>
+</section>
+<section role="tabpanel" id="departure" aria-labelledby="tab-departure" tabindex="0" hidden>
+  <h2>Departure</h2>
+  <p>Leave through the east exit.</p>
+</section>
+```
+
+Keep one tab in the ordinary Tab sequence. On arrow navigation, move that tab stop to the newly focused tab. If the person leaves the list without changing selection, restore the selected tab as the next entry point. Update `hidden` along with `aria-selected` and keep hidden panels and their controls out of the accessibility tree and tab sequence.
+
+## Checkpoints for the tester
+
+### ACT-style checks
+
+Apply these checks to each enhanced tab set with two or more panels. Run the focus check for the implemented variant. Record pass, fail, not applicable or not run for each check.
+
+| Method and action | Expected result |
+| --- | --- |
+| Inspect the DOM and accessibility tree. Compare the tab list, each tab and its panel. | There is one named `tablist` containing named `tab` controls. Each tab’s `aria-controls` resolves to one distinct `tabpanel`. Each panel’s `aria-labelledby` resolves to its own tab. The active panel follows the tab list in source order. |
+| Activate each tab with the supported keyboard commands, touch and pointer in separate runs. | All controls are operable. Exactly one tab has `aria-selected="true"`. Every other tab has `aria-selected="false"`. The matching panel alone is visible and available to assistive technology. |
+| Put a link or other control in a panel. Select another tab, then Tab through the interface and browse with a screen reader. | The selected panel’s content is readable and its controls are reachable. The hidden panel and its controls cannot be reached visually, by keyboard or through screen reader browsing. |
+| Inspect the tabs at rest and with keyboard focus on an unselected tab where the variant allows it. Repeat in forced colours. | Each label identifies its panel. Tabs look operable and related to the visible panel. Selection and keyboard focus have distinct visible indicators. |
+| For standard tabs, enter the tab list from outside, use the orientation’s arrow keys and activate a tab. Then Tab into the panel and Shift+Tab back from its start. | Entry is on the selected tab. Arrow keys move focus and wrap. Manual activation retains selection until Enter or Space. Automatic activation selects as focus moves. Activation by keyboard keeps focus on the tab. Tab reaches the panel or its first meaningful control. |
+| For the existing focus-moving variant, Tab through the tabs and activate one. Inspect focus and press Tab, then repeat the activation and press Shift+Tab from the panel. | Every tab is reachable. Activation focuses the visible, named panel programmatically. The panel itself is outside the Tab sequence. The next Tab moves into or past its content and Shift+Tab from the panel returns to the tab list. |
+
+### Fallback, layout and history checks
+
+| Method and action | Expected result |
+| --- | --- |
+| Block scripts and reload. Activate each in-page link with the keyboard. | All sections are visible and have headings. Each link reaches its section and the user can continue from there. Tab roles and states are absent. |
+| Load a direct link to a panel, then load a link to an element inside an initially hidden panel. Repeat with an unrelated fragment. | The matching panel is visible before its target is reached. A fragment outside the tabs keeps its normal destination. |
+| If selection updates the URL, select two different tabs from the initial URL, then use Back and Forward. | The visible panel and selected tab follow the URL, including when returning to the initial URL. Focus remains visible and usable. |
+| Enlarge text and then separately narrow the viewport. Use the controls again, including any vertical layout. | Labels stay readable, selection and focus stay clear, and the visible orientation matches the keyboard commands. |
 
 ## Related references
 
-- [Tabs: ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#tabpanel)
+- [Tabs: ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
 - [Tabs, Used Right](https://www.nngroup.com/articles/tabs-used-right/)
 - [Danger! ARIA Tabs](https://simplyaccessible.com/article/danger-aria-tabs/)
 - [In-Page Links and Input Focus](http://accessibleculture.org/articles/2010/05/in-page-links/)
 - [Removing Semantics Using The Presentation Role](https://www.accessibility-developer-guide.com/examples/sensible-aria-usage/presentation/)
 - [Reading Commands and Cursors](https://doccenter.freedomscientific.com/doccenter/doccenter/rs11f929e9c511/2012-04-24_teachersandtrainers-l7/02_jawsandmagicreadingcommandsandcursors.htm)
-- [`-ms-high-contrast` @media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/-ms-high-contrast)
-- [WCAG2.1 2.4.3 Focus Order](https://www.w3.org/TR/WCAG21/#focus-order)
+- [Historical reference for the `-ms-high-contrast` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/-ms-high-contrast)
+- [WCAG 2.1 Focus Order](https://www.w3.org/TR/WCAG21/#focus-order)
