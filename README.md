@@ -36,6 +36,7 @@ A collection of accessibility techniques for people designing, building, testing
 
 - [Accordion](Accordion.md)
 - [Badge](Badge.md)
+- [Call to Action](Call%20to%20Action.md)
 - [Breadcrumbs](Breadcrumbs.md)
 - [Disclosure](Disclosure.md)
 - [Mega Menu](Mega%20Menu.md)
