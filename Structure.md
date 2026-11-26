@@ -1,7 +1,11 @@
 ---
-title: Structure
+title: Page Structure
 description: Organising a webpage to prevent barriers for users who scan and navigate content using assistive technologies.
 ---
+
+# Page Structure
+
+Assemble a page so people can identify it, find its main content and bypass repeated navigation. Use this guide for the document title, page layout in HTML and skip-link markup. For detailed guidance and checks on section labels and landmark roles, see [Headings](Headings.md) and [Landmarks](Landmarks.md).
 
 ## Document title
 
@@ -30,7 +34,7 @@ If you are following a "single page application" model and update a webpage cont
 
 Screen readers will allow users to see a list of just the webpage's headings and to navigate the webpage by jumping directly to a specific heading. Keeping the total number of headings to a reasonable level, using descriptive but concise headings, and organising headings logically and hierarchically will make this much easier for users.
 
-VoiceOver presents a menu that allows the user to scan and navigate the webpage by headings.
+Use [Headings](Headings.md) for heading levels, wording and tester checks.
 
 Notice that the VoiceOver menu crops any headings which are over about 50 characters in length, so it's useful to front-load your heading content so that the most specific and relevant text is near the beginning.
 
@@ -40,18 +44,7 @@ Use landmarks to identify the significant areas of a page. Keep the landmark lis
 
 ### Overview
 
-HTML tags that represent landmarks:
-
-- `<aside>` - implies the `complementary` landmark role by default; used for content that relates to and supports the core content but can be understood separately.
-- A page-level `<footer>` exposes `contentinfo`. A footer inside a sectioning element or `main` supplies information about that part of the page.
-- A page-level `<header>` exposes `banner`. A header inside a sectioning element or `main` introduces that part of the page.
-- `<main>` - implies the `main` role by default; used for content that expresses or relates directly to the core topic or purpose of a webpage.
-- `<nav>` - implies the `navigation` role by default; intended to present navigational links to content within the webpage or the website.
-- `<section>` implies the `region` role when the element has an accessible name; used for generic region of related content within a webpage, used when a more specific semantic element is not available.
-
-Using landmarks can help users of screen reader assistive technology navigate your webpage. The VoiceOver screen reader for example will announce when the user enters a region, and offer options for easily navigating over, into, or out of that content.
-
-VoiceOver announces that the user has moved the screen reader cursor into a footer region: "You are currently on a footer, inside web content. To exit this web area, press Control-Option-Shift-Up Arrow."
+Use page-level landmarks to identify the main areas of the page. Within those areas, headings label the content people can navigate to. See [Landmarks](Landmarks.md#guidance) for the role and naming rules.
 
 ### Nested regions
 
@@ -61,44 +54,37 @@ Navigation links with a `nav` element create a `navigation` role within a `heade
 
 ### Applying regions
 
-A typical webpage will be divided into landmarks using a general tag structure like:
+This example shows a page title, a main heading, a named section and two navigation landmarks. The routes are illustrative. Use the [skip-link styles](#the-main-landmark) if the skip link is visually hidden until focused.
 
 ```html
+<head>
+  <title>Walking routes | Journey planner</title>
+</head>
 <body>
+  <a href="#main-content">Skip to main content</a>
   <header>
-    <nav aria-label="primary-links">
+    <nav aria-label="Main">
+      <a href="/routes">Routes</a>
     </nav>
   </header>
-  <main>
-    <section aria-label="recipes">
-    </section>
-    <section aria-label="brands">
+  <main id="main-content" tabindex="-1">
+    <h1>Walking routes</h1>
+    <section aria-labelledby="collection-heading">
+      <h2 id="collection-heading">Routes by area</h2>
+      <p>Choose a route near your starting point.</p>
     </section>
   </main>
   <footer>
-    <nav aria-label="footer-links">
+    <nav aria-label="Footer">
+      <a href="/contact">Contact us</a>
     </nav>
   </footer>
 </body>
 ```
 
-Based on this markup the browser will identify each region based on its role.
-
-* Banner
-  - Navigation
-* Main
-  - Region (labelled)
-  - Region (labelled)
-* Content information
-  - Navigation
-
-A typical webpage is logically divided into several landmarks and regions. Here each region is overlaid and represented as a colored rectangle on the screengrab of the webpage.
-
 #### Navigating by landmark
 
-A user of the VoiceOver screen reader can hear a list of landmarks as an overview to use when quickly scanning or navigating the webpage content.
-
-VoiceOver presents a list of landmarks on the webpage: "banner, navigation, main, recipes region, brands region, footer, navigation"
+In a screen reader’s landmark list, look for the banner, Main navigation, main content, Routes by area region, content information and Footer navigation. The exact wording depends on the browser and screen reader. Use the [Landmarks checks](Landmarks.md#checks) to verify that each area is identifiable.
 
 ## Search
 
