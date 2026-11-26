@@ -3,6 +3,8 @@ title: Focus
 description: Presenting and managing focus in an accessible way.
 ---
 
+# Focus
+
 ## Keyboard navigation
 
 Some users find navigating and interacting with a webpage via a keyboard easier than operating a mouse to control an onscreen pointer. Very experienced users, for example, may find keyboard navigation more efficient than a mouse, but for people with motor-control disabilities, such as hand tremors, joint injury or disease, or limb differences, using a mouse may be difficult or impossible.
