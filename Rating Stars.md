@@ -3,6 +3,8 @@ title: Rating Stars
 description: Used to display or enter a feedback rating on a 1 to 5 star scale.
 ---
 
+# Rating Stars
+
 ## Displaying rating stars
 
 The display snippets show the markup and accessible text. Supply the star graphics and styles in the host design system.
