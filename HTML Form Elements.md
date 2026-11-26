@@ -3,7 +3,7 @@ title: HTML Form Elements
 description: Using basic HTML form elements, applied accessibly, remove barriers for users as they interact and provide feedback using web forms.
 ---
 
-## Basic HTML form elements
+# HTML form elements
 
 Several basic HTML form input elements are used to collect information from users. These include:
 
