@@ -1,79 +1,56 @@
 ---
 title: Labels
-description: "Use accessible labels and names for interactive elements."
+description: Help people identify and operate controls using visible labels and accessible names.
 ---
 
-## Summary
+# Labels
 
-Form controls and other interactive elements must be labeled properly. Failing to do so will make it difficult for assistive technology users to understand the purpose of the control. Missing and mislabeled interactive elements can lead to issues or confusion for your users.
+Give each control a clear purpose so people can find it on screen, recognise it with a screen reader and refer to it by voice. If a button says ‘Send’ but its accessible name is ‘Submit’, someone saying ‘Click Send’ may be unable to activate it.
 
-## Purpose
+## Guidance
 
-The [Web Content Accessibility Guidelines](https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html) state that all interactive elements should have both a label and an accessible name. The label is presented visually and the accessible name is used by assistive technologies like screen readers. Often the two are the same; for example if a link has the text "Home", such as `<a href="/home">Home</a>`, the text "Home" is the label _and_ the accessible name. Similarly a button containing the text "Send" has both a visual label and an accessible name of "Send".
+| Information | What it does |
+| --- | --- |
+| Visible label | Identifies the control on screen. Keep it close to the control and available while people use it. |
+| Accessible name | Identifies the control to assistive technology. For example, a native button usually gets its name from its text. A form field can get its name from an associated HTML label. |
+| Accessible description | Adds context, such as the expected format or how to correct an error. Keep the control’s name short and use `aria-describedby` to associate additional information where needed. |
+
+For user interface components, the name and role must be programmatically determinable under [WCAG 2.1 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value) (Level A). When a control’s visible label contains text or an image of text, its accessible name must include the visible wording under [WCAG 2.1 2.5.3 Label in Name](https://www.w3.org/TR/WCAG21/#label-in-name) (Level A). Use the visible wording as the name where possible. If extra words are needed, put the visible wording first.
+
+Provide labels or instructions when people need to enter information under [WCAG 2.1 3.3.2 Labels or Instructions](https://www.w3.org/TR/WCAG21/#labels-or-instructions) (Level A). Prefer persistent text labels for fields. Keep any required-field marker understandable before entry and expose the requirement with the native `required` attribute where supported. If a label includes a decorative asterisk, the required state can carry that information for assistive technology. See [Forms](Forms.md#form-markup).
+
+## Implementation
+
+### Field and group labels
+
+Use the [HTML Form Elements guidance](HTML%20Form%20Elements.md#accessible-names) to associate a visible label with its field. Give a select its own label. Use a [fieldset and legend](HTML%20Form%20Elements.md#grouping-related-form-elements) for related radio buttons or checkboxes, and label each option. Put persistent hints beside the field and follow [Forms](Forms.md#validation) for association and removal of validation errors.
+
+This markup fragment shows a field with a name and a separate description. Both the label and hint remain visible while the field contains a value.
+
+```html
+<label for="collection-code">Collection code</label>
+<p id="collection-code-hint">Enter the six characters from your confirmation email.</p>
+<input id="collection-code" name="collectionCode" aria-describedby="collection-code-hint">
+```
+
+A placeholder can give an example. Keep it supplementary to the label and leave essential instructions visible. Keep `title` supplementary too. People need to be able to identify a control without waiting for a tooltip.
+
+### Icon-only controls
+
+Prefer visible text alongside the icon. For a familiar icon used alone, give the control an accessible name that identifies its action or destination before any tooltip opens. Follow the [icon naming and tooltip guidance](Icons.md#tooltips). For the compact single-field search variant, follow [Search field labels](Search.md#search-field-labels).
 
 ## Checks
 
-For each web page under test, perform the following checks. Record an answer, "yes" or "no" to each question. The passing result is indicated in uppercase. For each failing result, document it either as a defect or else provide an explanation of why it should be allowed as an exception or why it is not applicable.
+Use the project’s supported browsers and assistive technologies. Record the control, its visible label, its computed accessible name and the result.
 
-### Checks which should be (at least partly) performed manually
+| Method and action | Expected result |
+| --- | --- |
+| Identify each control visually. Focus and fill editable fields, then revisit them after validation. | The label is close enough to identify its control and stays available while the field is focused or contains a value. A required field is identifiable before submission. |
+| Inspect the accessible name and navigate to the control with a screen reader. Compare the result with any visible text. | The name identifies the purpose and includes the visible wording when the label contains text. An icon-only control has a meaningful name even with its tooltip closed. |
+| With voice control enabled, use the supported command for the visible words, such as ‘Click Send’. | The words identify the expected control. If several controls have the same label, there is a usable way to distinguish them. |
+| Enter a group of related options and navigate between them. | The group’s purpose and each option’s name are available. A select exposes its own label. |
+| Focus a field with a hint, trigger a validation error and correct it. | The label identifies the field throughout. Relevant instructions and errors are available separately from its name, and the outdated error is cleared after correction. |
 
-- Does each form item have a clear visible label that identifies the expected input? Where a conventional icon is used, does it have an equivalent accessible name? [Y/n]
-- Is the label near to the control it describes, so that it is obvious which control it is referring to? [Y/n]
-- Is the label still present and visible when the control has focus? [Y/n]
-- If the control is a group of selectable options, such as a dropdown menu or list of radio buttons or checkboxes, is there a visible text label describing the collection of options? [Y/n]
-- When the control is encountered by a screen reader, is the label read aloud as expected? [Y/n]
+## Sources
 
-## Examples and Additional Information
-
-The three aspects of labels and accessible names that must be correctly implemented are based on the user and how they interact with the web page. Having a visual label is obviously needed to allow sighted user who navigate by using a cursor or mouse to know what interactive elements are designed to do: clicking the "Close Tab" button, or tabbing to the"Support Page" link are examples.
-
-By providing those labels in accessible ways (using text according to HTML standards) you will also serve users of screen reader devices, which will use that text to speak the accessible name to the user.
-
-In some cases however it is possible to apply a visible label that is different than the accessible name. This creates potential problems for users who use voice control and speech recognition to navigate, such as by saying "click Send". These users will see the label and use that to direct their assistive technology, which in turn will rely on the accessible name. For this reason it is recommended to keep the visible label the same as the accessible name.
-
-## Further Advice
-
-### Keep labels visible when people type
-
-Use the [form-control labelling examples](HTML%20Form%20Elements.md#visible-labels) for implementation. Test that the label remains visible when the field has focus and contains a value.
-
-### Don't add a title attribute
-
-A title attribute is sometimes added to form input elements. While it is true that most screen reader devices will read out the title attribute, there is no benefit to this: using the more semantic `<label>` element would also work and comes with the benefit that the label can be clicked to focus the input. Having both a label and a title attribute of course means that _both_ those strings of text may be read out leading to useless duplication.
-
-```html
-<!-- DO NOT add a title attribute text to an input element -->
-<form>
-First name: <input name="first-name" type="text" title="First Name">
-</form>
-```
-
-### Hiding parts of labels from screen readers
-
-In some cases, specific parts of the text used in a label has a conventional meaning, but only when viewed visually. For example, the asterisk is often used to indicate to the user that a form item is required. While some screen readers may read out the asterisk, some screen readers will not. Whether or not the user would understand that a form item is required even if they could hear "Name asterisk" for example is uncertain.
-
-It is acceptable to hide the asterisk from screen readers if the information is made clear in an alternative way. In the example below, simply using the native HTML `required` attribute on the input field is reliable and screen readers will pick up on this and announce it.
-
-```html
-<label for="address">Address<span aria-hidden="true">*</span></label>
-<input id="address" name="address" type="text" required />
-```
-
-### Hiding parts of labels from _non_ screen readers
-
- A label is often implemented using body text but may be an element with alternative text, like an image, assuming the image is a well-understood icon. When a label is visible only as an icon, alternative text must be provided for users who cannot see the icon. Ideally the control would make that text visible for everyone along with the icon, but design limitations may not make this ideal. In that case, providing text as a label which is only accessible to a screen reader is acceptable, assuming the icon is well-known and understood to sighted users without having the text cue (a "magnifying hand lens" icon for example, as the label to a search form).
-
-The example below uses one of the techniques from [Functional Alternative Text](Functional%20Alternative%20Text.md). These text alternatives will naturally be hidden from sighted users looking at the image.
-
-```html
-<form>
-    <label class="search-label" for="search" aria-labelledby="searchLabelTitle">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-            <title id="searchLabelTitle">Search by product name.</title>
-            ...
-        </svg>
-    </label>
-    <input id="search" type="text">
-    <input class="button" type="button" value="Search">
-</form>
-```
+- [Understanding labels or instructions](https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html)
