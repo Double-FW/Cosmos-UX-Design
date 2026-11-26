@@ -1,28 +1,19 @@
 ---
 title: Motion and Animation
-description: Motion and animation can enhance user experience and understanding, but there are limitations. Use motion accessibly to avoid creating barriers for some users.
+description: Use motion deliberately and let people read and operate the interface with less motion.
 ---
 
-Incorporating motion and animation into a user interface can benefit users by making content more engaging and making interactions feel more natural. But some users have physical or neurological conditions that mean they experience distraction, motion sickness, or even seizures when viewing effects such as parallax scrolling, zooming/sliding, or flashing.
+# Motion and Animation
 
-> Web technologies that use video, animated gifs, animated pngs, animated SVGs, Canvas, and CSS or JavaScript animations are all capable of content that can induce seizures or other incapacitating physical reactions. Certain visual patterns, especially stripes, can also cause physical reactions, even though they are not animated. [^1]
-
-The image or media filenames in these examples stand for assets supplied by the implementing project.
+Use motion when it helps people understand a change. Large movements, parallax scrolling and repeated effects can make content hard to read or use. Start with a usable still presentation. Keep instructions, changes of state and progress understandable through text or other cues that do not depend on movement.
 
 ## Reduced motion preferences
 
-Users who know they are likely to be affected by motion can register their preference for reduced motion in their operating system or the web browser.
-
-To adjust your motion preferences in the operating system follow the steps for your device:
-
-- **MacOs**: System Preferences > Accessibility > Display > Reduce motion
-- **iOs**: Settings > Accessibility > Motion > Reduce Motion
-- **Windows**: Settings > Ease of Access > Display > Show animations in windows
-- **Android (9+)**: Settings > Accessibility > Remove animations
+Respect the device or browser’s `prefers-reduced-motion` setting. Replace non-essential movement with an immediate change or a still image. For example, show a panel in its final position and keep its focus target available immediately. Keep the interface functional when the preference is unavailable.
 
 ### Conditional stylesheets
 
-You may conditionally link to stylesheets based on the user's motion preference settings. In the example below the `animations.css` stylesheet is only included if the user has expressed no preference for reduced motion.
+Keep essential styles in the baseline. Load optional motion styles only when the browser reports no reduced-motion preference. The example assumes `animations.css` contains only optional effects and is supplied by the project.
 
 ```html
 <link rel="stylesheet" href="animations.css" media="(prefers-reduced-motion: no-preference)">
@@ -30,111 +21,93 @@ You may conditionally link to stylesheets based on the user's motion preference 
 
 ### Detect motion preference in JavaScript
 
-All modern browsers allow the detection of user preferences for reduced motion using the JavaScript `matchMedia` method. In this case, we set a class named "motion" on the Document Element if the setting for `prefers-reduced-motion` is not set to "reduce."
-
-```js
-const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-if (mq && !mq.matches) {
-  document.documentElement.classList.add('motion');
-}
-```
+For motion controlled by script, check for an explicit match on `(prefers-reduced-motion: no-preference)` before starting an optional automatic effect. Listen for changes while the page is open so you can stop the effect if the person enables reduced motion.
 
 ### Check for motion preference before playing
 
-Based on the presence of the 'motion' class (see above), we can conditionally play an animation or motion-based feature according to the user's preferences.
-
-```js
-const io = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && document.documentElement.classList.contains('motion')) {
-      entry.target.play();
-    }
-  });
-}, { threshold: [0] });
-const els = document.querySelectorAll('.video-card video');
-els.forEach(el => io.observe(el));
-```
+Leave decorative motion paused when the page opens. If people choose to play an effect, provide a nearby way to pause or stop it. When the preference changes to reduced motion, stop current decorative motion and let the person decide whether to restart it. Scrolling away and back should respect a previous pause.
 
 ### Background video
 
-For a decorative background video, keep the message readable without the video. Provide a still image for reduced-motion users and an operable way to stop playback. Supply the media filenames from your project.
+Use a still poster and keep the surrounding message readable without video. The following example starts paused and lets the person play or pause a silent decorative clip. Supply the sample media assets and adjust the labels to the context. For video that carries information, use [Video Controls](Video%20Controls.md).
 
 ```html
 <article>
-  <h3>Find us on the high street</h3>
+  <h2>Find us on the high street</h2>
   <p>Our shop is open Monday to Saturday.</p>
-  <video id="shop-background" aria-hidden="true" playsinline muted loop
-         poster="street-scene.jpg" style="max-inline-size: 100%">
+
+  <video id="shop-video" aria-hidden="true" playsinline muted
+         preload="none" poster="street-scene.jpg" style="max-inline-size: 100%">
     <source src="street-scene.mp4" type="video/mp4">
   </video>
-  <button id="shop-motion" type="button" hidden>Pause background video</button>
+  <button id="shop-motion" type="button" hidden>Play shop video</button>
+  <p id="shop-motion-status" role="status"></p>
 </article>
 
 <script>
-  const shopVideo = document.getElementById('shop-background');
-  const shopMotionButton = document.getElementById('shop-motion');
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const video = document.getElementById('shop-video');
+  const button = document.getElementById('shop-motion');
+  const status = document.getElementById('shop-motion-status');
+  const motionPreference = window.matchMedia?.('(prefers-reduced-motion: reduce)');
 
-  shopVideo.addEventListener('play', () => {
-    shopMotionButton.textContent = 'Pause background video';
-    shopMotionButton.hidden = false;
-  });
+  function updateButton() {
+    button.textContent = video.paused || video.ended ? 'Play shop video' : 'Pause shop video';
+  }
 
-  shopVideo.addEventListener('pause', () => {
-    shopMotionButton.textContent = 'Play background video';
-  });
+  for (const event of ['play', 'pause', 'ended']) {
+    video.addEventListener(event, updateButton);
+  }
 
-  shopMotionButton.addEventListener('click', () => {
-    if (shopVideo.paused) {
-      shopVideo.play().catch(() => {});
+  button.addEventListener('click', async () => {
+    status.textContent = '';
+    if (video.paused || video.ended) {
+      try {
+        await video.play();
+      } catch {
+        status.textContent = 'The shop video could not play.';
+        updateButton();
+      }
     } else {
-      shopVideo.pause();
+      video.pause();
     }
   });
 
-  reducedMotion.addEventListener('change', (event) => {
-    if (event.matches) shopVideo.pause();
+  motionPreference?.addEventListener?.('change', event => {
+    if (event.matches) video.pause();
   });
 
-  if (!reducedMotion.matches && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return;
-      observer.disconnect();
-      if (!reducedMotion.matches) shopVideo.play().catch(() => {});
-    });
-    observer.observe(shopVideo);
-  }
+  button.hidden = false;
 </script>
 ```
 
 ## Autoplay
 
-Use autoplay on video elements carefully. Multiple videos on a page could quickly exhaust a user's bandwidth, particularly if they are on a mobile device. Do not use autoplay on decorative video if the user has enabled the "prefers reduced motion" setting, and provide a mechanism for the user to stop an auto-playing video. 
-
-In the example above, we do not give the HTML `video` element an `autoplay` attribute. Still, we do automatically start playing the video when the `video` element scrolls into the viewport, so the rules around autoplay would still apply.
-
-Unless the core purpose of a web page is to listen to audio, if an animation or video has an audio track and the element is set to play automatically, then the audio must start in a muted state. This is to prevent a user who relies on being able to hear a screen reader device from having their assistive technology drowned out by unseen video clips when the web page loads. Individual controls may be provided to allow the user to unmute the audio if they wish.
+Prefer playback initiated by the user. Animation started by a script on page load or as content enters the viewport is also automatic. Keep decorative video silent. WCAG 2.1 [1.4.2 Audio Control](https://www.w3.org/TR/WCAG21/#audio-control) (Level A) requires a way to pause or stop audio that plays automatically for more than three seconds, or to control its volume independently of the system volume.
 
 ## Looping
 
-A constantly looping animation or video segment can be distracting for everyone, but for people with reading or attention-deficit disabilities, never-ending animated content can make it difficult or even impossible to read nearby text. Provide a way for the user to pause, stop or hide any animated, blinking, or scrolling information that:
+Under WCAG 2.1 [2.2.2 Pause, Stop, Hide](https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html) (Level A), moving, blinking or scrolling information that starts automatically, lasts more than five seconds and appears alongside other content needs a way to pause, stop or hide it, unless the effect is essential. A short clip that keeps looping can run beyond five seconds. The criterion has a separate provision for automatically updating information, which has no five-second condition.
 
-- Starts automatically
-- Lasts for more than five seconds
-- Is presented near to core content such as text
+If the project targets WCAG 2.1 [2.3.3 Animation from Interactions](https://www.w3.org/TR/WCAG21/#animation-from-interactions) (Level AAA), people must be able to disable motion animation triggered by interaction unless it is essential to the function or information.
 
 ## Blinking and flashing
 
-Rapidly flashing content can cause seizures in people with photosensitive epilepsy. [^2] To limit the possibility of triggering seizures, do not display any rapidly flashing content. Some flashing in images could be allowed if it was only in a very small portion of the screen, of low contrast, and the flashes were less frequent than three times per second.
+Avoid flashing content. WCAG 2.1 [2.3.1 Three Flashes or Below Threshold](https://www.w3.org/TR/WCAG21/#three-flashes-or-below-threshold) (Level A) allows no more than three flashes in any one-second period unless the flash is below both the general and red flash thresholds. A pause control or reduced-motion setting does not establish that the flashing itself meets the criterion.
+
+Review suspected flashing using a suitable analysis tool or verified evidence. Avoid asking testers to judge a potentially hazardous sequence by watching it.
 
 ## Checkpoints for the Tester
 
-- Ensure that no content on the webpage flashes over a large portion of the page or more than three times in any 1-second period.
-- Content that blinks (over a small area or less frequently than the flashing threshold) must not continue for more than 5 seconds [^3] or provide a way for the user to stop the blinking.
-- Where animated/video content is presented alongside other content such as text, ensure that the animated content does not autoplay, or if it does, that it does not last longer than 5 seconds, or else there is a way for the user to stop the animation.
-- With your settings for reduced motion set to "reduced," ensure that no unnecessary animation, motion, or blinking effects are displayed.
-- Ensure that no sound plays automatically: it should be muted, and the user should opt-in to hearing the sound by using an unmute button, for example. An exception is if the core purpose of the web page is to play the sound, and the user is notified that by opening the page, that soundtrack will play.
+| Method and action | Expected result |
+| --- | --- |
+| Open the page with reduced motion enabled. Operate any feature that normally moves. | Non-essential motion is removed or reduced. Controls, focus and feedback remain available. |
+| Start a decorative clip, pause it, then scroll away and back. Enable reduced motion while the clip is playing in a separate run. | The pause remains in effect after scrolling. Enabling reduced motion stops current decorative playback and leaves the controls usable. |
+| Find automatically moving or looping content alongside other content. Check its duration and operate any pause, stop or hide control with the keyboard. | Where the criterion applies, the user can stop the effect and continue reading. |
+| Check the page for automatically playing audio. Where it plays for more than three seconds, try the available controls. | The audio can be paused, stopped or turned down independently of system volume. |
+| Review flashing assets and effects using analysis or verified evidence. | The result meets the applicable flash limits. |
+| Block scripts and reload the decorative video example. | The still poster and nearby information remain available, and no inactive enhancement button appears. |
 
-[^1]: [_Web accessibility for seizures and physical reactions_, mdn web docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Seizure_disorders)
-[^2]: "Photosensitive epilepsy is when seizures are triggered by flashing lights or contrasting light and dark patterns." [_Photosensitive epilepsy_, Epilepsy Society](https://epilepsysociety.org.uk/about-epilepsy/epileptic-seizures/seizure-triggers/photosensitive-epilepsy)
-[^3]: "Five seconds was chosen because it is long enough to get a user's attention, but not so long that a user cannot wait out the distraction if necessary to use the page." [_Pause, Stop, Hide (Level A)_, WCAG 2.1 Understanding Docs](https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html)
+## Sources
+
+- [Web accessibility for seizures and physical reactions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Seizure_disorders)
+- [Photosensitive epilepsy](https://epilepsysociety.org.uk/about-epilepsy/epileptic-seizures/seizure-triggers/photosensitive-epilepsy)
