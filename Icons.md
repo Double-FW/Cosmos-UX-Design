@@ -3,10 +3,6 @@ title: Icons
 description: When used judiciously, icons can improve usability and accessibility in webpages.
 ---
 
-The image or media filenames in these examples stand for assets supplied by the implementing project.
-
-The snippets use illustrative SVG filenames and class names. Supply your own icons and CSS before using them in a project.
-
 # Icons
 
 Icons are an effective tool to emphasize and clarify your content. Used judiciously they can improve usability and accessibility for those with reading difficulties, visual impairments, neuro-cognitive differences or people who may not be adept with the language. However these benefits must be delivered in such a way so as to avoid creating barriers for blind users and others who rely upon screen reader (or braille display) devices.
