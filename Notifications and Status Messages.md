@@ -89,7 +89,7 @@ After the change, show ‘Read’ in the entry and update the header count. When
 | Mark an entry as read, clear an entry if supported, then reopen the centre. Test the empty and failed-loading states. | Read state and counts agree. A read entry remains available according to the retention policy. Clearing leaves a logical focus position and failure has a recovery path. |
 | Test any modal used for urgent feedback. Open it, read its choices and dismiss it with the keyboard. | The modal identifies the decision, keeps the background inactive and can be dismissed. Focus returns to the opener or the next logical place. |
 | Review any remaining toast while magnified and with a screen reader. Let it disappear. | The same information can still be found. Any action or material condition is available in a persistent place. |
-| Follow the worked example from a background completion to marking the notice as read. Repeat with scripts blocked and simulate a failed read update separately. | The count increases once when the report is ready. The centre opens from a working link. A successful read update decreases the count without removing the report entry. A failed update leaves the count and read state consistent and gives the person a way to retry. |
+| Follow the worked example from a background completion to marking the notice as read. Repeat with scripts blocked and simulate a failed read update separately. | The report adds one unread entry. With scripts blocked, the updated count and entry are available on the next page load. The centre opens from a working link. A successful read update decreases the count without removing the report entry. A failed update leaves the count and read state consistent and gives the person a way to retry. |
 
 ## Sources
 
