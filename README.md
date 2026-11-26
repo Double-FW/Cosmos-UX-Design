@@ -47,6 +47,7 @@ A collection of accessibility techniques for people designing, building, testing
 - [Call to Action](Call%20to%20Action.md)
 - [Breadcrumbs](Breadcrumbs.md)
 - [Disclosure](Disclosure.md)
+- [Drawer](Drawer.md) — non-modal side panels and modal drawers.
 - [Mega Menu](Mega%20Menu.md)
 - [Modal Dialogs](Modal%20Dialogs.md)
 
