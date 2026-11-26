@@ -11,6 +11,8 @@ Let people pause a task they cannot complete in one sitting and return to the ri
 
 Use this guide for unfinished tasks such as applications, bookings and multi-step forms. Use [Forms](Forms.md) for field behaviour, [Client-side Routing](Client-side%20Routing.md) for route and focus handling, and [Refusal, Cancellation and Exit](Refusal%2C%20Cancellation%20and%20Exit.md) when leaving or discarding work changes what the person can recover.
 
+Use [Reminders and Saved Actions](Reminders%20and%20Saved%20Actions.md) when people want an optional cue to return to a saved task.
+
 ## Presentation
 
 - Put a clearly labelled save action near the task controls. Use ‘Save and leave’ only if the action saves the draft and then leaves the task. Use ‘Continue application’ or another task-specific label for the return action.
