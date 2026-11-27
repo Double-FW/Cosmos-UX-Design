@@ -1,6 +1,5 @@
 # Cosmos - UX Design System Documentation
 
-Meaning:
 • The orderly universe: All of space and everything in it, seen as a structured, systematic whole rather than pure chaos.
 or
 • Order or harmony: A complex, self-contained, or well-arranged system.
