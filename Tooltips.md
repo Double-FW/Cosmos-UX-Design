@@ -91,7 +91,7 @@ The checks below include local pattern checks and the supplied test cases. The s
 | Disable scripts or the enhancement where feasible. | The control's name and all essential task information remain available. |
 
 
-## Accessibility Requirements
+## [Accessibility Requirements](https://a11yquest.com/pro/tests/tooltip/#accessibility-requirements)
 
 **The Tooltip component is evaluated against the following WCAG 2.2 success criteria, categorized under the Perceivable, Operable, Understandable, and Robust (POUR) principles:**
 
@@ -108,7 +108,7 @@ The checks below include local pattern checks and the supplied test cases. The s
 
 - **4.1.2 Name, Role, Value: The tooltip must be properly labeled with ARIA attributes to ensure that assistive technologies can interpret and present the information correctly.**
 
-## ACT Test Cases
+## [ACT Test Cases](https://a11yquest.com/pro/tests/tooltip/#act-test-cases)
 
 ### [Test Case 1: Screen Reader Accessibility and Hidden State Verification](https://a11yquest.com/pro/tests/tooltip/#test-case-1-screen-reader-accessibility-and-hidden-state-verification)
 
@@ -219,6 +219,7 @@ The checks below include local pattern checks and the supplied test cases. The s
 ## Sources
 
 - [A11yQuest: Tooltip pattern guide](https://a11yquest.com/pro/guides/patterns/tooltip/) — source material for design constraints and practical checks.
+- [A11yQuest: Tooltip accessibility test cases](https://a11yquest.com/pro/tests/tooltip/) — source for the supplied accessibility requirements and test cases.
 - [WAI-ARIA Authoring Practices Guide: Tooltip Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/) — informative pattern status, roles, relationship and interaction notes.
 - [WCAG 2.2: Understanding Success Criterion 1.4.13, Content on Hover or Focus](https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html) — normative success criterion and explanatory guidance.
 - [WCAG 2.2: Understanding Success Criterion 1.4.3, Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) — text contrast requirements.
