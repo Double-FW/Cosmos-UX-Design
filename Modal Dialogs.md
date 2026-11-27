@@ -19,7 +19,7 @@ description: "A guide to making accessible modal dialogs."
 
 <a name="modal-dialog"></a>
 
-Use a modal dialog when the user needs to address a specific task or message before returning to the page. Prefer inline content or a dedicated page when people can continue their work without interruption. Avoid opening a modal automatically unless the interruption is necessary.
+Use a modal dialog when the user needs to address a specific task or message before returning to the page. Prefer inline content or a dedicated page when people can continue their work without interruption. Avoid opening a modal automatically unless the interruption is necessary. For a non-modal contextual panel, see [Information Panels](Information%20Panels.md); for supplementary content revealed in place, see [Disclosure](Disclosure.md).
 
 ## Recommended markup
 
@@ -42,6 +42,8 @@ Keep the dialog title and dismissal controls easy to find. Let content reflow an
 
 ### Managing focus
 
+For shared focus indication and keyboard-order guidance, see [Focus](Focus.md) and [Keyboard Navigation](Keyboard%20Navigation.md).
+
 - Choose an initial focus target deliberately. For a short message this may be its close button. For long or structured content, consider a heading with `tabindex="-1"` and focus it when the modal opens. For a hard-to-reverse action, consider focusing the safer choice.
 - The browser restores focus when the native modal closes if the previous focus target is still available. If the opener was removed or the action starts a new step in the journey, move focus to the next logical control or heading.
 - Keep focus within the current modal when tabbing through page content. Reaching browser controls can be acceptable if users can return and the underlying page remains unavailable.
@@ -50,7 +52,7 @@ Keep the dialog title and dismissal controls easy to find. Let content reflow an
 
 Provide a visible, keyboard-operable close or cancel control and support Escape. Backdrop dismissal is optional. If a step needs an explicit response, provide a clear keyboard-operable way to decline or cancel. Avoid automatic dismissal. Use `method="dialog"` for controls that close a dialog without submitting data to a server, or call `close()` when the action has completed.
 
-Prefer one modal at a time. If dialogs are opened in sequence, test focus at each transition and on return to the page. If a workflow genuinely needs stacked dialogs, test that only the active dialog can be used and that focus returns to the appropriate layer.
+Prefer one modal at a time. If dialogs are opened in sequence, test focus at each transition and on return to the page. If a workflow genuinely needs stacked dialogs, test that only the active dialog can be used and that focus returns to the appropriate layer. For the wider task flow around declining, cancelling or leaving, see [Refusal, Cancellation and Exit](Refusal%2C%20Cancellation%20and%20Exit.md).
 
 ### Interrupting a task
 
