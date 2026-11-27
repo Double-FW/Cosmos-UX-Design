@@ -39,7 +39,9 @@ Use these instructions at the Cosmos repository root and in its subdirectories, 
 | Need | Start here |
 | --- | --- |
 | Reusable component or service pattern | [Design Patterns](README.md#design-patterns) |
-| Semantics, interaction, presentation or design foundations | [Design Practices](README.md#design-practices) |\n| ARIA choices and screen reader experience | [ARIA and Screen Reader Usability](ARIA%20and%20Screen%20Reader%20Usability.md) and the owning pattern guide |
+| Semantics, interaction, presentation or design foundations | [Design Practices](README.md#design-practices) |
+| ARIA choices and screen reader experience | [ARIA and Screen Reader Usability](ARIA%20and%20Screen%20Reader%20Usability.md) and the owning pattern guide |
+| Visual hiding, accessibility-tree exposure or hidden focusable content | [Visually Hidden Content](Visually%20Hidden%20Content.md), then the owning component guide |
 | Shared behaviour or overlapping guides | [Shared implementation guidance](README.md#shared-implementation-guidance) |
 | Cognitive load, orientation and returning after interruption | [Cognitive Design Principles](https://github.com/Double-FW/Cognitive-UX-Design/blob/main/Cognitive%20Design%20Principles.md) and [Designing the Screen Reader Journey](Designing%20the%20Screen%20Reader%20Journey.md) |
 | Equivalent task outcomes across input and output modes | [Inclusive Multimodal UX Design](https://github.com/Double-FW/Inclusive-Multimodal-UX/blob/main/Multimodal_UX_Design.md) |
