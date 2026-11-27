@@ -93,119 +93,128 @@ The checks below include local pattern checks and the supplied test cases. The s
 
 ## Accessibility Requirements
 
-The Tooltip component is evaluated against the following WCAG 2.2 success criteria, categorized under the Perceivable, Operable, and Robust principles:
+**The Tooltip component is evaluated against the following WCAG 2.2 success criteria, categorized under the Perceivable, Operable, Understandable, and Robust (POUR) principles:**
 
-### Perceivable
+### [Perceivable](https://a11yquest.com/pro/tests/tooltip/#perceivable)
 
-- 1.4.13 Content on Hover or Focus: Ensures that content displayed on hover or focus is dismissible, hoverable, and persistent.
+- **1.4.13 Content on Hover or Focus: Ensures that content displayed on hover or focus is dismissible, hoverable, and persistent.**
 
-### Operable
+### [Operable](https://a11yquest.com/pro/tests/tooltip/#operable)
 
-- 2.1.1 Keyboard: The tooltip must be operable through a keyboard interface without requiring specific timings for individual keystrokes.
-- 2.1.2 No Keyboard Trap: Keyboard users must be able to navigate to and from the tooltip without getting trapped.
+- **2.1.1 Keyboard: The tooltip must be operable through a keyboard interface without requiring specific timings for individual keystrokes.**
+- **2.1.2 No Keyboard Trap: Keyboard users must be able to navigate to and from the tooltip without getting trapped.**
 
-### Robust
+### [Robust](https://a11yquest.com/pro/tests/tooltip/#robust)
 
-- 4.1.2 Name, Role, Value: The tooltip must be properly labeled with ARIA attributes to ensure that assistive technologies can interpret and present the information correctly.
+- **4.1.2 Name, Role, Value: The tooltip must be properly labeled with ARIA attributes to ensure that assistive technologies can interpret and present the information correctly.**
 
 ## ACT Test Cases
 
-### Test Case 1: Screen Reader Accessibility and Hidden State Verification
+### [Test Case 1: Screen Reader Accessibility and Hidden State Verification](https://a11yquest.com/pro/tests/tooltip/#test-case-1-screen-reader-accessibility-and-hidden-state-verification)
 
-#### Objective
+#### [Objective](https://a11yquest.com/pro/tests/tooltip/#objective)
 
-To verify that tooltips are not accessible or announced by screen readers in their default (hidden) state and are properly announced when active.
+**To verify that tooltips are not accessible or announced by screen readers in their default (hidden) state and are properly announced when active.**
 
-#### Test Steps
+#### [Test Steps](https://a11yquest.com/pro/tests/tooltip/#test-steps)
 
-1. Using a screen reader, navigate through the page without interacting with the trigger element to ensure the tooltip content is not announced in its default state.
-2. Focus on the trigger element using the keyboard or the screen reader’s virtual cursor.
-3. Confirm that the screen reader announces the tooltip’s presence and content.
+1. **Using a screen reader, navigate through the page without interacting with the trigger element to ensure the tooltip content is not announced in its default state.**
+2. **Focus on the trigger element using the keyboard or the screen reader’s virtual cursor.**
+3. **Confirm that the screen reader announces the tooltip’s presence and content.**
 
-#### Expected Results
+#### [Expected Results](https://a11yquest.com/pro/tests/tooltip/#expected-results)
 
-- In its default state, the tooltip content is not accessible or announced by the screen reader.
-- When the trigger element is focused, the tooltip becomes accessible and its content is announced.
+- **In its default state, the tooltip content is not accessible or announced by the screen reader.**
+- **When the trigger element is focused, the tooltip becomes accessible and its content is announced.**
 
-### Test Case 2: Visibility and Interaction with Mouse
+### [Test Case 2: Visibility and Interaction with Mouse](https://a11yquest.com/pro/tests/tooltip/#test-case-2-visibility-and-interaction-with-mouse)
 
-#### Objective
+#### [Objective](https://a11yquest.com/pro/tests/tooltip/#objective-2)
 
-To ensure the tooltip becomes visible with mouse hover and behaves correctly with cursor movements.
+**To ensure the tooltip becomes visible with mouse hover and behaves correctly with cursor movements.**
 
-#### Test Steps
+#### [Test Steps](https://a11yquest.com/pro/tests/tooltip/#test-steps-2)
 
-1. Hover the mouse over the trigger element and verify that the tooltip becomes visible.
-2. Move the cursor from the trigger element to the tooltip and back without the tooltip hiding.
-3. Move the cursor away from both the trigger element and the tooltip, ensuring the tooltip hides.
+1. **Hover the mouse over the trigger element and verify that the tooltip becomes visible.**
+2. **Move the cursor from the trigger element to the tooltip and back without the tooltip hiding.**
+3. **Move the cursor away from both the trigger element and the tooltip, ensuring the tooltip hides.**
 
-#### Expected Results
+#### [Expected Results](https://a11yquest.com/pro/tests/tooltip/#expected-results-2)
 
-- The tooltip shows and hides according to mouse cursor movement as specified.
+- **The tooltip shows and hides according to mouse cursor movement as specified.**
 
-### Test Case 3: Keyboard Interaction and Escape Key Functionality
+### [Test Case 3: Keyboard Interaction and Escape Key Functionality](https://a11yquest.com/pro/tests/tooltip/#test-case-3-keyboard-interaction-and-escape-key-functionality)
 
-#### Objective
+#### [Objective](https://a11yquest.com/pro/tests/tooltip/#objective-3)
 
-To confirm that tooltips are accessible via keyboard and can be dismissed using the escape key.
+**To confirm that tooltips are accessible via keyboard and can be dismissed using the escape key.**
 
-#### Test Steps
+#### [Test Steps](https://a11yquest.com/pro/tests/tooltip/#test-steps-3)
 
-1. Tab to focus the trigger element and verify that the tooltip becomes visible.
-2. While the tooltip is visible, press the escape key and check that it hides.
-3. Tab away from the trigger element to another focusable element and ensure the tooltip hides.
+1. **Tab to focus the trigger element and verify that the tooltip becomes visible.**
+2. **While the tooltip is visible, press the escape key and check that it hides.**
+3. **Tab away from the trigger element to another focusable element and ensure the tooltip hides.**
 
-#### Expected Results
+#### [Expected Results](https://a11yquest.com/pro/tests/tooltip/#expected-results-3)
 
-- The tooltip behaves as expected with keyboard interactions, including showing, hiding with the escape key, and hiding when moving focus away.
+- **The tooltip behaves as expected with keyboard interactions, including showing, hiding with the escape key, and hiding when moving focus away.**
 
-### Test Case 4: Single Tooltip Visibility
+### [Test Case 4: Single Tooltip Visibility](https://a11yquest.com/pro/tests/tooltip/#test-case-4-single-tooltip-visibility)
 
-#### Objective
+#### [Objective](https://a11yquest.com/pro/tests/tooltip/#objective-4)
 
-To ensure that only one tooltip is displayed at a time.
+**To ensure that only one tooltip is displayed at a time.**
 
-#### Test Steps
+#### [Test Steps](https://a11yquest.com/pro/tests/tooltip/#test-steps-4)
 
-1. Activate a tooltip by hovering or focusing on a trigger element.
-2. Without dismissing the first tooltip, activate another tooltip by hovering or focusing on a different trigger element.
-3. Verify that the first tooltip hides when the second tooltip becomes visible.
+1. **Activate a tooltip by hovering or focusing on a trigger element.**
+2. **Without dismissing the first tooltip, activate another tooltip by hovering or focusing on a different trigger element.**
+3. **Verify that the first tooltip hides when the second tooltip becomes visible.**
 
-#### Expected Results
+#### [Expected Results](https://a11yquest.com/pro/tests/tooltip/#expected-results-4)
 
-- Only one tooltip is visible at a time, ensuring clear and uncluttered presentation of supplementary information.
+- **Only one tooltip is visible at a time, ensuring clear and uncluttered presentation of supplementary information.**
 
-### Test Case 5: Touchscreen Interaction
+### [Test Case 5: Touchscreen Interaction](https://a11yquest.com/pro/tests/tooltip/#test-case-5-touchscreen-interaction)
 
-#### Objective
+#### [Objective](https://a11yquest.com/pro/tests/tooltip/#objective-5)
 
-To ensure tooltips do not disrupt usability for touchscreen users.
+**To ensure tooltips do not disrupt usability for touchscreen users.**
 
-#### Test Steps
+#### [Test Steps](https://a11yquest.com/pro/tests/tooltip/#test-steps-5)
 
-1. On a touchscreen device, tap on an element with an attached tooltip to verify the primary action of the element is executed without displaying the tooltip.
-2. If a tooltip is displayed (e.g., after a long press), tapping outside the tooltip or on another element hides the tooltip.
+1. **On a touchscreen device, tap on an element with an attached tooltip to verify the primary action of the element is executed without displaying the tooltip.**
+2. **If a tooltip is displayed (e.g., after a long press), tapping outside the tooltip or on another element hides the tooltip.**
 
-#### Expected Results
+#### [Expected Results](https://a11yquest.com/pro/tests/tooltip/#expected-results-5)
 
-- Tooltips do not interfere with the expected behavior of interactive elements on touchscreen devices.
+- **Tooltips do not interfere with the expected behavior of interactive elements on touchscreen devices.**
 
-### Test Case 6: Content Accessibility and Visibility Enhancements
+### [Test Case 6: Content Accessibility and Visibility Enhancements](https://a11yquest.com/pro/tests/tooltip/#test-case-6-content-accessibility-and-visibility-enhancements)
 
-#### Objective
+#### [Objective](https://a11yquest.com/pro/tests/tooltip/#objective-6)
 
-To check that the tooltip content is accessible, with adequate contrast, and remains visible under various conditions such as scrolling and high contrast mode.
+**To check that the tooltip content is accessible, with adequate contrast, and remains visible under various conditions such as scrolling and high contrast mode.**
 
-#### Test Steps
+#### [Test Steps](https://a11yquest.com/pro/tests/tooltip/#test-steps-6)
 
-1. Verify the tooltip content meets the minimum contrast ratio requirements against its background.
-2. Test the tooltip’s visibility and readability during scrolling, zooming in, resizing the window, or rotating the device.
-3. Enable high contrast mode and ensure the tooltip content remains visible and readable.
+1. **Verify the tooltip content meets the minimum contrast ratio requirements against its background.**
+2. **Test the tooltip’s visibility and readability during scrolling, zooming in, resizing the window, or rotating the device.**
+3. **Enable high contrast mode and ensure the tooltip content remains visible and readable.**
 
-#### Expected Results
+#### [Expected Results](https://a11yquest.com/pro/tests/tooltip/#expected-results-6)
 
-- The tooltip’s content maintains accessibility standards in different scenarios, including sufficient contrast ratio, readability during dynamic view changes, and visibility in high contrast mode.
+- **The tooltip’s content maintains accessibility standards in different scenarios, including sufficient contrast ratio, readability during dynamic view changes, and visibility in high contrast mode.**
 
+### Guidance to improve test alignment
+
+- Use `role="tooltip"` on the tooltip container and `aria-describedby` on its trigger, as the [WAI-ARIA APG Tooltip Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/) describes. Keep the trigger's accessible name separately available. WCAG 4.1.2 requires programmatically determinable name and role and supported states and properties; it does not itself mandate a specific ARIA attribute. The ARIA relationship is the implementation approach expected by these supplied tests.
+- Keep the closed tooltip out of the page's separate reading and focus order. Test Case 1 needs a clear interpretation: a screen reader may announce the tooltip text as the trigger's description when it reaches or focuses that trigger. Treat that as the active-trigger announcement tested by steps 2 and 3, not as the hidden tooltip being separately exposed elsewhere on the page. If step 1 is interpreted to include reading the trigger, its expected result conflicts with the later expected announcement.
+- Keep at most one tooltip visible at once. Close the first when a second trigger opens its tooltip.
+- Make the tooltip non-focusable and do not put interactive descendants inside it. This supports the keyboard checks and prevents it from becoming a focus trap; keyboard focus remains on the trigger and moves away normally.
+- On touchscreens, a tap must still perform the trigger's primary action without opening a tooltip. Do not require long press to access essential content. If a product nevertheless displays a tooltip after long press, close it when the person taps outside it or activates another element.
+- For the contrast check, apply WCAG 2.2 SC 1.4.3: at least 4.5:1 for normal text and 3:1 for large text as defined by that criterion. Check readability and placement after zoom, resize, rotation and scrolling, and in forced-colours mode.
+- The source calls these “ACT Test Cases”; they are not W3C ACT Rules with published rule identifiers. Use them as the supplied component test cases, not as evidence that an entire page or product conforms to WCAG.
 
 ## Sources
 
