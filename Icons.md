@@ -283,7 +283,7 @@ The recommendations and caveats above can be applied to icons used as button con
 
 ### Tooltips
 
-Give an icon-only control its accessible name before anyone focuses or hovers over it. Use a visible label where space permits, or use [visually hidden text](Anchors%20and%20Links.md#link-content) inside the control. A tooltip can repeat that label visually or provide extra help. Make the tooltip available on keyboard focus as well as pointer hover. Keep essential instructions visible for people using touch, and avoid relying on the HTML `title` attribute to provide them.
+A tooltip may provide brief supplemental information, but it must not supply the only accessible name for an icon-only control. Prefer a visible label; otherwise provide the control’s accessible name before the tooltip opens. Follow [Tooltips](Tooltips.md) for the tooltip’s markup, behaviour and testing requirements, and [Labels](Labels.md#icon-only-controls) for naming controls.
 
 ## Spinner icon
 
@@ -349,10 +349,9 @@ Test decorative icons, meaningful icons and controls whose icons change with sta
 | Measure icons and state indicators needed to understand content or identify a control against the relevant adjacent colours. | Where [WCAG 2.1 1.4.11 Non-text Contrast](https://www.w3.org/TR/WCAG21/#non-text-contrast) applies, the required visual information has at least 3:1 contrast. |
 | Change a control’s state. Look for a cue independent of hue and repeat in grayscale or forced colours. Compare the result with the name or state exposed to a screen reader. | A change in shape, orientation, border, text or another non-colour cue makes the state distinguishable. The exposed action or state agrees with the visible one. |
 
-### Tooltip and spinner checks
+### Spinner checks
 
-1. Focus an icon-only control before its tooltip is displayed. Check that its accessible name identifies the action. Compare the tooltip on keyboard focus and pointer hover.
-2. Trigger a pending operation, then test success and failure. Repeat with reduced motion enabled. The same status text appears and is announced in both settings. The spinner remains still in reduced motion and disappears when the operation ends. Focus stays with the user.
+Trigger a pending operation, then test success and failure. Repeat with reduced motion enabled. The same status text appears and is announced in both settings. The spinner remains still in reduced motion and disappears when the operation ends. Focus stays with the user.
 
 ### Related references
 
