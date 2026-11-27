@@ -37,7 +37,7 @@ A placeholder can give an example. Keep it supplementary to the label and leave 
 
 ### Icon-only controls
 
-Prefer visible text alongside the icon. For a familiar icon used alone, give the control an accessible name that identifies its action or destination before any tooltip opens. Follow the [icon naming and tooltip guidance](Icons.md#tooltips). For the compact single-field search variant, follow [Search field labels](Search.md#search-field-labels).
+Prefer visible text alongside the icon. For a familiar icon used alone, give the control an accessible name that identifies its action or destination before any tooltip opens. Follow [Icons](Icons.md#icons-and-accessible-names) for icon alternatives and [Tooltips](Tooltips.md) for supplemental descriptions. For the compact single-field search variant, follow [Search field labels](Search.md#search-field-labels).
 
 ## Checks
 
