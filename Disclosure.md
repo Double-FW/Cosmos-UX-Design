@@ -19,7 +19,7 @@ description: "Show or hide supplementary content in place."
 
 <span id="disclosure-show-and-hide-content"></span>
 
-Use a disclosure when people can choose whether to read supplementary information in place. Give the control a label that identifies the content it reveals. Keep focus on the control when it opens or closes the panel. For grouped expandable sections, see [Accordion](Accordion.md); for switching among related panels, compare [Tabs](Tabs.md). For focus and announcements when content changes, see [Dynamic Content](Dynamic%20Content.md) and [Keyboard Navigation](Keyboard%20Navigation.md).
+Use a disclosure when people can choose whether to read supplementary information in place. Give the control a label that identifies the content it reveals. Keep focus on the control when it opens or closes the panel. For grouped expandable sections, see [Accordion](Accordion.md); for switching among related panels, compare [Tabs](Tabs.md). For focus and announcements when content changes, see [Dynamic Content](Dynamic%20Content.md) and [Keyboard Navigation](Keyboard%20Navigation.md). For cross-cutting guidance on hidden states, focus and accessibility-tree exposure, see [Visually Hidden Content](Visually%20Hidden%20Content.md) and [ARIA and Screen Reader Usability](ARIA%20and%20Screen%20Reader%20Usability.md).
 
 ## Recommended markup
 
