@@ -113,3 +113,5 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Navigation lists and submenu controls](Site%20Menus.md)
 - [Grouped navigation panels](Mega%20Menu.md)
 - [Search forms and suggestions](Search.md)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)

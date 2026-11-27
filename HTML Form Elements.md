@@ -159,9 +159,9 @@ For choosing an entry format or an availability calendar, see [Calendars and Dat
 
 ## HTML5 input types
 
-Choose a native input type for the data, such as `email` for an email address and `tel` for a phone number. Browsers can offer a layout or on-screen keyboard suited to that type. Test the control in the supported environments, including with assistive technology. [^1] [^2] [^4]
+Choose a native input type for the data, such as `email` for an email address and `tel` for a phone number. Browsers can offer a layout or on-screen keyboard suited to that type. Test the control in the supported environments, including with assistive technology.   
 
-Use `type="number"` when changing the value by increments makes sense. For a digit-based identifier such as a reference number with leading zeroes, use text and consider `inputmode="numeric"` to request a suitable on-screen keyboard. Validate the expected value separately. For dates, check that people can enter and correct the date with a keyboard. Offer a labelled text-entry alternative if the picker cannot support that in the target environment. [^3]
+Use `type="number"` when changing the value by increments makes sense. For a digit-based identifier such as a reference number with leading zeroes, use text and consider `inputmode="numeric"` to request a suitable on-screen keyboard. Validate the expected value separately. For dates, check that people can enter and correct the date with a keyboard. Offer a labelled text-entry alternative if the picker cannot support that in the target environment. 
 
 ## Buttons
 
@@ -202,7 +202,11 @@ You must only submit a form when the user explicitly initiates it. For example, 
 1. Ensure that forms are not automatically submitted when the user changes the value of an element.
 1. For fields with autocomplete, inspect the token and try autofill using test data. Check that the correct values appear and that they can be entered or corrected manually.
 
-[^1]: [_The input element_ Whatwg HTML Living Standard](https://html.spec.whatwg.org/multipage/input.html)
-[^2]: For example, see the issue reported by Gov.UK of [incompatibility of input type of "email" and Dragon Naturally Speaking](https://github.com/alphagov/govuk-design-system/issues/2187) voice recognition software.
-[^3]: [_Why the GOV.UK Design System team changed the input type for numbers_ Gov.UK Technology in government blog](https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/)
-[^4]: [_Date and time input types_ caniuse.com](https://caniuse.com/input-datetime)
+## Sources
+
+- [_The input element_ Whatwg HTML Living Standard](https://html.spec.whatwg.org/multipage/input.html)
+- For example, see the issue reported by Gov.UK of [incompatibility of input type of "email" and Dragon Naturally Speaking](https://github.com/alphagov/govuk-design-system/issues/2187) voice recognition software.
+- [_Why the GOV.UK Design System team changed the input type for numbers_ Gov.UK Technology in government blog](https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/)
+- [_Date and time input types_ caniuse.com](https://caniuse.com/input-datetime)
+- [WCAG 2.1 1.3.5 Identify Input Purpose](https://www.w3.org/TR/WCAG21/#identify-input-purpose)
+- [listed in the standard](https://www.w3.org/TR/WCAG21/#input-purposes)

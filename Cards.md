@@ -130,3 +130,5 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Definition of the expanded state](https://www.w3.org/WAI/PF/aria-1.1/states_and_properties#aria-expanded)
 - [Accessibility issues with autoplay](https://abilitynet.org.uk/news-blogs/why-autoplay-accessibility-issue)
 - [High contrast mode instructions](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)

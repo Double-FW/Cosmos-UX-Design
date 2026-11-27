@@ -320,7 +320,6 @@ Automate agreement between displayed values and filter state where possible. Use
 - [W3C technique H64: Naming an iframe](https://www.w3.org/WAI/WCAG22/Techniques/html/H64)
 - [ACCESSIBILITY.md: Maps accessibility guidance](https://github.com/mgifford/ACCESSIBILITY.md/blob/1dec2d33dfa461a5bcef2a595775068c48aa3c54/examples/MAPS_ACCESSIBILITY_BEST_PRACTICES.md)
 - [ACCESSIBILITY.md: Charts and graphs accessibility guidance](https://github.com/mgifford/ACCESSIBILITY.md/blob/1dec2d33dfa461a5bcef2a595775068c48aa3c54/examples/CHARTS_GRAPHS_ACCESSIBILITY_BEST_PRACTICES.md)
-
 - [Double-FW Inclusive Design of Charts, Graphs, Maps and Dynamic Complex Graphics](https://github.com/Double-FW/Accessible_Charts_Graphs_and_Maps/blob/16f4d7c77200c129fe0ed81c1f815e283d6ebb1d/Inclusive_Design_Charts_Maps_and_Complex_Graphics.md)
 - [W3C WAI: Complex Images](https://www.w3.org/WAI/tutorials/images/complex/)
 - [Government Analysis Function: Publishing charts](https://analysisfunction.civilservice.gov.uk/support/communicating-analysis/introduction-to-data-visualisation-e-learning/module-10-publishing-charts/)

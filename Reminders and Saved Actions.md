@@ -100,3 +100,8 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 - [Prospective memory and reliable memory aids](https://github.com/Double-FW/Cognitive-UX-Design/blob/523df2fe9e47f8dd75d30b7920a9179d57a89bba/Prospective_Memory_and_Reliable_Memory_Aids.md)
 - [Cognitive science evidence register: delayed intentions, reminders and offloading](https://github.com/Double-FW/Cognitive-UX-Design/blob/523df2fe9e47f8dd75d30b7920a9179d57a89bba/Cognitive_Science_Evidence_Register.md#e2)
+- [creating and acting on a cue](https://github.com/Double-FW/Cognitive-UX-Design/blob/523df2fe9e47f8dd75d30b7920a9179d57a89bba/Prospective_Memory_and_Reliable_Memory_Aids.md#mem-pm-01--create-find-and-act-on-a-cue)
+- [recovering from reminder failure](https://github.com/Double-FW/Cognitive-UX-Design/blob/523df2fe9e47f8dd75d30b7920a9179d57a89bba/Prospective_Memory_and_Reliable_Memory_Aids.md#mem-pm-02--survive-memory-aid-failure-and-deletion)
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)

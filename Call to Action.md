@@ -102,3 +102,6 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 - [Understanding Target Size (Minimum)](https://w3c.github.io/wcag/understanding/target-size-minimum.html)
 - [Survey of users with low vision](https://webaim.org/projects/lowvisionsurvey2/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+- [Visible label is part of accessible name (2ee8b8)](https://www.w3.org/WAI/standards-guidelines/act/rules/2ee8b8/proposed/)

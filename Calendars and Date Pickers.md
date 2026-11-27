@@ -127,3 +127,6 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [W3C ARIA Authoring Practices Guide: Date Picker Dialog Example](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/)
 - [Atomic A11y: Web date picker guidance and tests](https://github.com/charlietriplett/atomica11y-skills/blob/main/atomica11y-skills/accessible-web/date-picker.md)
 - [MDN: HTML date input](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/date)
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Autocomplete attribute has valid value (73f2c2)](https://www.w3.org/WAI/standards-guidelines/act/rules/73f2c2/proposed/)

@@ -170,3 +170,7 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Atlassian Design: Pragmatic drag and drop accessibility guidelines](https://atlassian.design/components/pragmatic-drag-and-drop/accessibility-guidelines/)
 - [GOV.UK Design System: File upload](https://design-system.service.gov.uk/components/file-upload/)
 - [ACCESSIBILITY.md: Touch and pointer accessibility guidance](https://github.com/mgifford/ACCESSIBILITY.md/blob/main/examples/TOUCH_POINTER_ACCESSIBILITY_BEST_PRACTICES.md)
+- [2.5.7 Dragging Movements](https://www.w3.org/TR/WCAG22/#dragging-movements)
+- [2.1.1 Keyboard](https://www.w3.org/TR/WCAG22/#keyboard)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Visible label is part of accessible name (2ee8b8)](https://www.w3.org/WAI/standards-guidelines/act/rules/2ee8b8/proposed/)

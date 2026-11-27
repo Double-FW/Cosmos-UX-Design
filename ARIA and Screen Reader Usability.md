@@ -141,3 +141,4 @@ For patterns with complex keyboard interaction, follow the corresponding guide a
 - [TetraLogical: Common misconceptions about screen readers](https://tetralogical.com/blog/2025/10/14/common-misconceptions-about-screen-readers/)
 - [BBC Accessibility, Your Team and You: How to document the screen reader user experience](https://bbc.github.io/accessibility-news-and-you/guides/screen-reader-ux.html)
 - [BBC Accessibility, Your Team and You: Accessibility swarm checklist](https://bbc.github.io/accessibility-news-and-you/checklist/accessibility-swarm.html)
+- [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/)

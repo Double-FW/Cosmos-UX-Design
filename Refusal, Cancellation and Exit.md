@@ -76,3 +76,5 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 - [Cosmos: Alternatives to Deceptive Patterns](Alternatives%20to%20Deceptive%20Patterns.md)
 - [Cosmos: Saving and Resuming a Task](Saving%20and%20Resuming%20a%20Task.md)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)

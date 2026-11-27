@@ -123,9 +123,9 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
 - [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
 
-## Sources
-
 <span id="related-references"></span>
+
+## Sources
 
 - [Accessible web video controls in Inclusive Media Interfaces](https://github.com/Double-FW/Inclusive-Media-Interfaces/blob/main/Accessible_Video_Controls_Organisation_Agnostic_Draft.md)
 - [MDN: Using the ARIA group role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_group_role)
@@ -134,3 +134,8 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Styling Cross-browser compatible range inputs](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/)
 - [CSS flex shorthand](https://css-tricks.com/almanac/properties/f/flex/)
 - [Autoplay Policy Changes](https://developers.google.com/web/updates/2017/09/autoplay-policy-changes)
+- [Accessible Interactive Media Control](https://github.com/Double-FW/Inclusive-Media-Interfaces/blob/main/Accessible_Interactive_Media_Control.md)
+- [caption and subtitle guidance](https://github.com/Double-FW/Closed-Caption-Subtitles/blob/main/Closed_Caption_Subtitle_Guidelines.md)
+- [Video element auditory content has captions (f51b46)](https://www.w3.org/WAI/standards-guidelines/act/rules/f51b46/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)

@@ -19,7 +19,7 @@ A widespread example is a card pattern that features an image, a topic heading, 
 
 It would be confusing to a screen reader user, proceeding from the top of the component to the bottom, to hear the image alternative text before the heading that introduces the topic. It might sound as if the image belonged to the previous heading. Worse, a screen reader user who navigates across a webpage by jumping from heading to heading will actually miss the image entirely. While this is acceptable for purely decorative images, images considered "content" shouldn't be made so difficult to find.
 
-> "For screen readers, the HTML _is_ the UI." [^1]
+> "For screen readers, the HTML _is_ the UI." 
 
 Being aware of this, the best place to start is with the content as it exists in the HTML. The example below keeps the card heading before the content it describes. Choose the heading level from [its place in the page structure](Headings.md#choose-a-level-from-the-structure). The example uses an `h3` for a card within a level-two section.
 
@@ -56,7 +56,7 @@ Screen reader users, and other users too, rely on their keyboards to navigate ar
 
 Use a focus sequence that is predictable, preserves meaning and lets people complete the task. Compare what people see with what happens as they Tab through controls. See [Keyboard Navigation](Keyboard%20Navigation.md#reach-and-operate-each-function) for the task-level checks.
 
-> A user with low vision who uses a screen magnifier in combination with a screen reader may be confused when the reading order appears to skip around on the screen. A keyboard user may have trouble predicting where focus will go next when the source order does not match the visual order. [^2]
+> A user with low vision who uses a screen magnifier in combination with a screen reader may be confused when the reading order appears to skip around on the screen. A keyboard user may have trouble predicting where focus will go next when the source order does not match the visual order. 
 
 In this example, CSS moves Blog to the start of the visible list. The visual order is Blog, About, Contact. The tab order is About, Blog, Contact. Focus jumps backwards on the second Tab, which makes the sequence harder to follow.
 
@@ -79,9 +79,6 @@ In this example, CSS moves Blog to the start of the visible list. The visual ord
 
 You can watch a demonstration of the [CSS reordering issue for screen readers](https://youtu.be/spxT2CmHoPk?t=1934), hosted on YouTube.
 
-[^1]: [Source of the quotation](https://ianpouncey.com/)
-[^2]: [_Making the DOM order match the visual order_, Techniques for WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/C27.html)
-
 ## Responsive grids
 
 Keep each item with its own heading and content in source order. Use lists for collections and tables for data with row and column relationships. Use valid nesting. Build a readable single-column baseline, then apply CSS Grid when supported. Respect the document’s writing direction.
@@ -98,7 +95,7 @@ Run on a responsive collection in its wide and narrow layouts. Inspect source ne
    At high zoom, check the content inside each grid item. Fixed widths can cause overflow, fixed heights can make wrapped lines overlap, and `white-space: nowrap` can prevent labels from wrapping. Check the longest label as well as the shortest.
 4. When a table appears in the layout, narrow the viewport and confirm that each value stays aligned with its own row and column headers. For the full table test, use [Data Tables](Data%20Tables.md).
 
-### Related references
+## Sources
 
 - [nvda](https://webaim.org/resources/shortcuts/nvda)
 - [data tables](https://inclusive-components.design/data-tables/)
@@ -112,3 +109,6 @@ Run on a responsive collection in its wide and narrow layouts. Inspect source ne
 - [`:lang()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:lang)
 - [CSS Grid Layout Module Level 1](https://www.w3.org/TR/css-grid-1/#overview-grid)
 - [How to make your site accessible for screen magnifiers](https://axesslab.com/make-site-accessible-screen-magnifiers/)
+- [Source of the quotation](https://ianpouncey.com/)
+- [_Making the DOM order match the visual order_, Techniques for WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/C27.html)
+- [CSS reordering issue for screen readers](https://youtu.be/spxT2CmHoPk?t=1934)

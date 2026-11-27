@@ -169,3 +169,5 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [W3C ARIA Authoring Practices Guide: Carousel](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/)
 - [W3C ARIA Authoring Practices Guide: Slider](https://www.w3.org/WAI/ARIA/apg/patterns/slider/)
 - [WCAG 2.2 Pause, Stop, Hide](https://www.w3.org/TR/WCAG22/#pause-stop-hide), [Pointer Gestures](https://www.w3.org/TR/WCAG22/#pointer-gestures) and [Dragging Movements](https://www.w3.org/TR/WCAG22/#dragging-movements)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Scrollable content can be reached with sequential focus navigation (0ssw9k)](https://www.w3.org/WAI/standards-guidelines/act/rules/0ssw9k/proposed/)

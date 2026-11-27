@@ -112,9 +112,9 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Image has non-empty accessible name (23a2a8)](https://www.w3.org/WAI/standards-guidelines/act/rules/23a2a8/proposed/)
 - [Video element auditory content has captions (f51b46)](https://www.w3.org/WAI/standards-guidelines/act/rules/f51b46/proposed/)
 
-## Sources
-
 <span id="related-references"></span>
+
+## Sources
 
 - [Use high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
 - [W3C APG: complementary landmark example](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/complementary.html)
@@ -125,3 +125,6 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Keyboard Accessibility](https://webaim.org/techniques/keyboard/)
 - [Accessibility and HTML5 Block Links](https://simplyaccessible.com/article/html5-block-links/)
 - [The description list element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+- [Image has non-empty accessible name (23a2a8)](https://www.w3.org/WAI/standards-guidelines/act/rules/23a2a8/proposed/)
+- [Video element auditory content has captions (f51b46)](https://www.w3.org/WAI/standards-guidelines/act/rules/f51b46/proposed/)

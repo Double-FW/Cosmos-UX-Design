@@ -99,3 +99,7 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Interference, source memory and current context](https://github.com/Double-FW/Cognitive-UX-Design/blob/523df2fe9e47f8dd75d30b7920a9179d57a89bba/Interference_Source_Memory_and_Current_Context.md)
 - [Familiarity, comprehension and confidence](https://github.com/Double-FW/Cognitive-UX-Design/blob/523df2fe9e47f8dd75d30b7920a9179d57a89bba/Familiarity_Comprehension_and_Confidence.md)
 - [Cognitive science evidence register: interference and item or association recognition](https://github.com/Double-FW/Cognitive-UX-Design/blob/523df2fe9e47f8dd75d30b7920a9179d57a89bba/Cognitive_Science_Evidence_Register.md#e4)
+- [current-context evaluation](https://github.com/Double-FW/Cognitive-UX-Design/blob/523df2fe9e47f8dd75d30b7920a9179d57a89bba/Interference_Source_Memory_and_Current_Context.md#mem-ct-01--distinguish-similar-current-contexts)
+- [stale-information evaluation](https://github.com/Double-FW/Cognitive-UX-Design/blob/523df2fe9e47f8dd75d30b7920a9179d57a89bba/Interference_Source_Memory_and_Current_Context.md#mem-ct-02--detect-stale-or-superseded-information)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)

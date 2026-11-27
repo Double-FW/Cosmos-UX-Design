@@ -153,3 +153,7 @@ Activate an in-page link to a heading using the keyboard. Check that the heading
 - [HTML sectioning elements](https://www.w3.org/TR/html53/sections.html#sections)
 - [How browsers expose heading levels](http://adrianroselli.com/2016/08/there-is-no-document-outline-algorithm.html)
 - [Sequential focus after fragment navigation](https://bugs.chromium.org/p/chromium/issues/detail?id=262171)
+- [likely to try headings first](https://webaim.org/projects/screenreadersurvey7/#finding)
+- [having proper heading levels ](https://webaim.org/projects/screenreadersurvey9/#heading)
+- [VoiceOver screen reader activated](https://dequeuniversity.com/tips/learn-voiceover)
+- [key combination for the NVDA screen reader](https://webaim.org/resources/shortcuts/nvda#links)

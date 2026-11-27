@@ -63,3 +63,7 @@ A browser with scripting enabled can still fail to download or execute a script.
 ## Sources
 
 - [Research on missing JavaScript enhancements](https://gds.blog.gov.uk/2013/10/21/how-many-people-are-missing-out-on-javascript-enhancement/)
+- [WCAG 2.1 1.4.4 Resize Text](https://www.w3.org/TR/WCAG21/#resize-text)
+- [1.4.10 Reflow](https://www.w3.org/TR/WCAG21/#reflow)
+- [device mode](https://developer.chrome.com/docs/devtools/device-mode/)
+- [extension that can block requests](https://chrome.google.com/webstore/detail/requestly-modify-headers/mdnleldcmiljblolnjhpnblkcekpdkpa?hl=en)

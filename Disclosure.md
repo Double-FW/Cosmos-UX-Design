@@ -110,3 +110,6 @@ Apply these proposed rules where their applicability conditions are met. Use the
 ## Sources
 
 - [ARIA Authoring Practices Guide: Disclosure pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/)
+- [Summary element has non-empty accessible name (2t702h)](https://www.w3.org/WAI/standards-guidelines/act/rules/2t702h/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)

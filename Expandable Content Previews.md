@@ -25,8 +25,6 @@ Use an expandable preview when a short opening section helps people decide wheth
 
 Place the preview within the main content so readers can reach it using the page’s skip link. In the collapsed state, start on the last available link or control in the preview and press Tab. Focus should reach Show more without entering the clipped content. Activate it and check that the continuation marker is visible when it receives focus and identifies where to resume reading. With scripts blocked, read past the same point and check that the rest of the content is already available.
 
-## Related references
-
 ## Recommended layout
 
 <span id="presentation"></span>
@@ -140,3 +138,5 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [CSS Viewport Units: A Quick Start](https://www.sitepoint.com/css-viewport-units-quick-start/)
 - [`IntersectionObserver` support table](https://caniuse.com/#feat=intersectionobserver)
 - [`inert` polyfill](https://github.com/WICG/inert)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)

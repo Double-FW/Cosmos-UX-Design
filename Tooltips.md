@@ -90,7 +90,6 @@ The checks below include local pattern checks and the supplied test cases. The s
 | Check contrast, text size, line spacing, forced colours and reduced motion. | Text and necessary visual cues remain distinguishable; the tooltip works without non-essential animation. |
 | Disable scripts or the enhancement where feasible. | The control's name and all essential task information remain available. |
 
-
 ## [Accessibility Requirements](https://a11yquest.com/pro/tests/tooltip/#accessibility-requirements)
 
 **The Tooltip component is evaluated against the following WCAG 2.2 success criteria, categorized under the Perceivable, Operable, Understandable, and Robust (POUR) principles:**
@@ -226,3 +225,32 @@ The checks below include local pattern checks and the supplied test cases. The s
 - [WCAG 2.2: Success Criterion 2.1.1, Keyboard](https://www.w3.org/TR/WCAG22/#keyboard) and [2.1.2, No Keyboard Trap](https://www.w3.org/TR/WCAG22/#no-keyboard-trap) — keyboard operation and focus movement.
 - [WCAG 2.2: Understanding Success Criterion 4.1.2, Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html) — programmatic names, roles, states and values.
 - [HTML Living Standard: The `title` attribute](https://html.spec.whatwg.org/multipage/dom.html#the-title-attribute) — cautions about availability of title text to users of different input methods.
+- [Accessibility Requirements](https://a11yquest.com/pro/tests/tooltip/#accessibility-requirements)
+- [Perceivable](https://a11yquest.com/pro/tests/tooltip/#perceivable)
+- [Operable](https://a11yquest.com/pro/tests/tooltip/#operable)
+- [Robust](https://a11yquest.com/pro/tests/tooltip/#robust)
+- [ACT Test Cases](https://a11yquest.com/pro/tests/tooltip/#act-test-cases)
+- [Test Case 1: Screen Reader Accessibility and Hidden State Verification](https://a11yquest.com/pro/tests/tooltip/#test-case-1-screen-reader-accessibility-and-hidden-state-verification)
+- [Objective](https://a11yquest.com/pro/tests/tooltip/#objective)
+- [Test Steps](https://a11yquest.com/pro/tests/tooltip/#test-steps)
+- [Expected Results](https://a11yquest.com/pro/tests/tooltip/#expected-results)
+- [Test Case 2: Visibility and Interaction with Mouse](https://a11yquest.com/pro/tests/tooltip/#test-case-2-visibility-and-interaction-with-mouse)
+- [Objective](https://a11yquest.com/pro/tests/tooltip/#objective-2)
+- [Test Steps](https://a11yquest.com/pro/tests/tooltip/#test-steps-2)
+- [Expected Results](https://a11yquest.com/pro/tests/tooltip/#expected-results-2)
+- [Test Case 3: Keyboard Interaction and Escape Key Functionality](https://a11yquest.com/pro/tests/tooltip/#test-case-3-keyboard-interaction-and-escape-key-functionality)
+- [Objective](https://a11yquest.com/pro/tests/tooltip/#objective-3)
+- [Test Steps](https://a11yquest.com/pro/tests/tooltip/#test-steps-3)
+- [Expected Results](https://a11yquest.com/pro/tests/tooltip/#expected-results-3)
+- [Test Case 4: Single Tooltip Visibility](https://a11yquest.com/pro/tests/tooltip/#test-case-4-single-tooltip-visibility)
+- [Objective](https://a11yquest.com/pro/tests/tooltip/#objective-4)
+- [Test Steps](https://a11yquest.com/pro/tests/tooltip/#test-steps-4)
+- [Expected Results](https://a11yquest.com/pro/tests/tooltip/#expected-results-4)
+- [Test Case 5: Touchscreen Interaction](https://a11yquest.com/pro/tests/tooltip/#test-case-5-touchscreen-interaction)
+- [Objective](https://a11yquest.com/pro/tests/tooltip/#objective-5)
+- [Test Steps](https://a11yquest.com/pro/tests/tooltip/#test-steps-5)
+- [Expected Results](https://a11yquest.com/pro/tests/tooltip/#expected-results-5)
+- [Test Case 6: Content Accessibility and Visibility Enhancements](https://a11yquest.com/pro/tests/tooltip/#test-case-6-content-accessibility-and-visibility-enhancements)
+- [Objective](https://a11yquest.com/pro/tests/tooltip/#objective-6)
+- [Test Steps](https://a11yquest.com/pro/tests/tooltip/#test-steps-6)
+- [Expected Results](https://a11yquest.com/pro/tests/tooltip/#expected-results-6)
