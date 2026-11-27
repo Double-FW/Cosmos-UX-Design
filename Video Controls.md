@@ -37,7 +37,15 @@ Start with the native video element and its controls. Use labelled buttons and a
 
 ### Playback and sound
 
-Wait for the person to start playback by default. If they explicitly opt in to autoplay, start muted and keep pause, sound controls and the opt-out easy to reach. Follow [Motion and Animation](Motion%20and%20Animation.md#autoplay) for automatic playback and reduced motion.
+Wait for the person to activate a clearly labelled Play control by default. Keep video paused on page load, pointer hover, keyboard focus and scrolling into view. People use those actions to navigate and read. Unexpected sound can mask screen reader speech, and unexpected motion can interrupt reading or make it harder to keep track of the page.
+
+If the person explicitly opts in to autoplay, start muted and keep Pause, sound controls and the autoplay opt-out easy to reach. Muted playback still introduces motion. Keep sound off until the person chooses to hear it. Honour reduced motion by suppressing automatic starts and leaving the person free to start an informational video themselves.
+
+### Looping and playing the next video
+
+End playback after one pass and offer Replay or a clearly labelled choice of the next video. If you offer looping or auto-next, keep each off by default and make it easy to turn off. Pause must stop the current video and cancel any pending start. A paused video must stay paused when the person moves focus away or scrolls away and back. Turning off auto-next must prevent the next item from starting, including after navigation. Keep focus predictable and let people tell which video is playing in an opted-in sequence.
+
+Follow [Motion and Animation](Motion%20and%20Animation.md#autoplay) for automatic motion and sound thresholds. For decorative video behind brochure or landing-page content, use the [background video pattern](Motion%20and%20Animation.md#background-video).
 
 Use native buttons for custom actions. Where the button names the next action, change ‘Play’ to ‘Pause’ or ‘Mute’ to ‘Unmute’ when the media state changes. Keep the text, accessible name and icon in sync. A stable label with `aria-pressed` can suit an on/off control such as ‘Captions’.
 
@@ -102,7 +110,9 @@ Run the checks on the supported browsers, devices and assistive technologies. Us
 | Enable and disable captions and audio description. Check alternate tracks or the described version if provided. | On/off controls for available services are easy to find. The selected state agrees with what is shown or heard. Captions are legible, synchronised and clear of the controls. |
 | Seek by keyboard, touch and pointer. With a screen reader, check the value before and after seeking, and listen during normal playback. | The video moves to the requested position within the available range. Visible and accessible elapsed time and duration agree. Continuous playback does not create repeated live announcements. |
 | Wait for controls to fade, then return to the player by keyboard and touch. Enable forced colours and repeat. Check enlarged text and narrow layouts separately. | Controls can be revealed without hover. Focused controls stay visible. Labels, states, slider parts and focus remain distinguishable and targets stay usable. |
-| Load with autoplay off. If opt-in autoplay is supported, enable it and reload, then use pause and turn autoplay off. | Video waits for activation by default. Opted-in playback begins muted, can be paused and does not resume automatically after opt-out on the next load. |
+| With autoplay off, load the page, move the pointer across the video, Tab into its controls and scroll it out of view and back. Then activate Play. | The video stays paused and silent until Play is activated. Playback starts and the control reflects its state. |
+| If opt-in autoplay is supported, enable it and reload. Pause the video, move focus away and scroll away and back. Turn autoplay off and reload. In a separate run, reload with reduced motion enabled. | Opted-in playback starts muted. A paused video stays paused during navigation within the page. Turning autoplay off or enabling reduced motion prevents automatic starts on load. The Play control remains usable for informational video. |
+| Let a clip finish with loop and auto-next off. Where those options exist, test them separately. Pause near the end or during any auto-next countdown. Turn auto-next off, navigate to another video and let it finish. | The default is one play-through. Each opted-in mode behaves as labelled. Pausing cancels any pending start. The next item waits for activation after opt-out, and focus remains usable throughout. |
 | Interrupt playback or seek with buffering, then simulate a playback failure. | Feedback is perceivable, controls reflect the actual state and the available recovery action is clear. |
 
 ### Related W3C ACT rules
