@@ -17,7 +17,7 @@ description: "Accessible web links prevent barriers for users who rely on assist
 
 ## Introduction
 
-Help people identify destinations and open them using the browser or assistive technology. Give each link enough context to make sense on its own.
+Help people identify destinations and open them using the browser or assistive technology. Give each link enough context to make sense on its own. For links to section headings, use [Headings](Headings.md) to check heading structure and wording. Use [Call to Action](Call%20to%20Action.md) when deciding whether a control should navigate or perform an action, and [Affordances, Signifiers and Design Conventions](Affordances%2C%20Signifiers%20and%20Design%20Conventions.md) for visual cues and expected behaviour.
 
 The image or media filenames in these examples stand for assets supplied by the implementing project.
 
