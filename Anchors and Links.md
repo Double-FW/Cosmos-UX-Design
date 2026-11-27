@@ -182,6 +182,18 @@ Test the supported variants. Record the method, browser and assistive technology
 7. Ensure that examples of multiple links to the same resource are not adjacent or wrapping each other; combine these into a single link instead.
 8. Ensure that any cases of hidden or alternative text available only to screen readers are not different than the visible text or different from the icon's apparent meaning.
 
+[^1]: _G200: Opening new windows and tabs from a link only when necessary_ [Techniques for WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/G200.html)
+[^2]: "Tabnabbing is a computer exploit and phishing attack, which persuades users to submit their login details and passwords to popular websites by impersonating those sites and convincing the user that the site is genuine." [_Tabnabbing_, Wikipedia](https://en.wikipedia.org/wiki/Tabnabbing)
+[^4]: "FaceTime in macOS 10.10 and later can also use the tel URL scheme to launch the Phone app on an iOS device using Handoff. This scenario works when FaceTime is configured to dial phone numbers (the default configuration) and the iOS device is connected to the same iCloud account as the Mac." [_Apple URL Scheme Reference_](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html)
+[^5]: "Standardized URI schemes have been defined for some common device functions, e.g. making phone calls, sending an SMS, and managing address books. These URI schemes, if supported, can enable users to easily use these functions from Web applications." [_Make Telephone Numbers "Click-to-Call"_, W3C Mobile Web Application Best Practices](https://www.w3.org/TR/mwabp/#bp-interaction-uri-schemes)
+[^6]: [telephone, A Schema.org Property](https://schema.org/telephone)
+
+## Groups of external destinations
+
+Distinguish leaving the site from opening a new tab. For an inline link, name the external service when that helps readers anticipate the destination. If an icon communicates that the link leaves the site, provide the same information in the link text, visibly or as accessible text. Keep a decorative SVG out of the focus order. Announce a new tab separately when the link opens one.
+
+For a list of external links, use a descriptive heading and ordinary list markup. Explain a shared destination convention once where users will encounter it. If one link behaves differently, explain that behaviour on the link. Keep decorative icons out of the accessible name when adjacent text already explains them.
+
 ### Checkpoints for the tester
 
 1. Review an inline link on its own and the external-link list in context.

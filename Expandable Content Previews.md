@@ -21,7 +21,11 @@ Use an expandable preview when a short opening section helps people decide wheth
 
 ## Recommended markup
 
-Use a native button for the expansion. Identify the controlled content and expose the expanded state.
+### Reading across the preview boundary
+
+Place the preview within the main content so readers can reach it using the page’s skip link. In the collapsed state, start on the last available link or control in the preview and press Tab. Focus should reach Show more without entering the clipped content. Activate it and check that the continuation marker is visible when it receives focus and identifies where to resume reading. With scripts blocked, read past the same point and check that the rest of the content is already available.
+
+## Related references
 
 ## Recommended layout
 

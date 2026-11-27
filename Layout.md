@@ -95,7 +95,8 @@ Run on a responsive collection in its wide and narrow layouts. Inspect source ne
 1. Inspect the reading order with layout styles disabled.
 2. Resize the viewport, increase magnification and test a right-to-left layout.
 3. Items should remain associated with their headings.
-4. For data that depends on two dimensions, use [Data Tables](Data%20Tables.md).
+   At high zoom, check the content inside each grid item. Fixed widths can cause overflow, fixed heights can make wrapped lines overlap, and `white-space: nowrap` can prevent labels from wrapping. Check the longest label as well as the shortest.
+4. When a table appears in the layout, narrow the viewport and confirm that each value stays aligned with its own row and column headers. For the full table test, use [Data Tables](Data%20Tables.md).
 
 ### Related references
 

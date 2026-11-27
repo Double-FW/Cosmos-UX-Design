@@ -88,6 +88,12 @@ Test at least two routes that share navigation. Start on a direct URL and then s
 2. Delay a route response. Check that the loading message is visible and announced. When the route finishes, check that the new heading receives focus. Repeat with a failed response and verify that the explanation and recovery action are usable.
 3. Start a slow route and choose a different one before it finishes. Verify that a late response cannot replace the newer view, change its title or take focus away.
 
+### Testing a delayed route
+
+Open a direct URL and check that the browser keeps its usual initial focus. Then follow an internal route that takes time to render. Check that a screen reader user receives a text loading message while waiting. When the content is ready, focus its `<h1 tabindex="-1">`. Press Tab and check that navigation continues from the new content.
+
+Inspect the shared navigation. Use `aria-current="page"` on the current page link or `aria-current="step"` for the current step in a sequence. Follow another route and use Back. At each point, verify that the previous current state clears and the current item matches the displayed screen. From the start of the page, check that the first interactive element is the skip link and that activating it bypasses the repeated navigation.
+
 ## Related references
 
 
