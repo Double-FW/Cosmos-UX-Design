@@ -17,7 +17,7 @@ description: "Help people switch between related sections of content in one plac
 
 ## Introduction
 
-Use tabs when people need to choose one of a few related sections in the same view. Keep labels short and make each panel useful on its own. Use four or five tabs as a design heuristic. If labels need more space or people need to compare sections or complete one task across them, consider [Accordion](Accordion.md) or visible sections with in-page links.
+Use tabs when people need to choose one of a few related sections in the same view. Keep labels short and make each panel useful on its own. Use four or five tabs as a design heuristic. If labels need more space or people need to compare sections or complete one task across them, consider [Accordion](Accordion.md) or visible sections with in-page links. For guidance on hidden panel states, focus and accessibility-tree exposure, see [Visually Hidden Content](Visually%20Hidden%20Content.md).
 
 ## Recommended markup
 
