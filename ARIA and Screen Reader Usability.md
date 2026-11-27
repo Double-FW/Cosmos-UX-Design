@@ -23,7 +23,7 @@ The meaning and structure encoded in HTML shape what people can find, understand
 
 ## Scope
 
-Use this guide when planning a web interface, documenting a component, reviewing markup or deciding whether ARIA is needed. It covers cross-cutting design decisions. Use the owning Cosmos pattern guide for the behaviour of a particular component, such as [Tabs](Tabs.md), [Disclosure](Disclosure.md), [Modal Dialogs](Modal%20Dialogs.md) or [Dynamic Content](Dynamic%20Content.md).
+Use this guide when planning a web interface, documenting a component, reviewing markup or deciding whether ARIA is needed. It covers cross-cutting design decisions. For decisions about content hidden visually, from assistive technology, or from both, see [Visually Hidden Content](Visually%20Hidden%20Content.md). Use the owning Cosmos pattern guide for the behaviour of a particular component, such as [Tabs](Tabs.md), [Disclosure](Disclosure.md), [Modal Dialogs](Modal%20Dialogs.md) or [Dynamic Content](Dynamic%20Content.md).
 
 ARIA is a W3C specification for adding or refining semantics that browsers expose through accessibility APIs. It is commonly used by assistive technologies, including screen readers. A browser and assistive technology interpret and present those semantics together; ARIA does not dictate one exact spoken phrase. Support and output can vary by browser, assistive technology, platform, settings and interaction mode.
 
