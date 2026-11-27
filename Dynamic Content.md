@@ -11,7 +11,7 @@ Dynamic content appears or is updated due to user interaction, timing, or in res
 - A counter increments in a sidebar as an indication that a new message was received
 - A progress bar shows that a process is ongoing when a user submits a request
 
-Dynamic content must be able to be perceived and operated upon by all users, including those who rely on assistive technologies.
+Dynamic content must be able to be perceived and operated upon by all users, including those who rely on assistive technologies. Use [ARIA and Screen Reader Usability](ARIA%20and%20Screen%20Reader%20Usability.md) to decide whether a semantic state or announcement is needed, and [Visually Hidden Content](Visually%20Hidden%20Content.md) when content changes visibility or focus availability.
 
 ## Accessibility notes for the designer
 
