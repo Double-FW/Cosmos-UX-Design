@@ -39,7 +39,7 @@ Use these instructions at the Cosmos repository root and in its subdirectories, 
 | Need | Start here |
 | --- | --- |
 | Reusable component or service pattern | [Design Patterns](README.md#design-patterns) |
-| Semantics, interaction, presentation or design foundations | [Design Practices](README.md#design-practices) |
+| Semantics, interaction, presentation or design foundations | [Design Practices](README.md#design-practices) |\n| ARIA choices and screen reader experience | [ARIA and Screen Reader Usability](ARIA%20and%20Screen%20Reader%20Usability.md) and the owning pattern guide |
 | Shared behaviour or overlapping guides | [Shared implementation guidance](README.md#shared-implementation-guidance) |
 | Cognitive load, orientation and returning after interruption | [Cognitive Design Principles](https://github.com/Double-FW/Cognitive-UX-Design/blob/main/Cognitive%20Design%20Principles.md) and [Designing the Screen Reader Journey](Designing%20the%20Screen%20Reader%20Journey.md) |
 | Equivalent task outcomes across input and output modes | [Inclusive Multimodal UX Design](https://github.com/Double-FW/Inclusive-Multimodal-UX/blob/main/Multimodal_UX_Design.md) |
@@ -53,7 +53,7 @@ Use the primary standard for normative statements. Cite the edition, criterion o
 ## Build a UX design system
 
 1. Inventory the host's components, tokens, content conventions, journeys and implementation frameworks. Mark which existing pieces can be reused, which need changing and which need a new pattern. Preserve public component contracts where possible.
-2. Specify shared practices first. Use [Page Structure](Page_Structure.md), [Focus](Focus.md), [Labels](Labels.md), [Colour, Contrast and Meaning](Colour%2C%20Contrast%20and%20Meaning.md) and [Progressive Enhancement](Progressive%20Enhancement.md) where applicable. Then route each component to its owning pattern and shared dependencies.
+2. Specify shared practices first. Use [Page Structure](Page_Structure.md), [Focus](Focus.md), [Labels](Labels.md), [ARIA and Screen Reader Usability](ARIA%20and%20Screen%20Reader%20Usability.md), [Colour, Contrast and Meaning](Colour%2C%20Contrast%20and%20Meaning.md) and [Progressive Enhancement](Progressive%20Enhancement.md) where applicable. Then route each component to its owning pattern and shared dependencies.
 3. For each component, define its purpose, variants, supported states, content constraints, semantic contract, visual and input behaviour, dependencies and fallback. Define how spacing, type, colour, motion and focus tokens affect those states. Check representative compositions such as a modal containing a form or a card with secondary actions.
 4. Deliver an inventory with each pattern's owner or ownership gap, implementation status, guide, acceptance checks and migration considerations. Prioritise foundations and shared fixes by journey impact and dependencies. If implementing components, verify them both in isolation and in a representative host flow.
 

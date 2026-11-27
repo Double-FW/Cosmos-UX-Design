@@ -112,6 +112,7 @@ Principles and techniques that apply across components, pages and journeys.
 #### Understanding and choice
 
 - [Alternatives to Deceptive Patterns](Alternatives%20to%20Deceptive%20Patterns.md) — find alternatives to designs that pressure, mislead or obstruct people.
+- [ARIA and Screen Reader Usability](ARIA%20and%20Screen%20Reader%20Usability.md) — use ARIA to fill real semantic gaps and review the complete screen reader experience.
 - [Designing the Screen Reader Journey](Designing%20the%20Screen%20Reader%20Journey.md) — task-level review of reading, focus and feedback.
 - [Informed Choice and Preferences](Informed%20Choice%20and%20Preferences.md) — help people compare options, understand terms and control preferences.
 - [Making Important Information Stand Out](Making%20Important%20Information%20Stand%20Out.md) — visual emphasis and screen reader announcements.
