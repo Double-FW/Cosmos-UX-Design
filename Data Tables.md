@@ -107,11 +107,12 @@ The ACT-style checks in this section are pattern-specific checks maintained in t
 
 Rule identifier: `gel-foundations-data-tables`
 
-Run on a table containing data with row or column relationships. Test the native or custom variant in use at wide and narrow widths. Use the project’s supported browsers and screen readers.
+Run the purpose check on each table to determine its intended semantics. Run the remaining checks only on data tables, testing the native or custom variant in use at wide and narrow widths. Use the project’s supported browsers and screen readers. The purpose check is manual: determine the table’s purpose from its content and task, not from browser-style classification heuristics.
 
 | Method and action | Expected result |
 | --- | --- |
 | Inspect the markup. Navigate directly to the table with a screen reader. Move across a row and down a column. | A descriptive caption identifies the native table. Data has row headers, column headers or both as appropriate. Native header cells use `th`. The correct headers are available for each value as the user navigates. |
+| Manually review the content and task supported by each `<table>`. Decide whether people need relationships across rows or columns to interpret or compare its values. Inspect the role exposed in the accessibility tree and the table’s reading order. Do not infer purpose from row, column or cell counts; width; borders or coloured rows; nested tables; embedded content; or the presence of `<caption>`, `<thead>`, `<tfoot>` or `<colgroup>` alone. | A table is exposed as data when its cell relationships are meaningful to the task. If it is used only to position content, CSS layout is preferred. If a legacy layout table remains, its semantics do not create misleading table navigation and its content order remains meaningful. If purpose and exposed semantics disagree or remain unclear, record the issue for review; do not add legacy heuristic markers to force a classification. |
 | For a custom table, inspect the accessibility tree and repeat the cell navigation. | The container exposes the table role. Rows expose the row role and their children expose columnheader, rowheader or cell roles as applicable. Each value has the right header context. |
 | Narrow the viewport and inspect corresponding headers and cells before and after scrolling within the table. | Column headers stay above their data and row headers stay beside their data. No cell wraps into another row or column. Any necessary two-dimensional scrolling stays within the table area and the surrounding page reflows. |
 
@@ -133,6 +134,8 @@ Apply these proposed rules where their applicability conditions are met. Use the
 ## Sources
 
 - [Layout Tables Versus Data Tables](https://webaim.org/techniques/tables/#uses)
+- [W3C WAI Tables Tutorial](https://www.w3.org/WAI/tutorials/tables/) — determine data-table structure from meaningful cell relationships and mark up headers accordingly.
+- [HTML Living Standard: Obsolete features](https://html.spec.whatwg.org/multipage/obsolete.html) — identifies the table `summary` attribute as obsolete.
 - [VoiceOver and Tables with an Empty First Header Cell](http://accessibleculture.org/articles/2010/10/voiceover-and-tables-with-an-empty-first-header-cell/)
 - [The Table Caption element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption)
 - [Pure CSS scrolling shadows with `background-attachment: local`](http://lea.verou.me/2012/04/background-attachment-local/)
