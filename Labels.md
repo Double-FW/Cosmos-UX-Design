@@ -5,7 +5,7 @@ description: Help people identify and operate controls using visible labels and 
 
 # Labels
 
-Give each control a clear purpose so people can find it on screen, recognise it with a screen reader and refer to it by voice. If a button says ‘Send’ but its accessible name is ‘Submit’, someone saying ‘Click Send’ may be unable to activate it.
+Give each control a clear purpose so people can find it on screen, recognise it with a screen reader and refer to it by voice. If a button says ‘Send’ but its accessible name is ‘Submit’, someone saying ‘Click Send’ may be unable to activate it. For the wider role of ARIA in screen reader usability, see [ARIA and Screen Reader Usability](ARIA%20and%20Screen%20Reader%20Usability.md). For visually hidden labels or extra text, see [Visually Hidden Content](Visually%20Hidden%20Content.md).
 
 ## Guidance
 
