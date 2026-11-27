@@ -71,7 +71,7 @@ a:focus img {
 
 Be aware that merely styling a focusable element so it is no longer visible, will not automatically make it unfocusable. For example, suppose an element is positioned off-screen and marked with `aria-hidden="true",` making it not visible on the screen and unavailable to the accessibility API. In that case, moving focus to that element or any focusable elements within it may still be possible. This will confuse sighted users, who will only perceive that the focus indicator suddenly disappears when it moves to an off-screen element.
 
-If a control is visually hidden until focus, make it visible as soon as it receives focus. Use the [skip-link example](Page_Structure.md#the-main-landmark) for the markup and focus styles. See [Visually Hidden Content](Visually%20Hidden%20Content.md) for other hiding methods and their effects on assistive technology and keyboard focus.
+If a control is visually hidden until focus, make it visible as soon as it receives focus. Use the [skip-link example](Page_Structure.md#the-main-landmark) for the markup and focus styles. See [Visually Hidden Content](Visually%20Hidden%20Content.md) for other hiding methods and their effects on assistive technology and keyboard focus, and [ARIA and Screen Reader Usability](ARIA%20and%20Screen%20Reader%20Usability.md) for ARIA semantics.
 
 If you want to hide a focusable element from keyboard focus temporarily, you can add an HTML `tabindex="-1"` attribute to them when they become hidden and remove it when they become visible again.
 

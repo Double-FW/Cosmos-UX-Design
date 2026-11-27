@@ -17,7 +17,7 @@ description: "Help people find and expand relevant sections on the same page."
 
 ## Introduction
 
-Use an accordion to help people scan two or more related sections and open the ones they need. Collapsing sections can reduce scrolling, but it can also hide information people need to finish a task. Keep essential instructions visible. Use a single [Disclosure](Disclosure.md) for one section.
+Use an accordion to help people scan two or more related sections and open the ones they need. Collapsing sections can reduce scrolling, but it can also hide information people need to finish a task. Keep essential instructions visible. Use a single [Disclosure](Disclosure.md) for one section. For cross-cutting guidance on hidden states, focus and accessibility-tree exposure, see [Visually Hidden Content](Visually%20Hidden%20Content.md) and [ARIA and Screen Reader Usability](ARIA%20and%20Screen%20Reader%20Usability.md).
 
 ## Recommended markup
 

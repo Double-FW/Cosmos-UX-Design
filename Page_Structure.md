@@ -5,13 +5,11 @@ description: Organising a webpage to prevent barriers for users who scan and nav
 
 # Page Structure
 
-Assemble a page so people can identify it, find its main content and bypass repeated navigation. Use this guide for the document title, page layout in HTML and skip-link markup. For detailed guidance and checks on section labels and landmark roles, see [Headings](Headings.md) and [Landmarks](Landmarks.md).
+Assemble a page so people can identify it, find its main content and bypass repeated navigation. Use this guide for the document title, page layout in HTML, search landmarks and skip-link markup. For cross-cutting ARIA choices, see [ARIA and Screen Reader Usability](ARIA%20and%20Screen%20Reader%20Usability.md); for hidden content and skip-link visibility, see [Visually Hidden Content](Visually%20Hidden%20Content.md). For detailed guidance and checks on section labels and landmark roles, see [Headings](Headings.md) and [Landmarks](Landmarks.md).
 
 ## Document title
 
-When using screen-reading software, the webpage title is always the first element announced. Having a unique, descriptive but concise title will make it easier for screen reader users to determine the content and purpose of your web page without having to scan the entire page.
-
-Every page of a website should have its own unique title, capturing the overall content or purpose of that particular page. But consider that a user may have followed a link to arrive at the page, so appending appropriate context, for example the website title or the website section would be helpful. 
+Give every page a unique, concise title that identifies its topic and, where useful, its service or site. Keep the wording consistent with the visible page heading where possible. Browsers and assistive technologies may announce the title when a page loads or navigation changes, and people can retrieve it later; do not assume it is always the first or only information announced.
 
 ```html
 <head>
@@ -19,24 +17,15 @@ Every page of a website should have its own unique title, capturing the overall 
 </head>
 ```
 
-Avoid very short titles that don't provide an adequate overview of the content. But keep in mind that titles longer than about 60 characters are likely to be cropped in search engines listings.
-
 ### Dynamically updating the title
 
-If you are following a "single page application" model and update a webpage content dynamically, be aware that changing a webpage `title` via a script method will not cause the new title to be announced by most screen readers. It may be necessary to use an ARIA Live Region to announce when new content is loading and then move focus to the webpage's `H1` element to make it obvious that the page content is different.
-
-```html
-<h1 tabindex="-1">The Perfect Get-Together: What to drink</h1>
-
-```
+For client-side navigation, updating the document title is one part of introducing the new view. Keep the title, visible heading and current navigation state aligned, then follow [Client-side Routing](Client-side%20Routing.md#first-load-and-route-changes) for focus and loading feedback. Do not add a live announcement or move focus as a reflex for every in-page update; use [Dynamic Content](Dynamic%20Content.md) when the view itself has not changed.
 
 ## Headings
 
-Screen readers will allow users to see a list of just the webpage's headings and to navigate the webpage by jumping directly to a specific heading. Keeping the total number of headings to a reasonable level, using descriptive but concise headings, and organising headings logically and hierarchically will make this much easier for users.
+Screen readers commonly provide heading navigation, including a list of headings and commands to move between them. Use a logical hierarchy and concise, descriptive wording so the outline helps people understand and navigate the page. Some assistive technology views may truncate long headings; front-load the words that distinguish the section rather than relying on a fixed character limit.
 
 Use [Headings](Headings.md) for heading levels, wording and tester checks.
-
-Notice that the VoiceOver menu crops any headings which are over about 50 characters in length, so it's useful to front-load your heading content so that the most specific and relevant text is near the beginning.
 
 ## Landmarks
 
@@ -88,33 +77,25 @@ In a screen reader’s landmark list, look for the banner, Main navigation, main
 
 ## Search
 
-The `search` role is used to identify the form element (or elements) on a webpage that provide the ability to search the site, the page, or some other realated data source. The `search` role should be added the the `form` tag, or the element surrounding the form.
+Use the native `<search>` element to identify a search or filtering region. It exposes a search landmark without adding a redundant `role="search"`. Give each search field its own associated label. When a page has more than one search region, give each a name that distinguishes its purpose. See the [Search guide](Search.md) for suggestions, query submission, results and interaction checks.
+
+Use `role="search"` on a suitable container only where the host environment does not support the native element.
 
 ```html
-<form role="search">
-  <label for="search-input-nav">I'm interested in...</label>
-  <input type="search" id="search-input-nav" name="q">
-  <button type="submit">Search</button>
-</form>
+<search aria-label="Site">
+  <form action="/search" method="get">
+    <label for="site-query">Search this site</label>
+    <input id="site-query" name="q" type="search">
+    <button type="submit">Search</button>
+  </form>
+</search>
 ```
 
-Multiple forms with the `search` role on a page can be distiguished by adding a descriptive `aria-label` that explains the purpose of each. Or you may use the same label if each search has the same purpose.
-
-```html
-<form role="search" aria-label="Site">
-  ...
-</form>
-
-<form role="search" aria-label="Recipe">
-  ...
-</form>
-```
-
-Note that when screen readers encounter a landmark role, they will announce it after reading the label. In the example above: "Site search" and "Recipe search".
+If another search region appears on the page, give it a distinct name, such as `aria-label="Recipes"`. The landmark name identifies the search scope; the visible field label identifies what to enter.
 
 ## The main landmark
 
-The `main` role identifies central content that is the subject of that particular webpage; If the `title` describes the central content of the webpage, the element with the `main` role contains that content.
+Use the native `<main>` element for the central content of the current page or application view. It exposes the `main` landmark without adding a redundant `role="main"`.
 
 > The main content area consists of content that is directly related to or expands upon the central topic of a document, or the main function of an application. [^1]
 
