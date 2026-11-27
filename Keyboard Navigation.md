@@ -26,7 +26,9 @@ Use the commands people expect for each control. A composite control can have on
 
 ### Continue after a change
 
-Provide a [skip link](Structure.md#the-main-landmark) so people can bypass repeated navigation. If the link is visually hidden initially, reveal it on focus. Check that activation takes the user to the main content and that their next Tab starts from there.
+Provide a [skip link](Page_Structure.md#the-main-landmark) so people can bypass repeated navigation. If the link is visually hidden initially, reveal it on focus. Check that activation takes the user to the main content and that their next Tab starts from there.
+
+For keyboard behaviour after an in-app route change, see [Client-side Routing](Client-side%20Routing.md). For in-place content updates, focus and status messages, see [Dynamic Content](Dynamic%20Content.md).
 
 When a component opens, manage focus according to its pattern. A simple [Disclosure](Disclosure.md) leaves focus on its trigger. A dialog moves focus inside. On dismissal, return focus to the opener when the person is resuming the same task and the opener is still available. If the opener is gone or the action starts a new step, move focus to the next logical place. If a non-modal panel closes after focus has already moved onward, preserve the new destination.
 

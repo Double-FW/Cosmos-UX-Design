@@ -17,7 +17,7 @@ description: "A navigational indicator for displaying the current location withi
 
 ## Introduction
 
-A breadcrumb component provides users with a clear and intuitive way to understand the hierarchy of the content, and to navigate back to previous sections of the website. Breadcrumbs are particularly useful for large websites or web applications with a deep and complex structure.
+A breadcrumb component provides users with a clear and intuitive way to understand the hierarchy of the content, and to navigate back to previous sections of the website. Breadcrumbs are particularly useful for large websites or web applications with a deep and complex structure. Use [Landmarks](Landmarks.md) and [Page Structure](Page_Structure.md) to place and name the breadcrumb navigation within the page. Compare it with [Global Navigation](Global%20Navigation.md) and [Site Menus](Site%20Menus.md) so the hierarchy trail complements rather than duplicates other navigation.
 
 ## Recommended markup
 

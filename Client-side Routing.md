@@ -9,9 +9,9 @@ When someone follows a link in a single-page application, the router can replace
 
 ## Presentation
 
-Keep shared navigation in a consistent place and render the content for the active screen in [the main landmark](Structure.md#the-main-landmark). Place a skip link before repeated navigation so it is the first interactive element. Give each view a descriptive `h1`. Keep inactive views out of the reading and tab order if the router retains them in the document.
+Keep shared navigation in a consistent place and render the content for the active screen in [the main landmark](Page_Structure.md#the-main-landmark). Place a skip link before repeated navigation so it is the first interactive element. Give each view a descriptive `h1`. Keep inactive views out of the reading and tab order if the router retains them in the document.
 
-Give each screen a unique document title that describes its purpose. Include the main heading’s wording in the title where it fits, followed by the service name. See [Document title](Structure.md#document-title). Show which link matches the current location and expose the same information using `aria-current`. Use `page` for the current page, `step` for the current step or another value appropriate to the relationship. Clear the previous current state when the route changes.
+Give each screen a unique document title that describes its purpose. Include the main heading’s wording in the title where it fits, followed by the service name. See [Document title](Page_Structure.md#document-title). Show which link matches the current location and expose the same information using `aria-current`. Use `page` for the current page, `step` for the current step or another value appropriate to the relationship. Clear the previous current state when the route changes.
 
 ## Behaviour
 

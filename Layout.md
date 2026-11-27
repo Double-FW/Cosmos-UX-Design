@@ -5,7 +5,7 @@ description: Good webpage layout can make the content easier to navigate, unders
 
 # Layout
 
-Start with the [Page Structure example](Structure.md#applying-regions) to organise the header, navigation, main content and footer in HTML before applying layout styles.
+Start with the [Page Structure example](Page_Structure.md#applying-regions) to organise the header, navigation, main content and footer in HTML before applying layout styles.
 
 ## Visual order versus source order
 

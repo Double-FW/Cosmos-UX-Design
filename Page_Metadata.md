@@ -21,7 +21,7 @@ Declare direction separately. For a page whose content runs right to left, use m
 
 ### Make titles specific enough to be distinct
 
-Write a document title that describes the page’s topic or purpose. Place the specific description first so it remains useful when browser tabs truncate the title. Use [Page Structure](Structure.md#document-title) for writing titles and [Client-side Routing](Client-side%20Routing.md) for keeping the title in sync with a view that changes within the same document.
+Write a document title that describes the page’s topic or purpose. Place the specific description first so it remains useful when browser tabs truncate the title. Use [Page Structure](Page_Structure.md#document-title) for writing titles and [Client-side Routing](Client-side%20Routing.md) for keeping the title in sync with a view that changes within the same document.
 
 ### Don't disable pinch and spread to zoom
 
