@@ -24,7 +24,7 @@ Keep significant page content easy to find from the landmark list. A finding tha
 
 ## Implementation
 
-Use the [Page Structure example](Structure.md#applying-regions) to check how regions fit together and the [skip-link example](Structure.md#the-main-landmark) to help keyboard users bypass repeated navigation.
+Use the [Page Structure example](Page_Structure.md#applying-regions) to check how regions fit together and the [skip-link example](Page_Structure.md#the-main-landmark) to help keyboard users bypass repeated navigation.
 
 ## Checks
 
