@@ -5,7 +5,7 @@ description: Communicate with type in ways that do not create barriers for peopl
 
 # Typography
 
-The legibility of every web component that includes text is affected by the design and implementation of web typography. Users may be excluded from content based on how typographic features are implemented. 
+The legibility of every web component that includes text is affected by the design and implementation of web typography. Users may be excluded from content based on how typographic features are implemented. Apply type choices alongside [Colour, Contrast and Meaning](Colour%2C%20Contrast%20and%20Meaning.md) and [Layout](Layout.md). For viewport setup and zoom behaviour, see [Page Metadata](Page_Metadata.md). 
 
 ## Typeface
 
