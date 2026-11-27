@@ -31,6 +31,7 @@ Reusable components and service journeys that help people complete a specific ta
 - [Metadata Strips](Metadata%20Strips.md) — show supporting details such as source, publication time and duration.
 - [Promotional Cards](Promotional%20Cards.md) — present featured content, a preview or a clear next action.
 - [Tabs](Tabs.md) — let people switch between related panels.
+- [Tooltips](Tooltips.md) — provide brief, non-interactive supplementary information without hiding labels.
 
 #### Panels and dialogs
 
@@ -130,6 +131,7 @@ For the ACT-style checks, record the tested variant, method, observed outcome an
 | --- | --- | --- |
 | Dialogs | [Modal Dialogs](Modal%20Dialogs.md) — manage focus, dismissal and return when a task requires a dialog. | [Opening a dialog from a card](Cards.md#revealing-content-or-opening-a-dialog) — handle the transition from a card action into a dialog.<br>[Dynamic Content](Dynamic%20Content.md) — update content, focus and announcements appropriately. |
 | Disclosure | [Disclosure](Disclosure.md) — show and hide supplementary content in place. | [Accordion](Accordion.md) — let people expand and scan related sections.<br>[Mega Menu](Mega%20Menu.md) — organise groups of navigation links in expandable panels. |
+| Tooltips | [Tooltips](Tooltips.md) — show brief, non-interactive information associated with a trigger. | [Icons](Icons.md#tooltips) — keep icon-only control names available independently of a tooltip.<br>[Labels](Labels.md#icon-only-controls) — provide visible labels and accessible names. |
 | Forms | [HTML Form Elements](HTML%20Form%20Elements.md) — use native fields and associate them with labels and instructions. | [Forms](Forms.md) — form validation and error recovery.<br>[Labels](Labels.md) — visible labels and accessible names. |
 | Document titles, page markup and skip links | [Page Structure](Page_Structure.md) — organise the page with a title, landmarks and a skip link. | [Page Metadata](Page_Metadata.md) — declare the title, language, text direction and viewport.<br>[Keyboard Navigation](Keyboard%20Navigation.md) — make tasks operable with a keyboard or equivalent input. |
 | Heading wording, levels and navigation | [Headings](Headings.md) — use headings to give the page a meaningful outline. | [Page Structure](Page_Structure.md) — organise the page with a title, landmarks and a skip link. |
