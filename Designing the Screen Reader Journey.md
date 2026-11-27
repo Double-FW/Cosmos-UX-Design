@@ -9,7 +9,7 @@ Review a whole task from entry to completion and recovery. Someone may use a hea
 
 ## Scope
 
-Use this guide to annotate designs, review a semantic prototype and test a journey with a screen reader. Apply the owning Cosmos guides for the components and behaviours involved.
+Use this guide to annotate designs, review a semantic prototype and test a journey with a screen reader. Apply the [ARIA and Screen Reader Usability](ARIA%20and%20Screen%20Reader%20Usability.md) guide for cross-cutting semantics and ARIA decisions, and the owning Cosmos guides for the components and behaviours involved.
 
 ## Guidance
 
