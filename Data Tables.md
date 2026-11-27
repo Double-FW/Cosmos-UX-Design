@@ -107,7 +107,7 @@ The ACT-style checks in this section are pattern-specific checks maintained in t
 
 Rule identifier: `gel-foundations-data-tables`
 
-Run on the native or custom variant in use at wide and narrow widths. Use the project’s supported browsers and screen readers. The purpose check below is a manual review: determine the table’s purpose from its content and task, not from browser-style classification heuristics.
+Run the purpose check on each table to determine its intended semantics. Run the remaining checks only on data tables, testing the native or custom variant in use at wide and narrow widths. Use the project’s supported browsers and screen readers. The purpose check is manual: determine the table’s purpose from its content and task, not from browser-style classification heuristics.
 
 | Method and action | Expected result |
 | --- | --- |
