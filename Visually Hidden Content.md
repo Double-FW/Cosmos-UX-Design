@@ -13,7 +13,7 @@ scope: {"platform":"web","applies_to":["content hidden from everyone","content v
 license: "MIT"
 audiences: ["designers","developers","design system managers","QA engineers","AI agents"]
 related_guidance: ["ARIA and Screen Reader Usability.md","Anchors and Links.md","Focus.md","Labels.md","Icons.md","Disclosure.md","Accordion.md","Page_Structure.md"]
-tags: ["hidden content","visually hidden","accessibility tree","<code>aria-hidden</code>","focus","voice control","screen readers","progressive enhancement"]
+tags: ["hidden content","visually hidden","accessibility tree","aria-hidden","focus","voice control","screen readers","progressive enhancement"]
 ---
 
 # Visually Hidden Content
@@ -181,7 +181,7 @@ These checks are a manual design and implementation review, not a standalone con
 ## Sources
 
 - [HTML Standard: The hidden attribute](https://html.spec.whatwg.org/multipage/interaction.html#the-hidden-attribute)
-- [ARIA in HTML: Use of <code>aria-hidden</code>](https://www.w3.org/TR/html-aria/#el-<code>aria-hidden</code>)
+- [ARIA in HTML: Use of aria-hidden](https://www.w3.org/TR/html-aria/#el-aria-hidden)
 - [W3C: Using ARIA](https://www.w3.org/TR/using-aria/#fourth)
 - [W3C ACT Rule: Element with <code>aria-hidden</code> has no content in sequential focus navigation](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/)
 - [WCAG 2.2 Understanding: Label in Name](https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html)
