@@ -119,3 +119,5 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Separator (role)](https://www.w3.org/WAI/PF/aria/roles#separator)
 - [ARIA Live Regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
 - [Using the `aria-current` attribute](https://tink.uk/using-the-aria-current-attribute/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)

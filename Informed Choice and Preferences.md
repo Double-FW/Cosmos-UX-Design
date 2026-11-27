@@ -38,3 +38,7 @@ A service sells a ticket and offers an optional flexible booking add-on. The ini
 | Try the guest and signed-in routes where both are available. Inspect the required fields. | Each route asks for the information it needs. Any account requirement is explained before the task begins. |
 
 See [Alternatives to Deceptive Patterns](Alternatives%20to%20Deceptive%20Patterns.md) for related journey checks.
+
+## Sources
+
+

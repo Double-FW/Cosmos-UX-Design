@@ -147,3 +147,5 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [CSS Triangle](https://css-tricks.com/snippets/css/css-triangle/)
 - [WCAG2.1 2.1.2: Keyboard Trap](https://www.w3.org/TR/WCAG21/#no-keyboard-trap)
 - [Offer choice](https://inclusivedesignprinciples.org/#offer-choice)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)

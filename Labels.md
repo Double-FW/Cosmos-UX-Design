@@ -54,3 +54,6 @@ Use the project’s supported browsers and assistive technologies. Record the co
 ## Sources
 
 - [Understanding labels or instructions](https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html)
+- [WCAG 2.1 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)
+- [WCAG 2.1 2.5.3 Label in Name](https://www.w3.org/TR/WCAG21/#label-in-name)
+- [WCAG 2.1 3.3.2 Labels or Instructions](https://www.w3.org/TR/WCAG21/#labels-or-instructions)

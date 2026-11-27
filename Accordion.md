@@ -126,3 +126,6 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Discussion of `aria-controls` support](http://www.heydonworks.com/article/aria-controls-is-poop)
 - [Inclusive Design Principles on giving users control](https://inclusivedesignprinciples.org/#give-control)
 - [Use high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Summary element has non-empty accessible name (2t702h)](https://www.w3.org/WAI/standards-guidelines/act/rules/2t702h/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)

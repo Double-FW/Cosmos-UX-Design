@@ -95,3 +95,5 @@ Detect missing or empty accessible names and broken ID references. Use manual ch
 - [Visually hidden text example](https://gist.github.com/Heydon/c8d46c0dd18ce96b5833b3b564e9f472)
 - [WCAG 2.1 1.4.1 Use of Color](https://www.w3.org/TR/WCAG21/#use-of-color)
 - [Problems with disabled submit buttons](https://axesslab.com/disabled-buttons-suck/)
+- [Designing Usable Web Forms](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/42513.pdf)
+- [Reset button](https://www.nngroup.com/articles/reset-and-cancel-buttons/)

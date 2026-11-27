@@ -35,7 +35,7 @@ Changes in context necessitate moving focus away from the user's work. When chan
 
 One way to help users of assistive technology keep oriented as content changes is to be mindful of the reading order of that content.
 
-For assistive technology such as screen readers, the reading order of content is based on its order in the webpage source HTML. This is also true for the tab order, [^1] (although this can be manipulated by using the `tabindex` attribute). Maintaining this order will help users understand where they are in the context of the rest of the page, web form, or content section. [^4]
+For assistive technology such as screen readers, the reading order of content is based on its order in the webpage source HTML. This is also true for the tab order,  (although this can be manipulated by using the `tabindex` attribute). Maintaining this order will help users understand where they are in the context of the rest of the page, web form, or content section. 
 
 For example, an error message added at the top of a web form may not be noticed by a user trying to fix input at the bottom. Adding new content near to and after the point of focus the user is at will make it easier for assistive technology users to find it.
 
@@ -45,7 +45,7 @@ Changes in context, except when reloading the page, require that focus be moved 
 
 If focus is moved to a notification dialog, ensure it returns to the same element that had focus once that dialog is closed.
 
-Changes in context that require moving focus should not be initiated as a user interacts with a form (unless they have submitted that form). For example, changing the page or opening a new window in response to a user changing a checkbox could confuse or disorient the user unless the user is informed of that change. [^3]
+Changes in context that require moving focus should not be initiated as a user interacts with a form (unless they have submitted that form). For example, changing the page or opening a new window in response to a user changing a checkbox could confuse or disorient the user unless the user is informed of that change. 
 
 ### Notifications
 
@@ -53,9 +53,9 @@ Use [Notifications and Status Messages](Notifications%20and%20Status%20Messages.
 
 ### Status messages
 
-A status message describes a result, a waiting state or another change without taking focus. Make the update available to assistive technology. [^2] Keep important messages near the task so people can find them again. Put associated actions next to the message in the normal reading and focus order.
+A status message describes a result, a waiting state or another change without taking focus. Make the update available to assistive technology.  Keep important messages near the task so people can find them again. Put associated actions next to the message in the normal reading and focus order.
 
-People read at different speeds and may need time to locate an update. [^6] Keep the information available after any temporary presentation ends. See [why to avoid toasts](Notifications%20and%20Status%20Messages.md#why-avoid-toasts).
+People read at different speeds and may need time to locate an update.  Keep the information available after any temporary presentation ends. See [why to avoid toasts](Notifications%20and%20Status%20Messages.md#why-avoid-toasts).
 
 ## Accessibility notes for the developer
 
@@ -69,7 +69,7 @@ As part of the requirement for a designed, accessible experience, you should con
 
 ### Announcing status updates
 
-Content that is presented to users visually must also be available to assistive technologies. The following example uses the `role="status"` attribute to create a "live region", [^8] which allows screen readers to announce changes to the content of the element.
+Content that is presented to users visually must also be available to assistive technologies. The following example uses the `role="status"` attribute to create a "live region",  which allows screen readers to announce changes to the content of the element.
 
 ```html
 <div role="status">
@@ -120,9 +120,14 @@ Use the [disclosure implementation](Disclosure.md#implementation) when a control
 - **Dialogs and disclosures:** Use the [modal dialog checkpoints](Modal%20Dialogs.md#checkpoints-for-modal-dialogs) or [disclosure checkpoints](Disclosure.md#checkpoints-for-the-tester) as applicable.
 - **Animations and transitions:** Check that users can still operate the content with animation disabled. Use the [motion and animation checks](Motion%20and%20Animation.md#checkpoints-for-the-tester).
 
-[^1]: [WCAG 2.1 SC 2.4.3: Focus Order (Level A)](https://www.w3.org/WAI/WCAG21/Understanding/focus-order)
-[^2]: [WCAG 2.1 SC 4.1.3: Status Messages (Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html)
-[^3]: [WCAG 2.1 SC 3.2.2: On Input (Level A)](https://www.w3.org/WAI/WCAG21/Understanding/on-input)
-[^4]: [WCAG 2.1 SC 1.3.2: Meaningful Sequence (Level A)](https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html)
-[^6]: [How many words do we read per minute? A review and meta-analysis of reading rate](https://doi.org/10.1016/j.jml.2019.104047), Journal of Memory and Language, Volume 109, December 2019, 104047.
-[^8]: Elements with the `role="status"` attribute and value have an implicit `aria-live="polite"` attribute and value and an implicit `aria-atomic` value of `true`.
+### Implementation notes
+
+Elements with the `role="status"` attribute and value have an implicit `aria-live="polite"` attribute and value and an implicit `aria-atomic` value of `true`.
+
+## Sources
+
+- [WCAG 2.1 SC 2.4.3: Focus Order (Level A)](https://www.w3.org/WAI/WCAG21/Understanding/focus-order)
+- [WCAG 2.1 SC 4.1.3: Status Messages (Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html)
+- [WCAG 2.1 SC 3.2.2: On Input (Level A)](https://www.w3.org/WAI/WCAG21/Understanding/on-input)
+- [WCAG 2.1 SC 1.3.2: Meaningful Sequence (Level A)](https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html)
+- [How many words do we read per minute? A review and meta-analysis of reading rate](https://doi.org/10.1016/j.jml.2019.104047), Journal of Memory and Language, Volume 109, December 2019, 104047.

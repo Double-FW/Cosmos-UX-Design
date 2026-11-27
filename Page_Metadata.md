@@ -71,3 +71,5 @@ Record the page or route, browser, device, assistive technology and result.
 ## Sources
 
 - [HTML language codes](https://www.w3schools.com/tags/ref_language_codes.asp)
+- [3.1.1 Language of Page](https://www.w3.org/TR/WCAG21/#language-of-page)
+- [3.1.2 Language of Parts](https://www.w3.org/TR/WCAG21/#language-of-parts)

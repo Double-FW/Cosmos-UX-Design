@@ -97,7 +97,7 @@ If another search region appears on the page, give it a distinct name, such as `
 
 Use the native `<main>` element for the central content of the current page or application view. It exposes the `main` landmark without adding a redundant `role="main"`.
 
-> The main content area consists of content that is directly related to or expands upon the central topic of a document, or the main function of an application. [^1]
+> The main content area consists of content that is directly related to or expands upon the central topic of a document, or the main function of an application. 
 
 Expose one `main` landmark for the document’s active view. If an application retains inactive views in the markup, keep their content out of the accessibility tree and keyboard navigation.
 
@@ -151,4 +151,6 @@ The page-level `footer` exposes the `contentinfo` landmark. Use it for informati
 </body>
 ```
 
-[^1]: [_ARIA: main role_](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/main_role), MDN web docs
+## Sources
+
+- [_ARIA: main role_](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/main_role), MDN web docs

@@ -72,3 +72,5 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 - [Cosmos: Alternatives to Deceptive Patterns](Alternatives%20to%20Deceptive%20Patterns.md)
 - [Cosmos: Notification centre](Notifications%20and%20Status%20Messages.md#notification-centre)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)

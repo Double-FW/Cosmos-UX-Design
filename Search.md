@@ -112,9 +112,9 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
 - [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
 
-## Sources
-
 <span id="related-references"></span>
+
+## Sources
 
 - [Where To Put Your Search Role](http://adrianroselli.com/2015/08/where-to-put-your-search-role.html)
 - [When To Use An ARIA Role](https://developer.paciellogroup.com/blog/2012/06/html5-accessibility-chops-when-to-use-an-aria-role/)
@@ -122,3 +122,6 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [`<search>` element (HTML Standard)](https://html.spec.whatwg.org/multipage/grouping-content.html#the-search-element)
 - [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
 - [Combobox - ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/#combobox)
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)

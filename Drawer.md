@@ -145,3 +145,6 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [WCAG 2.2 Reflow](https://www.w3.org/TR/WCAG22/#reflow) and [Focus Not Obscured (Minimum)](https://www.w3.org/TR/WCAG22/#focus-not-obscured-minimum) for layout and focused controls.
 - [Fluent 2 Drawer](https://fluent2.microsoft.design/components/web/react/core/drawer/usage) for inline and overlay layouts.
 - [Singapore Government Design System Drawer](https://designsystem.tech.gov.sg/components/drawer) for modal drawer naming, focus and keeping the task short.
+- [Double-FW deceptive patterns catalogue](https://github.com/Double-FW/Deceptive_Patterns_and-Inclusive_Experience_Evaluation)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)

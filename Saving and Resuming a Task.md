@@ -104,3 +104,7 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 - [Interruption recovery and task continuity](https://github.com/Double-FW/Cognitive-UX-Design/blob/523df2fe9e47f8dd75d30b7920a9179d57a89bba/Interruption_Recovery_and_Task_Continuity.md)
 - [Cognitive science evidence register: preparation and task resumption](https://github.com/Double-FW/Cognitive-UX-Design/blob/523df2fe9e47f8dd75d30b7920a9179d57a89bba/Cognitive_Science_Evidence_Register.md#e7)
+- [task resumption](https://github.com/Double-FW/Cognitive-UX-Design/blob/523df2fe9e47f8dd75d30b7920a9179d57a89bba/Interruption_Recovery_and_Task_Continuity.md#mem-rc-01--resume-a-paused-task)
+- [recovery from stale or expired state](https://github.com/Double-FW/Cognitive-UX-Design/blob/523df2fe9e47f8dd75d30b7920a9179d57a89bba/Interruption_Recovery_and_Task_Continuity.md#mem-rc-02--recover-stale-or-expired-state)
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)

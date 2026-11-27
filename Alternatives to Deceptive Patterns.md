@@ -24,3 +24,7 @@ The map follows the 11 areas named in the [Double-FW catalogue brief](https://gi
 | Abandonment across handoffs | Name who owns the next step and provide a recovery route. Test what happens when the receiving team or system cannot pick up the request. | [Carry the task across a handoff](Support%2C%20Escalation%20and%20Handoffs.md#carry-the-task-across-a-handoff) |
 
 Record the route, starting state, choices offered, steps taken and outcome. Include any difference in effort or access and the evidence needed to distinguish necessary safeguards from avoidable barriers.
+
+## Sources
+
+- [Double-FW catalogue brief](https://github.com/Double-FW/Deceptive_Patterns_and-Inclusive_Experience_Evaluation/blob/main/Deceptive_Patterns_Repository_Development_Prompt.md#5-build-the-pattern-and-practice-catalogue)

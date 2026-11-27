@@ -60,3 +60,4 @@ Record the browser, device, assistive technology, task, first failing step and w
 - [Screen reader survey findings on access barriers](https://webaim.org/projects/screenreadersurvey7/#problematic)
 - [Screen reader survey findings on mobile keyboard use](https://webaim.org/projects/screenreadersurvey7/#mobilekeyboard)
 - [Examples of switches used with mobile devices](https://www.atandme.com/?p=3758)
+- [WCAG 2.1 criterion 2.1.1 Keyboard](https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html)

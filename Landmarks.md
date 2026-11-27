@@ -36,3 +36,8 @@ Inspect the browser’s accessibility tree or use a [landmark navigation extensi
 | Open the screen reader’s landmark list and move to the header, main navigation and footer where present. | Page-level roles match their purpose. Local article headers and footers do not appear as page banners or content information landmarks. Landmarks with different purposes can be told apart by name. |
 | Navigate to named sections and supporting content. Review any significant content flagged outside landmarks. | Each landmark is useful and clearly identified. The page’s main areas can be found through landmarks or the surrounding page structure. |
 | From the top of the page, Tab to the skip link and activate it. Press Tab again. | The link is easy to reach and visible on focus. It moves focus to main content and the next Tab continues from there. |
+
+## Sources
+
+- [survey of screen reader users](https://webaim.org/projects/screenreadersurvey9/#landmarks)
+- [landmark navigation extension](https://chrome.google.com/webstore/detail/landmark-navigation-via-k/ddpokpbjopmeeiiolheejjpkonlkklgp?hl=en-GB)

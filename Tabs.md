@@ -144,9 +144,9 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Element with role attribute has required states and properties (4e8ab6)](https://www.w3.org/WAI/standards-guidelines/act/rules/4e8ab6/proposed/)
 - [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
 
-## Sources
-
 <span id="related-references"></span>
+
+## Sources
 
 - [Tabs: ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
 - [Tabs, Used Right](https://www.nngroup.com/articles/tabs-used-right/)
@@ -156,3 +156,6 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Reading Commands and Cursors](https://doccenter.freedomscientific.com/doccenter/doccenter/rs11f929e9c511/2012-04-24_teachersandtrainers-l7/02_jawsandmagicreadingcommandsandcursors.htm)
 - [Historical reference for the `-ms-high-contrast` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/-ms-high-contrast)
 - [WCAG 2.1 Focus Order](https://www.w3.org/TR/WCAG21/#focus-order)
+- [ARIA required owned elements (bc4a75)](https://www.w3.org/WAI/standards-guidelines/act/rules/bc4a75/proposed/)
+- [Element with role attribute has required states and properties (4e8ab6)](https://www.w3.org/WAI/standards-guidelines/act/rules/4e8ab6/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)

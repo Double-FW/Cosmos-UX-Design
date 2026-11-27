@@ -140,12 +140,15 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
 - [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
 
-## Sources
-
 <span id="related-references"></span>
+
+## Sources
 
 - [Using Navigation Landmarks](https://accessibility.blog.gov.uk/2016/05/27/using-navigation-landmarks/)
 - [Hiding Content Has No Effect on Accessible Name or Description Calculation](https://w3c.github.io/using-aria/#hiding-content-has-no-effect-on-accessible-name-or-description-calculation)
 - [Don't make every `<svg>` focusable](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/8090208/)
 - [Using the `aria-current` attribute](https://tink.uk/using-the-aria-current-attribute/)
 - [High Contrast-friendly dropshadow](https://codepen.io/dpersing/details/vJERyv)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)

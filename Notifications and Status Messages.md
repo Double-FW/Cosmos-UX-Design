@@ -132,3 +132,11 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 - [Accessible Rich Internet Applications (WAI-ARIA) 1.2, status role](https://www.w3.org/TR/wai-aria-1.2/#status)
 - [Understanding status messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html)
+- [Deceptive Patterns and Inclusive Experience Evaluation](https://github.com/Double-FW/Deceptive_Patterns_and-Inclusive_Experience_Evaluation)
+- [error message](https://design-system.service.gov.uk/components/error-message/)
+- [error summary](https://design-system.service.gov.uk/components/error-summary/)
+- [confirmation page](https://design-system.service.gov.uk/patterns/confirmation-pages/)
+- [notification banner](https://design-system.service.gov.uk/components/notification-banner/)
+- [notification tray design reference](https://design.visa.com/patterns/notification-tray/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)

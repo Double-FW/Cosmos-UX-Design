@@ -121,3 +121,6 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Managing focus for accessibility (video)](https://dev.to/robdodson/managing-focus-64l)
 - [Discussion of `aria-controls` support](https://www.heydonworks.com/article/aria-controls-is-poop)
 - [WCAG2.1 3.2.2 On Input](https://www.w3.org/TR/WCAG21/#on-input)
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)

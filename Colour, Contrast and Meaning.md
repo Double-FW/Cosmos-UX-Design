@@ -43,7 +43,6 @@ On Windows, test with a system contrast theme such as Windows High Contrast (WHC
 
 ## Implementation
 
-
 ### Choosing a theme
 
 When a service offers a theme control, give people **System**, **Light** and **Dark** options. Default to System so the page follows the device preference. Remember an explicit choice across pages and reloads where storage is available. Selecting System clears that override and resumes following device changes. Let forced colours continue to apply in every theme.
@@ -171,3 +170,8 @@ Record the page, theme, component, state, method and result. For measurements in
 - [Contrast checker](https://webaim.org/resources/contrastchecker/)
 - [Desktop colour-vision simulator](https://michelf.ca/projects/mac/sim-daltonism/)
 - [Browser colour-vision simulator](https://chrome.google.com/webstore/detail/colorblindly/floniaahmccleoclneebhhmnjgdfijgg?hl=en)
+- [1.4.1 Use of Color](https://www.w3.org/TR/WCAG21/#use-of-color)
+- [inline link contrast technique](https://www.w3.org/WAI/WCAG21/Techniques/general/G183)
+- [1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+- [1.4.11 Non-text Contrast](https://www.w3.org/TR/WCAG21/#non-text-contrast)
+- [`forced-color-adjust: none`](https://developer.mozilla.org/en-US/docs/Web/CSS/forced-color-adjust)

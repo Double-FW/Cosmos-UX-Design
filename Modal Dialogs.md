@@ -32,7 +32,7 @@ Use a modal dialog when the user needs to address a specific task or message bef
 
 ### Custom modal dialogs
 
-Use the [W3C ARIA Authoring Practices Guide for modal dialogs][modal-pattern] if the native element cannot meet the supported environment or interaction requirements. A custom modal needs an appropriate role, an accessible name and `aria-modal="true"`. Implement initial focus, background inactivity, keyboard containment, dismissal and focus return. Markup alone cannot make the background inactive. Check both keyboard navigation and screen reader browse mode.
+Use the [W3C ARIA Authoring Practices Guide for modal dialogs](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) if the native element cannot meet the supported environment or interaction requirements. A custom modal needs an appropriate role, an accessible name and `aria-modal="true"`. Implement initial focus, background inactivity, keyboard containment, dismissal and focus return. Markup alone cannot make the background inactive. Check both keyboard navigation and screen reader browse mode.
 
 ## Recommended layout
 
@@ -131,8 +131,6 @@ Test the supported variants. Record the method, browser and assistive technology
 7. After closing, the underlying page is usable again and focus returns to the trigger or the next logical location.
 8. With the enhancement script blocked, verify that the user can reach any essential information or action by the documented fallback.
 
-[modal-pattern]: https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
-
 ## Interrupting a task
 
 Use an action dialog when continuing the current task depends on a decision. Use a button for an action that changes the current page and a link for a choice that takes the user to another page. For example, a sign-in link can lead to authentication while a Cancel button closes the dialog and returns the user to the original task.
@@ -152,18 +150,16 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
 - [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
 
+<span id="related-references"></span>
+
 ## Sources
 
 - [HTML Standard: dialog element and `closedby`](https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element)
-
-<span id="related-references"></span>
-
 - [Use high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
 - [Modal window (Wikipedia)](https://en.wikipedia.org/wiki/Modal_window)
 - [Visually hidden text example](https://gist.github.com/Heydon/c8d46c0dd18ce96b5833b3b564e9f472)
 - [Notifications (Inclusive Components blog)](https://inclusive-components.design/notifications/)
 - [The current state of modal dialog accessibility](https://developer.paciellogroup.com/blog/2018/06/the-current-state-of-modal-dialog-accessibility/)
-
 - [W3C APG: Modal Dialog Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
-
-[modal-pattern]: https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)

@@ -215,3 +215,6 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [W3C Understanding Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html)
 - [W3C ARIA Authoring Practices Guide: Modal Dialog](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
 - [GOV.UK Service Manual: Using chatbots and webchat tools](https://www.gov.uk/guidance/using-chatbots-and-webchat-tools)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Scrollable content can be reached with sequential focus navigation (0ssw9k)](https://www.w3.org/WAI/standards-guidelines/act/rules/0ssw9k/proposed/)

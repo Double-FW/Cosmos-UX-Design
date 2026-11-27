@@ -139,3 +139,6 @@ Apply these proposed rules where their applicability conditions are met. Use the
 - [VoiceOver and Tables with an Empty First Header Cell](http://accessibleculture.org/articles/2010/10/voiceover-and-tables-with-an-empty-first-header-cell/)
 - [The Table Caption element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption)
 - [Pure CSS scrolling shadows with `background-attachment: local`](http://lea.verou.me/2012/04/background-attachment-local/)
+- [Table header cell has assigned cells (d0f69e)](https://www.w3.org/WAI/standards-guidelines/act/rules/d0f69e/proposed/)
+- [Scrollable content can be reached with sequential focus navigation (0ssw9k)](https://www.w3.org/WAI/standards-guidelines/act/rules/0ssw9k/proposed/)
+- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)

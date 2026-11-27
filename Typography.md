@@ -11,7 +11,7 @@ The legibility of every web component that includes text is affected by the desi
 
 When choosing a typeface to use with body text, select a typeface that emphasizes clarity and legibility. Using a decorative or stylized typeface should be limited to the display of a logotype or a text-based decoration.
 
-The traits that make a typeface more or less readable can be difficult to isolate, identify, and measure. The list below [^10] lists the factors that must be considered when selecting a typeface.
+The traits that make a typeface more or less readable can be difficult to isolate, identify, and measure. The list below  lists the factors that must be considered when selecting a typeface.
 
 1. Use a typeface appropriate to your audience and the organization's brand.
 2. Avoid imposter letter shapes designed to be very similar to other letter shapes.
@@ -28,11 +28,11 @@ Be consistent and stick to a small number of typefaces, two or three, for exampl
 
 Dyslexia is one of the reading difficulties most commonly thought to be affected by the choice of typeface. Several typefaces have been developed and marketed as better for dyslexic readers, but the research data around those claims are largely anecdotal.
 
-In one of the few large quantitative studies that measured the entire range of traits that affect readability across several popular typefaces, including those specifically marketed as being better for readers with dyslexia, the evidence was decidedly _mixed_. Only about 20% of the test subjects identified as having dyslexic traits preferred a dyslexia-friendly typeface. [^9]
+In one of the few large quantitative studies that measured the entire range of traits that affect readability across several popular typefaces, including those specifically marketed as being better for readers with dyslexia, the evidence was decidedly _mixed_. Only about 20% of the test subjects identified as having dyslexic traits preferred a dyslexia-friendly typeface. 
 
 This result was confirmed by other studies that measured the effort and effectiveness of reading using different fonts.
 
-> "...font types impact the readability of people with dyslexia. Good fonts for people with dyslexia are Helvetica, Courier, Arial, Verdana, and CMU, taking into consideration both reading performance and subjective preferences." [^11]
+> "...font types impact the readability of people with dyslexia. Good fonts for people with dyslexia are Helvetica, Courier, Arial, Verdana, and CMU, taking into consideration both reading performance and subjective preferences." 
 
 This suggests that the traits that make a typeface preferable to readers are more complex than letter shapes. For this reason, it is essential to do user testing with your audience, including those with reading difficulties, before deciding on a typeface.
 
@@ -40,11 +40,11 @@ This suggests that the traits that make a typeface preferable to readers are mor
 
 Body text should be kept to a line length that allows for comfortable reading.
 
-> "...long lines of text are typically perceived by users as intimidating and overwhelming. As a result, users faced with overly long lines of text are more likely to avoid reading the text." [^1]
+> "...long lines of text are typically perceived by users as intimidating and overwhelming. As a result, users faced with overly long lines of text are more likely to avoid reading the text." 
 
-The ideal line length will naturally be relative to the font size used. Commonly accepted recommendations say to aim for between 50 to 70 total characters per line [^2] (including spaces and punctuation), equating to between 10 to 18 words per line. 
+The ideal line length will naturally be relative to the font size used. Commonly accepted recommendations say to aim for between 50 to 70 total characters per line  (including spaces and punctuation), equating to between 10 to 18 words per line. 
 
-> "If the eye must traverse great distances on the page, the reader is easily lost and must hunt for the beginning of the next line. Quantitative studies show that moderate line lengths significantly increase the legibility of text." [^3]
+> "If the eye must traverse great distances on the page, the reader is easily lost and must hunt for the beginning of the next line. Quantitative studies show that moderate line lengths significantly increase the legibility of text." 
 
 This advice should always be applied to blocks of text on larger screens. Exceptions can be made to allow shorter-than-ideal lines in exceptional circumstances, such as block quotes, asides, and call-outs. And there may be times when text lines must be wrapped to less-than-ideal lengths to maintain a large-enough font size on smaller screens.
 
@@ -78,7 +78,7 @@ Make headings visually stand out so readers can quickly scan the webpage to see 
 
 It is common practice to implement the layout of a webpage so that the elements reflow to accommodate different viewport sizes. By collapsing tangential elements, such as headers or navigation, or resizing images at smaller breakpoints, you can keep the core content of the webpage readily visible.
 
-Users may trigger reflow by changing the window size, device orientation or page zoom. For vertically scrolling content, check that users can read and operate it at a viewport width equivalent to 320 CSS pixels without scrolling in two directions, except where a two-dimensional layout is essential to use or meaning. A 1280 CSS pixel viewport at 400% zoom is one way to reach that width. [^20]
+Users may trigger reflow by changing the window size, device orientation or page zoom. For vertically scrolling content, check that users can read and operate it at a viewport width equivalent to 320 CSS pixels without scrolling in two directions, except where a two-dimensional layout is essential to use or meaning. A 1280 CSS pixel viewport at 400% zoom is one way to reach that width. 
 
 ### Page zoom
 
@@ -92,9 +92,9 @@ Certain HTML meta tags will disable the page zoom feature. A "viewport" meta tag
 
 ### Text resize
 
-Browsers such as Chrome and Firefox have preference settings [^4] that allow the user to override the size of just the text of a page, leaving all other elements displayed at their default sizes. This is separate from any page zoom adjustment and applies to all websites and pages displayed in the browser, whereas using page zoom only affects the single website where it is changed.
+Browsers such as Chrome and Firefox have preference settings  that allow the user to override the size of just the text of a page, leaving all other elements displayed at their default sizes. This is separate from any page zoom adjustment and applies to all websites and pages displayed in the browser, whereas using page zoom only affects the single website where it is changed.
 
-The user should be able to resize body text up to 200% [^16] of its original size while keeping all text visible and fully readable without clipping or overlapping.
+The user should be able to resize body text up to 200%  of its original size while keeping all text visible and fully readable without clipping or overlapping.
 
 ```css
 /* do not clip text that overflows a fixed container */
@@ -109,7 +109,7 @@ An example of inaccessible text in a shopping cart that has become unreadable wh
 
 #### Units can prevent resize
 
-Text resizing is prevented in many browsers for elements styled with an absolute-sized unit such as `cm`, `mm`, `in`, `pt`, or `px`. Contrast that with the `em` unit, a relative-sized unit originally based on the size of the uppercase letter "M" character in the typeface used. For example, in 12-point type, an `em` is 12 points, and in 60 point type, an `em` is 60 points. Confusing the matter, however, an element's `em` scale is also relative to the font size of its parent elements. [^5]
+Text resizing is prevented in many browsers for elements styled with an absolute-sized unit such as `cm`, `mm`, `in`, `pt`, or `px`. Contrast that with the `em` unit, a relative-sized unit originally based on the size of the uppercase letter "M" character in the typeface used. For example, in 12-point type, an `em` is 12 points, and in 60 point type, an `em` is 60 points. Confusing the matter, however, an element's `em` scale is also relative to the font size of its parent elements. 
 
 The `rem` unit is like an `em,` but it is always relative to the size of the document's _root element_ (the top-level, `<html>`, element of a webpage). If the root element doesn't have a font size assigned, then the browser default, typically 16px, is used (although the user may override this). Using the `rem` unit, the size is always calculated relative to the root element.
 
@@ -129,7 +129,7 @@ h1 {
 
 ### Screen magnification
 
-In contrast with Text Zoom and Resizing Text, the Screen Magnification setting [^6] simulates the view you would have if you were to look at your screen through a magnifying lens: _everything_ on the screen being magnified will appear up to 64 times larger, including the browser menus and other OS controls. Unlike Zoom, Screen Magnification will not trigger responsive layout changes. Just like a handheld magnifying lens, the user will only see a limited portion of the screen at any given time and must move the magnifier across and around the screen to see it all.
+In contrast with Text Zoom and Resizing Text, the Screen Magnification setting  simulates the view you would have if you were to look at your screen through a magnifying lens: _everything_ on the screen being magnified will appear up to 64 times larger, including the browser menus and other OS controls. Unlike Zoom, Screen Magnification will not trigger responsive layout changes. Just like a handheld magnifying lens, the user will only see a limited portion of the screen at any given time and must move the magnifier across and around the screen to see it all.
 
 When designing for screen magnification, do not assume that the user can see all of the screen at once. When text appears in one part of the screen in response to an interaction in another part, the new text may be unseen by a screen magnification user.
 
@@ -158,7 +158,7 @@ So saying, she breaks off her speech midway and flees in anguish from the light,
 
 ### Intra-letter spacing
 
-Studies show that when letter spacing (also known as "tracking") is overly tight, it can lower users' reading performance. [^13] Choosing a typeface with comfortable spacing will enable readers to scan your text more easily, quickly, and accurately.
+Studies show that when letter spacing (also known as "tracking") is overly tight, it can lower users' reading performance.  Choosing a typeface with comfortable spacing will enable readers to scan your text more easily, quickly, and accurately.
 
 The ideal letter spacing will depend on the typeface, font weight, and font size. Generally, the heavy or smaller-sized text will benefit from looser letter spacing than lighter or larger-sized text.
 
@@ -168,7 +168,7 @@ If your design supports a "dark mode," you will likely find that light-colored t
 
 You should use a line height between 140% and 200% to keep the text density sparse enough for readability and accessibility. This may require trial and error: each typeface has a unique combination of x-height, ascender, and descender size that affects the appearance of line spacing.
 
-Extra space should be used to separate paragraphs visually. Use enough extra space to clarify the separation of paragraphs: make sure there are at least 1.5 times as much white space between paragraphs as between text lines. [^12]
+Extra space should be used to separate paragraphs visually. Use enough extra space to clarify the separation of paragraphs: make sure there are at least 1.5 times as much white space between paragraphs as between text lines. 
 
 ### Margins 
 
@@ -176,11 +176,11 @@ Margins create visual separation and grouping. When one element introduces, desc
 
 ### Allow adjustments
 
-There must be no loss of information or functionality when users need or prefer to override page styles to a reasonable degree: ensure that your webpage is still fully usable when paragraph spacing is set to 2 times the font size, line height, and spacing at 1.5 times the font size, word spacing at 16% and letter spacing at 12% the font size. [^21]
+There must be no loss of information or functionality when users need or prefer to override page styles to a reasonable degree: ensure that your webpage is still fully usable when paragraph spacing is set to 2 times the font size, line height, and spacing at 1.5 times the font size, word spacing at 16% and letter spacing at 12% the font size. 
 
 ## Alignment and justification
 
-For left-to-right languages, use a left-aligned layout of body text with an unjustified (ragged) right edge; do not fully justify text. [^22] Fully justified alignment of text is problematic for many readers because it creates uneven gaps between characters and between words. These flowing patterns of whitespace can be very distracting for some readers.
+For left-to-right languages, use a left-aligned layout of body text with an unjustified (ragged) right edge; do not fully justify text.  Fully justified alignment of text is problematic for many readers because it creates uneven gaps between characters and between words. These flowing patterns of whitespace can be very distracting for some readers.
 
 ## Hyphenation
 
@@ -192,7 +192,7 @@ Do not disable hyphenation, especially when applied to fully justified text pass
 
 ### Example of hard-to-read justification
 
-By setting the CSS `hyphens` property to `none`, this stylesheet makes the mistake of preventing any hyphenation. This, combined with the fully justified alignment and relatively narrow column width, results in a hard-to-read block of words. [^19]
+By setting the CSS `hyphens` property to `none`, this stylesheet makes the mistake of preventing any hyphenation. This, combined with the fully justified alignment and relatively narrow column width, results in a hard-to-read block of words. 
 
 ```css
 /* do not fully justify body text, do not disable hyphenation */
@@ -236,9 +236,9 @@ Avoid plain English altogether, and you could end up being periphrastic (speakin
 
 The HTML `lang` and `dir` attributes relate to how justification and alignment are applied. It can also affect how the screen reader and [text-to-speech](https://www.w3.org/WAI/perspective-videos/speech/) software interprets and pronounces the text it is speaking.
 
-> When authors specify the correct natural language of content, user agents, including assistive technologies, can present text more accurately. Screen readers can load the correct pronunciation rules and braille tables for languages. [^15]
+> When authors specify the correct natural language of content, user agents, including assistive technologies, can present text more accurately. Screen readers can load the correct pronunciation rules and braille tables for languages. 
 
-When creating content for a multilingual audience, ensure that the document root element at least has a base language and direction specified. This will ensure that your lines of text are rendered correctly on _all_ devices. Don't assume that the browser will correctly guess the direction from the language; it often won't. [^14]
+When creating content for a multilingual audience, ensure that the document root element at least has a base language and direction specified. This will ensure that your lines of text are rendered correctly on _all_ devices. Don't assume that the browser will correctly guess the direction from the language; it often won't. 
 
 For short exceptions like a single paragraph rendered in a different language, Farsi, for example, override those attributes on that section: `<p lang="fa" dir="rtl">`.
 
@@ -248,13 +248,13 @@ Using style judiciously to highlight and draw attention to specific words is an 
 
 ## Text contrast
 
-Body text must be presented with a contrast ratio of at least 4.5 to 1. Large-scale text may use a minimum of 3:1. For common Latin fonts, this means at least 18 pt (24 CSS px), or 14 pt (about 18.7 CSS px) if bold. Logotypes, incidental text, or purely decorative text have no contrast requirements. [^18]
+Body text must be presented with a contrast ratio of at least 4.5 to 1. Large-scale text may use a minimum of 3:1. For common Latin fonts, this means at least 18 pt (24 CSS px), or 14 pt (about 18.7 CSS px) if bold. Logotypes, incidental text, or purely decorative text have no contrast requirements. 
     
 Web browsers will default to displaying black text on a white body element. Those sensitive to very high contrast may find this difficult to read for long passages. Setting the body text color to dark gray and the background color off-white is a reasonable compromise.
 
-It is impossible to choose a color combination that works for everyone; some users will need or prefer custom color schemes. Check that your webpage is still usable with custom color schemes applied in the system or browser settings. [^23]
+It is impossible to choose a color combination that works for everyone; some users will need or prefer custom color schemes. Check that your webpage is still usable with custom color schemes applied in the system or browser settings. 
 
-> "...some people need low brightness, especially for backgrounds. Some people who need low brightness for backgrounds also need low brightness overall and thus need low-brightness text. Other people need high contrast between text and background, including many older people who lose contrast sensitivity from aging. Some read better with dark text on a light background." [^17]
+> "...some people need low brightness, especially for backgrounds. Some people who need low brightness for backgrounds also need low brightness overall and thus need low-brightness text. Other people need high contrast between text and background, including many older people who lose contrast sensitivity from aging. Some read better with dark text on a light background." 
 
 ### Examples of high-contrast text
 
@@ -303,24 +303,34 @@ body * {
 7. Ensure that the text weight of the body copy is not too light to make it hard to read; a font weight of at least 400 is required for most fonts.
 8. Ensure that the font size of the body text can be overridden by adjusting the browser settings (if available).
 
-[^1]: _Readability: The Optimal Line Length_, https://baymard.com/blog/line-length-readability
-[^2]: _Typographie: A Manual on Design_, Emil Ruder
-[^3]: _Web Style Guide - Basic Design Principles for Creating Website_, Patrick J. Lynch and Sarah Horton
-[^4]: In Chrome go to _Preferences > Appearance > Customize fonts_. In Firefox, go to _Settings > Language and Appearance_, remembering to click the "Zoom text only" checkbox.
-[^5]: _The Elements of Typographic Style_ Robert Bringhurst
-[^6]: In Windows, go to the Magnifier setting under the _Ease of Access section in the Windows control panel_.
-[^9]: Presentation (video) _Don't Believe The Type! - axe-con 2021_, https://www.youtube.com/watch?v=h8IOqUl1zII
-[^10]: Quoted from _[A Guide to Understanding What Makes a Typeface Accessible](https://medium.com/the-readability-group/a-guide-to-understanding-what-makes-a-typeface-accessible-and-how-to-make-informed-decisions-9e5c0b9040a0)_
-[^11]: _[Good Fonts for Dyslexia](https://www.dyslexia-reading-well.com/support-files/italian_study_on_fonts_2013.pdf)_, Luz Rello and Ricardo Baeza-Yates
-[^12]: _Design Guidelines for Web Readability_, Aliaksei Miniukovich, Antonella De Angeli, Simone Sulpizio, Paola Venuti
-[^13]: _Extra-large letter spacing improves reading in dyslexia_, Zorzi, Barbiero, Facoetti, Ziegler
-[^14]: _Internationalization Best Practices for Spec Developers_, https://www.w3.org/TR/international-specs/#bidi_lang
-[^15]: _Method: HTML lang attribute indicates the language of text_, [WCAG 3 Methods](https://www.w3.org/WAI/GL/WCAG3/2022/methods/html-lang-attribute/)
-[^16]: "The working group feels that 200% is a reasonable accommodation that can support a wide range of designs and layouts and complements older screen magnifiers that provide a minimum magnification of 200%." _Understanding Success Criterion 1.4.4 Resize Text (Level AA)_, [WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/resize-text)
-[^17]: _Accessibility Requirements for People with Low Vision_, [W3C Editor's Draft 04](https://w3c.github.io/low-vision-a11y-tf/requirements.html#text-contrast)
-[^18]: _Contrast (Minimum)_, [Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
-[^19]: Sample text from _The Guardian_, [Move over, George Orwell -- this is how to sound really clever](https://www.theguardian.com/media/mind-your-language/2013/oct/11/mind-your-language-long-words), Gary Nunn
-[^20]: _Understanding Success Criterion 1.4.10: Reflow_, [WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html)
-[^21]: _Understanding Success Criterion 1.4.12: Text Spacing_, [WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html)
-[^22]: _Success Criterion 1.4.8 Visual Presentation_, [WCAG 2.1](https://www.w3.org/TR/WCAG21/#visual-presentation)
-[^23]: _[Change color contrast in Windows](https://support.microsoft.com/en-us/windows/change-color-contrast-in-windows-fedc744c-90ac-69df-aed5-c8a90125e696)_
+### Implementation notes
+
+In Chrome go to _Preferences > Appearance > Customize fonts_. In Firefox, go to _Settings > Language and Appearance_, remembering to click the "Zoom text only" checkbox.
+
+In Windows, go to the Magnifier setting under the _Ease of Access section in the Windows control panel_.
+
+## Sources
+
+- [Readability: The Optimal Line Length](https://baymard.com/blog/line-length-readability)
+- _Typographie: A Manual on Design_, Emil Ruder
+- _Web Style Guide - Basic Design Principles for Creating Website_, Patrick J. Lynch and Sarah Horton
+- _The Elements of Typographic Style_ Robert Bringhurst
+- [Presentation (video) Don't Believe The Type! - axe-con 2021](https://www.youtube.com/watch?v=h8IOqUl1zII)
+- Quoted from _[A Guide to Understanding What Makes a Typeface Accessible](https://medium.com/the-readability-group/a-guide-to-understanding-what-makes-a-typeface-accessible-and-how-to-make-informed-decisions-9e5c0b9040a0)_
+- _[Good Fonts for Dyslexia](https://www.dyslexia-reading-well.com/support-files/italian_study_on_fonts_2013.pdf)_, Luz Rello and Ricardo Baeza-Yates
+- _Design Guidelines for Web Readability_, Aliaksei Miniukovich, Antonella De Angeli, Simone Sulpizio, Paola Venuti
+- _Extra-large letter spacing improves reading in dyslexia_, Zorzi, Barbiero, Facoetti, Ziegler
+- [Internationalization Best Practices for Spec Developers](https://www.w3.org/TR/international-specs/#bidi_lang)
+- _Method: HTML lang attribute indicates the language of text_, [WCAG 3 Methods](https://www.w3.org/WAI/GL/WCAG3/2022/methods/html-lang-attribute/)
+- "The working group feels that 200% is a reasonable accommodation that can support a wide range of designs and layouts and complements older screen magnifiers that provide a minimum magnification of 200%." _Understanding Success Criterion 1.4.4 Resize Text (Level AA)_, [WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/resize-text)
+- _Accessibility Requirements for People with Low Vision_, [W3C Editor's Draft 04](https://w3c.github.io/low-vision-a11y-tf/requirements.html#text-contrast)
+- _Contrast (Minimum)_, [Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- Sample text from _The Guardian_, [Move over, George Orwell -- this is how to sound really clever](https://www.theguardian.com/media/mind-your-language/2013/oct/11/mind-your-language-long-words), Gary Nunn
+- _Understanding Success Criterion 1.4.10: Reflow_, [WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html)
+- _Understanding Success Criterion 1.4.12: Text Spacing_, [WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html)
+- _Success Criterion 1.4.8 Visual Presentation_, [WCAG 2.1](https://www.w3.org/TR/WCAG21/#visual-presentation)
+- _[Change color contrast in Windows](https://support.microsoft.com/en-us/windows/change-color-contrast-in-windows-fedc744c-90ac-69df-aed5-c8a90125e696)_
+- [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/)
+- [_x-height_, _em-square_](https://fonts.google.com/knowledge/choosing_type/exploring_x_height_the_em_square)
+- [of other variables](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html#viewing-distance-and-display-resolution)
+- [text-to-speech](https://www.w3.org/WAI/perspective-videos/speech/)

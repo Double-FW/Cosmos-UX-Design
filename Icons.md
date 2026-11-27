@@ -17,7 +17,7 @@ Depending on how you include the SVG, the options for animation and positioning 
 
 ### SVG as `img`
 
-Browsers have good support for using SVG graphics as `src` documents for our old friend the HTML `img` element. [^1]
+Browsers have good support for using SVG graphics as `src` documents for our old friend the HTML `img` element. 
 
 ```html
 <a href="#accessibility" style="font-size:120%">
@@ -86,7 +86,7 @@ Check inline SVGs and any SVGs loaded as images in the default theme, dark theme
 
 ## Managing SVG icons
 
-SVG icon definitions, the mathematical points, paths, strokes, and fill data that tell the browser how to draw the icon, must be made available in your HTML document. You can inline this data _in situ_ each time you wish an icon to be shown. [^3] I personally prefer to define all the icon definitions I intend to use together in one place, and then refer to those definitions whenever I want one to be shown. For example, this SVG icon set includes only two icon symbols representing the accessibility icon and a popular social media brand, but it could logically have any number of named symbols.
+SVG icon definitions, the mathematical points, paths, strokes, and fill data that tell the browser how to draw the icon, must be made available in your HTML document. You can inline this data _in situ_ each time you wish an icon to be shown.  I personally prefer to define all the icon definitions I intend to use together in one place, and then refer to those definitions whenever I want one to be shown. For example, this SVG icon set includes only two icon symbols representing the accessibility icon and a popular social media brand, but it could logically have any number of named symbols.
 
 ```html
 <a href="https://example.com/accessibility" style="color:rebeccapurple">
@@ -144,7 +144,7 @@ Open source tools like [SVGR](https://github.com/gregberge/svgr) or [unplugin-ic
 
 ## Icons and accessible names
 
-HTML elements having the role of link, button, label, columnheader, and others [^4] must be provided text content to act as the "accessible name" of the element.
+HTML elements having the role of link, button, label, columnheader, and others  must be provided text content to act as the "accessible name" of the element.
 
 A common example where this becomes important is when an icon is used as the only content of a link. A screen reader encountering such a link will, by default, only announce "link" followed by whatever the `href` attribute value is: hardly useful!
 
@@ -198,7 +198,7 @@ We're on the socials!
 > Screen reader: "We're on the socials!"
 > Screen reader: "link, Toot us on Mastodon"
 
-Be careful not to provide regular text _and_ alternative text. In the previous example the `aria-hidden="true"` and `focusable="false"` [^2] attributes are used to keep the icon graphic out of the way of screen readers and keyboard navigation, and ensures that screen reader users don't hear confusing and redundant information like "link, Mastodon Toot us on Mastodon".
+Be careful not to provide regular text _and_ alternative text. In the previous example the `aria-hidden="true"` and `focusable="false"`  attributes are used to keep the icon graphic out of the way of screen readers and keyboard navigation, and ensures that screen reader users don't hear confusing and redundant information like "link, Mastodon Toot us on Mastodon".
 
 ## Using hidden text
 
@@ -353,7 +353,7 @@ Test decorative icons, meaningful icons and controls whose icons change with sta
 
 Trigger a pending operation, then test success and failure. Repeat with reduced motion enabled. The same status text appears and is announced in both settings. The spinner remains still in reduced motion and disappears when the operation ends. Focus stays with the user.
 
-### Related references
+## Sources
 
 - [Private Use Areas](https://en.wikipedia.org/wiki/Private_Use_Areas)
 - [Tooltip](https://en.wikipedia.org/wiki/Tooltip)
@@ -366,8 +366,11 @@ Trigger a pending operation, then test success and failure. Repeat with reduced 
 - [non text contrast](https://www.w3.org/TR/WCAG21/#non-text-contrast)
 - [Live region guidance](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
 - [Reduced-motion media feature](https://drafts.csswg.org/mediaqueries-5/#prefers-reduced-motion)
-
-[^1]: [SVG image support](https://caniuse.com/svg-img)
-[^2]: "Inline SVG elements in IE are focusable by default which may cause issues with tab-ordering." [Require `svg` elements to have focusable attribute (svg-focusable)](https://html-validate.org/rules/svg-focusable.html)
-[^3]: [Inline SVG support](https://caniuse.com/svg-html5)
-[^4]: [_Providing Accessible Names and Descriptions_](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/#x5-4-naming-techniques), W3C ARIA Authoring Practices Guide (APG)
+- [SVGR](https://github.com/gregberge/svgr)
+- [unplugin-icons](https://github.com/antfu/unplugin-icons)
+- [Tailwind](https://tailwindcss.com/docs/screen-readers)
+- [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/accessibility/#visually-hidden-content)
+- [SVG image support](https://caniuse.com/svg-img)
+- [Require `svg` elements to have focusable attribute (svg-focusable)](https://html-validate.org/rules/svg-focusable.html)
+- [Inline SVG support](https://caniuse.com/svg-html5)
+- [_Providing Accessible Names and Descriptions_](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/#x5-4-naming-techniques)
