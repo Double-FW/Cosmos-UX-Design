@@ -19,7 +19,7 @@ description: "Help people find content through site-wide or collection search."
 
 Help people find a page or explore a set of results by entering a query. State what the search covers before someone types. Keep the form usable without suggestions so people can still search when suggestions are unavailable.
 
-This guide covers query entry and linked suggestions. Use [Filter and Sort](Filter%20and%20Sort.md) to help people refine the results from a submitted query.
+This guide covers query entry and linked suggestions. Use [Page Structure](Page_Structure.md#search) for the search landmark in the page outline, [ARIA and Screen Reader Usability](ARIA%20and%20Screen%20Reader%20Usability.md) for cross-cutting semantic choices, and [Visually Hidden Content](Visually%20Hidden%20Content.md) when considering hidden field labels or suggestion states. Use [Filter and Sort](Filter%20and%20Sort.md) to help people refine the results from a submitted query.
 
 ## Recommended markup
 
@@ -55,7 +55,7 @@ A local search can stay visible within the collection it searches. If you offer 
 
 ### Search field labels
 
-Prefer a persistent visible text label. In a compact single-field search, a visible ‘Search’ button can provide visual context if it clearly belongs to the field. In that case, give the field its own associated label, visually hidden only where the context is clear. Keep a visible field label if the submit button is icon-only. Give the icon-only button an accessible name and hide its decorative icon from assistive technology. Keep essential query instructions visible as people type. Use placeholder text only as a supplementary example.
+Prefer a persistent visible text label. In a compact single-field search, a visible ‘Search’ button can provide visual context if it clearly belongs to the field. Give the field its own associated label. If the design cannot show the label, use a tested visually hidden technique only when the search context remains clear; keep the label available to speech input and screen reader users. Keep a visible field label if the submit button is icon-only. Give the icon-only button an accessible name and hide its decorative icon from assistive technology. Keep essential query instructions visible as people type. Use placeholder text only as a supplementary example.
 
 Use `type="search"` for the query field. Use `enterkeyhint="search"` on the field to suggest what the Enter key says on an on-screen keyboard. Keep an explicit submit button available. For an inline panel, use a separate `type="button"` control to close it.
 
