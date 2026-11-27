@@ -1,7 +1,8 @@
 # Cosmos - UX Design System Documentation
 
-— The orderly universe: All of space and everything in it, seen as a structured, systematic whole rather than pure chaos.
-— Order or harmony: A complex, self-contained, or well-arranged system.
+- The orderly universe: All of space and everything in it, seen as a structured, systematic whole rather than pure chaos.
+
+- Order or harmony: A complex, self-contained, or well-arranged system.
 
 A collection of universally applicable accessibility and inclusive design techniques for people designing, building, testing and improving web design systems. The guides cover page foundations, interaction, form controls, best practices and reusable components.
 
