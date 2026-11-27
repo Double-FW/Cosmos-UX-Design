@@ -13,7 +13,7 @@ scope: {"platform":"web","applies_to":["content hidden from everyone","content v
 license: "MIT"
 audiences: ["designers","developers","design system managers","QA engineers","AI agents"]
 related_guidance: ["ARIA and Screen Reader Usability.md","Anchors and Links.md","Focus.md","Labels.md","Icons.md","Disclosure.md","Accordion.md","Page_Structure.md"]
-tags: ["hidden content","visually hidden","accessibility tree","aria-hidden","focus","voice control","screen readers","progressive enhancement"]
+tags: ["hidden content","visually hidden","accessibility tree","<code>aria-hidden</code>","focus","voice control","screen readers","progressive enhancement"]
 ---
 
 # Visually Hidden Content
@@ -45,7 +45,7 @@ First identify whether the content should be available to everyone, only to peop
 
 Do not call content “inaccessible” when you mean only that it is visually hidden or absent from the accessibility tree. State which people, presentation modes and interaction states are affected.
 
-The table describes intended outcomes, not interchangeable techniques. A CSS rule, the HTML hidden attribute, and aria-hidden have different effects. Choose the implementation that creates the required visual state, accessibility-tree state and focus behaviour together.
+The table describes intended outcomes, not interchangeable techniques. A CSS rule, the HTML <code>hidden</code> attribute, and <code>aria-hidden</code> have different effects. Choose the implementation that creates the required visual state, accessibility-tree state and focus behaviour together.
 
 ## Design and handover
 
@@ -65,11 +65,11 @@ Keep the visual interface and programmatic presentation consistent. Content that
 
 ### Hide content from everyone
 
-For content that is not part of the current interface state, use a technique that removes it from visual presentation and the accessibility tree and prevents its descendants from receiving focus. The HTML hidden attribute or CSS display:none normally provides this outcome. Native patterns such as details and dialog manage their own states; use the relevant [component guide](README.md#design-patterns) for the full interaction contract.
+For content that is not part of the current interface state, use a technique that removes it from visual presentation and the accessibility tree and prevents its descendants from receiving focus. The HTML <code>hidden</code> attribute or CSS <code>display: none</code> normally provides this outcome. Native patterns such as details and dialog manage their own states; use the relevant [component guide](README.md#design-patterns) for the full interaction contract.
 
 When an interactive region closes, move focus before hiding it if focus is inside the region. Return focus to the control that opened it when that is appropriate to the pattern. Do not leave keyboard focus inside hidden content.
 
-The HTML hidden="until-found" state has different behaviour: browser find-in-page and fragment navigation can reveal its contents. Support and details vary, so test it in the product’s supported browsers. Do not add aria-hidden="true" to such content: this can leave revealed content visually present but unavailable to assistive technology.
+The HTML <code>hidden=&quot;until-found&quot;</code> state has different behaviour: browser find-in-page and fragment navigation can reveal its contents. Support and details vary, so test it in the product’s supported browsers. Do not add <code>aria-hidden=&quot;true&quot;</code> to such content: this can leave revealed content visually present but unavailable to assistive technology.
 
 ### Hide content visually but leave it in the accessibility tree
 
@@ -97,7 +97,7 @@ Avoid positioning hidden content far outside the viewport. Large negative offset
 
 ### Hide content from assistive technology only
 
-Use aria-hidden="true" only when content is visible but should not be represented in the accessibility tree, typically because it is decorative or duplicates an equivalent name or description already available.
+Use <code>aria-hidden=&quot;true&quot;</code> only when content is visible but should not be represented in the accessibility tree, typically because it is decorative or duplicates an equivalent name or description already available.
 
 ~~~html
 <button type="button" aria-label="Close dialog">
@@ -107,9 +107,9 @@ Use aria-hidden="true" only when content is visible but should not be represente
 
 The button remains named “Close dialog”; the decorative symbol is omitted from its name. See [Icons](Icons.md) for decorative graphics and [Labels](Labels.md) for control names.
 
-Do not put aria-hidden="true" on a focusable element or on a container with visible focusable descendants. A keyboard user could reach something that assistive technology is told does not exist. aria-hidden="false" on a child cannot undo aria-hidden="true" on an ancestor. Remove or move the hidden ancestor, or change the ancestor’s state.
+Do not put <code>aria-hidden=&quot;true&quot;</code> on a focusable element or on a container with visible focusable descendants. A keyboard user could reach something that assistive technology is told does not exist. <code>aria-hidden=&quot;false&quot;</code> on a child cannot undo <code>aria-hidden=&quot;true&quot;</code> on an ancestor. Remove or move the hidden ancestor, or change the ancestor’s state.
 
-aria-hidden does not visually hide content, remove it from keyboard focus, close a component, or manage focus. Do not use it as a substitute for hidden, CSS visibility, or a component’s state mechanism.
+<code>aria-hidden</code> does not visually hide content, remove it from keyboard focus, close a component, or manage focus. Do not use it as a substitute for <code>hidden</code>, CSS visibility, or a component’s state mechanism.
 
 ## Use visually hidden text carefully
 
@@ -132,22 +132,22 @@ A better option is often to make the visible link itself descriptive:
 <a href="/research/pony-study">Read the study of the social habits of wild ponies</a>
 ~~~
 
-Do not rely on aria-label or hidden text to compensate for an avoidably vague visual label. The visible label should remain useful to sighted people, speech-input users and people who use magnification.
+Do not rely on <code>aria-label</code> or hidden text to compensate for an avoidably vague visual label. The visible label should remain useful to sighted people, speech-input users and people who use magnification.
 
 ### Avoid font-size zero as a hiding technique
 
-Do not use font-size: 0, zero line-height, transparent text or similar “flattened text” techniques to hide meaningful content. User text-size overrides, browser settings and forced-colour modes can expose or distort the text, and these techniques do not provide a dependable visually hidden utility. Use a tested visually hidden class when the content genuinely needs to remain in the accessibility tree. Test enlarged text and user styles.
+Do not use <code>font-size: 0</code>, zero line-height, transparent text or similar “flattened text” techniques to hide meaningful content. User text-size overrides, browser settings and forced-colour modes can expose or distort the text, and these techniques do not provide a dependable visually hidden utility. Use a tested visually hidden class when the content genuinely needs to remain in the accessibility tree. Test enlarged text and user styles.
 
 ## Focus, search and fragment navigation
 
-A visually hidden element can still be focusable. If a person tabs to an element that remains visually hidden, its focus indicator and location may be impossible to see. If an element or a parent is hidden with aria-hidden="true", it may still receive focus in some implementations while being absent from the accessibility tree.
+A visually hidden element can still be focusable. If a person tabs to an element that remains visually hidden, its focus indicator and location may be impossible to see. If an element or a parent is hidden with <code>aria-hidden=&quot;true&quot;</code>, it may still receive focus in some implementations while being absent from the accessibility tree.
 
 When content is not available in the current state:
 
 - remove it from the tab order and accessibility tree using the owning component’s state mechanism;
 - before hiding a region that contains focus, move focus to a logical visible control or return it to the invoker according to the pattern;
 - when content is hidden until focus, reveal the focused element and its focus indicator;
-- do not add tabindex="0" to ordinary text just to make a screen reader encounter it.
+- do not add <code>tabindex=&quot;0&quot;</code> to ordinary text just to make a screen reader encounter it.
 
 Visually hidden text remains in the document. Browser find-in-page may report a match that is not visually apparent, and a fragment link may target content that is not currently visible. Consider whether the hidden text is suitable for search and ensure in-page navigation does not strand people inside a closed panel. For expandable panels and fragment targets, follow the [Accordion](Accordion.md#links-to-a-section) or owning pattern guidance.
 
@@ -155,8 +155,8 @@ Visually hidden text remains in the document. Browser find-in-page may report a 
 
 Use a native pattern when it matches the task:
 
-- Use details and its first-child summary for a simple disclosure. The browser supplies the open/closed state and keyboard operation. See [Disclosure](Disclosure.md#native-html).
-- Use dialog for a dialog that needs dialog semantics and modal or non-modal behaviour. See [Modal Dialogs](Modal%20Dialogs.md).
+- Use <code>details</code> and its first-child <code>summary</code> for a simple disclosure. The browser supplies the open/closed state and keyboard operation. See [Disclosure](Disclosure.md#native-html).
+- Use <code>dialog</code> for a dialog that needs dialog semantics and modal or non-modal behaviour. See [Modal Dialogs](Modal%20Dialogs.md).
 - The HTML Popover API can show and hide non-modal popover content. It is not a general replacement for a disclosure, tooltip or dialog, and it does not determine whether the content should receive focus. Select the pattern based on the content and task; see [Information Panels](Information%20Panels.md).
 
 These patterns manage particular interaction states. They do not make an unsuitable content choice accessible, and they still need design and implementation checks in the supported browser and assistive technology combinations.
@@ -168,7 +168,7 @@ Record the element or component, intended visibility state, browser, input metho
 | Method and action | Expected result |
 | --- | --- |
 | Inspect each hidden item and compare its intended visual and accessibility-tree states. | The chosen technique matches the documented audience and state. Meaningful visible content is not omitted from assistive technology without a clear reason. |
-| With a screen reader, navigate the page before and after the relevant action. | Content hidden from everyone is not announced while hidden. Visually hidden content intended for assistive technology is available in the expected reading or control context. Decorative content marked aria-hidden is not announced, while its meaningful equivalent remains available. |
+| With a screen reader, navigate the page before and after the relevant action. | Content hidden from everyone is not announced while hidden. Visually hidden content intended for assistive technology is available in the expected reading or control context. Decorative content marked <code>aria-hidden</code> is not announced, while its meaningful equivalent remains available. |
 | Use Tab and Shift+Tab around the hidden content, including controls inside it. | Hidden controls are not reachable. A focusable item that is visually hidden until focus becomes visible with its focus indicator. Focus does not remain inside content after that content closes. |
 | For expandable content, operate the trigger by keyboard, pointer and touch where supported; open and close it. | The trigger’s visible and programmatic state agrees with the content’s actual visibility. The content is available when open and unavailable when closed. Focus follows the owning pattern. |
 | Use speech input on controls whose accessible name includes hidden text. | The visible label can be used as a command and matches part of the accessible name. |
@@ -181,9 +181,9 @@ These checks are a manual design and implementation review, not a standalone con
 ## Sources
 
 - [HTML Standard: The hidden attribute](https://html.spec.whatwg.org/multipage/interaction.html#the-hidden-attribute)
-- [ARIA in HTML: Use of aria-hidden](https://www.w3.org/TR/html-aria/#el-aria-hidden)
+- [ARIA in HTML: Use of <code>aria-hidden</code>](https://www.w3.org/TR/html-aria/#el-<code>aria-hidden</code>)
 - [W3C: Using ARIA](https://www.w3.org/TR/using-aria/#fourth)
-- [W3C ACT Rule: Element with aria-hidden has no content in sequential focus navigation](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/)
+- [W3C ACT Rule: Element with <code>aria-hidden</code> has no content in sequential focus navigation](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/)
 - [WCAG 2.2 Understanding: Label in Name](https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html)
 - [HTML Standard: Popover API](https://html.spec.whatwg.org/multipage/popover.html)
 - [Cosmos: Disclosure](Disclosure.md)
