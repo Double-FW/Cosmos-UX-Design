@@ -5,7 +5,7 @@ description: When used judiciously, icons can improve usability and accessibilit
 
 # Icons
 
-Icons are an effective tool to emphasize and clarify your content. Used judiciously they can improve usability and accessibility for those with reading difficulties, visual impairments, neuro-cognitive differences or people who may not be adept with the language. However these benefits must be delivered in such a way so as to avoid creating barriers for blind users and others who rely upon screen reader (or braille display) devices.
+Icons are an effective tool to emphasize and clarify your content. Used judiciously they can improve usability and accessibility for those with reading difficulties, visual impairments, neuro-cognitive differences or people who may not be adept with the language. However these benefits must be delivered in such a way so as to avoid creating barriers for blind users and others who rely upon screen reader (or braille display) devices. For the use of ARIA with decorative graphics and accessible names, see [ARIA and Screen Reader Usability](ARIA%20and%20Screen%20Reader%20Usability.md) and [Visually Hidden Content](Visually%20Hidden%20Content.md).
 
 ## Use the SVG format
 
