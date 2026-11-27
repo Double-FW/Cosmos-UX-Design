@@ -25,7 +25,7 @@ Use a named `nav` with nested lists. Give a parent destination and its submenu t
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Give the `nav` landmark a name that tells people what it covers, such as ‘Help centre’. Make it distinguishable from any global navigation on the same page. Where a visible label is available, use `aria-labelledby` to reference it. For translated pages, include the landmark name when checking the translated interface.
 
@@ -37,7 +37,7 @@ Give hover and keyboard focus comparable prominence. Make keyboard focus distinc
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 ### Open and close a submenu
 
@@ -57,7 +57,7 @@ Start with all destinations available through ordinary links. Reveal any enhance
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 This example shows one enhanced submenu with a separate parent link. The site menu itself stays visible at all widths. Replace the routes with working destinations and set the current-page attribute from the page being served. Use unique IDs if there is more than one menu.
 
@@ -118,7 +118,7 @@ This example shows one enhanced submenu with a separate parent link. The site me
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Use a page with both global and site navigation where available. Test a top-level current page and a current page inside a submenu. Include a focusable element after the menu.
 
@@ -142,7 +142,7 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 ## Sources
 
-<a name="related-references"></a>
+<span id="related-references"></span>
 
 - [Using Navigation Landmarks](https://accessibility.blog.gov.uk/2016/05/27/using-navigation-landmarks/)
 - [Hiding Content Has No Effect on Accessible Name or Description Calculation](https://w3c.github.io/using-aria/#hiding-content-has-no-effect-on-accessible-name-or-description-calculation)

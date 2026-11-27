@@ -25,7 +25,7 @@ Start with the native video element and its controls. Use labelled buttons and a
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 - Keep Play/Pause first in the custom player’s control sequence and Mute/Unmute next where the player offers it. Keep the remaining controls in visual and keyboard order. Use familiar symbols and clear labels. Give each control a visible focus indicator and enough room to select it by touch or pointer. See [Focus](Focus.md#focus-indication) and [pointer target guidance](Call%20to%20Action.md#give-pointer-users-room-to-activate-the-action).
 - Keep on/off controls for captions and audio description in the main custom controls when those services are available. A menu can offer track, language or style choices. If audio description is provided through a separate video, offer a clearly labelled link beside the player. See [caption and subtitle guidance](https://github.com/Double-FW/Closed-Caption-Subtitles/blob/main/Closed_Caption_Subtitle_Guidelines.md) for preparing and displaying tracks.
@@ -33,7 +33,7 @@ Start with the native video element and its controls. Use labelled buttons and a
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 ### Playback and sound
 
@@ -55,7 +55,7 @@ For live media, use the actual seekable window if the stream supports seeking. W
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 ### Markup example
 
@@ -91,7 +91,7 @@ This snapshot shows a finite recording 15 seconds into a 95-second duration. It 
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Run the checks on the supported browsers, devices and assistive technologies. Use a recording with captions and test audio description and each other access service where supplied.
 
@@ -115,7 +115,7 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 ## Sources
 
-<a name="related-references"></a>
+<span id="related-references"></span>
 
 - [Accessible web video controls in Inclusive Media Interfaces](https://github.com/Double-FW/Inclusive-Media-Interfaces/blob/main/Accessible_Video_Controls_Organisation_Agnostic_Draft.md)
 - [MDN: Using the ARIA group role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_group_role)

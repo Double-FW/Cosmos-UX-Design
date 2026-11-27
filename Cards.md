@@ -25,7 +25,7 @@ Group related cards in a list where useful. Give each card a meaningful heading 
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Use an unordered list for a collection of peer cards. Put a descriptive collection heading before the list. Use the same heading level for every card in that collection, one level below the collection heading. Give a standalone card a heading that fits the surrounding page.
 
@@ -35,7 +35,7 @@ Group optional actions after the content. Give each button an accessible name th
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 Use a link for navigation and a button for an action on the current page. For a reversible choice such as saving an item, use a stable button label such as ‘Save the woodland walk’ and update `aria-pressed` to communicate the current state. For an action that opens sharing options, follow [Share Tools](Share%20Tools.md).
 
@@ -47,7 +47,7 @@ Use a modal dialog when a task needs the user’s attention and the underlying p
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 ### Markup example
 
@@ -95,7 +95,7 @@ Keep supplementary information available before an enhancement runs. If an enhan
 
 The ACT-style checks in this section are pattern-specific checks maintained in this guide. The proposed W3C rules are listed separately.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 ### ACT-style checks
 

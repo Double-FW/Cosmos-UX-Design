@@ -143,7 +143,7 @@ At a boundary, an unavailable button stays focusable and exposes `aria-disabled=
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="testing-notes"></a>
+<span id="testing-notes"></span>
 
 Use a list with at least three items, plus an empty destination if items can move between groups. Record the browser, device, input and assistive technology used.
 

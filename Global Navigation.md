@@ -25,7 +25,7 @@ Group destinations in a named navigation landmark. Use links for destinations an
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Place the navigation in the page header and give it a visible or accessible label that distinguishes it from other navigation landmarks. Group peer destinations in an unordered list. Keep their order consistent across pages and provide an early [skip link](Page_Structure.md#the-main-landmark).
 
@@ -38,7 +38,7 @@ Keep text labels visible where practical. When a compact control uses an icon, m
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 ### Baseline navigation
 
@@ -54,7 +54,7 @@ If the drawer moves focus on opening, open and close it without animation when o
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 This fragment shows a baseline with a skip link, a home destination, account and notification links, and a separate search destination. Replace the sample routes with working service routes. A script can group overflow links behind a native button once the enhancement is ready. Keep the baseline list available until then.
 
@@ -85,7 +85,7 @@ If you enhance a destination link into a drawer, keep the link as a fallback unt
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Run the checks on a wide and narrow layout and in the supported browsers and assistive technologies. Test account and notification states when those features are present.
 

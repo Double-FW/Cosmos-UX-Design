@@ -17,7 +17,7 @@ description: "Show or hide supplementary content in place."
 
 ## Introduction
 
-<a name="disclosure-show-and-hide-content"></a>
+<span id="disclosure-show-and-hide-content"></span>
 
 Use a disclosure when people can choose whether to read supplementary information in place. Give the control a label that identifies the content it reveals. Keep focus on the control when it opens or closes the panel. For grouped expandable sections, see [Accordion](Accordion.md); for switching among related panels, compare [Tabs](Tabs.md). For focus and announcements when content changes, see [Dynamic Content](Dynamic%20Content.md) and [Keyboard Navigation](Keyboard%20Navigation.md).
 
@@ -27,7 +27,7 @@ Use native `details` and `summary` where they fit. For a custom disclosure, use 
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Keep the control visible in both states. Provide a visible expanded or collapsed indicator, such as the native marker or an icon whose shape changes with the state. Keep the panel next in source order so users reach the revealed content predictably.
 
@@ -37,7 +37,7 @@ Keep focus on the disclosure control when it opens or closes. After opening, let
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 ### Native HTML
 
@@ -92,7 +92,7 @@ Start with the panel visible and the button hidden. Set up the button before col
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 1. Tab to the control and use Enter and Space to open and close it.
 2. Check that the control has a clear name and that its expanded or collapsed state is visible and announced by the screen reader.

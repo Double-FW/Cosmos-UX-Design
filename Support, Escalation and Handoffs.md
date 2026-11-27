@@ -51,7 +51,7 @@ A customer cannot complete an identity check. They use a written support form an
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 | Method and action | Expected result |
 | --- | --- |

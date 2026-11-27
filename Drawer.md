@@ -34,7 +34,7 @@ Use a disclosure for an in-flow drawer and a named dialog for a modal drawer.
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Give the opener and the drawer a task-specific label or heading, such as ‘Filters’ or ‘Delivery details’. Put the visible title before the content. Provide a visible way to close the drawer. Keep any Apply, Save or Cancel action clearly named and explain the result where it matters.
 
@@ -44,7 +44,7 @@ Do not rely on a shadow or background colour alone to show the drawer’s bounda
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 ### Non-modal drawer
 
@@ -68,7 +68,7 @@ Make opening and closing work without a swipe, drag, hover or click on the backd
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 ### Non-modal example
 
@@ -117,7 +117,7 @@ Start from the [native dialog example](Modal%20Dialogs.md#working-with-the-nativ
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Record the implemented variant, browser, device and assistive technology where relevant. Use a drawer with enough content to scroll and place a focusable control before and after it. For a drawer with editing, prepare an unsaved change as part of the test.
 

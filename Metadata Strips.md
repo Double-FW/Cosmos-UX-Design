@@ -27,7 +27,7 @@ Use list markup to group related values. Use `time` where a machine-readable val
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Place the details near the content they describe and use a consistent reading order. Make each value understandable in context. For example, distinguish ‘Published 1 minute ago’ from ‘Duration 1 minute’. Prefer visible words for a label or unit when an abbreviation or icon would be ambiguous.
 
@@ -35,13 +35,13 @@ Use spacing or a decorative border to separate entries. Avoid adding separator c
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 Most details are static. Where a value links somewhere, give the link wording that identifies its destination. Keep it distinguishable without colour, for example with an underline. If a link opens a new tab, give people advance notice. See [Anchors and Links](Anchors%20and%20Links.md#new-tabs) for new-tab behaviour and [Colour, Contrast and Meaning](Colour%2C%20Contrast%20and%20Meaning.md) for visual cues.
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 Use an unordered list for a set of short details. Use a description list for explicit term–value pairs, with a `dt` for the label and a `dd` for its value. Use `time` with a machine-readable `datetime` where useful. When showing a relative publication time, make the actual date available if people need it to assess the content.
 
@@ -70,7 +70,7 @@ If CSS removes list markers, verify that list semantics are still exposed in the
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 | Method and action | Expected result |
 | --- | --- |

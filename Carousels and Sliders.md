@@ -35,7 +35,7 @@ Name the carousel and its slides. Use native buttons to move through slides and 
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Give the collection a descriptive heading and each slide an identifiable title or label. Make Previous and Next easy to find beside the content they change. Match their visible and accessible names so people can operate them by voice. Put related controls together and keep their order consistent.
 
@@ -45,7 +45,7 @@ Keep the controls, titles and focus visible in [forced colours](Colour%2C%20Cont
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 ### Paged carousel
 
@@ -67,7 +67,7 @@ WCAG 2.2 [2.2.2 Pause, Stop, Hide](https://www.w3.org/TR/WCAG22/#pause-stop-hide
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 ### Manual carousel example
 
@@ -142,7 +142,7 @@ Let people change the value with the keyboard and by click or tap without draggi
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Use a representative page with a focusable control before and after the collection. Include a slide with a link or button and test a multi-item layout where supported.
 

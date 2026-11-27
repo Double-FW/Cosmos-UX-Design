@@ -133,7 +133,7 @@ A customer may answer either question or use the return link to skip the survey.
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="testing-notes"></a>
+<span id="testing-notes"></span>
 
 Use representative routes, including at least one where the person cannot finish. Record the task, channel, browser, assistive technology and observed result. Use fictitious responses when testing.
 

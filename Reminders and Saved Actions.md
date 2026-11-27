@@ -29,7 +29,7 @@ Use labelled controls for timing and channel. Name the saved task and provide a 
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 - Name the task and next action, such as ‘Continue your booking’ and ‘Choose a collection time’. Keep those details together in the saved item.
 - Distinguish the reminder time from a deadline or expiry. Show the date, time and time zone where relevant. Explain the consequence of a real deadline in plain text.
@@ -38,7 +38,7 @@ Use labelled controls for timing and channel. Name the saved task and provide a 
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 ### Save the action and schedule the reminder
 
@@ -54,7 +54,7 @@ Keep external previews and lock-screen messages free of sensitive details. Take 
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 Track the task state separately from the reminder state. Bind each reminder to the intended task and account. Define what time zone governs the schedule, how time or deadline changes affect pending reminders and when a retry is useful. Deduplicate retries and recheck the task and reminder state before sending so obsolete queued work is suppressed.
 
@@ -73,7 +73,7 @@ A person saves an unfinished booking. The draft expires on Friday at 5 pm. The s
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Use fictitious data and a controlled delivery fixture. Record the supported browser, assistive technology and delivery channel where applicable.
 

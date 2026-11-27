@@ -31,7 +31,7 @@ Use a labelled save button and a descriptive return link. Keep the saved state a
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 - Put a clearly labelled save action near the task controls. Use ‘Save and leave’ only if the action saves the draft and then leaves the task. Use ‘Continue application’ or another task-specific label for the return action.
 - Show the save state near the task. Distinguish changes still being edited, a save in progress and a confirmed save. If a draft is stored only on this device, say so where it affects how someone can return. Keep the save result easy to find after any announcement.
@@ -39,7 +39,7 @@ Use a labelled save button and a descriptive return link. Keep the saved state a
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 ### Save and leave
 
@@ -61,7 +61,7 @@ If another tab or device has changed the draft, identify the newer state and off
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 Define what the service saves, who can reopen it, where it can be reopened, and what expires. Track the saved step and the draft version so retries and older copies cannot silently replace newer work. Keep a draft scoped to its task and authorised user. For shared devices or sensitive entries, decide what may be retained and explain any limits before the person relies on saving.
 
@@ -79,7 +79,7 @@ A person saves an application after entering their address and choosing an appoi
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Use fictitious task data and record the starting state, platform, method and result. Include keyboard and screen reader use for status feedback and return navigation.
 

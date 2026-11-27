@@ -25,7 +25,7 @@ Use a list of service links and a labelled read-only field for the address. Use 
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 - Give the group a visible heading, such as ‘Share this guide’. If the page has several groups, name each for the content it shares. Use a named `aside` if the tools are supporting content and a landmark would help people find them. See [Landmarks](Landmarks.md).
 - Put service links in a list. Name each link for the action and service, such as ‘Share by email’. Prefer visible text. If you use an icon with a text label, keep the icon out of the accessible name and tab order. See [Icons](Icons.md) and [Anchors and Links](Anchors%20and%20Links.md#groups-of-external-destinations).
@@ -33,7 +33,7 @@ Use a list of service links and a labelled read-only field for the address. Use 
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 ### Bypass the tools
 
@@ -53,7 +53,7 @@ If you add a ‘Copy link’ button, copy only when someone activates it, and ke
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 ### Markup example
 
@@ -86,7 +86,7 @@ Keep the links and field available until any panel enhancement works. If you add
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Use a page with a control after the share tools. Test the panel and copy button where present. Use a share address with query parameters if the service supports sharing one.
 
@@ -110,7 +110,7 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 ## Sources
 
-<a name="related-references"></a>
+<span id="related-references"></span>
 
 - [Use high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
 - [Social Sharing Buttons: The First 10 Weeks](https://insidegovuk.blog.gov.uk/2014/02/20/gov-uk-social-sharing-buttons-the-first-10-weeks/)

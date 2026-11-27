@@ -25,7 +25,7 @@ Use a named tablist, associated tabs and labelled panels after enhancement. Keep
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Give the tab set a name that explains what the tabs group, such as ‘Journey information’. Give each tab a visible text label that describes the content it reveals. Keep panel headings so people can find the same sections before and after enhancement.
 
@@ -35,7 +35,7 @@ Keep the full labels readable at narrow widths and when people enlarge text. If 
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 ### Standard tabs
 
@@ -60,7 +60,7 @@ If selection updates the URL, record a history entry only when the selected dest
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 ### Markup example
 
@@ -112,7 +112,7 @@ Keep one tab in the ordinary Tab sequence. On arrow navigation, move that tab st
 
 The ACT-style checks in this section are pattern-specific checks maintained in this guide. The proposed W3C rules are listed separately.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 ### ACT-style checks
 
@@ -146,7 +146,7 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 ## Sources
 
-<a name="related-references"></a>
+<span id="related-references"></span>
 
 - [Tabs: ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
 - [Tabs, Used Right](https://www.nngroup.com/articles/tabs-used-right/)

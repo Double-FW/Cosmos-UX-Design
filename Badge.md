@@ -25,7 +25,7 @@ Use visible text for the status, category or count and associate it with the rel
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Use a short, visible label in sentence case, such as ‘On hold’, ‘New’ or ‘3 unread messages’. Keep the same wording and visual treatment for the same meaning across the service. Use badges selectively. Where a status affects what someone can do next, also state it in the relevant content or instructions.
 
@@ -35,7 +35,7 @@ Give the full label room to wrap. Use relative text sizes and padding, and let t
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 A badge is non-interactive. Its value can change. Keep it out of the tab order. When a badge is part of a link or button, the parent control owns focus and activation. Give that control visible text that identifies its destination or action.
 
@@ -45,7 +45,7 @@ Update the displayed count when the value is confirmed. If one action produces s
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 ### Static badges and groups
 
@@ -120,7 +120,7 @@ This example starts with three items. It uses the shared visually hidden class l
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Use the project’s supported browsers and assistive technologies. Test each badge presentation in use and record the variant, environment and result.
 
