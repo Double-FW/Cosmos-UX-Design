@@ -25,7 +25,7 @@ Use a named navigation landmark with links for destinations and buttons for disc
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Use clearly labelled buttons for panels and ordinary links for direct destinations. Give each panel a visible label or make its relationship to the trigger clear from the layout.
 
@@ -45,7 +45,7 @@ Only one panel may be open. Enter and Space activate the button. Tab and Shift+T
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 Build on the [custom disclosure behaviour](Disclosure.md#custom-html). Keep ordinary navigation links inside the panels, in source order after their buttons. This example shows two disclosure buttons and lists in a named navigation landmark. It demonstrates the interaction in source order. Use the layout guidance above when presenting the links in columns. The baseline group labels and links are available until JavaScript initialises the controls. Replace the sample destinations with working routes.
 
@@ -143,7 +143,7 @@ Build on the [custom disclosure behaviour](Disclosure.md#custom-html). Keep ordi
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Use the supported browsers and screen readers. Include a focusable control before and after the navigation.
 

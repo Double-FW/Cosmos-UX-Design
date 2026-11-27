@@ -109,7 +109,7 @@ Place this fragment in the verification form. Replace the destination hint with 
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="testing-notes"></a>
+<span id="testing-notes"></span>
 
 Use test accounts and supported browsers, devices and assistive technologies. Cover the whole journey, including third-party steps, with fictitious credentials.
 

@@ -49,7 +49,7 @@ Review any time-limited prompt that pressures people to act or makes it harder t
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 ### Persistent inline feedback
 
@@ -109,7 +109,7 @@ After the change, show ‘Read’ in the entry and update the header count. When
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 | Method and action | Expected result |
 | --- | --- |

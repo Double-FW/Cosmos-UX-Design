@@ -25,7 +25,7 @@ Use a named `nav` with a list of ancestor links. Mark the current page with `ari
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Each ancestor breadcrumb should link to the corresponding section of the website or application. The breadcrumb should be visually separated from the main content, and should be distinguishable from regular links. The last item in the breadcrumb list should indicate the current page.
 
@@ -43,7 +43,7 @@ Let people follow ancestor links through ordinary browser navigation. Update the
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 The breadcrumb should be a list of links, using either an `<ol>` or `<ul>` element. The last item in the list should indicate the current page and should not be linked. The list of links should be contained within a `<nav>` element with an appropriate accessible name, such as "breadcrumb".
 
@@ -77,7 +77,7 @@ The separator between each link should not be announced by a screen reader. Ther
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 1. The breadcrumbs list is contained within a `nav` HTML element.
 2. The containing `nav` HTML element has the HTML attribute of `aria-label="breadcrumb"` with a reasonable value (not necessarily "breadcrumb").
@@ -94,6 +94,6 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 ## Sources
 
-<a name="links-and-resources"></a>
+<span id="links-and-resources"></span>
 
 * [Accessible Breadcrumb Navigation Pattern](https://scottaohara.github.io/a11y_breadcrumbs/)

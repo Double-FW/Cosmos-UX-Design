@@ -50,7 +50,7 @@ Let people choose when to start playback. A card with both a player and a CTA sh
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 For a link-led promo, use a genuine headline link. Keep the description and metadata outside the link so its name stays concise. Leave the image without a separate link. If the headline is the only control, you can extend its pointer target across the promo. If a secondary destination is needed, such as a category, keep it independently operable.
 
@@ -114,7 +114,7 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 ## Sources
 
-<a name="related-references"></a>
+<span id="related-references"></span>
 
 - [Use high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
 - [W3C APG: complementary landmark example](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/complementary.html)

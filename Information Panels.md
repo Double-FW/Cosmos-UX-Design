@@ -23,9 +23,13 @@ Use a non-modal information panel for short, contextual content people can choos
 
 Use native buttons for the opener and Close action. Name the panel where that helps orientation.
 
+### Native Popover API for overlay panels
+
+For a web panel that needs to appear above other page content, consider the native [Popover API](https://html.spec.whatwg.org/multipage/popover.html). Use `popover="auto"` only when closing other auto popovers, light dismissal (clicking outside) and close requests are suitable; `popover="manual"` requires the interface to manage dismissal explicitly. Keep a visible Close control when people need a clear exit. The API manages popover visibility and top-layer presentation, but it does not make a panel modal or supply its accessible name, content semantics or all focus behaviour. Choose those from the interaction: simple content may leave focus on its trigger, while interactive content must remain reachable and operable. Keep the popover near its trigger in DOM order and verify the supported browser and assistive technology combinations.
+
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Give the trigger a label that identifies the information, such as ‘Delivery details’. Give the panel a visible title and a Close button with an accessible name. Place the panel after its trigger in source order. It can contain ordinary text, images, links and controls.
 
@@ -33,7 +37,7 @@ Place the panel near its trigger and keep it within the visible area. Align it t
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 On opening, reveal the panel, update the expanded state and move focus to its Close button. Keep the rest of the page available. Let people navigate the panel’s contents with the usual keyboard commands and Tab onward to the next destination.
 
@@ -41,7 +45,7 @@ Close the panel when the user activates Close, presses Escape inside it or activ
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 Build on [custom disclosure behaviour](Disclosure.md#custom-html). Use a native button with `aria-controls` referencing the panel and update `aria-expanded` with its visibility. A named group can expose the panel title when people enter it. Keep its descendants as ordinary links, buttons and other controls.
 
@@ -112,7 +116,7 @@ If you position the panel as an overlay, set a maximum width that accounts for p
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Run these checks in the supported browsers and screen readers. Include a focusable element after the panel to verify onward navigation.
 
@@ -122,6 +126,7 @@ Run these checks in the supported browsers and screen readers. Include a focusab
 | Close with the Close button, Escape and the opener in separate runs. | The panel is hidden, its contents leave tab and reading order, and focus is on the opener. |
 | Open the panel, Tab past its last control, then repeat by clicking an unrelated control. Also try clicking outside on plain content. | Focus can leave the panel and the page remains operable. Dismissal preserves a new focus destination or restores focus to the opener if the click leaves no usable target. |
 | If the panel overlays the page, test near both viewport edges. Increase text size, then narrow the viewport separately. Repeat in forced colours. | The panel and all controls remain visible and usable. The title, boundary and focus indication remain clear. |
+| If implemented with the native Popover API, test its configured Escape and outside-click behaviour with keyboard, pointer and touch. | It dismisses only in the intended cases; focus remains usable, and dismissal does not interrupt or lose the user's task. |
 | Block scripts and reload. | The supplementary content or its working destination is available, and enhancement controls do not appear in an unusable state. |
 
 ### Related W3C ACT rules
@@ -133,6 +138,7 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 ## Sources
 
+- [HTML Standard: popover attribute and light dismissal](https://html.spec.whatwg.org/multipage/popover.html)
 - [Use high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
 - [ARIA Authoring Practices: Menu button](https://www.w3.org/TR/wai-aria-practices-1.1/#menubutton)
 - [ARIA Authoring Practices: Dialog](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal)

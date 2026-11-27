@@ -185,7 +185,7 @@ The example announces status through a single region and leaves the transcript a
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="testing-notes"></a>
+<span id="testing-notes"></span>
 
 Run these checks on the integrated host page. Record the supported browser, device, assistive technology and observed result. Use fictitious conversations and controlled responses to exercise delays and failures. Inspect names, relationships, hidden states, focus and retry behaviour with automated checks where possible. Observe actual announcements and usability manually.
 

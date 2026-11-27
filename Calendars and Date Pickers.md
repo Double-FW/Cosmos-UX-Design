@@ -99,7 +99,7 @@ This server-rendered list works without JavaScript. Integrate it into a booking 
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="testing-notes"></a>
+<span id="testing-notes"></span>
 
 Use a fixture with dates on both sides of a month or year boundary, one unavailable date and a range where relevant. Record the browser, locale, device and assistive technology used.
 

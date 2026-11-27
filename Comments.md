@@ -25,7 +25,7 @@ Give the discussion and replies a meaningful structure. Label the reply field an
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Give the discussion a visible heading that includes ‘Comments’ and identifies the topic when useful. When comments supplement an article, place them after it in an `aside` named by that heading. When the discussion is the main purpose of the page, put it in the main content.
 
@@ -37,7 +37,7 @@ Prefer visible action labels. If you need an overflow control, place it after th
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 ### Posting and replying
 
@@ -59,7 +59,7 @@ For overflow actions, use a [Disclosure](Disclosure.md) with the actions immedia
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 ### Markup example
 
@@ -120,7 +120,7 @@ Keep fragment IDs stable through sorting and refreshes. If comments load asynchr
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 | Method and action | Expected result |
 | --- | --- |

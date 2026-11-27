@@ -29,7 +29,7 @@ Use a heading to identify the review, text labels for previous and current value
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 - Name the affected item and its context. For example, say ‘Delivery address for this order’ where the account also has a billing address. When two items have similar names, show a useful distinguishing detail that people can find with assistive technology.
 - Put the current value near the action that uses it. Show the earlier value alongside it when comparison helps, with plain labels such as ‘Previously shown’ and ‘Current total’. Explain the effect, such as a different amount payable or a later appointment.
@@ -37,7 +37,7 @@ Use a heading to identify the review, text labels for previous and current value
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 ### Decide what needs another review
 
@@ -53,7 +53,7 @@ Use a confirmation action that describes the actual commitment, such as ‘Pay �
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 Record the identity and material values shown at review. When processing confirmation, check those values against the current authoritative state as part of the same operation that accepts the action. If they have changed materially, stop the pending commitment and show a fresh review. Carry the newly reviewed values forward only after another explicit confirmation. Handle repeat submissions so a retry cannot create a second commitment.
 
@@ -73,7 +73,7 @@ A person reviews an order at £24, including delivery. The delivery charge chang
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Use controlled fixtures and fictitious data. Record the values shown at review, the action requested and the accepted outcome, where there is one.
 

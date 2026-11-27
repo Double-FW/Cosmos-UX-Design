@@ -25,7 +25,7 @@ Use a table with a caption and associated headers. Where sorting is offered, use
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Give the table a descriptive caption so people can identify it when navigating directly to it with a screen reader. If the same text also introduces a section, you can put a heading of the appropriate level inside the caption. Give rows and columns meaningful headers where needed. For example, name the column that contains row headers ‘Location’ instead of leaving its header empty.
 
@@ -35,7 +35,7 @@ Make overflow discoverable. Keep the scrollbar available where the system displa
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 ### Scrolling and sticky headers
 
@@ -51,7 +51,7 @@ Choose an initial direction that fits the data. On a repeat activation of the sa
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 ### Markup example
 
@@ -101,7 +101,7 @@ For client-side sorting, render the rows in a useful order initially and add the
 
 The ACT-style checks in this section are pattern-specific checks maintained in this guide. The proposed W3C rules are listed separately.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 ### ACT-style checks
 

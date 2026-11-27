@@ -25,7 +25,7 @@ Use links when choices navigate and labelled form controls when people need to a
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Use distinct labels such as ‘Filter by content type’ and ‘Sort by’. Keep the selected filter and sort order identifiable without colour. For example, pair a visual treatment with a ‘Current’ marker. If an active filter moves into the overflow list, show its name outside the collapsed list too.
 
@@ -33,7 +33,7 @@ Let choices wrap where there is space. If the baseline uses a horizontal strip, 
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 ### Choosing and applying options
 
@@ -49,7 +49,7 @@ Use [Disclosure](Disclosure.md) for a control labelled ‘More filters’ or sim
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 ### Markup example
 
@@ -90,7 +90,7 @@ Recheck the layout at narrow widths and after text resizing. When a choice has f
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Test the link or form variant in use with the supported browsers, keyboard and screen readers.
 

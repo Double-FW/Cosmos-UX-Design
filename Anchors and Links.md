@@ -196,7 +196,7 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 ## Sources
 
-<a name="related-references"></a>
+<span id="related-references"></span>
 
 - [Use high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
 - [Visually hidden text example](https://gist.github.com/Heydon/c8d46c0dd18ce96b5833b3b564e9f472)

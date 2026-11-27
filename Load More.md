@@ -27,7 +27,7 @@ Use links for pagination and a button to request another batch in place. Keep re
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Put the initial results in the main content. Use list items for results and use consistent heading levels when results have headings. Follow [Headings](Headings.md) for choosing their level. Make each result and its link distinguishable from its neighbours.
 
@@ -35,7 +35,7 @@ Place the Load more button and loading feedback after the results. Make each new
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 ### Pagination
 
@@ -53,7 +53,7 @@ Use a named navigation landmark for pagination. Mark the current page with `aria
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 ### Markup example
 
@@ -91,7 +91,7 @@ Insert the new batch immediately before the status and controls. For example, th
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Test with the supported browsers and screen readers. Include enough results to load a second batch and then reach the end.
 

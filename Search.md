@@ -23,11 +23,11 @@ This guide covers query entry and linked suggestions. Use [Filter and Sort](Filt
 
 ## Recommended markup
 
-Give the search field a label and expose the scope through a named search landmark. Use an explicit submit button.
+Use the native `<search>` element for a search or filtering interface; it provides search landmark semantics without a redundant `role="search"`. Give the landmark a clear accessible name when its purpose is not clear from its heading or context, and give the query field its own associated label. Use an explicit submit button. Use `role="search"` on another suitable container only when the native element is unavailable in the host environment.
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Use consistent controls for site-wide and local search. Name the scope in the visible label, such as ‘Search this site’ or ‘Search the help centre’. When a page has both searches, give their search landmarks distinct names so someone using a screen reader can find the right form. See [Landmarks](Landmarks.md).
 
@@ -35,7 +35,7 @@ Place suggestions below the search controls in the visual layout and document or
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 ### Open and close search
 
@@ -51,7 +51,7 @@ A local search can stay visible within the collection it searches. If you offer 
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 ### Search field labels
 
@@ -61,10 +61,10 @@ Use `type="search"` for the query field. Use `enterkeyhint="search"` on the fiel
 
 ### Markup example
 
-This always-visible local search submits without JavaScript. Replace the example action with the service’s search endpoint. Give each form and label pair its own IDs where needed. In this example the search landmark wraps the form so it can also contain the suggestions.
+This always-visible local search submits without JavaScript. Replace the example action with the service’s search endpoint. Give each form and label pair its own IDs where needed. The native `<search>` element identifies the search interface and can wrap the form and suggestions.
 
 ```html
-<div role="search" aria-label="Help centre">
+<search aria-label="Help centre">
   <form action="/help/search" method="get">
     <label for="help-query">Search the help centre</label>
     <input id="help-query" name="q" type="search" enterkeyhint="search">
@@ -77,7 +77,7 @@ This always-visible local search submits without JavaScript. Replace the example
     <h2 id="help-suggestions-heading">Suggested help pages</h2>
     <ul id="help-suggestion-links"></ul>
   </section>
-</div>
+</search>
 ```
 
 The markup starts with an empty status message and hidden list. To enhance it, populate the list with working links for the current query, remove `hidden` from the section and update the existing status text with the count. When hiding the section, clear or update the status text to match. Keep the status element in the document and outside the hidden section so it is available before the update. See [Notifications and Status Messages](Notifications%20and%20Status%20Messages.md#persistent-inline-feedback).
@@ -88,7 +88,7 @@ When suggestions fill in a query value, choose a pattern for that interaction, s
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Run the checks that match the implementation. For suggestions, use a query with known destinations and a query that produces none. Record the browser, device and assistive technology used where relevant.
 
@@ -114,10 +114,11 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 ## Sources
 
-<a name="related-references"></a>
+<span id="related-references"></span>
 
 - [Where To Put Your Search Role](http://adrianroselli.com/2015/08/where-to-put-your-search-role.html)
 - [When To Use An ARIA Role](https://developer.paciellogroup.com/blog/2012/06/html5-accessibility-chops-when-to-use-an-aria-role/)
 - [Why it's important to give your HTML button a type](https://dev.to/claireparkerjones/why-its-important-to-give-your-html-button-a-type-58k9)
+- [`<search>` element (HTML Standard)](https://html.spec.whatwg.org/multipage/grouping-content.html#the-search-element)
 - [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
 - [Combobox - ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/#combobox)

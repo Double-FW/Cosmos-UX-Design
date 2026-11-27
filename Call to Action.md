@@ -25,7 +25,7 @@ Use a link for a destination and a button for an action. Give each a visible nam
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Give the main action enough prominence to distinguish it from alternatives. Put it near the information a person needs to decide. Keep the information and action in a meaningful reading and focus order at narrow widths and high zoom. Use a visible label that names the step. For example, ‘Check eligibility’ tells people more than ‘Learn more’. Keep the visible wording in the accessible name so people can refer to it by voice. See [Labels](Labels.md).
 
@@ -53,7 +53,7 @@ Consider a larger design target such as 44 by 44 CSS pixels for prominent standa
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 Use the element that matches the outcome.
 
@@ -64,7 +64,7 @@ After an action, show the result or explain what the person can do to recover. I
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 This fragment shows two distinct actions. The link opens the offer details and the button submits a form to apply an offer. The service supplies both routes and reports the result of submission.
 
@@ -80,7 +80,7 @@ This fragment shows two distinct actions. The link opens the offer details and t
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 | Method and action | Expected result |
 | --- | --- |

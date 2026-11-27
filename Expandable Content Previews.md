@@ -25,7 +25,7 @@ Use a native button for the expansion. Identify the controlled content and expos
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 End the preview at a complete paragraph, list item or section. Keep the expansion button immediately after the visible preview in reading order. Label it for the content it controls, such as ‘Show full route guide’. Provide a visible boundary and a focus indicator that remain clear in forced colours.
 
@@ -33,7 +33,7 @@ When expanded, place a short continuation marker, such as ‘Continue reading’
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 Start with the full content available. Once the enhancement is ready, hide the remainder visually and remove it from screen reader navigation and keyboard focus order. Keep all three states in sync.
 
@@ -43,7 +43,7 @@ When the user collapses the preview, keep focus on the same button. Hide the con
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 The example uses a fixed content boundary and needs no application framework or network request. Place the fragment inside the page’s main content. The rest of the guide starts visible and the button starts hidden. When the script is available, it installs the handler before collapsing the remainder.
 
@@ -110,7 +110,7 @@ Recalculate after resizing, zoom or content changes. If a new boundary would hid
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 Test with the project’s supported browsers and screen readers. Include a link in the preview and one in the initially hidden content so the keyboard check can distinguish them.
 

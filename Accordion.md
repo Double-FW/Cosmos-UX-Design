@@ -25,7 +25,7 @@ Use native `details` and `summary`, or a named button in a heading with an assoc
 
 ## Recommended layout
 
-<a name="presentation"></a>
+<span id="presentation"></span>
 
 Give each control a visible label that describes the panel it opens, such as ‘Ingredients’ or ‘Contact information’. Keep the control visible and recognisable as interactive in both states. Show the state with a native marker or a visible change in shape, such as a plus changing to a minus. Keep the associated panel immediately after its control or enclosing heading in source order.
 
@@ -35,7 +35,7 @@ Let long labels wrap without overlapping or squeezing out the indicator. Check t
 
 ## Recommended behaviour
 
-<a name="behaviour"></a>
+<span id="behaviour"></span>
 
 Tab moves between controls and any interactive content in open panels in document order. Enter and Space operate the focused control. Keep keyboard focus on the control the person activates. Opening a panel makes it available visually, to assistive technology and to keyboard users. Closing it removes it from all three.
 
@@ -51,7 +51,7 @@ If a URL fragment targets content within a collapsed panel, reveal the containin
 
 ## Reference implementation
 
-<a name="implementation"></a>
+<span id="implementation"></span>
 
 ### Native HTML
 
@@ -83,7 +83,7 @@ For a single-open group, update both the newly opened panel and the one that clo
 
 The ACT-style checks in this section are pattern-specific checks maintained in this guide. The proposed W3C rules are listed separately.
 
-<a name="checkpoints-for-the-tester"></a>
+<span id="checkpoints-for-the-tester"></span>
 
 ### ACT-style checks
 

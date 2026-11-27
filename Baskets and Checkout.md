@@ -117,7 +117,7 @@ This fragment shows the next relevant step after delivery has been chosen. Rende
 
 Test the supported variants. Record the method, browser and assistive technology where relevant, and compare the observed result with the expected behaviour.
 
-<a name="testing-notes"></a>
+<span id="testing-notes"></span>
 
 Use a test payment environment and fictitious order data. Include the host checkout and any payment or authentication service. Record the route, starting state, device and assistive technology.
 

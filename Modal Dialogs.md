@@ -17,7 +17,7 @@ description: "A guide to making accessible modal dialogs."
 
 ## Introduction
 
-<a name="modal-dialog"></a>
+<span id="modal-dialog"></span>
 
 Use a modal dialog when the user needs to address a specific task or message before returning to the page. Prefer inline content or a dedicated page when people can continue their work without interruption. Avoid opening a modal automatically unless the interruption is necessary. For a non-modal contextual panel, see [Information Panels](Information%20Panels.md); for supplementary content revealed in place, see [Disclosure](Disclosure.md).
 
@@ -50,7 +50,7 @@ For shared focus indication and keyboard-order guidance, see [Focus](Focus.md) a
 
 ### Dismissal
 
-Provide a visible, keyboard-operable close or cancel control and support Escape. Backdrop dismissal is optional. If a step needs an explicit response, provide a clear keyboard-operable way to decline or cancel. Avoid automatic dismissal. Use `method="dialog"` for controls that close a dialog without submitting data to a server, or call `close()` when the action has completed.
+Provide a visible, keyboard-operable close or cancel control. Usually allow Escape as a close request; backdrop dismissal is optional. For native `<dialog>`, the `closedby` attribute controls automatic dismissal: `closedby="closerequest"` allows close requests such as Escape; `closedby="any"` also allows light dismissal when the person clicks or taps outside; `closedby="none"` disables automatic closure from user actions, including Escape. The default is automatic behaviour based on whether the dialog is modal. Choose the least surprising behaviour for the task, and do not make outside dismissal the only way to close. If you choose `none`, retain a clear close or cancel control and provide a task-specific reason for suppressing Escape. If a step needs an explicit response, provide a clear keyboard-operable way to decline or cancel. Avoid automatic timeout dismissal. Use `method="dialog"` for controls that close a dialog without submitting data to a server, or call `close()` when the action has completed.
 
 Prefer one modal at a time. If dialogs are opened in sequence, test focus at each transition and on return to the page. If a workflow genuinely needs stacked dialogs, test that only the active dialog can be used and that focus returns to the appropriate layer. For the wider task flow around declining, cancelling or leaving, see [Refusal, Cancellation and Exit](Refusal%2C%20Cancellation%20and%20Exit.md).
 
@@ -127,7 +127,7 @@ Test the supported variants. Record the method, browser and assistive technology
 3. Tab and Shift+Tab can reach all relevant modal controls without moving focus onto the underlying page. The underlying page is unavailable to pointer interaction and screen reader browsing.
 4. A visible backdrop or equivalent treatment indicates that the underlying page is inactive. Check that page scrolling does not interfere with reading or operating the modal.
 5. The content and controls remain usable when text is resized and at narrow widths. Use the [resize and reflow checks](Typography.md#responsiveness).
-6. The visible close or cancel control and Escape close the modal. If backdrop dismissal is implemented, verify that a click within the dialog does not dismiss it accidentally.
+6. The visible close or cancel control closes the modal. Verify Escape and outside-click behaviour against the native `closedby` value (or the custom implementation's equivalent); an interaction inside the dialog must not trigger light dismissal.
 7. After closing, the underlying page is usable again and focus returns to the trigger or the next logical location.
 8. With the enhancement script blocked, verify that the user can reach any essential information or action by the documented fallback.
 
@@ -146,7 +146,9 @@ Apply these proposed rules where their applicability conditions are met. Use the
 
 ## Sources
 
-<a name="related-references"></a>
+- [HTML Standard: dialog element and `closedby`](https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element)
+
+<span id="related-references"></span>
 
 - [Use high contrast mode in Windows](https://support.microsoft.com/en-gb/help/13862/windows-use-high-contrast-mode)
 - [Modal window (Wikipedia)](https://en.wikipedia.org/wiki/Modal_window)
