@@ -193,12 +193,18 @@ For a list of external links, use a descriptive heading and ordinary list markup
 1. Review an inline link on its own and the external-link list in context.
 2. Check that the destination and any new-window behaviour are understandable with a keyboard, a screen reader and forced colours.
 
+### Supplied QA scripts
+
+- [Links and Anchors Test Criteria](qa/supplied/links-and-anchors.md).
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
-- [Visible label is part of accessible name (2ee8b8)](https://www.w3.org/WAI/standards-guidelines/act/rules/2ee8b8/proposed/)
+- [Link has non-empty accessible name (c487ae)](qa/w3c-act/c487ae.md)
+- [Visible label is part of accessible name (2ee8b8)](qa/w3c-act/2ee8b8.md)
 
 <span id="related-references"></span>
 

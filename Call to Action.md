@@ -90,13 +90,19 @@ Test the supported variants. Record the method, browser and assistive technology
 | Measure the actual pointer target and, where needed, check adjacent targets against the spacing exception. Try the supported touch and pointer inputs. | The target meets the applicable criterion and people can activate it without accidentally selecting a neighbouring control. |
 | Complete an action, then test an ineligible or failed attempt where relevant. | The result matches the promise made by the label. Failure explains what happened and how to continue. |
 
+### Supplied QA scripts
+
+- [Call to Action Test Criteria](qa/supplied/call-to-action.md).
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
-- [Visible label is part of accessible name (2ee8b8)](https://www.w3.org/WAI/standards-guidelines/act/rules/2ee8b8/proposed/)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Link has non-empty accessible name (c487ae)](qa/w3c-act/c487ae.md)
+- [Visible label is part of accessible name (2ee8b8)](qa/w3c-act/2ee8b8.md)
 
 ## Sources
 

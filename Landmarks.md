@@ -37,6 +37,12 @@ Inspect the browser’s accessibility tree or use a [landmark navigation extensi
 | Navigate to named sections and supporting content. Review any significant content flagged outside landmarks. | Each landmark is useful and clearly identified. The page’s main areas can be found through landmarks or the surrounding page structure. |
 | From the top of the page, Tab to the skip link and activate it. Press Tab again. | The link is easy to reach and visible on focus. It moves focus to main content and the next Tab continues from there. |
 
+### Supplied QA scripts
+
+- [Skip Link Test Criteria](qa/supplied/skip-link.md) — Apply to a skip link where supplied. Keep landmark navigation checks separate.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ## Sources
 
 - [survey of screen reader users](https://webaim.org/projects/screenreadersurvey9/#landmarks)

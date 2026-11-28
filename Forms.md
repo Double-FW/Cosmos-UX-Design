@@ -87,6 +87,12 @@ Detect missing or empty accessible names and broken ID references. Use manual ch
 4. Where autofill or a specialised input is offered, check that people can enter and correct values manually. Confirm that autofill puts the expected information in the right fields when it is enabled.
 5. Increase text size and test a narrow viewport separately. Repeat with forced colours. Check that labels, instructions, focus and errors remain visible and usable.
 
+### Supplied QA scripts
+
+- [Form fields and validation](qa/supplied/form-validation.md) — Expectation 7 belongs to Promos. Exclude it from form scoring. Apply the Search guide’s compact search exception and accept either removing aria-invalid or setting it to false after correction.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ## Sources
 
 - [Problems with using placeholders for labels](https://www.smashingmagazine.com/2018/06/placeholder-attribute/)

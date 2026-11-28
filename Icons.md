@@ -353,6 +353,12 @@ Test decorative icons, meaningful icons and controls whose icons change with sta
 
 Trigger a pending operation, then test success and failure. Repeat with reduced motion enabled. The same status text appears and is announced in both settings. The spinner remains still in reduced motion and disappears when the operation ends. Focus stays with the user.
 
+## Supplied QA scripts
+
+- [Iconography](qa/supplied/iconography.md).
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ## Sources
 
 - [Private Use Areas](https://en.wikipedia.org/wiki/Private_Use_Areas)

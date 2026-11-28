@@ -65,8 +65,8 @@ See [Alternatives to Deceptive Patterns](Alternatives%20to%20Deceptive%20Pattern
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
-- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Link has non-empty accessible name (c487ae)](qa/w3c-act/c487ae.md)
+- [Form field has non-empty accessible name (e086e5)](qa/w3c-act/e086e5.md)
 
 ## Sources
 

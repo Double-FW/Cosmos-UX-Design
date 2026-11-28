@@ -145,6 +145,12 @@ Inspect the document structure and compare it with the visual outline and the sc
 
 Activate an in-page link to a heading using the keyboard. Check that the heading can be identified as the destination, including with a supported screen reader. Press Tab and check that navigation continues from the destination section. Check that the heading adds no stop during ordinary tabbing.
 
+## Supplied QA scripts
+
+- [Headings](qa/supplied/headings.md).
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ## Sources
 
 - [Screen reader navigation strategies](http://www.heydonworks.com/article/responses-to-the-screen-reader-strategy-survey)

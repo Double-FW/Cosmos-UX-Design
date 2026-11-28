@@ -104,13 +104,19 @@ Run the checks that match the implementation. For suggestions, use a query with 
 | Increase text size, then separately narrow the viewport. Use the field, buttons and suggestions by keyboard in each condition. | The controls and suggestions remain readable and operable. Focus stays visible as controls wrap. |
 | Enable reduced motion if the suggestions are animated. Enter a query with suggestions and then clear it. | Suggestions appear and disappear without the non-essential motion. |
 
+### Supplied QA scripts
+
+- [Paged Navigation Test Criteria](qa/supplied/paged-navigation.md) — Apply only if results use numbered pagination.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+- [Form field has non-empty accessible name (e086e5)](qa/w3c-act/e086e5.md)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Link has non-empty accessible name (c487ae)](qa/w3c-act/c487ae.md)
 
 <span id="related-references"></span>
 

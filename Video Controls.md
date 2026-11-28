@@ -115,13 +115,19 @@ Run the checks on the supported browsers, devices and assistive technologies. Us
 | Let a clip finish with loop and auto-next off. Where those options exist, test them separately. Pause near the end or during any auto-next countdown. Turn auto-next off, navigate to another video and let it finish. | The default is one play-through. Each opted-in mode behaves as labelled. Pausing cancels any pending start. The next item waits for activation after opt-out, and focus remains usable throughout. |
 | Interrupt playback or seek with buffering, then simulate a playback failure. | Feedback is perceivable, controls reflect the actual state and the available recovery action is clear. |
 
+### Supplied QA scripts
+
+- [Toggle Button Test Criteria](qa/supplied/toggle-button.md) — Apply only to a stable-label toggle. Use the guide’s own checks for changing Play/Pause or Mute/Unmute action labels.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Video element auditory content has captions (f51b46)](https://www.w3.org/WAI/standards-guidelines/act/rules/f51b46/proposed/)
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
+- [Video element auditory content has captions (f51b46)](qa/w3c-act/f51b46.md)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Form field has non-empty accessible name (e086e5)](qa/w3c-act/e086e5.md)
 
 <span id="related-references"></span>
 

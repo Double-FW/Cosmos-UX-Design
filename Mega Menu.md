@@ -156,13 +156,19 @@ Use the supported browsers and screen readers. Include a focusable control befor
 | Enable forced colours and operate both panels with the keyboard. | The open state, panel boundary and focus indicator are distinguishable. |
 | Block scripts and reload. In a separate run, restore scripts and disable CSS. | With scripts blocked, the group labels and all destinations are available. With CSS disabled, the triggers still operate and the screen reader can identify their states. |
 
+### Supplied QA scripts
+
+- [Navigation Menu Test Criteria](qa/supplied/navigation-menu.md) — Use the guide’s Escape and focus contract for the expanded panel.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
-- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Link has non-empty accessible name (c487ae)](qa/w3c-act/c487ae.md)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](qa/w3c-act/6cfa84.md)
 
 ## Sources
 

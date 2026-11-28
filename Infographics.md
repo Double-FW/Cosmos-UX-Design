@@ -77,6 +77,12 @@ Test the presentations and controls the project uses. Record the browser, assist
 | Where controls or tooltips are provided, try them with the keyboard and touch. Change a filter and compare the graphic with its alternative. | The same values can be obtained without hover. Focus remains usable and the formats reflect the same filter. |
 | Block scripts or the image asset where applicable. Locate the main finding and an exact value from the alternative. | The summary and data remain available. |
 
+### Supplied QA scripts
+
+- [Alternative Text Test Criteria](qa/supplied/alternative-text.md) — Apply to the image and its detailed alternative. Test access to the underlying information separately.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ## Sources
 
 - [Don't make every `<svg>` focusable](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/8090208/)

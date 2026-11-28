@@ -315,6 +315,12 @@ Use the task identified at the start of design. Record the view, selected data, 
 
 Automate agreement between displayed values and filter state where possible. Use assistive technology and task testing to check whether people can interpret the information and complete the intended action.
 
+### Supplied QA scripts
+
+- [Alternative Text Test Criteria](qa/supplied/alternative-text.md) — Apply to image alternatives where relevant. Test interactive exploration separately.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ## Sources
 
 - [W3C technique H64: Naming an iframe](https://www.w3.org/WAI/WCAG22/Techniques/html/H64)

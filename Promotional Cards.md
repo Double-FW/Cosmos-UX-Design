@@ -104,13 +104,19 @@ Run these checks on the link-led variant. Apply image, media, description and me
 5. For a card with a video and CTA, Tab through the player and activate the CTA separately. Repeat with a pointer. Playback starts only when requested. The CTA remains available while the video is paused, playing and finished. Neither action triggers the other, and focus stays visible.
 6. Read the CTA on its own with a screen reader. Check that the role matches its behaviour, the name identifies the action or destination, and any conditions needed to decide are available before activation.
 
+### Supplied QA scripts
+
+- [Promos](qa/supplied/promos.md) — Apply the linked-headline checks only to the matching linked promo. Use the guide’s own cases for playable previews and separate actions.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
-- [Image has non-empty accessible name (23a2a8)](https://www.w3.org/WAI/standards-guidelines/act/rules/23a2a8/proposed/)
-- [Video element auditory content has captions (f51b46)](https://www.w3.org/WAI/standards-guidelines/act/rules/f51b46/proposed/)
+- [Link has non-empty accessible name (c487ae)](qa/w3c-act/c487ae.md)
+- [Image has non-empty accessible name (23a2a8)](qa/w3c-act/23a2a8.md)
+- [Video element auditory content has captions (f51b46)](qa/w3c-act/f51b46.md)
 
 <span id="related-references"></span>
 

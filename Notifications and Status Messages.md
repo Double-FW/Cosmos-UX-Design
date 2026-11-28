@@ -121,12 +121,18 @@ Test the supported variants. Record the method, browser and assistive technology
 | Review any remaining toast while magnified and with a screen reader. Let it disappear. | The same information can still be found. Any action or material condition is available in a persistent place. |
 | Follow the worked example from a background completion to marking the notice as read. Repeat with scripts blocked and simulate a failed read update separately. | The report adds one unread entry. With scripts blocked, the updated count and entry are available on the next page load. The centre opens from a working link. A successful read update decreases the count without removing the report entry. A failed update leaves the count and read state consistent and gives the person a way to retry. |
 
+### Supplied QA scripts
+
+- [Progress Indicator Test Criteria](qa/supplied/progress-indicator.md) — Apply only when there is a progress indicator. Use the guide’s live feedback checks for messages.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Link has non-empty accessible name (c487ae)](qa/w3c-act/c487ae.md)
 
 ## Sources
 

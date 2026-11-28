@@ -165,6 +165,13 @@ Record the page, theme, component, state, method and result. For measurements in
 | **Manual.** With the service set to System, change the device appearance while the page is open. Select Light or Dark and change the device appearance again. Reload, visit another page, then select System. | System follows the device. An explicit choice stays selected and is remembered when storage is available. Returning to System clears the override. The control keeps focus during changes and forced colours still apply. |
 | **Manual.** Block scripts, then test again with scripts enabled and storage unavailable. | The script-free page follows the system palette and shows no inactive selector. With scripts enabled, switching still works for the current page. |
 
+### Supplied QA scripts
+
+- [Dark Mode Switcher Test Criteria](qa/supplied/dark-mode-switcher.md) — Test the actual control type, System mode, preference persistence and interaction with forced colours. The supplied checks alone cover only part of that contract.
+- [Toggle Button Test Criteria](qa/supplied/toggle-button.md) — Apply only to a two-state switch or toggle. Use the theme-specific suite for a System, Light and Dark selector.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ## Sources
 
 - [Contrast checker](https://webaim.org/resources/contrastchecker/)

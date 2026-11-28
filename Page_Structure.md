@@ -151,6 +151,12 @@ The page-level `footer` exposes the `contentinfo` landmark. Use it for informati
 </body>
 ```
 
+## Supplied QA scripts
+
+- [Skip Link Test Criteria](qa/supplied/skip-link.md).
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ## Sources
 
 - [_ARIA: main role_](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/main_role), MDN web docs

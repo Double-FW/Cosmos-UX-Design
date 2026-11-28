@@ -136,13 +136,19 @@ Apply these checks to each enhanced tab set with two or more panels. Run the foc
 | If selection updates the URL, select two different tabs from the initial URL, then use Back and Forward. | The visible panel and selected tab follow the URL, including when returning to the initial URL. Focus remains visible and usable. |
 | Enlarge text and then separately narrow the viewport. Use the controls again, including any vertical layout. | Labels stay readable, selection and focus stay clear, and the visible orientation matches the keyboard commands. |
 
+### Supplied QA scripts
+
+- [Tabs](qa/supplied/tabs.md) — Apply panel-focus and individual Tab-stop expectations only to the documented panel-focus variant. Use the standard tabs checks for roving focus and arrow keys.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [ARIA required owned elements (bc4a75)](https://www.w3.org/WAI/standards-guidelines/act/rules/bc4a75/proposed/)
-- [Element with role attribute has required states and properties (4e8ab6)](https://www.w3.org/WAI/standards-guidelines/act/rules/4e8ab6/proposed/)
-- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
+- [ARIA required owned elements (bc4a75)](qa/w3c-act/bc4a75.md)
+- [Element with role attribute has required states and properties (4e8ab6)](qa/w3c-act/4e8ab6.md)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](qa/w3c-act/6cfa84.md)
 
 <span id="related-references"></span>
 

@@ -103,13 +103,19 @@ Test the link or form variant in use with the supported browsers, keyboard and s
 | Block scripts and reload, then apply a filter and sort. | Every choice in the baseline can still be reached and applied. A horizontal baseline brings focused links into view. |
 | Apply a filter that produces no matches. Where results update in place, repeat with a screen reader and a slow response. | The results state is clear, any waiting message is available where needed, and the person can revise or clear the choices. In-place updates leave focus usable. |
 
+### Supplied QA scripts
+
+- [Paged Navigation Test Criteria](qa/supplied/paged-navigation.md) — Apply only if results use numbered pagination.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+- [Form field has non-empty accessible name (e086e5)](qa/w3c-act/e086e5.md)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Link has non-empty accessible name (c487ae)](qa/w3c-act/c487ae.md)
 
 ## Sources
 

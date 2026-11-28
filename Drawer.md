@@ -131,12 +131,18 @@ Record the implemented variant, browser, device and assistive technology where r
 | Increase text size, then separately test reflow at a width equivalent to 320 CSS pixels for vertically scrolling content. Scroll to the last action with the keyboard and cross any layout breakpoint with the drawer open. | Drawer content and controls remain reachable. Fixed content does not obscure focus. The layout preserves entered information and uses the correct focus and page-availability rules. |
 | Repeat with forced colours and reduced motion, then block scripts and reload. | Boundaries and focus remain identifiable, the drawer works without non-essential motion, and a usable baseline remains. |
 
+### Supplied QA scripts
+
+- [Modal Dialog Test Criteria](qa/supplied/modal-dialog.md) — Apply to the modal drawer variant only.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](qa/w3c-act/6cfa84.md)
 
 ## Sources
 

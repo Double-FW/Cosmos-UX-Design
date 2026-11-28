@@ -54,6 +54,12 @@ Choose a representative task that crosses page sections or components, such as s
 
 Record the browser, device, assistive technology, task, first failing step and what happened to focus. Use the component guide to verify specific keys and states.
 
+### Supplied QA scripts
+
+- [Skip Link Test Criteria](qa/supplied/skip-link.md) — Apply to the skip-link route through repeated navigation.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ## Sources
 
 - [Switch access](https://en.wikipedia.org/wiki/Switch_access)
