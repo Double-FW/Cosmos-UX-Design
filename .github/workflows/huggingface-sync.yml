@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "AGENTS.md"
+      - "ARIA and Screen Reader Usability.md"
       - "Accordion.md"
       - "Affordances, Signifiers and Design Conventions.md"
       - "Alternatives to Deceptive Patterns.md"
@@ -22,6 +23,7 @@ on:
       - "Colour, Contrast and Meaning.md"
       - "Comments.md"
       - "Customer Surveys and Feedback.md"
+      - "Component Semantics Contract.md"
       - "Data Tables.md"
       - "Designing the Screen Reader Journey.md"
       - "Disclosure.md"
@@ -68,6 +70,7 @@ on:
       - "Tabs.md"
       - "Typography.md"
       - "Video Controls.md"
+      - "Visually Hidden Content.md"
       - "LICENSE"
       - "huggingface/export-config.json"
       - "huggingface/requirements.txt"

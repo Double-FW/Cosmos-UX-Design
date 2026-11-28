@@ -3,7 +3,7 @@
 Source: https://github.com/Double-FW/Cosmos-UX-Design  
 Destination: https://huggingface.co/datasets/GarethFW/Cosmos_UX_Design
 
-This is a one-way export: GitHub is the authoring source and the workflow publishes only to the named Hugging Face dataset. The exporter uses an explicit allowlist in `huggingface/export-config.json`; it includes all Markdown files at the repository root and `LICENSE`. It does not fetch linked pages, issues, discussions, or external repositories.
+This is a one-way export: GitHub is the authoring source and the workflow publishes only to the named Hugging Face dataset. The exporter uses an explicit allowlist in `huggingface/export-config.json`; it includes selected guidance documents and `LICENSE`. The Component Semantics Contract and its companion guides on ARIA and visually hidden content are exported as full documents and heading-based sections. It does not fetch linked pages, issues, discussions, or external repositories.
 
 ## One-time owner setup
 
