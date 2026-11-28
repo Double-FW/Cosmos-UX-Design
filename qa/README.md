@@ -4,6 +4,8 @@ Use the owning Cosmos guide to identify the implemented variant and expected beh
 
 The [supplied suites](#supplied-suites) reproduce the wording, numbering and code in the supplied ACT Tests document. Links in the mapping identify where to use each suite. Notes about scope, conflicts and proposed fixes are kept in the review.
 
+For canonical test IDs, standards relationships and execution methods, use the [accessibility testing matrix](../testing-matrix/README.md).
+
 ## Supplied suites
 
 | Suite | Cosmos guides and applicability |
