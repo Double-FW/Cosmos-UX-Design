@@ -5,13 +5,15 @@ description: "Show or hide supplementary content in place."
 
 # Disclosure
 
+Read optional details in place and return to the same point. Prefer native details with a first summary. Use an enhanced button when the host needs custom behaviour. Keep the panel immediately after the trigger. A named region is optional. Confirm initial openness, meaningful label and whether the panel contains a control.
+
 ## Contents
 
 - [Introduction](#introduction)
 - [Recommended markup](#recommended-markup)
 - [Recommended layout](#recommended-layout)
 - [Recommended behaviour](#recommended-behaviour)
-- [Reference implementation](#reference-implementation)
+- [Build this pattern](#build-this-pattern)
 - [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
 - [Sources](#sources)
 
@@ -35,58 +37,14 @@ Keep the control visible in both states. Provide a visible expanded or collapsed
 
 Keep focus on the disclosure control when it opens or closes. After opening, let the next Tab reach the first interactive item in the panel if there is one.
 
-## Reference implementation
-
+<span id="reference-implementation"></span>
 <span id="implementation"></span>
+<span id="native-html"></span>
+<span id="custom-html"></span>
 
-### Native HTML
+## Build this pattern
 
-Use `details` and `summary` for a simple disclosure. The browser handles keyboard interaction, state and visibility without JavaScript. Keep the native marker visible unless you supply and test an equivalent indicator.
-
-```html
-<details>
-  <summary>Delivery and collection options</summary>
-  <p>You can collect your order on weekdays or choose home delivery.</p>
-</details>
-```
-
-### Custom HTML
-
-Use a native button with `aria-expanded` to represent the panel state. This framework’s custom examples use `aria-controls` to identify the panel. A named region is optional. Use `role="region"` and `aria-labelledby` together when the extra landmark helps people navigate.
-
-Start with the panel visible and the button hidden. Set up the button before collapsing the panel so the content remains available when scripts are blocked. Set visual indicators from the same expanded state and keep them decorative so the accessible name stays stable.
-
-```html
-<button type="button" id="delivery-toggle" aria-controls="delivery-options" hidden>
-  Delivery and collection options
-  <span class="disclosure-marker" aria-hidden="true"></span>
-</button>
-<div id="delivery-options">
-  <p>You can collect your order on weekdays or choose home delivery.</p>
-</div>
-
-<style>
-  .disclosure-marker::before { content: "+"; }
-  [aria-expanded="true"] .disclosure-marker::before { content: "−"; }
-</style>
-
-<script>
-  const deliveryToggle = document.getElementById('delivery-toggle');
-  const deliveryOptions = document.getElementById('delivery-options');
-
-  function setDeliveryOptionsExpanded(expanded) {
-    deliveryToggle.setAttribute('aria-expanded', String(expanded));
-    deliveryOptions.hidden = !expanded;
-  }
-
-  deliveryToggle.addEventListener('click', () => {
-    setDeliveryOptionsExpanded(deliveryToggle.getAttribute('aria-expanded') !== 'true');
-  });
-
-  setDeliveryOptionsExpanded(false);
-  deliveryToggle.hidden = false;
-</script>
-```
+[Build Disclosure](build-patterns/Disclosure.md) using the prompt, retrieval pack and verification plan. [Original examples at the pilot baseline](https://github.com/Double-FW/Cosmos-UX-Design/blob/4925821776bbea3a5d837fac212581442a8c99e6/Disclosure.md#reference-implementation).
 
 ## Testing Approach and ACT Scripts
 
