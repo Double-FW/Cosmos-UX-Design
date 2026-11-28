@@ -11,7 +11,7 @@ description: "Help people switch between related sections of content in one plac
 - [Recommended markup](#recommended-markup)
 - [Recommended layout](#recommended-layout)
 - [Recommended behaviour](#recommended-behaviour)
-- [Reference implementation](#reference-implementation)
+- [Build this pattern](#build-this-pattern)
 - [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
 - [Sources](#sources)
 
@@ -58,55 +58,19 @@ Start with in-page links to visible sections. Keep the same fragment IDs when en
 
 If selection updates the URL, record a history entry only when the selected destination changes. Restore the appropriate panel on Back and Forward, including the default panel when returning to the initial URL without a fragment. Reveal a hidden panel before moving to a fragment inside it. Keep focus where it is if it remains usable. When a history change would hide the focused element, move focus to a sensible visible target, such as the newly selected tab. See [Client-side Routing](Client-side%20Routing.md#back-and-forward) for history across views.
 
-## Reference implementation
+## Build this pattern
 
+<span id="reference-implementation"></span>
 <span id="implementation"></span>
 
-### Markup example
+Use the [standalone tabs build brief and Gherkin outcomes](build-patterns/Tabs.md) to choose a variant, write a component semantics contract and verify the implementation. The companion includes a retrieval pack, source-check mapping and manual test links.
 
-This baseline has working fragment links. Each section can receive focus when reached through its link and all content is available before enhancement. Use distinct IDs for each tab set.
+The [original reference implementation](https://github.com/Double-FW/Cosmos-UX-Design/blob/4925821776bbea3a5d837fac212581442a8c99e6/Tabs.md#reference-implementation) remains available at its source revision.
 
-```html
-<nav aria-label="Journey information">
-  <ul>
-    <li><a href="#arrival">Arrival</a></li>
-    <li><a href="#departure">Departure</a></li>
-  </ul>
-</nav>
-<section id="arrival" tabindex="-1">
-  <h2>Arrival</h2>
-  <p>Use the north entrance.</p>
-</section>
-<section id="departure" tabindex="-1">
-  <h2>Departure</h2>
-  <p>Leave through the east exit.</p>
-</section>
-```
-
-Connect selection, keyboard navigation and any fragment handling before switching to tab semantics and hiding panels. Leave the baseline intact if the enhancement fails to initialise. See [Progressive Enhancement](Progressive%20Enhancement.md).
-
-### Enhanced markup
-
-This snapshot shows the initial state for the standard horizontal, manual-activation variant. It needs the event handlers described above to operate.
-
-```html
-<div role="tablist" aria-label="Journey information">
-  <button type="button" role="tab" id="tab-arrival"
-    aria-controls="arrival" aria-selected="true">Arrival</button>
-  <button type="button" role="tab" id="tab-departure"
-    aria-controls="departure" aria-selected="false" tabindex="-1">Departure</button>
-</div>
-<section role="tabpanel" id="arrival" aria-labelledby="tab-arrival" tabindex="0">
-  <h2>Arrival</h2>
-  <p>Use the north entrance.</p>
-</section>
-<section role="tabpanel" id="departure" aria-labelledby="tab-departure" tabindex="0" hidden>
-  <h2>Departure</h2>
-  <p>Leave through the east exit.</p>
-</section>
-```
-
-Keep one tab in the ordinary Tab sequence. On arrow navigation, move that tab stop to the newly focused tab. If the person leaves the list without changing selection, restore the selected tab as the next entry point. Update `hidden` along with `aria-selected` and keep hidden panels and their controls out of the accessibility tree and tab sequence.
+<span id="markup-example"></span>
+- [Original markup example example](https://github.com/Double-FW/Cosmos-UX-Design/blob/4925821776bbea3a5d837fac212581442a8c99e6/Tabs.md#markup-example)
+<span id="enhanced-markup"></span>
+- [Original enhanced markup example](https://github.com/Double-FW/Cosmos-UX-Design/blob/4925821776bbea3a5d837fac212581442a8c99e6/Tabs.md#enhanced-markup)
 
 ## Testing Approach and ACT Scripts
 

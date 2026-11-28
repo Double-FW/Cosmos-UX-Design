@@ -11,7 +11,7 @@ description: "Help people sign in, verify their identity and recover access with
 - [Recommended markup](#recommended-markup)
 - [Recommended layout](#recommended-layout)
 - [Recommended behaviour](#recommended-behaviour)
-- [Reference implementation](#reference-implementation)
+- [Build this pattern](#build-this-pattern)
 - [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
 - [Sources](#sources)
 
@@ -52,58 +52,19 @@ Keep the approved recovery route accessible if a customer loses their usual auth
 
 If sign-in expires, explain what happened and what work is still available. Where permitted, return the person to the intended task after verifying access and preserve eligible progress. Keep credentials and one-time codes out of saved drafts. Apply the same checks to any identity provider or payment verification step. See [Saving and Resuming a Task](Saving%20and%20Resuming%20a%20Task.md#return-and-reauthenticate) and [Baskets and Checkout](Baskets%20and%20Checkout.md).
 
-## Reference implementation
+## Build this pattern
 
-### Sign in with a password
+<span id="reference-implementation"></span>
+<span id="implementation"></span>
 
-This vanilla HTML and JavaScript example needs a working server sign-in endpoint and recovery route. Replace the sample routes and add the service's request verification fields. The example lets people control password visibility. The baseline form works with scripts blocked when connected to the service.
+Use the [standalone authentication build brief and Gherkin outcomes](build-patterns/Authentication.md) to choose a variant, write a component semantics contract and verify the implementation. The companion includes a retrieval pack, source-check mapping and manual test links.
 
-```html
-<h1>Sign in</h1>
-<form id="sign-in" method="post" action="/sign-in">
-  <p><label for="sign-in-email">Email address</label>
-    <input id="sign-in-email" name="email" type="email"
-      autocomplete="username" autocapitalize="none" spellcheck="false" required></p>
+The [original reference implementation](https://github.com/Double-FW/Cosmos-UX-Design/blob/4925821776bbea3a5d837fac212581442a8c99e6/Authentication.md#reference-implementation) remains available at its source revision.
 
-  <p><label for="sign-in-password">Password</label>
-    <input id="sign-in-password" name="password" type="password"
-      autocomplete="current-password" autocapitalize="none" spellcheck="false" required>
-    <button type="button" id="password-visibility"
-      aria-controls="sign-in-password" hidden>Show password</button></p>
-
-  <button type="submit">Sign in</button>
-</form>
-<p><a href="/account/recovery">Recover access to your account</a></p>
-<script>
-  const form = document.getElementById('sign-in');
-  const password = document.getElementById('sign-in-password');
-  const toggle = document.getElementById('password-visibility');
-
-  function setPasswordVisibility(visible) {
-    password.type = visible ? 'text' : 'password';
-    toggle.textContent = visible ? 'Hide password' : 'Show password';
-  }
-
-  toggle.addEventListener('click', () => {
-    setPasswordVisibility(password.type === 'password');
-  });
-  form.addEventListener('submit', () => setPasswordVisibility(false));
-  window.addEventListener('pageshow', () => setPasswordVisibility(false));
-  toggle.hidden = false;
-</script>
-```
-
-### Enter a digits-only verification code
-
-Place this fragment in the verification form. Replace the destination hint with the real channel and a masked destination where appropriate. Implement expiry, resend and verification through the service.
-
-```html
-<label for="verification-code">Verification code</label>
-<p id="verification-hint">Enter the code sent to your email address.</p>
-<input id="verification-code" name="code" type="text" inputmode="numeric"
-  autocomplete="one-time-code" aria-describedby="verification-hint" required>
-<button type="submit">Verify code</button>
-```
+<span id="sign-in-with-a-password"></span>
+- [Original sign in with a password example](https://github.com/Double-FW/Cosmos-UX-Design/blob/4925821776bbea3a5d837fac212581442a8c99e6/Authentication.md#sign-in-with-a-password)
+<span id="enter-a-digits-only-verification-code"></span>
+- [Original enter a digits only verification code example](https://github.com/Double-FW/Cosmos-UX-Design/blob/4925821776bbea3a5d837fac212581442a8c99e6/Authentication.md#enter-a-digits-only-verification-code)
 
 ## Testing Approach and ACT Scripts
 
