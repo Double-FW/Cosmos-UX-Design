@@ -18,6 +18,7 @@ TARGET = "GarethFW/Cosmos_UX_Design"
 VERSION = "1.0.0"
 DOCS = [
     "AGENTS.md",
+    "ARIA and Screen Reader Usability.md",
     "Accordion.md",
     "Affordances, Signifiers and Design Conventions.md",
     "Alternatives to Deceptive Patterns.md",
@@ -36,6 +37,7 @@ DOCS = [
     "Colour, Contrast and Meaning.md",
     "Comments.md",
     "Customer Surveys and Feedback.md",
+    "Component Semantics Contract.md",
     "Data Tables.md",
     "Designing the Screen Reader Journey.md",
     "Disclosure.md",
@@ -82,8 +84,10 @@ DOCS = [
     "Tabs.md",
     "Typography.md",
     "Video Controls.md",
+    "Visually Hidden Content.md",
 ]
 CHUNKS = [
+    "ARIA and Screen Reader Usability.md",
     "Accordion.md",
     "Affordances, Signifiers and Design Conventions.md",
     "Alternatives to Deceptive Patterns.md",
@@ -102,6 +106,7 @@ CHUNKS = [
     "Colour, Contrast and Meaning.md",
     "Comments.md",
     "Customer Surveys and Feedback.md",
+    "Component Semantics Contract.md",
     "Data Tables.md",
     "Designing the Screen Reader Journey.md",
     "Disclosure.md",
@@ -147,6 +152,7 @@ CHUNKS = [
     "Tabs.md",
     "Typography.md",
     "Video Controls.md",
+    "Visually Hidden Content.md",
 ]
 SOURCE_FILES = DOCS + ["LICENSE"]
 MANAGED = [
