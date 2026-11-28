@@ -100,12 +100,18 @@ Run the checks on a wide and narrow layout and in the supported browsers and ass
 | Apply reduced motion, forced colours and supported user font and colour overrides. | The header, focus and controls remain distinguishable. Opening the panel remains usable without motion. |
 | Measure target sizes and contrast in the enhanced header. | For the enhanced header’s design target, aim for 44 × 44 CSS pixels. Apply the text and meaningful non-text contrast criteria in the colour guide. |
 
+### Supplied QA scripts
+
+- [Navigation Menu Test Criteria](qa/supplied/navigation-menu.md) — Apply only to expandable navigation, with the guide’s screen reader and keyboard expectations.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Link has non-empty accessible name (c487ae)](qa/w3c-act/c487ae.md)
 
 ## Sources
 

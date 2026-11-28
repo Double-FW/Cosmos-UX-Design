@@ -178,6 +178,10 @@ Record the element or component, intended visibility state, browser, input metho
 
 These checks are a manual design and implementation review, not a standalone conformance result. Apply the relevant WCAG success criteria and project test plan to the complete journey. Use the owning pattern’s test cases and the repository’s [QA guidance](README.md#shared-implementation-guidance) where applicable.
 
+## Local W3C ACT rule text
+
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](qa/w3c-act/6cfa84.md)
+
 ## Sources
 
 - [HTML Standard: The hidden attribute](https://html.spec.whatwg.org/multipage/interaction.html#the-hidden-attribute)

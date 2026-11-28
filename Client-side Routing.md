@@ -94,6 +94,12 @@ Open a direct URL and check that the browser keeps its usual initial focus. Then
 
 Inspect the shared navigation. Use `aria-current="page"` on the current page link or `aria-current="step"` for the current step in a sequence. Follow another route and use Back. At each point, verify that the previous current state clears and the current item matches the displayed screen. From the start of the page, check that the first interactive element is the skip link and that activating it bypasses the repeated navigation.
 
+### Supplied QA scripts
+
+- [Routing](qa/supplied/routing.md).
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ## Sources
 
 - [Landmark navigation examples](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/at.html#jaws)

@@ -117,12 +117,18 @@ Run these checks on a standalone card and a collection with at least two cards. 
 4. Block scripts and verify that readers can reach supplementary information. In a separate run with CSS disabled, verify that each headline, its content and its actions can still be read in order.
 5. Increase text size and check for clipping or overlap. In a separate run, narrow the viewport. Check that cards fit, controls remain reachable and images retain their proportions. With forced colours enabled, check the focus indicator and any borders needed to distinguish cards or controls.
 
+### Supplied QA scripts
+
+- [Cards](qa/supplied/cards.md).
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Link has non-empty accessible name (c487ae)](qa/w3c-act/c487ae.md)
 
 ## Sources
 

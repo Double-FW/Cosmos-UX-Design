@@ -99,13 +99,19 @@ Test the supported variants. Record the method, browser and assistive technology
 3. Confirm the closed content is hidden visually and from assistive technology. After opening, check that any links or controls in the panel occur next in the keyboard sequence.
 4. Block JavaScript and confirm the native control still works or the custom panel content is available directly. In a separate test, disable CSS and confirm that the control and content remain usable.
 
+### Supplied QA scripts
+
+- [Disclosure Test Criteria](qa/supplied/disclosure.md).
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Summary element has non-empty accessible name (2t702h)](https://www.w3.org/WAI/standards-guidelines/act/rules/2t702h/proposed/)
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
+- [Summary element has non-empty accessible name (2t702h)](qa/w3c-act/2t702h.md)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](qa/w3c-act/6cfa84.md)
 
 ## Sources
 

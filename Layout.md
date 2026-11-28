@@ -95,6 +95,12 @@ Run on a responsive collection in its wide and narrow layouts. Inspect source ne
    At high zoom, check the content inside each grid item. Fixed widths can cause overflow, fixed heights can make wrapped lines overlap, and `white-space: nowrap` can prevent labels from wrapping. Check the longest label as well as the shortest.
 4. When a table appears in the layout, narrow the viewport and confirm that each value stays aligned with its own row and column headers. For the full table test, use [Data Tables](Data%20Tables.md).
 
+## Supplied QA scripts
+
+- [Grids](qa/supplied/grids.md).
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ## Sources
 
 - [nvda](https://webaim.org/resources/shortcuts/nvda)

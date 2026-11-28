@@ -104,12 +104,19 @@ Test with the supported browsers and screen readers. Include enough results to l
 | Load the final batch. Repeat with a response that returns no further items. | The interface communicates that there are no more results. Focus remains usable and the person can reach content after the results. |
 | Narrow the viewport and repeat at increased zoom. Test loading with reduced motion enabled. | Pagination and feedback remain usable. Visible text communicates progress even when animation is reduced. |
 
+### Supplied QA scripts
+
+- [Paged Navigation Test Criteria](qa/supplied/paged-navigation.md) — Apply only to a separate pagination fallback, where provided.
+- [Progress Indicator Test Criteria](qa/supplied/progress-indicator.md) — Apply only if the loading UI exposes a progress indicator.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Link has non-empty accessible name (c487ae)](qa/w3c-act/c487ae.md)
 
 ## Sources
 

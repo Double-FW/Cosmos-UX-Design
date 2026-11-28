@@ -116,9 +116,9 @@ Use a fixture with dates on both sides of a month or year boundary, one unavaila
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Form field has non-empty accessible name (e086e5)](https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/proposed/)
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Autocomplete attribute has valid value (73f2c2)](https://www.w3.org/WAI/standards-guidelines/act/rules/73f2c2/proposed/)
+- [Form field has non-empty accessible name (e086e5)](qa/w3c-act/e086e5.md)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Autocomplete attribute has valid value (73f2c2)](qa/w3c-act/73f2c2.md)
 
 ## Sources
 

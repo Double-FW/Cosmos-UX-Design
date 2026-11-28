@@ -129,12 +129,18 @@ Run these checks in the supported browsers and screen readers. Include a focusab
 | If implemented with the native Popover API, test its configured Escape and outside-click behaviour with keyboard, pointer and touch. | It dismisses only in the intended cases; focus remains usable, and dismissal does not interrupt or lose the user's task. |
 | Block scripts and reload. | The supplementary content or its working destination is available, and enhancement controls do not appear in an unusable state. |
 
+### Supplied QA scripts
+
+- [Modal Dialog Test Criteria](qa/supplied/modal-dialog.md) — Apply only when the panel is implemented as a modal dialog.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](qa/w3c-act/6cfa84.md)
 
 ## Sources
 

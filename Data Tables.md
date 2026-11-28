@@ -123,13 +123,19 @@ Run the purpose check on each table to determine its intended semantics. Run the
 3. Activate a sort button twice, then activate another column. Check the complete row order, the visible sort direction and the exposed sort direction. Confirm that focus stays on the activated button and that only the current header has `aria-sort`.
 4. Block scripts and reload. Check that the table remains readable in its initial order and that an overflowing table still scrolls with the keyboard. Check any baseline sort offered by the service.
 
+### Supplied QA scripts
+
+- [Data tables](qa/supplied/data-tables.md).
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Table header cell has assigned cells (d0f69e)](https://www.w3.org/WAI/standards-guidelines/act/rules/d0f69e/proposed/)
-- [Scrollable content can be reached with sequential focus navigation (0ssw9k)](https://www.w3.org/WAI/standards-guidelines/act/rules/0ssw9k/proposed/)
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
+- [Table header cell has assigned cells (d0f69e)](qa/w3c-act/d0f69e.md)
+- [Scrollable content can be reached with sequential focus navigation (0ssw9k)](qa/w3c-act/0ssw9k.md)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
 
 ## Sources
 

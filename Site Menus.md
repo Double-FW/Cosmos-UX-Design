@@ -132,13 +132,19 @@ Use a page with both global and site navigation where available. Test a top-leve
 | Enable forced colours and tab from the current link to another link and a submenu button. | Current page, keyboard focus and expanded state are distinguishable. |
 | Block scripts and reload. In a separate run, restore scripts and disable CSS. | With scripts blocked, the destination links work and disclosure buttons remain hidden. With CSS disabled, the nesting and disclosure behaviour remain available. |
 
+### Supplied QA scripts
+
+- [Navigation Menu Test Criteria](qa/supplied/navigation-menu.md) — Apply disclosure menu checks where the site menu actually collapses.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
-- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Link has non-empty accessible name (c487ae)](qa/w3c-act/c487ae.md)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](qa/w3c-act/6cfa84.md)
 
 <span id="related-references"></span>
 

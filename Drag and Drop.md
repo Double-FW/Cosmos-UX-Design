@@ -160,8 +160,8 @@ Use a list with at least three items, plus an empty destination if items can mov
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Visible label is part of accessible name (2ee8b8)](https://www.w3.org/WAI/standards-guidelines/act/rules/2ee8b8/proposed/)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Visible label is part of accessible name (2ee8b8)](qa/w3c-act/2ee8b8.md)
 
 ## Sources
 

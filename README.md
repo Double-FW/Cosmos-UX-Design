@@ -120,6 +120,7 @@ Principles and techniques that apply across components, pages and journeys.
 
 ## Using the guides
 
+- [Targeted accessibility QA](qa/README.md) — find supplied scripts and W3C ACT rule text, and check the coverage gaps.
 - [Agent instructions](AGENTS.md) — workflows for design systems, patterns, customer journeys, targeted QA and remediation.
 
 1. Open the relevant guide for the design or component and follow its links to shared implementation guidance.

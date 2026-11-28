@@ -64,6 +64,12 @@ Record the image, context, method and result. Use automated checks to find missi
 | Block images, including CSS backgrounds, and try the task again. | Necessary information and controls remain understandable and usable. |
 | Check each supported language and any image reused in different contexts. | The alternative is clear, matches the content language and serves the purpose of the image in that placement. |
 
+### Supplied QA scripts
+
+- [Alternative Text Test Criteria](qa/supplied/alternative-text.md).
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ## Sources
 
 - [HTML text alternative mechanisms](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML#other_text_alternative_mechanisms)

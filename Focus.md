@@ -99,6 +99,12 @@ The `outline` CSS property is the most reliable way to apply a focus indicator s
 3. Ensure the keyboard navigation order follows a logical and intuitive structure. The keyboard navigation order should track the visual order of the content and not jump unexpectedly or skip any interactive elements.
 4. Ensure that it is not possible to focus on an element that is not visible once it has focus.
 
+### Supplied QA scripts
+
+- [Focus](qa/supplied/focus.md).
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ## Keyboard activation and exit
 
 Keep static content outside the ordinary tab sequence. A keyboard stop can be appropriate when it provides a function, such as scrolling an overflowing region. A heading that receives focus after navigation can use `tabindex="-1"` and stay outside the Tab sequence. Within a composite control, such as a radio group, use its expected keyboard commands to reach the items.

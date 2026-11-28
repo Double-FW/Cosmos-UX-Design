@@ -202,6 +202,13 @@ You must only submit a form when the user explicitly initiates it. For example, 
 1. Ensure that forms are not automatically submitted when the user changes the value of an element.
 1. For fields with autocomplete, inspect the token and try autofill using test data. Check that the correct values appear and that they can be entered or corrected manually.
 
+### Supplied QA scripts
+
+- [Form fields and validation](qa/supplied/form-validation.md) — Apply the field naming, instructions and state checks to the controls in scope.
+- [Checkbox and Radio Button Test Criteria](qa/supplied/checkbox-radio.md).
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ## Sources
 
 - [_The input element_ Whatwg HTML Living Standard](https://html.spec.whatwg.org/multipage/input.html)

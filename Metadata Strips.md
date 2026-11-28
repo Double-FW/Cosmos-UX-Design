@@ -83,7 +83,7 @@ Test the supported variants. Record the method, browser and assistive technology
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Link has non-empty accessible name (c487ae)](https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/)
+- [Link has non-empty accessible name (c487ae)](qa/w3c-act/c487ae.md)
 
 ## Sources
 

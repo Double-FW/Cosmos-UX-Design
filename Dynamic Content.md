@@ -124,6 +124,12 @@ Use the [disclosure implementation](Disclosure.md#implementation) when a control
 
 Elements with the `role="status"` attribute and value have an implicit `aria-live="polite"` attribute and value and an implicit `aria-atomic` value of `true`.
 
+### Supplied QA scripts
+
+- [Progress Indicator Test Criteria](qa/supplied/progress-indicator.md) — Apply only when updates include a progress indicator.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ## Sources
 
 - [WCAG 2.1 SC 2.4.3: Focus Order (Level A)](https://www.w3.org/WAI/WCAG21/Understanding/focus-order)

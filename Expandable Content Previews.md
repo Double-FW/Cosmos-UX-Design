@@ -124,12 +124,18 @@ Test with the project’s supported browsers and screen readers. Include a link 
 | Increase text size, then test a narrow viewport separately. If the boundary adapts, resize while a link near it has focus. | No text or controls are partly hidden. Resizing leaves focus on usable content. The button, boundary and continuation focus indicator remain clear in forced colours. |
 | Block scripts and reload. Then enable scripts and disable CSS in a separate run. | With scripts blocked the full content is readable. With CSS disabled, the working control and reading order remain available. |
 
+### Supplied QA scripts
+
+- [Disclosure Test Criteria](qa/supplied/disclosure.md) — Apply shared disclosure checks. Use this guide’s continuation-focus procedure when the preview moves focus.
+
+Read the [applicability and review notes](qa/Review.md) before using these scripts for release decisions.
+
 ### Related W3C ACT rules
 
 Apply these proposed rules where their applicability conditions are met. Use the pattern checks above to verify behaviour and outcomes beyond their scope.
 
-- [Button has non-empty accessible name (97a4e1)](https://www.w3.org/WAI/standards-guidelines/act/rules/97a4e1/proposed/)
-- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](https://www.w3.org/WAI/standards-guidelines/act/rules/6cfa84/proposed/)
+- [Button has non-empty accessible name (97a4e1)](qa/w3c-act/97a4e1.md)
+- [Element with aria-hidden has no content in sequential focus navigation (6cfa84)](qa/w3c-act/6cfa84.md)
 
 ## Sources
 
