@@ -11,7 +11,7 @@ description: "Show or hide supplementary content in place."
 - [Recommended markup](#recommended-markup)
 - [Recommended layout](#recommended-layout)
 - [Recommended behaviour](#recommended-behaviour)
-- [Reference implementation](#reference-implementation)
+- [Build this pattern](#build-this-pattern)
 - [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
 - [Sources](#sources)
 
@@ -35,58 +35,19 @@ Keep the control visible in both states. Provide a visible expanded or collapsed
 
 Keep focus on the disclosure control when it opens or closes. After opening, let the next Tab reach the first interactive item in the panel if there is one.
 
-## Reference implementation
+## Build this pattern
 
+<span id="reference-implementation"></span>
 <span id="implementation"></span>
 
-### Native HTML
+Use the [standalone disclosure build brief and Gherkin outcomes](build-patterns/Disclosure.md) to choose a variant, write a component semantics contract and verify the implementation. The companion includes a retrieval pack, source-check mapping and manual test links.
 
-Use `details` and `summary` for a simple disclosure. The browser handles keyboard interaction, state and visibility without JavaScript. Keep the native marker visible unless you supply and test an equivalent indicator.
+The [original reference implementation](https://github.com/Double-FW/Cosmos-UX-Design/blob/4925821776bbea3a5d837fac212581442a8c99e6/Disclosure.md#reference-implementation) remains available at its source revision.
 
-```html
-<details>
-  <summary>Delivery and collection options</summary>
-  <p>You can collect your order on weekdays or choose home delivery.</p>
-</details>
-```
-
-### Custom HTML
-
-Use a native button with `aria-expanded` to represent the panel state. This framework’s custom examples use `aria-controls` to identify the panel. A named region is optional. Use `role="region"` and `aria-labelledby` together when the extra landmark helps people navigate.
-
-Start with the panel visible and the button hidden. Set up the button before collapsing the panel so the content remains available when scripts are blocked. Set visual indicators from the same expanded state and keep them decorative so the accessible name stays stable.
-
-```html
-<button type="button" id="delivery-toggle" aria-controls="delivery-options" hidden>
-  Delivery and collection options
-  <span class="disclosure-marker" aria-hidden="true"></span>
-</button>
-<div id="delivery-options">
-  <p>You can collect your order on weekdays or choose home delivery.</p>
-</div>
-
-<style>
-  .disclosure-marker::before { content: "+"; }
-  [aria-expanded="true"] .disclosure-marker::before { content: "−"; }
-</style>
-
-<script>
-  const deliveryToggle = document.getElementById('delivery-toggle');
-  const deliveryOptions = document.getElementById('delivery-options');
-
-  function setDeliveryOptionsExpanded(expanded) {
-    deliveryToggle.setAttribute('aria-expanded', String(expanded));
-    deliveryOptions.hidden = !expanded;
-  }
-
-  deliveryToggle.addEventListener('click', () => {
-    setDeliveryOptionsExpanded(deliveryToggle.getAttribute('aria-expanded') !== 'true');
-  });
-
-  setDeliveryOptionsExpanded(false);
-  deliveryToggle.hidden = false;
-</script>
-```
+<span id="native-html"></span>
+- [Original native html example](https://github.com/Double-FW/Cosmos-UX-Design/blob/4925821776bbea3a5d837fac212581442a8c99e6/Disclosure.md#native-html)
+<span id="custom-html"></span>
+- [Original custom html example](https://github.com/Double-FW/Cosmos-UX-Design/blob/4925821776bbea3a5d837fac212581442a8c99e6/Disclosure.md#custom-html)
 
 ## Testing Approach and ACT Scripts
 
