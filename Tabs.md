@@ -5,13 +5,15 @@ description: "Help people switch between related sections of content in one plac
 
 # Tabs
 
+Choose a related section and read its content. For a new set assume horizontal manual activation. Confirm orientation, activation policy, fragment and history policy, first meaningful panel content and any maintained legacy keyboard model. Use ordinary links to headed sections until enhancement succeeds. Four or five labels is a design heuristic.
+
 ## Contents
 
 - [Introduction](#introduction)
 - [Recommended markup](#recommended-markup)
 - [Recommended layout](#recommended-layout)
 - [Recommended behaviour](#recommended-behaviour)
-- [Reference implementation](#reference-implementation)
+- [Build this pattern](#build-this-pattern)
 - [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
 - [Sources](#sources)
 
@@ -39,7 +41,7 @@ Keep the full labels readable at narrow widths and when people enlarge text. If 
 
 ### Standard tabs
 
-Use the [ARIA Authoring Practices Guide tabs pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/) for new tab sets. The example below uses manual activation so people can explore tab labels before opening a panel.
+Use the [ARIA Authoring Practices Guide tabs pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/) for new tab sets. The baseline example uses manual activation so people can explore tab labels before opening a panel.
 
 - Tab enters the tab list at the selected tab. Left and Right Arrow move between horizontal tabs, wrapping at the ends. For vertical tabs, set `aria-orientation="vertical"` on the tab list and use Up and Down Arrow. If implemented, Home and End move to the first and last tab.
 - In manual activation, arrow keys move focus and leave the panel unchanged. Enter and Space select the focused tab. Click or tap also selects a tab. On selection, keep focus on the tab, expose its panel and hide the others. Change the selected styling and `aria-selected` together.
@@ -58,55 +60,14 @@ Start with in-page links to visible sections. Keep the same fragment IDs when en
 
 If selection updates the URL, record a history entry only when the selected destination changes. Restore the appropriate panel on Back and Forward, including the default panel when returning to the initial URL without a fragment. Reveal a hidden panel before moving to a fragment inside it. Keep focus where it is if it remains usable. When a history change would hide the focused element, move focus to a sensible visible target, such as the newly selected tab. See [Client-side Routing](Client-side%20Routing.md#back-and-forward) for history across views.
 
-## Reference implementation
-
+<span id="reference-implementation"></span>
 <span id="implementation"></span>
+<span id="markup-example"></span>
+<span id="enhanced-markup"></span>
 
-### Markup example
+## Build this pattern
 
-This baseline has working fragment links. Each section can receive focus when reached through its link and all content is available before enhancement. Use distinct IDs for each tab set.
-
-```html
-<nav aria-label="Journey information">
-  <ul>
-    <li><a href="#arrival">Arrival</a></li>
-    <li><a href="#departure">Departure</a></li>
-  </ul>
-</nav>
-<section id="arrival" tabindex="-1">
-  <h2>Arrival</h2>
-  <p>Use the north entrance.</p>
-</section>
-<section id="departure" tabindex="-1">
-  <h2>Departure</h2>
-  <p>Leave through the east exit.</p>
-</section>
-```
-
-Connect selection, keyboard navigation and any fragment handling before switching to tab semantics and hiding panels. Leave the baseline intact if the enhancement fails to initialise. See [Progressive Enhancement](Progressive%20Enhancement.md).
-
-### Enhanced markup
-
-This snapshot shows the initial state for the standard horizontal, manual-activation variant. It needs the event handlers described above to operate.
-
-```html
-<div role="tablist" aria-label="Journey information">
-  <button type="button" role="tab" id="tab-arrival"
-    aria-controls="arrival" aria-selected="true">Arrival</button>
-  <button type="button" role="tab" id="tab-departure"
-    aria-controls="departure" aria-selected="false" tabindex="-1">Departure</button>
-</div>
-<section role="tabpanel" id="arrival" aria-labelledby="tab-arrival" tabindex="0">
-  <h2>Arrival</h2>
-  <p>Use the north entrance.</p>
-</section>
-<section role="tabpanel" id="departure" aria-labelledby="tab-departure" tabindex="0" hidden>
-  <h2>Departure</h2>
-  <p>Leave through the east exit.</p>
-</section>
-```
-
-Keep one tab in the ordinary Tab sequence. On arrow navigation, move that tab stop to the newly focused tab. If the person leaves the list without changing selection, restore the selected tab as the next entry point. Update `hidden` along with `aria-selected` and keep hidden panels and their controls out of the accessibility tree and tab sequence.
+[Build Tabs](build-patterns/Tabs.md) using the prompt, retrieval pack and verification plan. [Original examples at the pilot baseline](https://github.com/Double-FW/Cosmos-UX-Design/blob/4925821776bbea3a5d837fac212581442a8c99e6/Tabs.md#reference-implementation).
 
 ## Testing Approach and ACT Scripts
 

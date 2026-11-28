@@ -5,13 +5,15 @@ description: "Help people sign in, verify their identity and recover access with
 
 # Authentication
 
+Prove access, recover when a method fails and return to the authorised task. Agree enrolment, sign-in, additional verification, session expiry, recovery and sign-out with the identity owner. Confirm approved methods, assurance, devices, third-party returns, retained work, supported password managers and no-script route. Use fictitious accounts in tests.
+
 ## Contents
 
 - [Introduction](#introduction)
 - [Recommended markup](#recommended-markup)
 - [Recommended layout](#recommended-layout)
 - [Recommended behaviour](#recommended-behaviour)
-- [Reference implementation](#reference-implementation)
+- [Build this pattern](#build-this-pattern)
 - [Testing Approach and ACT Scripts](#testing-approach-and-act-scripts)
 - [Sources](#sources)
 
@@ -52,58 +54,14 @@ Keep the approved recovery route accessible if a customer loses their usual auth
 
 If sign-in expires, explain what happened and what work is still available. Where permitted, return the person to the intended task after verifying access and preserve eligible progress. Keep credentials and one-time codes out of saved drafts. Apply the same checks to any identity provider or payment verification step. See [Saving and Resuming a Task](Saving%20and%20Resuming%20a%20Task.md#return-and-reauthenticate) and [Baskets and Checkout](Baskets%20and%20Checkout.md).
 
-## Reference implementation
+<span id="reference-implementation"></span>
+<span id="implementation"></span>
+<span id="sign-in-with-a-password"></span>
+<span id="enter-a-digits-only-verification-code"></span>
 
-### Sign in with a password
+## Build this pattern
 
-This vanilla HTML and JavaScript example needs a working server sign-in endpoint and recovery route. Replace the sample routes and add the service's request verification fields. The example lets people control password visibility. The baseline form works with scripts blocked when connected to the service.
-
-```html
-<h1>Sign in</h1>
-<form id="sign-in" method="post" action="/sign-in">
-  <p><label for="sign-in-email">Email address</label>
-    <input id="sign-in-email" name="email" type="email"
-      autocomplete="username" autocapitalize="none" spellcheck="false" required></p>
-
-  <p><label for="sign-in-password">Password</label>
-    <input id="sign-in-password" name="password" type="password"
-      autocomplete="current-password" autocapitalize="none" spellcheck="false" required>
-    <button type="button" id="password-visibility"
-      aria-controls="sign-in-password" hidden>Show password</button></p>
-
-  <button type="submit">Sign in</button>
-</form>
-<p><a href="/account/recovery">Recover access to your account</a></p>
-<script>
-  const form = document.getElementById('sign-in');
-  const password = document.getElementById('sign-in-password');
-  const toggle = document.getElementById('password-visibility');
-
-  function setPasswordVisibility(visible) {
-    password.type = visible ? 'text' : 'password';
-    toggle.textContent = visible ? 'Hide password' : 'Show password';
-  }
-
-  toggle.addEventListener('click', () => {
-    setPasswordVisibility(password.type === 'password');
-  });
-  form.addEventListener('submit', () => setPasswordVisibility(false));
-  window.addEventListener('pageshow', () => setPasswordVisibility(false));
-  toggle.hidden = false;
-</script>
-```
-
-### Enter a digits-only verification code
-
-Place this fragment in the verification form. Replace the destination hint with the real channel and a masked destination where appropriate. Implement expiry, resend and verification through the service.
-
-```html
-<label for="verification-code">Verification code</label>
-<p id="verification-hint">Enter the code sent to your email address.</p>
-<input id="verification-code" name="code" type="text" inputmode="numeric"
-  autocomplete="one-time-code" aria-describedby="verification-hint" required>
-<button type="submit">Verify code</button>
-```
+[Build Authentication](build-patterns/Authentication.md) using the prompt, retrieval pack and verification plan. [Original examples at the pilot baseline](https://github.com/Double-FW/Cosmos-UX-Design/blob/4925821776bbea3a5d837fac212581442a8c99e6/Authentication.md#reference-implementation).
 
 ## Testing Approach and ACT Scripts
 
