@@ -33,6 +33,10 @@ The [supplied suites](#supplied-suites) reproduce the wording, numbering and cod
 | [Toggle Button Test Criteria](supplied/toggle-button.md) | [Video Controls](../Video%20Controls.md) — Apply only to a stable-label toggle. Use the guide’s own checks for changing Play/Pause or Mute/Unmute action labels. [Colour, Contrast and Meaning](../Colour%2C%20Contrast%20and%20Meaning.md) — Apply only to a two-state switch or toggle. Use the theme-specific suite for a System, Light and Dark selector. |
 | [Alternative Text Test Criteria](supplied/alternative-text.md) | [Functional Alternative Text](../Functional%20Alternative%20Text.md). [Infographics](../Infographics.md) — Apply to the image and its detailed alternative. Test access to the underlying information separately. [Charts, Graphs and Maps](../Charts%2C%20Graphs%20and%20Maps.md) — Apply to image alternatives where relevant. Test interactive exploration separately. |
 
+## Tooltip checks supplied separately
+
+Use the [Tooltips checklist and six ACT-style cases](../Tooltips.md#testing-approach-and-act-scripts) for hidden content, trigger descriptions, pointer and keyboard dismissal, competing triggers, touch and readable layout.
+
 ## W3C ACT rules
 
 The files below reproduce core rule text and examples from the licensed upstream source. Each file links to the exact W3C rule. Consult that page for formal mappings, definitions, implementation reports and runnable fixtures. The W3C material carries its [own notice and licence](w3c-act/LICENSE.md).

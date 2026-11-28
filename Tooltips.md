@@ -75,20 +75,23 @@ Do not assume that setting an element visually hidden or applying a single HTML 
 
 ## Testing Approach and ACT Scripts
 
-The checks below include local pattern checks and the supplied test cases. The source calls its cases ACT test cases; they are not W3C ACT Rules with published rule identifiers. Record the tested variant, environment, method, expected and observed outcome, and evidence. Mark unrun checks as **not run**.
+Run the checklist on a page with two tooltip triggers, a focusable control before and after them, and enough space to move a pointer between each trigger and its tooltip. Include a touch device and the supported browser and screen reader combinations. Record the environment, action, observed outcome and evidence. Mark unrun checks as **not run**. The six [component test cases](#act-test-cases) below retain their source wording. Use the Cosmos expected results when a source case leaves the interaction state ambiguous.
 
 | Method and action | Expected result |
 | --- | --- |
-| Load the page without interacting with the trigger. Inspect visually and navigate with a screen reader. | The tooltip is not displayed as unrelated page content. Essential labels and instructions remain available. |
-| Focus the trigger with a keyboard. Inspect focus and listen with a screen reader. | Focus remains on the trigger. Its name is available, and the supplemental description is announced in the supported implementation. |
-| Move the pointer onto the trigger, then from the trigger onto the tooltip and back. | The tooltip appears and remains available while the pointer is over either area. |
-| Move the pointer away from both the trigger and tooltip. | The tooltip closes. |
-| With the trigger focused and tooltip open, press Escape. | The tooltip closes without moving focus. It does not immediately reopen until the interaction state changes. |
-| Move keyboard focus away from the trigger. | The tooltip closes. It does not add a tab stop or interrupt the normal focus order. |
-| Use the trigger on a touchscreen and with voice control where supported. | The control performs its expected action without an extra tap or non-standard gesture. Any useful supplemental information has an accessible route. |
-| Zoom, enlarge text, resize or rotate the viewport, and scroll while the tooltip is open. | The tooltip remains associated with its trigger and can be read without clipping or obscuring relevant content. |
-| Check contrast, text size, line spacing, forced colours and reduced motion. | Text and necessary visual cues remain distinguishable; the tooltip works without non-essential animation. |
-| Disable scripts or the enhancement where feasible. | The control's name and all essential task information remain available. |
+| Load the page with the pointer and keyboard focus away from both triggers. Browse the page with a screen reader and check its separate reading order. | Neither tooltip is visible or encountered as a separate item. Trigger names and essential information remain available. |
+| In separate runs, Tab to the trigger and reach it with the screen reader’s browse cursor if supported. Listen and inspect the trigger’s computed name and description. | The trigger keeps its own name and is associated with the supplemental description. Verify that the description is available using the supported screen reader’s normal reading or focus commands. Browse-cursor navigation may expose the description without opening the visual tooltip. |
+| With focus elsewhere, hover the trigger. Move the pointer onto the tooltip and back, pause to read it, then move away from both. | The tooltip opens, stays visible over either area without timing out, and closes when the pointer leaves both. |
+| With the pointer away, Tab to the trigger. Press Escape while it has focus, wait, then Tab away. Repeat without pressing Escape. | The tooltip opens on focus. Escape closes it without moving focus or reopening it while focus stays put. Moving focus away closes an open tooltip. Tab does not stop on the tooltip or its contents. |
+| Focus a trigger and then hover it. Move the pointer away while keeping focus there. In a separate run, hover the trigger with focus elsewhere and press Escape without moving the pointer. | The tooltip stays visible while focus still calls for it. Escape dismisses the hovered tooltip without moving the pointer or focus, and the tooltip stays closed until the opening condition changes. |
+| Keep focus on the first trigger while hovering the second. Repeat by hovering the first trigger and using the keyboard to focus the second. | When the second tooltip opens, it replaces the first. Keyboard focus remains where the person put it. |
+| On a touchscreen, tap a trigger with a primary action. If the product also shows a tooltip on touch, open it and tap outside, then repeat by activating another element. Test voice activation where supported. | The primary action works without an extra tap or gesture. Any touch tooltip closes on outside tap or activation of another element. Supplemental information that matters has a usable route. |
+| Open a tooltip and check it after scrolling, zooming, resizing and rotating the supported viewport. Check enlarged text and line spacing separately. | While its opening condition holds, the tooltip stays associated with its trigger and its text remains readable without clipping or overlap. |
+| Measure text contrast in the default theme and other supported themes. Repeat the visual checks in forced colours and with reduced motion. | Text meets the contrast thresholds in [Recommended layout](#recommended-layout). Text and any essential boundary remain distinguishable in forced colours, and the tooltip works without non-essential animation. |
+| Disable scripts or the enhancement where feasible. | The control’s name and all essential task information remain available. |
+
+Use the [A11yQuest tooltip test summary](https://a11yquest.com/pro/guides/patterns/tooltip/#test-summary) to trace these checks to the supplied pattern guide.
+
 
 ## [Accessibility Requirements](https://a11yquest.com/pro/tests/tooltip/#accessibility-requirements)
 
@@ -208,7 +211,7 @@ The checks below include local pattern checks and the supplied test cases. The s
 ### Guidance to improve test alignment
 
 - Use `role="tooltip"` on the tooltip container and `aria-describedby` on its trigger, as the [WAI-ARIA APG Tooltip Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/) describes. Keep the trigger's accessible name separately available. WCAG 4.1.2 requires programmatically determinable name and role and supported states and properties; it does not itself mandate a specific ARIA attribute. The ARIA relationship is the implementation approach expected by these supplied tests.
-- Keep the closed tooltip out of the page's separate reading and focus order. Test Case 1 needs a clear interpretation: a screen reader may announce the tooltip text as the trigger's description when it reaches or focuses that trigger. Treat that as the active-trigger announcement tested by steps 2 and 3, not as the hidden tooltip being separately exposed elsewhere on the page. If step 1 is interpreted to include reading the trigger, its expected result conflicts with the later expected announcement.
+- In Case 1, check that the closed tooltip is absent as a separate item in reading and focus order. Then test the description at the trigger. Keyboard focus and the screen reader’s browse cursor are different. A screen reader can expose the description even when the visual tooltip remains closed.
 - Keep at most one tooltip visible at once. Close the first when a second trigger opens its tooltip.
 - Make the tooltip non-focusable and do not put interactive descendants inside it. This supports the keyboard checks and prevents it from becoming a focus trap; keyboard focus remains on the trigger and moves away normally.
 - On touchscreens, a tap must still perform the trigger's primary action without opening a tooltip. Do not require long press to access essential content. If a product nevertheless displays a tooltip after long press, close it when the person taps outside it or activates another element.
@@ -218,6 +221,7 @@ The checks below include local pattern checks and the supplied test cases. The s
 ## Sources
 
 - [A11yQuest: Tooltip pattern guide](https://a11yquest.com/pro/guides/patterns/tooltip/) — source material for design constraints and practical checks.
+- [A11yQuest: Tooltip test summary](https://a11yquest.com/pro/guides/patterns/tooltip/#test-summary) — source for the practical testing checklist.
 - [A11yQuest: Tooltip accessibility test cases](https://a11yquest.com/pro/tests/tooltip/) — source for the supplied accessibility requirements and test cases.
 - [WAI-ARIA Authoring Practices Guide: Tooltip Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/) — informative pattern status, roles, relationship and interaction notes.
 - [WCAG 2.2: Understanding Success Criterion 1.4.13, Content on Hover or Focus](https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html) — normative success criterion and explanatory guidance.

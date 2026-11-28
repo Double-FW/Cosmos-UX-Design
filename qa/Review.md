@@ -4,7 +4,7 @@ Reviewed the supplied ACT Tests document against the Cosmos guide index and Mark
 
 ## Coverage
 
-All **38 indexed design patterns** have an existing testing section. **20** link to at least one supplied suite, including suites that cover only a specific variant or a shared behaviour. **18** have no corresponding suite in the attachment. The table flags both situations. **37** link to at least one W3C ACT rule. **Tooltips** has existing component ACT-style test cases and no linked W3C ACT rule. A linked W3C rule checks its defined assertion, such as whether a button has a name. It does not establish coverage of the surrounding pattern or service journey.
+All **38 indexed design patterns** have an existing testing section. **20** link to at least one supplied suite, including suites that cover only a specific variant or a shared behaviour. **18** have no corresponding suite in the attachment. The table flags both situations. **37** link to at least one W3C ACT rule. **Tooltips** has six component ACT-style test cases and a Cosmos checklist updated from separately supplied guidance. It has no linked W3C ACT rule. A linked W3C rule checks its defined assertion, such as whether a button has a name. It does not establish coverage of the surrounding pattern or service journey.
 
 | Design pattern | Supplied suite | Existing guide tests | Linked W3C ACT rules |
 | --- | --- | --- | --- |
@@ -23,7 +23,7 @@ All **38 indexed design patterns** have an existing testing section. **20** link
 | [Metadata Strips](../Metadata%20Strips.md) | None | Yes | [c487ae](w3c-act/c487ae.md) |
 | [Promotional Cards](../Promotional%20Cards.md) | [Promos](supplied/promos.md) | Yes | [c487ae](w3c-act/c487ae.md), [23a2a8](w3c-act/23a2a8.md), [f51b46](w3c-act/f51b46.md) |
 | [Tabs](../Tabs.md) | [Tabs](supplied/tabs.md) | Yes | [bc4a75](w3c-act/bc4a75.md), [4e8ab6](w3c-act/4e8ab6.md), [6cfa84](w3c-act/6cfa84.md) |
-| [Tooltips](../Tooltips.md) | None | Yes | None |
+| [Tooltips](../Tooltips.md) | None in the attachment. [Separate tooltip cases](../Tooltips.md#act-test-cases). | [Yes](../Tooltips.md#testing-approach-and-act-scripts) | None |
 | [Drawer](../Drawer.md) | [Modal Dialog Test Criteria](supplied/modal-dialog.md) (conditional) | Yes | [97a4e1](w3c-act/97a4e1.md), [6cfa84](w3c-act/6cfa84.md) |
 | [Information Panels](../Information%20Panels.md) | [Modal Dialog Test Criteria](supplied/modal-dialog.md) (conditional) | Yes | [97a4e1](w3c-act/97a4e1.md), [6cfa84](w3c-act/6cfa84.md) |
 | [Modal Dialogs](../Modal%20Dialogs.md) | [Modal Dialog Test Criteria](supplied/modal-dialog.md) | Yes | [97a4e1](w3c-act/97a4e1.md), [6cfa84](w3c-act/6cfa84.md) |
@@ -77,7 +77,7 @@ The imported suites retain their source wording. Apply these review decisions be
 - Naming and role checks can often use computed accessibility-tree data. Meaning, usable focus order, announcement timing, voice use and completion or recovery need context or direct observation. Treat sample speech as illustrative. Report the supported environment and commands used.
 - Measure text resizing separately from reflow. An existing case at 200% text size does not verify 320 CSS pixel reflow. Exercise forced colours independently of colour-vision simulation and compare script-blocked and CSS-disabled states where the component has a fallback.
 - Existing guides often list the same W3C rule in testing and Sources. The local rule copy is shared by ID. For `6cfa84`, retain the published and proposed source links and check the specific version’s assumptions before scoring a dynamic state. A reference to a related rule inside a copied W3C rule is part of that upstream material.
-- The existing Tooltips Cases 1 and 2 overlap with the guide’s own screen reader and pointer checkpoints. Use the guide’s interpretation of a hidden tooltip: its text may be available as the trigger’s description without creating a separate item in reading or focus order.
+- The separately supplied tooltip guidance overlaps with the six cases already in the guide. The Cosmos checklist covers the same outcomes in one run and adds explicit steps for competing triggers, pointer-only Escape dismissal and touch dismissal. Case 1 distinguishes the hidden tooltip as a separate item from its text as a trigger description.
 
 ## Highest-priority coverage gaps
 
